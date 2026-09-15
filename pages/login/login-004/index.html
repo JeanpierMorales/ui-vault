@@ -7,6 +7,11 @@
   <title>Login / Register Transition</title>
 
   <link rel="stylesheet" href="style.css" />
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  />
 </head>
 
 <body>
@@ -15,10 +20,7 @@
 
     <section class="auth-container" id="authContainer">
 
-      <!-- =========================
-           SIGN IN
-      ========================== -->
-
+      <!-- SIGN IN -->
       <div class="form-panel sign-in-panel">
 
         <div class="form-content">
@@ -27,28 +29,16 @@
 
           <div class="social-buttons">
 
-            <button
-              class="social-button"
-              type="button"
-              aria-label="Facebook"
-            >
-              f
+            <button class="social-button" type="button" aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
             </button>
 
-            <button
-              class="social-button"
-              type="button"
-              aria-label="LinkedIn"
-            >
-              in
+            <button class="social-button" type="button" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
             </button>
 
-            <button
-              class="social-button"
-              type="button"
-              aria-label="X"
-            >
-              X
+            <button class="social-button" type="button" aria-label="X">
+              <i class="fa-brands fa-x-twitter"></i>
             </button>
 
           </div>
@@ -59,18 +49,32 @@
 
           <div class="fields">
 
-            <div class="input-group">
-              <input
-                type="email"
-                placeholder="Email"
-              />
+            <div class="field">
+              <div class="input-group">
+                <input
+                  id="loginEmail"
+                  type="email"
+                  placeholder="Email"
+                />
+              </div>
+
+              <span class="field-error">
+                Please enter your email
+              </span>
             </div>
 
-            <div class="input-group">
-              <input
-                type="password"
-                placeholder="Password"
-              />
+            <div class="field">
+              <div class="input-group">
+                <input
+                  id="loginPassword"
+                  type="password"
+                  placeholder="Password"
+                />
+              </div>
+
+              <span class="field-error">
+                Please enter your password
+              </span>
             </div>
 
           </div>
@@ -81,6 +85,7 @@
 
           <button
             class="primary-button"
+            id="loginSubmit"
             type="button"
           >
             SIGN IN
@@ -91,10 +96,7 @@
       </div>
 
 
-      <!-- =========================
-           SIGN UP
-      ========================== -->
-
+      <!-- SIGN UP -->
       <div class="form-panel sign-up-panel">
 
         <div class="form-content">
@@ -103,28 +105,16 @@
 
           <div class="social-buttons">
 
-            <button
-              class="social-button"
-              type="button"
-              aria-label="Facebook"
-            >
-              f
+            <button class="social-button" type="button" aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
             </button>
 
-            <button
-              class="social-button"
-              type="button"
-              aria-label="LinkedIn"
-            >
-              in
+            <button class="social-button" type="button" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
             </button>
 
-            <button
-              class="social-button"
-              type="button"
-              aria-label="X"
-            >
-              X
+            <button class="social-button" type="button" aria-label="X">
+              <i class="fa-brands fa-x-twitter"></i>
             </button>
 
           </div>
@@ -135,31 +125,53 @@
 
           <div class="fields">
 
-            <div class="input-group">
-              <input
-                type="text"
-                placeholder="Name"
-              />
+            <div class="field">
+              <div class="input-group">
+                <input
+                  id="registerName"
+                  type="text"
+                  placeholder="Name"
+                />
+              </div>
+
+              <span class="field-error">
+                Please enter your name
+              </span>
             </div>
 
-            <div class="input-group">
-              <input
-                type="email"
-                placeholder="Email"
-              />
+            <div class="field">
+              <div class="input-group">
+                <input
+                  id="registerEmail"
+                  type="email"
+                  placeholder="Email"
+                />
+              </div>
+
+              <span class="field-error">
+                Please enter your email
+              </span>
             </div>
 
-            <div class="input-group">
-              <input
-                type="password"
-                placeholder="Password"
-              />
+            <div class="field">
+              <div class="input-group">
+                <input
+                  id="registerPassword"
+                  type="password"
+                  placeholder="Password"
+                />
+              </div>
+
+              <span class="field-error">
+                Please enter a password
+              </span>
             </div>
 
           </div>
 
           <button
             class="primary-button"
+            id="registerSubmit"
             type="button"
           >
             SIGN UP
@@ -170,15 +182,12 @@
       </div>
 
 
-      <!-- =========================
-           SLIDING OVERLAY
-      ========================== -->
-
+      <!-- SLIDING OVERLAY -->
       <div class="overlay-container">
 
         <div class="overlay">
 
-          <!-- overlay left -->
+          <!-- LEFT -->
           <div class="overlay-panel overlay-left">
 
             <div class="decor-circle decor-circle-top"></div>
@@ -186,9 +195,7 @@
 
             <div class="overlay-content">
 
-              <h2>
-                Welcome Back !
-              </h2>
+              <h2>Welcome Back !</h2>
 
               <p>
                 To keep connected with us please login
@@ -208,7 +215,7 @@
           </div>
 
 
-          <!-- overlay right -->
+          <!-- RIGHT -->
           <div class="overlay-panel overlay-right">
 
             <div class="decor-circle decor-circle-top"></div>
@@ -216,9 +223,7 @@
 
             <div class="overlay-content">
 
-              <h2>
-                Hello Friend !
-              </h2>
+              <h2>Hello Friend !</h2>
 
               <p>
                 Enter your personal details and start
