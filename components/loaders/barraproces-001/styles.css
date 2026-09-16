@@ -1,0 +1,807 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  margin: 0;
+
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(27, 78, 67, 0.05),
+      transparent 40%
+    ),
+    #f5f6f4;
+
+  color: #191d1b;
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 60px 24px;
+}
+
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.process {
+  width: min(1120px, 100%);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.process-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 40px;
+
+  margin-bottom: 62px;
+}
+
+.process-eyebrow {
+  margin: 0 0 12px;
+
+  color: #426159;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.process-header h1 {
+  margin: 0;
+
+  max-width: 650px;
+
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.05;
+
+  letter-spacing: -0.045em;
+
+  font-weight: 600;
+}
+
+.process-description {
+  margin: 16px 0 0;
+
+  max-width: 540px;
+
+  color: #696f6c;
+
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   PERCENTAGE
+========================================================= */
+
+.progress-value {
+  min-width: 115px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-end;
+}
+
+.progress-value span {
+  margin-bottom: 4px;
+
+  color: #747a77;
+
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.progress-value strong {
+  color: #1d493e;
+
+  font-size: 28px;
+  font-weight: 600;
+
+  letter-spacing: -0.04em;
+
+  transition:
+    opacity 250ms ease,
+    transform 250ms ease;
+}
+
+
+/* =========================================================
+   STEPPER
+========================================================= */
+
+.stepper {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  width: 100%;
+
+  margin-bottom: 54px;
+}
+
+
+/* =========================================================
+   LINES
+========================================================= */
+
+.stepper-line,
+.stepper-line-progress {
+  position: absolute;
+
+  top: 22px;
+
+  left: 22px;
+
+  width: calc(100% - 44px);
+  height: 2px;
+
+  border-radius: 999px;
+}
+
+.stepper-line {
+  background: #d9ddda;
+}
+
+.stepper-line-progress {
+  width: 0;
+
+  background: #285f51;
+
+  transform-origin: left;
+
+  transition:
+    width 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* =========================================================
+   STEP
+========================================================= */
+
+.step {
+  position: relative;
+  z-index: 2;
+
+  padding: 0;
+
+  border: 0;
+  background: none;
+
+  font-family: inherit;
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.step:not(:last-child) {
+  padding-right: 30px;
+}
+
+
+/* =========================================================
+   MARKER
+========================================================= */
+
+.step-marker {
+  width: 46px;
+  height: 46px;
+
+  display: grid;
+  place-items: center;
+
+  position: relative;
+
+  margin-bottom: 17px;
+
+  border-radius: 50%;
+
+  border: 1px solid #cfd4d1;
+
+  background: #f5f6f4;
+
+  color: #8b918e;
+
+  transition:
+    background-color 420ms ease,
+    border-color 420ms ease,
+    color 420ms ease,
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 420ms ease;
+}
+
+
+/* =========================================================
+   NUMBERS
+========================================================= */
+
+.step-number {
+  position: absolute;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 0.03em;
+
+  transition:
+    opacity 250ms ease,
+    transform 300ms ease;
+}
+
+
+/* =========================================================
+   CHECK
+========================================================= */
+
+.step-check {
+  position: absolute;
+
+  width: 19px;
+  height: 19px;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  opacity: 0;
+
+  transform: scale(0.45) rotate(-15deg);
+
+  transition:
+    opacity 280ms ease,
+    transform 450ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.step-content {
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+.step-label {
+  color: #858b88;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  transition:
+    color 350ms ease,
+    transform 350ms ease;
+}
+
+.step-caption {
+  color: #a0a5a2;
+
+  font-size: 12px;
+  line-height: 1.4;
+
+  transition:
+    color 350ms ease,
+    opacity 350ms ease;
+}
+
+
+/* =========================================================
+   STEP ACTIVE
+========================================================= */
+
+.step.active .step-marker {
+  border-color: #285f51;
+
+  background: #ffffff;
+
+  color: #285f51;
+
+  transform: scale(1.06);
+
+  box-shadow:
+    0 0 0 6px rgba(40, 95, 81, 0.08),
+    0 5px 15px rgba(28, 44, 39, 0.07);
+}
+
+.step.active .step-label {
+  color: #18201d;
+}
+
+.step.active .step-caption {
+  color: #707773;
+}
+
+
+/* =========================================================
+   STEP COMPLETED
+========================================================= */
+
+.step.completed .step-marker {
+  background: #285f51;
+
+  border-color: #285f51;
+
+  color: #ffffff;
+}
+
+.step.completed .step-number {
+  opacity: 0;
+
+  transform: scale(0.6);
+}
+
+.step.completed .step-check {
+  opacity: 1;
+
+  transform: scale(1) rotate(0);
+}
+
+.step.completed .step-label {
+  color: #3c514b;
+}
+
+.step.completed .step-caption {
+  color: #8b9490;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.process-card {
+  position: relative;
+
+  min-height: 175px;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 26px;
+
+  padding: 34px 38px;
+
+  overflow: hidden;
+
+  border: 1px solid #e0e4e1;
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.85);
+
+  box-shadow:
+    0 8px 30px rgba(30, 41, 37, 0.035);
+
+  backdrop-filter: blur(12px);
+}
+
+
+/* left accent */
+
+.process-card::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 3px;
+
+  background: #285f51;
+}
+
+
+/* =========================================================
+   CARD NUMBER
+========================================================= */
+
+.card-indicator {
+  width: 45px;
+  height: 45px;
+
+  flex: 0 0 auto;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: #edf2f0;
+
+  color: #285f51;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  transition:
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 250ms ease;
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.card-content {
+  will-change: transform, opacity;
+}
+
+.card-overline {
+  margin: 0 0 8px;
+
+  color: #71817c;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 0.1em;
+}
+
+.card-content h2 {
+  margin: 0 0 11px;
+
+  font-size: 23px;
+  font-weight: 600;
+
+  letter-spacing: -0.025em;
+}
+
+.card-content > p:last-child {
+  max-width: 650px;
+
+  margin: 0;
+
+  color: #6b716e;
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   CARD TRANSITIONS
+========================================================= */
+
+.card-content.hide-forward {
+  animation:
+    hideForward 260ms ease forwards;
+}
+
+.card-content.show-forward {
+  animation:
+    showForward 480ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card-content.hide-back {
+  animation:
+    hideBack 260ms ease forwards;
+}
+
+.card-content.show-back {
+  animation:
+    showBack 480ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+@keyframes hideForward {
+
+  to {
+    opacity: 0;
+    transform: translateX(-18px);
+  }
+
+}
+
+@keyframes showForward {
+
+  from {
+    opacity: 0;
+    transform: translateX(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+}
+
+
+@keyframes hideBack {
+
+  to {
+    opacity: 0;
+    transform: translateX(18px);
+  }
+
+}
+
+@keyframes showBack {
+
+  from {
+    opacity: 0;
+    transform: translateX(-22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.process-actions {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 26px;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.button {
+  height: 50px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  padding: 0 20px;
+
+  border-radius: 10px;
+
+  font-family: inherit;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 260ms ease,
+    border-color 260ms ease,
+    color 260ms ease,
+    transform 220ms ease,
+    box-shadow 260ms ease;
+}
+
+.button svg {
+  width: 17px;
+  height: 17px;
+
+  fill: none;
+  stroke: currentColor;
+
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  transition:
+    transform 250ms ease;
+}
+
+
+/* Secondary */
+
+.button-secondary {
+  border: 1px solid #d8ddda;
+
+  background: transparent;
+
+  color: #3b423f;
+}
+
+.button-secondary:hover:not(:disabled) {
+  background: #ffffff;
+
+  border-color: #c9cfcc;
+}
+
+.button-secondary:hover svg {
+  transform: translateX(-3px);
+}
+
+
+/* Primary */
+
+.button-primary {
+  border: 1px solid #285f51;
+
+  background: #285f51;
+
+  color: #ffffff;
+
+  box-shadow:
+    0 5px 14px rgba(40, 95, 81, 0.14);
+}
+
+.button-primary:hover {
+  background: #214f44;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 8px 20px rgba(40, 95, 81, 0.18);
+}
+
+.button-primary:hover svg {
+  transform: translateX(3px);
+}
+
+
+/* Click */
+
+.button:active:not(:disabled) {
+  transform: translateY(1px) scale(0.985);
+}
+
+
+/* Disabled */
+
+.button:disabled {
+  opacity: 0.4;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 760px) {
+
+  .page {
+    padding: 36px 20px;
+    align-items: flex-start;
+  }
+
+  .process-header {
+    align-items: flex-start;
+    flex-direction: column;
+
+    margin-bottom: 42px;
+  }
+
+  .progress-value {
+    align-items: flex-start;
+  }
+
+
+  /* Vertical timeline */
+
+  .stepper {
+    display: flex;
+    flex-direction: column;
+
+    gap: 0;
+
+    margin-bottom: 38px;
+  }
+
+  .stepper-line,
+  .stepper-line-progress {
+    left: 22px;
+    top: 23px;
+
+    width: 2px;
+    height: calc(100% - 46px);
+  }
+
+  .stepper-line-progress {
+    width: 2px;
+    height: 0;
+
+    transition:
+      height 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .step {
+    min-height: 92px;
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 17px;
+
+    padding-right: 0;
+  }
+
+  .step-marker {
+    flex: 0 0 auto;
+
+    margin: 0;
+  }
+
+  .step-content {
+    padding-top: 4px;
+  }
+
+  .step-label {
+    font-size: 15px;
+  }
+
+  .step-caption {
+    font-size: 13px;
+  }
+
+  .process-card {
+    padding: 28px 25px;
+
+    gap: 18px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+  }
+
+}
