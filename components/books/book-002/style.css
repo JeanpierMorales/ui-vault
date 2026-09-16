@@ -1,0 +1,1167 @@
+/* =========================================
+   BASE
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+
+  --background: #f3f1eb;
+
+  --surface: #ebe8df;
+
+  --text: #171714;
+
+  --muted: #7f7c73;
+
+  --border:
+    rgba(29, 28, 24, 0.1);
+
+  --ease:
+    cubic-bezier(0.22, 1, 0.36, 1);
+
+  --ease-expo:
+    cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+html,
+body {
+  min-height: 100%;
+}
+
+
+body {
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  background:
+    var(--background);
+
+  color:
+    var(--text);
+}
+
+
+/* =========================================
+   PAGE
+========================================= */
+
+.page {
+
+  min-height: 100vh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding:
+    80px 45px;
+
+}
+
+
+/* =========================================
+   LIBRARY
+========================================= */
+
+.library {
+
+  width:
+    min(1500px, 100%);
+
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.library-header {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-end;
+
+  gap: 40px;
+
+  margin-bottom: 52px;
+
+}
+
+
+.eyebrow {
+
+  display: block;
+
+  margin-bottom: 14px;
+
+  color:
+    var(--muted);
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.22em;
+
+}
+
+
+.library-header h1 {
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(40px, 5vw, 70px);
+
+  font-weight: 400;
+
+  letter-spacing:
+    -0.05em;
+
+  line-height: 0.95;
+
+}
+
+
+.library-header > p {
+
+  max-width: 240px;
+
+  color:
+    var(--muted);
+
+  font-size: 14px;
+
+  line-height: 1.5;
+
+}
+
+
+/* =========================================
+   BOOKS FLEX SYSTEM
+========================================= */
+
+.books {
+
+  display: flex;
+
+  gap: 16px;
+
+  width: 100%;
+
+}
+
+
+/* =========================================
+   BOOK
+========================================= */
+
+.book {
+
+  --accent: #777;
+
+  position: relative;
+
+  flex:
+    1 1 0;
+
+  min-width: 0;
+
+  height: 610px;
+
+  overflow: hidden;
+
+  display: flex;
+
+  flex-direction: column;
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius:
+    24px;
+
+  background:
+    rgba(255,255,255,0.24);
+
+  cursor: pointer;
+
+  transition:
+
+    flex-grow
+    0.9s
+    var(--ease-expo),
+
+    transform
+    0.65s
+    var(--ease),
+
+    background
+    0.5s ease,
+
+    box-shadow
+    0.65s
+    var(--ease);
+
+}
+
+
+/*
+Cuando alguna card está seleccionada,
+las demás ocupan menos espacio.
+*/
+
+.books.has-active
+.book {
+
+  flex-grow: 0.72;
+
+}
+
+
+/*
+Libro protagonista.
+*/
+
+.books.has-active
+.book.active {
+
+  flex-grow: 2.15;
+
+  transform:
+    translateY(-12px);
+
+  background:
+    rgba(255,255,255,0.65);
+
+  box-shadow:
+    0 32px 60px
+    rgba(45, 42, 34, 0.12);
+
+}
+
+
+/* =========================================
+   CURSOR LIGHT
+========================================= */
+
+.book-glow {
+
+  position: absolute;
+
+  z-index: 0;
+
+  width: 320px;
+  height: 320px;
+
+  left:
+    calc(var(--mouse-x, 50%) - 160px);
+
+  top:
+    calc(var(--mouse-y, 50%) - 160px);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  opacity: 0;
+
+  background:
+
+    radial-gradient(
+      circle,
+      color-mix(
+        in srgb,
+        var(--accent) 20%,
+        transparent
+      ),
+      transparent 68%
+    );
+
+  filter:
+    blur(12px);
+
+  transition:
+    opacity 0.45s ease;
+
+}
+
+
+.book:hover
+.book-glow,
+
+.book.active
+.book-glow {
+
+  opacity: 1;
+
+}
+
+
+/* =========================================
+   COVER ZONE
+========================================= */
+
+.book-cover-area {
+
+  position: relative;
+
+  z-index: 2;
+
+  height: 380px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  perspective:
+    1200px;
+
+  transition:
+
+    height
+    0.8s
+    var(--ease);
+
+}
+
+
+.book.active
+.book-cover-area {
+
+  height: 325px;
+
+}
+
+
+/* =========================================
+   COVER
+========================================= */
+
+.book-cover {
+
+  position: relative;
+
+  width: 68%;
+
+  max-width: 225px;
+
+  aspect-ratio:
+    0.67;
+
+  transform:
+
+    rotateY(0deg)
+    rotateZ(0deg);
+
+  transform-style:
+    preserve-3d;
+
+  transform-origin:
+    left center;
+
+  transition:
+
+    width
+    0.8s
+    var(--ease),
+
+    transform
+    0.8s
+    var(--ease),
+
+    filter
+    0.8s
+    var(--ease);
+
+}
+
+
+.book-cover img {
+
+  width: 100%;
+
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  border-radius:
+    3px 8px 8px 3px;
+
+  box-shadow:
+
+    0 22px 26px
+    rgba(34,31,24,0.18);
+
+}
+
+
+/* =========================================
+   SPINE
+========================================= */
+
+.book-spine {
+
+  position: absolute;
+
+  top: 2px;
+
+  bottom: 2px;
+
+  left: 0;
+
+  width: 9px;
+
+  background:
+
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,0.25),
+      rgba(255,255,255,0.22),
+      rgba(0,0,0,0.08)
+    );
+
+  border-radius:
+    3px 0 0 3px;
+
+}
+
+
+/* =========================================
+   COVER SHINE
+========================================= */
+
+.book-shine {
+
+  position: absolute;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  border-radius:
+    inherit;
+
+  pointer-events: none;
+
+}
+
+
+.book-shine::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: -20%;
+
+  left: -90%;
+
+  width: 45%;
+
+  height: 140%;
+
+  transform:
+    rotate(12deg);
+
+  background:
+
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,0.35),
+      transparent
+    );
+
+  transition:
+
+    left
+    0.85s
+    var(--ease);
+
+}
+
+
+/* =========================================
+   COVER INTERACTION
+========================================= */
+
+.book:hover
+.book-cover {
+
+  transform:
+
+    rotateY(-7deg)
+    rotateZ(-0.8deg)
+
+    translateY(-8px);
+
+}
+
+
+.book:hover
+.book-shine::before {
+
+  left: 140%;
+
+}
+
+
+.book.active
+.book-cover {
+
+  width: 74%;
+
+  max-width: 250px;
+
+  transform:
+
+    rotateY(-12deg)
+    rotateZ(-1deg)
+    translateY(-12px);
+
+  filter:
+
+    drop-shadow(
+      24px 28px 18px
+      rgba(40,35,27,0.16)
+    );
+
+}
+
+
+/* =========================================
+   BOOK CONTENT
+========================================= */
+
+.book-content {
+
+  position: relative;
+
+  z-index: 4;
+
+  padding:
+    0 28px 28px;
+
+}
+
+
+.book-number {
+
+  display: block;
+
+  margin-bottom: 13px;
+
+  color:
+    var(--muted);
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing:
+    0.18em;
+
+}
+
+
+.book h2 {
+
+  max-width: 280px;
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(20px, 2vw, 27px);
+
+  font-weight: 400;
+
+  line-height: 1.08;
+
+  letter-spacing:
+    -0.03em;
+
+  transition:
+
+    transform
+    0.65s
+    var(--ease);
+
+}
+
+
+.author {
+
+  margin-top: 9px;
+
+  color:
+    var(--muted);
+
+  font-size: 13px;
+
+}
+
+
+/* =========================================
+   DETAILS
+========================================= */
+
+.book-extra {
+
+  max-height: 0;
+
+  margin-top: 0;
+
+  overflow: hidden;
+
+  opacity: 0;
+
+  filter:
+    blur(8px);
+
+  transform:
+    translateY(25px);
+
+  transition:
+
+    max-height
+    0.8s
+    var(--ease),
+
+    margin-top
+    0.65s
+    var(--ease),
+
+    opacity
+    0.45s ease,
+
+    filter
+    0.55s ease,
+
+    transform
+    0.7s
+    var(--ease);
+
+}
+
+
+/*
+Sólo aparece en el protagonista.
+*/
+
+.book.active
+.book-extra {
+
+  max-height: 300px;
+
+  margin-top: 25px;
+
+  opacity: 1;
+
+  filter:
+    blur(0);
+
+  transform:
+    translateY(0);
+
+}
+
+
+/* =========================================
+   METADATA
+========================================= */
+
+.metadata {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap:
+    8px 18px;
+
+  margin-bottom:
+    20px;
+
+}
+
+
+.metadata span {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  color:
+    var(--muted);
+
+  font-size: 11px;
+
+}
+
+
+.metadata i {
+
+  color:
+    #d49d41;
+
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.description {
+
+  max-width: 380px;
+
+  margin-bottom:
+    24px;
+
+  color:
+    #615e56;
+
+  font-size:
+    13px;
+
+  line-height:
+    1.65;
+
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.book-action {
+
+  position: relative;
+
+  min-width: 150px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content:
+    space-between;
+
+  gap: 25px;
+
+  padding:
+    13px 16px;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    var(--text);
+
+  border-radius:
+    999px;
+
+  background:
+    transparent;
+
+  color:
+    var(--text);
+
+  cursor: pointer;
+
+  font-size:
+    12px;
+
+  isolation:
+    isolate;
+
+  transition:
+
+    color
+    0.35s ease,
+
+    transform
+    0.3s ease;
+
+}
+
+
+.book-action::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -1;
+
+  background:
+    var(--text);
+
+  transform:
+    translateX(-101%);
+
+  transition:
+
+    transform
+    0.5s
+    var(--ease);
+
+}
+
+
+.book-action:hover {
+
+  color:
+    white;
+
+}
+
+
+.book-action:hover::before {
+
+  transform:
+    translateX(0);
+
+}
+
+
+.book-action:hover i {
+
+  transform:
+    rotate(45deg);
+
+}
+
+
+.book-action i {
+
+  transition:
+    transform
+    0.4s
+    var(--ease);
+
+}
+
+
+/* =========================================
+   ADD BOOK
+========================================= */
+
+.add-book {
+
+  flex:
+    0.72 1 0;
+
+  min-width: 0;
+
+  height: 610px;
+
+  padding: 0;
+
+  border: 0;
+
+  background:
+    transparent;
+
+  cursor:
+    pointer;
+
+}
+
+
+/* =========================================
+   EMPTY BOOK
+========================================= */
+
+.empty-book {
+
+  position: relative;
+
+  width: 100%;
+
+  height: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 18px;
+
+  overflow: hidden;
+
+  border:
+
+    1px dashed
+    rgba(30,30,26,0.25);
+
+  border-radius:
+    24px;
+
+  color:
+    var(--muted);
+
+  transition:
+
+    transform
+    0.6s
+    var(--ease),
+
+    border-color
+    0.4s ease,
+
+    background
+    0.4s ease,
+
+    box-shadow
+    0.6s
+    var(--ease);
+
+}
+
+
+/* spine */
+
+.empty-spine {
+
+  position: absolute;
+
+  top: 16px;
+
+  bottom: 16px;
+
+  left: 12px;
+
+  width: 4px;
+
+  border-radius:
+    10px;
+
+  background:
+
+    rgba(30,30,26,0.09);
+
+}
+
+
+/* =========================================
+   PLUS
+========================================= */
+
+.plus {
+
+  width: 70px;
+
+  height: 70px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border:
+
+    1px solid
+    rgba(30,30,26,0.15);
+
+  border-radius: 50%;
+
+  font-size: 21px;
+
+  transition:
+
+    transform
+    0.6s
+    var(--ease),
+
+    background
+    0.35s ease,
+
+    color
+    0.35s ease;
+
+}
+
+
+.add-copy {
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size:
+    16px;
+
+}
+
+
+/* =========================================
+   ADD HOVER
+========================================= */
+
+.add-book:hover
+.empty-book {
+
+  transform:
+    translateY(-12px);
+
+  border-color:
+    rgba(30,30,26,0.45);
+
+  background:
+    rgba(255,255,255,0.5);
+
+  box-shadow:
+
+    0 28px 50px
+    rgba(40,37,30,0.08);
+
+}
+
+
+.add-book:hover
+.plus {
+
+  transform:
+
+    rotate(90deg)
+    scale(1.08);
+
+  background:
+    var(--text);
+
+  color:
+    white;
+
+}
+
+
+/* =========================================
+   DIM NON ACTIVE
+========================================= */
+
+.books.has-active
+.book:not(.active) {
+
+  opacity: 0.72;
+
+}
+
+
+.books.has-active
+.book:not(.active):hover {
+
+  opacity: 1;
+
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1150px) {
+
+  .books {
+
+    display: grid;
+
+    grid-template-columns:
+
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+
+  }
+
+
+  .book,
+  .add-book {
+
+    height: 590px;
+
+  }
+
+
+  .books.has-active
+  .book {
+
+    opacity: 1;
+
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .page {
+
+    padding:
+      50px 20px;
+
+  }
+
+
+  .library-header {
+
+    flex-direction:
+      column;
+
+    align-items:
+      flex-start;
+
+  }
+
+
+  .books {
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+
+  .book,
+
+  .add-book {
+
+    height: 590px;
+
+  }
+
+}
