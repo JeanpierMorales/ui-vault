@@ -2,7 +2,7 @@
 
 ## Propósito y superficie
 
-UI Vault es un índice editorial y operativo para descubrir, ejecutar e inspeccionar componentes web independientes. La interfaz del vault funciona como una capa silenciosa alrededor de las piezas: ofrece navegación por categorías, búsqueda global, filtros, cuadrícula o lista, y una vista de detalle con preview y fuente. No rediseña el contenido catalogado.
+UI Vault es un índice de experiencia para descubrir, ejecutar e inspeccionar componentes web independientes. La interfaz del vault funciona como una capa silenciosa alrededor de las piezas: ofrece navegación por categorías, búsqueda global, filtros, cuadrícula o lista, y una vista de detalle con preview y fuente. No rediseña ni simula el contenido catalogado: la superficie visual principal proviene de los documentos reales del repositorio.
 
 La superficie se organiza como una aplicación de escritorio: una barra de utilidades fija arriba, una barra lateral numerada por categorías y un área de trabajo clara para el catálogo o el detalle. El catálogo puede presentar previews simultáneos; el detalle amplía una pieza, permite abrirla en otra pestaña, solicitar pantalla completa y copiar su fuente.
 
@@ -25,7 +25,7 @@ La combinación tipográfica distingue contenido, metadatos y títulos: DM Sans 
 
 La retícula principal reserva 252 px para la barra lateral y 72 px para la cabecera. El workspace queda limitado a 1640 px y usa rellenos fluidos; esto conserva densidad en pantallas amplias sin llevar el contenido a bordes extremos.
 
-En catálogo, el encabezado combina ruta, título y resultado, seguido de filtros en una línea con subrayado coral para el estado activo. Las piezas aparecen en una cuadrícula `auto-fill` de columnas mínimas de 267 px. Cada tarjeta destina 202 px al preview y una franja inferior compacta a categoría, nombre y acciones. La vista de lista reduce el preview a una columna de 168 px y lleva la tarjeta a 102 px de alto.
+En catálogo, el encabezado combina ruta, título y resultado, seguido de filtros en una línea con subrayado coral para el estado activo. Las piezas aparecen como un campo de documentos vivos de dos columnas; las bibliotecas más amplias (botones, iconos y tipografía) ocupan toda la retícula. Cada preview recibe entre 390 y 680 px de alto según la naturaleza de la pieza, con una leyenda mínima debajo para categoría, ID, nombre y acciones. No hay tarjetas visuales inventadas alrededor de las muestras. Al filtrar, las piezas pasan a ocupar todo el ancho para que su diseño original sea el foco. La vista de lista usa previews horizontales de 180 px para exploración rápida.
 
 En detalle, una cabecera de retorno y acciones precede la ficha de la pieza. El preview toma una etapa amplia de hasta 700 px de alto, seguida por un inspector de fuente con pestañas y un bloque desplazable. La composición prioriza la pieza real y deja los controles en segundo plano.
 
@@ -33,7 +33,7 @@ En detalle, una cabecera de retorno y acciones precede la ficha de la pieza. El 
 
 - Barra superior con marca `UV`, búsqueda, atajo visible `⌘ K`, total de componentes, selector cuadrícula/lista, control de tema y menú móvil.
 - Navegación lateral con overview, grupos/categorías, cantidades por categoría y una nota sobre la carga aislada.
-- Filtros rápidos, tarjetas de componente, estado vacío y contador de resultados.
+- Filtros rápidos, documentos vivos del repositorio, estado vacío y contador de resultados.
 - Vista de detalle con volver al catálogo, ruta, descripción, ID, preview, abrir preview, pantalla completa, pestañas de fuente y copia de código.
 - Toast temporal para confirmar copias o comunicar fallos de lectura.
 
@@ -41,7 +41,7 @@ Los controles se resuelven con texto, reglas y cambios de color; los únicos con
 
 ## Motion e interacciones
 
-La respuesta visual es contenida: la búsqueda recibe borde y fondo al enfocarse; la tarjeta se eleva 3 px, ajusta borde y añade sombra al pasar el cursor; los botones de navegación y acción cambian de tinta o subrayan con coral. Esas transiciones duran entre 150 y 180 ms.
+La respuesta visual es contenida: la búsqueda recibe borde y fondo al enfocarse; al pasar sobre una pieza solo se enfatiza el borde de su lienzo real con una sombra suave; los botones de navegación y acción cambian de tinta o subrayan con coral. Esas transiciones duran entre 150 y 180 ms.
 
 El panel lateral móvil entra y sale mediante traslación horizontal de 220 ms. El toast aparece desde 9 px por debajo con opacidad y se oculta tras 2,2 segundos. La búsqueda filtra instantáneamente en el navegador sobre metadatos; cambiar categoría limpia la consulta. `Esc` cierra primero el detalle, o la navegación móvil si no hay detalle abierto.
 
@@ -53,4 +53,4 @@ La estructura usa `header`, `aside`, `nav`, `main`, `section` y `article`. Los b
 
 ## Límite del sistema
 
-El vault carga cada componente dentro de un `iframe` con su ruta original, tanto en tarjetas como en la vista de detalle. Esa decisión conserva aislados HTML, CSS, JavaScript, IDs, variables y eventos de cada pieza, evita colisiones con el catálogo y preserva el componente original sin transformarlo. El inspector y las funciones de copia leen los archivos originales; si se abre el vault fuera de un servidor local, estas lecturas pueden fallar y la interfaz lo comunica.
+El vault carga cada componente dentro de un `iframe` con su ruta original, tanto en el campo de documentos como en la vista de detalle. Esa decisión conserva aislados HTML, CSS, JavaScript, IDs, variables y eventos de cada pieza, evita colisiones con el catálogo y preserva el componente original sin transformarlo. El inspector y las funciones de copia leen los archivos originales; si se abre el vault fuera de un servidor local, estas lecturas pueden fallar y la interfaz lo comunica.

@@ -124,11 +124,11 @@ async function copyComponentHtml(id) {
 }
 
 function renderCard(component) {
-  const card = document.createElement('article'); card.className = 'component-card';
+  const card = document.createElement('article'); card.className = `component-card component-card--${component.category}`;
   const preview = document.createElement('div'); preview.className = 'card-preview'; preview.append(makePreview(component));
-  const body = document.createElement('div'); body.className = 'card-body';
+  const body = document.createElement('footer'); body.className = 'card-body';
   const meta = document.createElement('div'); meta.className = 'card-meta';
-  const category = document.createElement('p'); category.textContent = humanize(component.category);
+  const category = document.createElement('p'); category.textContent = `${humanize(component.category)} · ${component.id}`;
   const title = document.createElement('h2'); title.textContent = component.name;
   meta.append(category, title);
   const actions = document.createElement('div'); actions.className = 'card-actions';
@@ -139,13 +139,14 @@ function renderCard(component) {
 function renderCatalog() {
   const visible = getVisibleComponents();
   const isAll = state.category === 'all';
-  const title = state.query ? `Resultados para “${state.query}”` : isAll ? 'Component Library' : humanize(state.category);
+  const title = state.query ? `Resultados para “${state.query}”` : isAll ? 'Piezas del repositorio' : humanize(state.category);
   elements.title.textContent = title;
   elements.path.textContent = state.query ? 'Búsqueda global / en todo el archivo' : isAll ? 'Índice / todo el archivo' : `Categoría / ${humanize(state.category)}`;
   elements.result.textContent = `${countText(visible.length)}${state.query ? ' encontrados' : ''}`;
   elements.componentCount.textContent = countText(components.length);
   elements.categoryCount.textContent = `${new Set(components.map(({ category }) => category)).size} categorías activas`;
   elements.gallery.classList.toggle('is-list', state.view === 'list');
+  elements.gallery.classList.toggle('is-filtered', !isAll || Boolean(state.query));
   elements.gallery.replaceChildren(...visible.map(renderCard));
   elements.empty.hidden = visible.length > 0;
   renderNavigation(); renderFilters();
