@@ -19,7 +19,7 @@ El modo claro usa un lenguaje de papel cálido e tinta:
 
 El modo oscuro conserva los mismos roles con fondo casi negro verdoso, texto marfil y un coral más luminoso. Se activa manualmente y se guarda en `localStorage`.
 
-La combinación tipográfica distingue contenido, metadatos y títulos: DM Sans para la interfaz, DM Mono para contadores, rutas, IDs, teclas y fuente, y Libre Baskerville para el título editorial principal. Los títulos usan peso regular, interletrado compacto y una escala fluida de hasta 68 px; la información de sistema se mantiene pequeña y monoespaciada.
+La combinación tipográfica usa DM Sans para toda la interfaz y Montserrat ExtraBold para los títulos de alto impacto. Los títulos mantienen una escala fluida de hasta 68 px, interletrado compacto y peso 800; la información auxiliar usa DM Sans en tamaños pequeños y peso 700 para conservar legibilidad sin introducir otra familia.
 
 ## Composición
 
@@ -31,9 +31,9 @@ En detalle, una cabecera de retorno y acciones precede la ficha de la pieza. El 
 
 ## Componentes UI
 
-- Barra superior con marca `UV`, búsqueda, atajo visible `⌘ K`, total de componentes, selector cuadrícula/lista, control de tema y menú móvil.
+- Barra superior con marca `UV`, búsqueda, atajo visible `⌘ K`, total de componentes, selector cuadrícula/lista, control de tema y menú móvil. Sus iconos se cargan desde el catálogo de iconos del repositorio y animan semánticamente al interactuar.
 - Navegación lateral con overview, grupos/categorías, cantidades por categoría y una nota sobre la carga aislada.
-- Filtros rápidos, documentos vivos del repositorio, estado vacío y contador de resultados.
+- Filtros rápidos, documentos vivos del repositorio, estado vacío y contador de resultados. El registro incluye tarjetas, loaders, proceso de scroll, modelo 3D y experiencia 3D de scroll que existan como documentos ejecutables.
 - Vista de detalle con volver al catálogo, ruta, descripción, ID, preview, abrir preview, pantalla completa, pestañas de fuente y copia de código.
 - Toast temporal para confirmar copias o comunicar fallos de lectura.
 
@@ -41,7 +41,7 @@ Los controles se resuelven con texto, reglas y cambios de color; los únicos con
 
 ## Motion e interacciones
 
-La respuesta visual es contenida: la búsqueda recibe borde y fondo al enfocarse; al pasar sobre una pieza solo se enfatiza el borde de su lienzo real con una sombra suave; los botones de navegación y acción cambian de tinta o subrayan con coral. Esas transiciones duran entre 150 y 180 ms.
+La respuesta visual es contenida: la búsqueda recibe borde y fondo al enfocarse; al pasar sobre una pieza solo se enfatiza el borde de su lienzo real con una sombra suave. Las acciones aplican los tratamientos `Cursor Fill`, `Liquid Rise` y `Diagonal Fill` de la biblioteca de botones existente; los iconos de utilidad retoman sus animaciones lift, expand, slide, spin y undo. El contenido de los documentos registrados sigue aislado y sin modificaciones.
 
 El panel lateral móvil entra y sale mediante traslación horizontal de 220 ms. El toast aparece desde 9 px por debajo con opacidad y se oculta tras 2,2 segundos. La búsqueda filtra instantáneamente en el navegador sobre metadatos; cambiar categoría limpia la consulta. `Esc` cierra primero el detalle, o la navegación móvil si no hay detalle abierto.
 

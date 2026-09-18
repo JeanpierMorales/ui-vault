@@ -7,7 +7,8 @@
     <title>UI Vault — Component repository</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Montserrat:wght@800&display=swap" rel="stylesheet" />
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
     <link rel="stylesheet" href="./app/css/app.css" />
   </head>
   <body>
@@ -25,16 +26,16 @@
           <span class="brand-mark" aria-hidden="true">UV</span><span>UI Vault</span>
         </button>
         <label class="search-field" for="global-search">
-          <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg>
+          <iconify-icon class="motion-icon" data-motion="lift" aria-hidden="true" icon="ph:magnifying-glass"></iconify-icon>
           <input id="global-search" type="search" placeholder="Buscar componentes…" autocomplete="off" /><kbd>⌘ K</kbd>
         </label>
         <div class="topbar-actions">
           <span class="component-count" id="component-count">0 componentes</span>
           <div class="view-toggle" role="group" aria-label="Cambiar vista">
-            <button id="grid-view" class="is-active" type="button" aria-label="Vista de cuadrícula" aria-pressed="true"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6"></rect><rect x="14" y="4" width="6" height="6"></rect><rect x="4" y="14" width="6" height="6"></rect><rect x="14" y="14" width="6" height="6"></rect></svg></button>
-            <button id="list-view" type="button" aria-label="Vista de lista" aria-pressed="false"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 6h12M8 12h12M8 18h12"></path><path d="M4 6h.01M4 12h.01M4 18h.01"></path></svg></button>
+            <button id="grid-view" class="is-active" type="button" aria-label="Vista de cuadrícula" aria-pressed="true"><iconify-icon class="motion-icon" data-motion="expand" aria-hidden="true" icon="ph:squares-four"></iconify-icon></button>
+            <button id="list-view" type="button" aria-label="Vista de lista" aria-pressed="false"><iconify-icon class="motion-icon" data-motion="slide-left" aria-hidden="true" icon="ph:list-bullets"></iconify-icon></button>
           </div>
-          <button class="icon-button" id="theme-toggle" type="button" aria-label="Cambiar a modo oscuro"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.5 8.5 0 1 0 20.5 14.2Z"></path></svg></button>
+          <button class="icon-button" id="theme-toggle" type="button" aria-label="Cambiar a modo oscuro"><iconify-icon class="motion-icon" data-motion="spin-soft" aria-hidden="true" icon="ph:moon-stars"></iconify-icon></button>
           <button class="menu-button" id="menu-toggle" type="button" aria-label="Abrir navegación" aria-expanded="false" aria-controls="sidebar"><span></span><span></span></button>
         </div>
       </header>
@@ -47,10 +48,10 @@
           <div class="empty-state" id="empty-state" hidden><p>No hay coincidencias para esta búsqueda.</p><button type="button" id="clear-search">Limpiar filtros</button></div>
         </section>
         <section class="detail" id="detail" hidden aria-labelledby="detail-title">
-          <div class="detail-head"><button class="back-button" id="back-to-catalog" type="button"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m14 5-7 7 7 7"></path><path d="M7 12h13"></path></svg><span id="back-label">Volver al catálogo</span></button><div class="detail-actions"><button class="text-button" id="open-preview" type="button">Abrir preview ↗</button><button class="text-button" id="fullscreen-preview" type="button">Pantalla completa</button></div></div>
+          <div class="detail-head"><button class="back-button" id="back-to-catalog" type="button"><iconify-icon class="motion-icon" data-motion="undo" aria-hidden="true" icon="ph:arrow-left"></iconify-icon><span id="back-label">Volver al catálogo</span></button><div class="detail-actions"><button class="text-button" id="open-preview" type="button">Abrir preview ↗</button><button class="text-button" id="fullscreen-preview" type="button">Pantalla completa</button></div></div>
           <div class="detail-title-row"><div><p class="path" id="detail-path"></p><h1 id="detail-title"></h1><p class="detail-description" id="detail-description"></p></div><span class="component-id" id="detail-id"></span></div>
           <div class="preview-stage" id="preview-stage"></div>
-          <div class="source-area"><div class="source-tabs" id="source-tabs" role="tablist" aria-label="Código fuente"></div><div class="source-toolbar"><span id="source-file"></span><button class="copy-button" id="copy-source" type="button">Copiar código</button></div><pre class="source-code" id="source-panel" role="tabpanel"><code id="source-code"></code></pre></div>
+          <div class="source-area"><div class="source-tabs" id="source-tabs" role="tablist" aria-label="Código fuente"></div><div class="source-toolbar"><span id="source-file"></span><button class="copy-button vault-motion-button diagonal-fill" id="copy-source" type="button"><span>Copiar código</span></button></div><pre class="source-code" id="source-panel" role="tabpanel"><code id="source-code"></code></pre></div>
         </section>
       </main>
     </div>

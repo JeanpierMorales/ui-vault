@@ -45,6 +45,23 @@ function makeButton(label, className, handler, active = false) {
   return button;
 }
 
+function makeMotionButton(label, effect, handler) {
+  const button = document.createElement('button');
+  button.type = 'button'; button.className = `vault-motion-button ${effect}`;
+  const labelSpan = document.createElement('span'); labelSpan.textContent = label;
+  button.append(labelSpan);
+  if (effect === 'cursor-fill') {
+    const bubble = document.createElement('span'); bubble.className = 'cursor-bubble'; bubble.setAttribute('aria-hidden', 'true');
+    button.append(bubble);
+    button.addEventListener('pointermove', (event) => {
+      const bounds = button.getBoundingClientRect();
+      bubble.style.left = `${event.clientX - bounds.left}px`; bubble.style.top = `${event.clientY - bounds.top}px`;
+    });
+  }
+  button.addEventListener('click', handler);
+  return button;
+}
+
 function setCategory(category) {
   state.category = category; state.query = '';
   elements.search.value = '';
@@ -132,7 +149,7 @@ function renderCard(component) {
   const title = document.createElement('h2'); title.textContent = component.name;
   meta.append(category, title);
   const actions = document.createElement('div'); actions.className = 'card-actions';
-  actions.append(makeButton('Abrir', '', () => openComponent(component.id)), makeButton('Copiar', '', () => copyComponentHtml(component.id)));
+  actions.append(makeMotionButton('Abrir', 'cursor-fill', () => openComponent(component.id)), makeMotionButton('Copiar', 'liquid', () => copyComponentHtml(component.id)));
   body.append(meta, actions); card.append(preview, body); return card;
 }
 
