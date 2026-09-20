@@ -1,0 +1,1193 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - button "Volver al inicio de UI Vault" [ref=e4] [cursor=pointer]:
+        - generic [aria-hidden] [ref=e5]: UV
+        - generic [ref=e6]: UI Vault
+      - generic [ref=e7]:
+        - searchbox "⌘ K" [active] [ref=e488]
+        - generic [ref=e12]: ⌘ K
+      - generic [ref=e13]:
+        - generic [ref=e14]: 27 componentes
+        - group "Cambiar vista" [ref=e15]:
+          - button "Vista de cuadrícula" [pressed] [ref=e16] [cursor=pointer]
+          - button "Vista de lista" [ref=e22] [cursor=pointer]
+        - button "Cambiar a modo oscuro" [ref=e26] [cursor=pointer]
+    - complementary "Navegación de componentes" [ref=e29]:
+      - navigation [ref=e30]:
+        - button "Overview 27" [ref=e489] [cursor=pointer]:
+          - text: Overview
+          - generic [ref=e490]: "27"
+        - paragraph [ref=e491]: Foundations
+        - button "Typography 1" [ref=e492] [cursor=pointer]:
+          - text: Typography
+          - generic [ref=e493]: "1"
+        - button "Icons 1" [ref=e494] [cursor=pointer]:
+          - text: Icons
+          - generic [ref=e495]: "1"
+        - paragraph [ref=e496]: Components
+        - button "Buttons 1" [ref=e497] [cursor=pointer]:
+          - text: Buttons
+          - generic [ref=e498]: "1"
+        - button "Cards 4" [ref=e499] [cursor=pointer]:
+          - text: Cards
+          - generic [ref=e500]: "4"
+        - button "Book Cards 4" [ref=e501] [cursor=pointer]:
+          - text: Book Cards
+          - generic [ref=e502]: "4"
+        - button "Forms 4" [ref=e503] [cursor=pointer]:
+          - text: Forms
+          - generic [ref=e504]: "4"
+        - paragraph [ref=e505]: Sections
+        - button "Pricing 5" [ref=e506] [cursor=pointer]:
+          - text: Pricing
+          - generic [ref=e507]: "5"
+        - button "Testimonials 7" [ref=e508] [cursor=pointer]:
+          - text: Testimonials
+          - generic [ref=e509]: "7"
+      - generic [ref=e52]:
+        - paragraph [ref=e53]: El catálogo carga cada pieza en su propio documento.
+        - text: 8 categorías activas
+    - main [ref=e54]:
+      - region [ref=e510]:
+        - generic [ref=e56]:
+          - generic [ref=e57]:
+            - paragraph [ref=e58]: Índice / todo el archivo
+            - heading "Piezas del repositorio" [level=1] [ref=e511]
+          - paragraph [ref=e60]: 27 componentes
+        - generic "Filtros rápidos" [ref=e61]:
+          - button "All" [ref=e512] [cursor=pointer]
+          - button "Buttons" [ref=e513] [cursor=pointer]
+          - button "Book Cards" [ref=e514] [cursor=pointer]
+          - button "Cards" [ref=e515] [cursor=pointer]
+          - button "Forms" [ref=e516] [cursor=pointer]
+          - button "Pricing" [ref=e517] [cursor=pointer]
+          - button "Testimonials" [ref=e518] [cursor=pointer]
+          - button "Icons" [ref=e519] [cursor=pointer]
+          - button "Typography" [ref=e520] [cursor=pointer]
+        - generic [ref=e71]:
+          - article [ref=e521]:
+            - iframe [ref=e523]:
+              - generic [ref=f72e2]:
+                - banner [ref=f72e3]:
+                  - generic [ref=f72e4]: ADVANCED BUTTON MOTION LIBRARY
+                  - heading "Interaction-first button system." [level=1] [ref=f72e5]
+                  - paragraph [ref=f72e6]: "Una biblioteca de botones orientada a acciones reales: navegación, descarga, confirmación, subida, favoritos, compra, progreso, reproducción y estados."
+                - generic [ref=f72e7]:
+                  - generic [ref=f72e8]:
+                    - button "Todos" [ref=f72e9] [cursor=pointer]
+                    - button "CTA" [ref=f72e10] [cursor=pointer]
+                    - button "Navegación" [ref=f72e11] [cursor=pointer]
+                    - button "Descarga" [ref=f72e12] [cursor=pointer]
+                    - button "Estados" [ref=f72e13] [cursor=pointer]
+                    - button "Iconos" [ref=f72e14] [cursor=pointer]
+                    - button "Motion" [ref=f72e15] [cursor=pointer]
+                    - button "Commerce" [ref=f72e16] [cursor=pointer]
+                  - searchbox "Buscar botón..." [ref=f72e17]
+                - main [ref=f72e18]:
+                  - article [ref=f72e19]:
+                    - button "Get started" [ref=f72e21] [cursor=pointer]
+                    - generic [ref=f72e22]:
+                      - strong [ref=f72e23]: Soft CTA
+                      - code [ref=f72e24]: .apple-soft
+                  - article [ref=f72e25]:
+                    - button "Explore" [ref=f72e27] [cursor=pointer]
+                    - generic [ref=f72e28]:
+                      - strong [ref=f72e29]: Spotlight
+                      - code [ref=f72e30]: .spotlight-btn
+                  - article [ref=f72e31]:
+                    - button "Discover →" [ref=f72e33] [cursor=pointer]:
+                      - generic [ref=f72e34]: Discover
+                      - generic [ref=f72e35]: →
+                    - generic [ref=f72e36]:
+                      - strong [ref=f72e37]: Arrow Follow
+                      - code [ref=f72e38]: .arrow-follow
+                  - article [ref=f72e39]:
+                    - button "Next project →" [ref=f72e41] [cursor=pointer]:
+                      - generic [ref=f72e42]: Next project
+                      - generic [ref=f72e43]: →
+                    - generic [ref=f72e44]:
+                      - strong [ref=f72e45]: Arrow Reveal
+                      - code [ref=f72e46]: .arrow-reveal
+                  - article [ref=f72e47]:
+                    - button "Magnetic" [ref=f72e49] [cursor=pointer]
+                    - generic [ref=f72e50]:
+                      - strong [ref=f72e51]: Magnetic
+                      - code [ref=f72e52]: .magnetic
+                  - article [ref=f72e53]:
+                    - button "View more" [ref=f72e55] [cursor=pointer]
+                    - generic [ref=f72e56]:
+                      - strong [ref=f72e57]: Cursor Fill
+                      - code [ref=f72e58]: .cursor-fill
+                  - article [ref=f72e59]:
+                    - button "Connect" [ref=f72e61] [cursor=pointer]
+                    - generic [ref=f72e62]:
+                      - strong [ref=f72e63]: Liquid Rise
+                      - code [ref=f72e64]: .liquid
+                  - article [ref=f72e65]:
+                    - button "Contact us" [ref=f72e67] [cursor=pointer]
+                    - generic [ref=f72e68]:
+                      - strong [ref=f72e69]: Diagonal Fill
+                      - code [ref=f72e70]: .diagonal-fill
+                  - article [ref=f72e71]:
+                    - button "Start building" [ref=f72e73] [cursor=pointer]
+                    - generic [ref=f72e74]:
+                      - strong [ref=f72e75]: Split Layers
+                      - code [ref=f72e76]: .split-btn
+                  - article [ref=f72e77]:
+                    - button "Start now Let's go →" [ref=f72e79] [cursor=pointer]:
+                      - generic [ref=f72e80]: Start now
+                      - generic [ref=f72e81]: Let's go →
+                    - generic [ref=f72e82]:
+                      - strong [ref=f72e83]: Text Swap
+                      - code [ref=f72e84]: .text-swap
+                  - article [ref=f72e85]:
+                    - button "Upgrade" [ref=f72e87] [cursor=pointer]
+                    - generic [ref=f72e88]:
+                      - strong [ref=f72e89]: Shimmer
+                      - code [ref=f72e90]: .shimmer
+                  - article [ref=f72e91]:
+                    - button "Continue" [ref=f72e93] [cursor=pointer]
+                    - generic [ref=f72e94]:
+                      - strong [ref=f72e95]: Aurora Border
+                      - code [ref=f72e96]: .aurora-border
+                  - article [ref=f72e97]:
+                    - button "View details" [ref=f72e99] [cursor=pointer]
+                    - generic [ref=f72e100]:
+                      - strong [ref=f72e101]: Glass
+                      - code [ref=f72e102]: .glass
+                  - article [ref=f72e103]:
+                    - button "Press me" [ref=f72e105] [cursor=pointer]
+                    - generic [ref=f72e106]:
+                      - strong [ref=f72e107]: Physical
+                      - code [ref=f72e108]: .physical
+                  - article [ref=f72e109]:
+                    - button "Bounce" [ref=f72e111] [cursor=pointer]
+                    - generic [ref=f72e112]:
+                      - strong [ref=f72e113]: Spring
+                      - code [ref=f72e114]: .spring-btn
+                  - article [ref=f72e115]:
+                    - button "Continue" [ref=f72e117] [cursor=pointer]
+                    - generic [ref=f72e118]:
+                      - strong [ref=f72e119]: Soft Press
+                      - code [ref=f72e120]: .soft-press
+                  - article [ref=f72e121]:
+                    - button "Read article" [ref=f72e123] [cursor=pointer]
+                    - generic [ref=f72e124]:
+                      - strong [ref=f72e125]: Underline Travel
+                      - code [ref=f72e126]: .underline
+                  - article [ref=f72e127]:
+                    - button "[ About ]" [ref=f72e129] [cursor=pointer]:
+                      - generic [ref=f72e130]: "["
+                      - text: About
+                      - generic [ref=f72e131]: "]"
+                    - generic [ref=f72e132]:
+                      - strong [ref=f72e133]: Brackets
+                      - code [ref=f72e134]: .brackets
+                  - article [ref=f72e135]:
+                    - button "Open case study" [ref=f72e137] [cursor=pointer]
+                    - generic [ref=f72e142]:
+                      - strong [ref=f72e143]: Corner Frame
+                      - code [ref=f72e144]: .corners
+                  - article [ref=f72e145]:
+                    - button "← Back" [ref=f72e147] [cursor=pointer]:
+                      - generic [ref=f72e148]: ←
+                      - generic [ref=f72e149]: Back
+                    - generic [ref=f72e150]:
+                      - strong [ref=f72e151]: Back Glide
+                      - code [ref=f72e152]: .back-btn
+                  - article [ref=f72e153]:
+                    - button "→" [ref=f72e155] [cursor=pointer]
+                    - generic [ref=f72e156]:
+                      - strong [ref=f72e157]: Circle Next
+                      - code [ref=f72e158]: .circle-next
+                  - article [ref=f72e159]:
+                    - button [ref=f72e161] [cursor=pointer]
+                    - generic [ref=f72e164]:
+                      - strong [ref=f72e165]: Menu Morph
+                      - code [ref=f72e166]: .menu-btn
+                  - article [ref=f72e167]:
+                    - button [ref=f72e169] [cursor=pointer]
+                    - generic [ref=f72e172]:
+                      - strong [ref=f72e173]: Favorite
+                      - code [ref=f72e174]: .heart-btn
+                  - article [ref=f72e175]:
+                    - button [ref=f72e177] [cursor=pointer]
+                    - generic [ref=f72e180]:
+                      - strong [ref=f72e181]: Bookmark
+                      - code [ref=f72e182]: .bookmark-btn
+                  - article [ref=f72e183]:
+                    - button [ref=f72e185] [cursor=pointer]
+                    - generic [ref=f72e188]:
+                      - strong [ref=f72e189]: Plus → Check
+                      - code [ref=f72e190]: .plus-check
+                  - article [ref=f72e191]:
+                    - button [ref=f72e193] [cursor=pointer]
+                    - generic [ref=f72e195]:
+                      - strong [ref=f72e196]: Play / Pause
+                      - code [ref=f72e197]: .play-pause
+                  - article [ref=f72e198]:
+                    - button "Download" [ref=f72e200] [cursor=pointer]
+                    - generic [ref=f72e203]:
+                      - strong [ref=f72e204]: Download Drop
+                      - code [ref=f72e205]: .download-hover
+                  - article [ref=f72e206]:
+                    - button "Download" [ref=f72e208] [cursor=pointer]
+                    - generic [ref=f72e209]:
+                      - strong [ref=f72e210]: Download Progress
+                      - code [ref=f72e211]: .download-progress
+                  - article [ref=f72e212]:
+                    - button "↓ Download" [ref=f72e214] [cursor=pointer]
+                    - generic [ref=f72e215]:
+                      - strong [ref=f72e216]: Download Success
+                      - code [ref=f72e217]: .download-success
+                  - article [ref=f72e218]:
+                    - button "Generate Done" [ref=f72e220] [cursor=pointer]:
+                      - text: Generate
+                      - generic [ref=f72e222]: Done
+                    - generic [ref=f72e223]:
+                      - strong [ref=f72e224]: Loading Morph
+                      - code [ref=f72e225]: .loading-btn
+                  - article [ref=f72e226]:
+                    - button "Continue" [ref=f72e228] [cursor=pointer]
+                    - generic [ref=f72e229]:
+                      - strong [ref=f72e230]: Loading Dots
+                      - code [ref=f72e231]: .loading-dots
+                  - article [ref=f72e232]:
+                    - button "Confirm" [ref=f72e234] [cursor=pointer]
+                    - generic [ref=f72e235]:
+                      - strong [ref=f72e236]: Success Confirm
+                      - code [ref=f72e237]: .success-btn
+                  - article [ref=f72e238]:
+                    - button "↻ Try again" [ref=f72e240] [cursor=pointer]:
+                      - generic [ref=f72e241]: ↻
+                      - text: Try again
+                    - generic [ref=f72e242]:
+                      - strong [ref=f72e243]: Retry Spin
+                      - code [ref=f72e244]: .retry-btn
+                  - article [ref=f72e245]:
+                    - button "Notifications off" [ref=f72e247] [cursor=pointer]
+                    - generic [ref=f72e250]:
+                      - strong [ref=f72e251]: Toggle State
+                      - code [ref=f72e252]: .toggle-btn
+                  - article [ref=f72e253]:
+                    - button "Hold to delete" [ref=f72e255] [cursor=pointer]
+                    - generic [ref=f72e256]:
+                      - strong [ref=f72e257]: Hold Delete
+                      - code [ref=f72e258]: .hold-delete
+                  - article [ref=f72e259]:
+                    - button "Delete" [ref=f72e261] [cursor=pointer]
+                    - generic [ref=f72e262]:
+                      - strong [ref=f72e263]: Delete → Undo
+                      - code [ref=f72e264]: .undo-btn
+                  - article [ref=f72e265]:
+                    - button "□ Copy" [ref=f72e267] [cursor=pointer]:
+                      - generic [ref=f72e268]: □
+                      - generic [ref=f72e269]: Copy
+                    - generic [ref=f72e270]:
+                      - strong [ref=f72e271]: Copy Confirm
+                      - code [ref=f72e272]: .copy-btn
+                  - article [ref=f72e273]:
+                    - button "🛒 Add to cart" [ref=f72e275] [cursor=pointer]:
+                      - generic [ref=f72e276]: 🛒
+                      - generic [ref=f72e277]: Add to cart
+                    - generic [ref=f72e278]:
+                      - strong [ref=f72e279]: Add to Cart
+                      - code [ref=f72e280]: .cart-btn
+                  - article [ref=f72e281]:
+                    - button "Buy now →" [ref=f72e283] [cursor=pointer]:
+                      - text: Buy now
+                      - generic [ref=f72e284]: →
+                    - generic [ref=f72e285]:
+                      - strong [ref=f72e286]: Buy Now
+                      - code [ref=f72e287]: .buy-btn
+                  - article [ref=f72e288]:
+                    - generic [ref=f72e290]:
+                      - button "−" [ref=f72e291] [cursor=pointer]
+                      - generic [ref=f72e292]: "1"
+                      - button "+" [ref=f72e293] [cursor=pointer]
+                    - generic [ref=f72e294]:
+                      - strong [ref=f72e295]: Quantity Control
+                      - code [ref=f72e296]: .quantity-control
+                  - article [ref=f72e297]:
+                    - button "↑ Upload" [ref=f72e299] [cursor=pointer]:
+                      - generic [ref=f72e300]: ↑
+                      - generic [ref=f72e301]: Upload
+                    - generic [ref=f72e302]:
+                      - strong [ref=f72e303]: Upload
+                      - code [ref=f72e304]: .upload-btn
+                  - article [ref=f72e305]:
+                    - button "Share" [ref=f72e307] [cursor=pointer]
+                    - generic [ref=f72e312]:
+                      - strong [ref=f72e313]: Share Burst
+                      - code [ref=f72e314]: .share-btn
+                  - article [ref=f72e315]:
+                    - button "Follow" [ref=f72e317] [cursor=pointer]
+                    - generic [ref=f72e318]:
+                      - strong [ref=f72e319]: Follow State
+                      - code [ref=f72e320]: .follow-btn
+                  - article [ref=f72e321]:
+                    - button "♡ 128" [ref=f72e323] [cursor=pointer]:
+                      - generic [ref=f72e324]: ♡
+                      - generic [ref=f72e325]: "128"
+                    - generic [ref=f72e326]:
+                      - strong [ref=f72e327]: Like
+                      - code [ref=f72e328]: .like-btn
+                  - article [ref=f72e329]:
+                    - button "Launch" [ref=f72e331] [cursor=pointer]
+                    - generic [ref=f72e332]:
+                      - strong [ref=f72e333]: Glow
+                      - code [ref=f72e334]: .glow-btn
+                  - article [ref=f72e335]:
+                    - button "Analyze" [ref=f72e337] [cursor=pointer]
+                    - generic [ref=f72e338]:
+                      - strong [ref=f72e339]: Scanline
+                      - code [ref=f72e340]: .scan-btn
+                  - article [ref=f72e341]:
+                    - button "Deploy" [ref=f72e343] [cursor=pointer]
+                    - generic [ref=f72e344]:
+                      - strong [ref=f72e345]: Micro Glitch
+                      - code [ref=f72e346]: .glitch-btn
+                  - article [ref=f72e347]:
+                    - button "Run _" [ref=f72e349] [cursor=pointer]
+                    - generic [ref=f72e350]:
+                      - strong [ref=f72e351]: Terminal
+                      - code [ref=f72e352]: .terminal-btn
+                  - article [ref=f72e353]:
+                    - button "Explore" [ref=f72e355] [cursor=pointer]
+                    - generic [ref=f72e356]:
+                      - strong [ref=f72e357]: 3D Tilt
+                      - code [ref=f72e358]: .tilt-btn
+                  - article [ref=f72e359]:
+                    - button "Create" [ref=f72e361] [cursor=pointer]
+                    - generic [ref=f72e362]:
+                      - strong [ref=f72e363]: Blob Motion
+                      - code [ref=f72e364]: .blob-btn
+                  - article [ref=f72e365]:
+                    - button "Initialize" [ref=f72e367] [cursor=pointer]
+                    - generic [ref=f72e368]:
+                      - strong [ref=f72e369]: Border Trace
+                      - code [ref=f72e370]: .border-trace
+                  - article [ref=f72e371]:
+                    - button "Explore collection" [ref=f72e373] [cursor=pointer]
+                    - generic [ref=f72e374]:
+                      - strong [ref=f72e375]: Editorial
+                      - code [ref=f72e376]: .editorial-btn
+                  - article [ref=f72e377]:
+                    - button "Continue" [ref=f72e379] [cursor=pointer]
+                    - generic [ref=f72e380]:
+                      - strong [ref=f72e381]: Minimal
+                      - code [ref=f72e382]: .minimal-btn
+                  - article [ref=f72e383]:
+                    - button "Learn more →" [ref=f72e385] [cursor=pointer]:
+                      - generic [ref=f72e386]: Learn more
+                      - generic [ref=f72e387]: →
+                    - generic [ref=f72e388]:
+                      - strong [ref=f72e389]: Circle Expand
+                      - code [ref=f72e390]: .circle-expand
+                  - article [ref=f72e391]:
+                    - button "→ See details" [ref=f72e393] [cursor=pointer]:
+                      - generic [ref=f72e394]: →
+                      - generic [ref=f72e395]: See details
+                    - generic [ref=f72e396]:
+                      - strong [ref=f72e397]: Slide Arrow
+                      - code [ref=f72e398]: .slide-arrow
+                  - article [ref=f72e399]:
+                    - button "Open" [ref=f72e401] [cursor=pointer]
+                    - generic [ref=f72e402]:
+                      - strong [ref=f72e403]: Invert
+                      - code [ref=f72e404]: .invert-btn
+                  - article [ref=f72e405]:
+                    - button "Click me" [ref=f72e407] [cursor=pointer]
+                    - generic [ref=f72e408]:
+                      - strong [ref=f72e409]: Ripple Click
+                      - code [ref=f72e410]: .ripple-btn
+                  - article [ref=f72e411]:
+                    - button "Live" [ref=f72e413] [cursor=pointer]
+                    - generic [ref=f72e414]:
+                      - strong [ref=f72e415]: Live Pulse
+                      - code [ref=f72e416]: .pulse-btn
+                  - article [ref=f72e417]:
+                    - button "◉ Show password" [ref=f72e419] [cursor=pointer]:
+                      - generic [ref=f72e420]: ◉
+                      - generic [ref=f72e421]: Show password
+                    - generic [ref=f72e422]:
+                      - strong [ref=f72e423]: Show / Hide
+                      - code [ref=f72e424]: .eye-btn
+                  - article [ref=f72e425]:
+                    - button "Record" [ref=f72e427] [cursor=pointer]
+                    - generic [ref=f72e430]:
+                      - strong [ref=f72e431]: Record
+                      - code [ref=f72e432]: .record-btn
+                  - article [ref=f72e433]:
+                    - button "Send ↗" [ref=f72e435] [cursor=pointer]:
+                      - generic [ref=f72e436]: Send
+                      - generic [ref=f72e437]: ↗
+                    - generic [ref=f72e438]:
+                      - strong [ref=f72e439]: Send
+                      - code [ref=f72e440]: .send-btn
+                  - article [ref=f72e441]:
+                    - button "Expand ↗" [ref=f72e443] [cursor=pointer]:
+                      - text: Expand
+                      - generic [ref=f72e444]: ↗
+                    - generic [ref=f72e445]:
+                      - strong [ref=f72e446]: Expand
+                      - code [ref=f72e447]: .expand-btn
+                  - article [ref=f72e448]:
+                    - button "Premium" [ref=f72e450] [cursor=pointer]
+                    - generic [ref=f72e451]:
+                      - strong [ref=f72e452]: Chrome Sweep
+                      - code [ref=f72e453]: .chrome-btn
+                  - article [ref=f72e454]:
+                    - button "Processing" [disabled] [ref=f72e456]
+                    - generic [ref=f72e457]:
+                      - strong [ref=f72e458]: Disabled
+                      - code [ref=f72e459]: .disabled-btn
+            - generic [ref=e524]:
+              - generic [ref=e525]:
+                - paragraph [ref=e526]: Buttons · button-001
+                - heading "Advanced Button Motion Library" [level=2] [ref=e527]
+              - generic [ref=e528]:
+                - button "Abrir" [ref=e529] [cursor=pointer]
+                - button "Copiar" [ref=e530] [cursor=pointer]
+          - article [ref=e531]:
+            - iframe [ref=e533]:
+              - main [ref=f73e2]:
+                - generic [ref=f73e3]:
+                  - generic [ref=f73e4]:
+                    - heading "Popular Now" [level=2] [ref=f73e5]
+                    - button "More options" [ref=f73e6] [cursor=pointer]:
+                      - generic [ref=f73e7]: 
+                  - generic [ref=f73e8]:
+                    - article [ref=f73e9] [cursor=pointer]:
+                      - img "Book cover" [ref=f73e11]
+                      - generic [ref=f73e12]:
+                        - heading "The World of Ice and Fire" [level=3] [ref=f73e13]
+                        - paragraph [ref=f73e14]: George R. R. Martin
+                    - article [ref=f73e15] [cursor=pointer]:
+                      - img "Book cover" [ref=f73e17]
+                      - generic [ref=f73e18]:
+                        - heading "Fantastic Beasts" [level=3] [ref=f73e19]
+                        - paragraph [ref=f73e20]: Volume II
+                    - article [ref=f73e21] [cursor=pointer]:
+                      - img "Book cover" [ref=f73e23]
+                      - generic [ref=f73e24]:
+                        - heading "Game of Thrones" [level=3] [ref=f73e25]
+                        - paragraph [ref=f73e26]: Volume III
+                    - article [ref=f73e27] [cursor=pointer]:
+                      - img "Book cover" [ref=f73e29]
+                      - generic [ref=f73e30]:
+                        - heading "The Wise Man's Fear" [level=3] [ref=f73e31]
+                        - paragraph [ref=f73e32]: Patrick Rothfuss
+                    - button "+ Add book" [ref=f73e33] [cursor=pointer]:
+                      - generic [ref=f73e34]: +
+                      - generic [ref=f73e38]: Add book
+            - generic [ref=e534]:
+              - generic [ref=e535]:
+                - paragraph [ref=e536]: Book Cards · book-001
+                - heading "Book Card 001" [level=2] [ref=e537]
+              - generic [ref=e538]:
+                - button "Abrir" [ref=e539] [cursor=pointer]
+                - button "Copiar" [ref=e540] [cursor=pointer]
+          - article [ref=e541]:
+            - iframe [ref=e543]:
+              - main [ref=f74e2]:
+                - generic [ref=f74e3]:
+                  - generic [ref=f74e4]:
+                    - generic [ref=f74e5]:
+                      - generic [ref=f74e6]: MY LIBRARY
+                      - heading "Continue exploring." [level=1] [ref=f74e7]
+                    - paragraph [ref=f74e8]: Books worth returning to.
+                  - generic [ref=f74e9]:
+                    - article [ref=f74e10] [cursor=pointer]:
+                      - img "The Silent Forest" [ref=f74e13]
+                      - generic [ref=f74e15]:
+                        - generic [ref=f74e16]: "01"
+                        - heading "The Silent Forest" [level=2] [ref=f74e17]
+                        - paragraph [ref=f74e18]: Eleanor Whitmore
+                        - generic:
+                          - generic [ref=f74e19]:
+                            - generic [ref=f74e20]:
+                              - generic [ref=f74e21]: 
+                              - text: "4.8"
+                            - generic [ref=f74e22]: 348 pages
+                            - generic [ref=f74e23]: Fiction
+                          - paragraph [ref=f74e24]: A quiet journey through memory, solitude and the places we leave behind.
+                          - button "View book " [ref=f74e25]:
+                            - generic [ref=f74e26]: View book
+                            - generic [ref=f74e27]: 
+                    - article [ref=f74e28] [cursor=pointer]:
+                      - img "Under Northern Skies" [ref=f74e31]
+                      - generic [ref=f74e33]:
+                        - generic [ref=f74e34]: "02"
+                        - heading "Under Northern Skies" [level=2] [ref=f74e35]
+                        - paragraph [ref=f74e36]: Arthur Bennett
+                        - generic:
+                          - generic [ref=f74e37]:
+                            - generic [ref=f74e38]:
+                              - generic [ref=f74e39]: 
+                              - text: "4.9"
+                            - generic [ref=f74e40]: 412 pages
+                            - generic [ref=f74e41]: Adventure
+                          - paragraph [ref=f74e42]: An expedition into the unknown where every discovery carries a consequence.
+                          - button "View book " [ref=f74e43]:
+                            - generic [ref=f74e44]: View book
+                            - generic [ref=f74e45]: 
+                    - article [ref=f74e46] [cursor=pointer]:
+                      - img "The Architecture of Time" [ref=f74e49]
+                      - generic [ref=f74e51]:
+                        - generic [ref=f74e52]: "03"
+                        - heading "The Architecture of Time" [level=2] [ref=f74e53]
+                        - paragraph [ref=f74e54]: Clara Morrison
+                        - generic:
+                          - generic [ref=f74e55]:
+                            - generic [ref=f74e56]:
+                              - generic [ref=f74e57]: 
+                              - text: "4.7"
+                            - generic [ref=f74e58]: 286 pages
+                            - generic [ref=f74e59]: Philosophy
+                          - paragraph [ref=f74e60]: An exploration of how perception, memory and architecture shape time.
+                          - button "View book " [ref=f74e61]:
+                            - generic [ref=f74e62]: View book
+                            - generic [ref=f74e63]: 
+                    - article [ref=f74e64] [cursor=pointer]:
+                      - img "Golden Hour" [ref=f74e67]
+                      - generic [ref=f74e69]:
+                        - generic [ref=f74e70]: "04"
+                        - heading "Golden Hour" [level=2] [ref=f74e71]
+                        - paragraph [ref=f74e72]: Sofia Laurent
+                        - generic:
+                          - generic [ref=f74e73]:
+                            - generic [ref=f74e74]:
+                              - generic [ref=f74e75]: 
+                              - text: "4.6"
+                            - generic [ref=f74e76]: 324 pages
+                            - generic [ref=f74e77]: Drama
+                          - paragraph [ref=f74e78]: A story about ambition, coincidence and one summer capable of changing everything.
+                          - button "View book " [ref=f74e79]:
+                            - generic [ref=f74e80]: View book
+                            - generic [ref=f74e81]: 
+                    - button "+ Add a new book" [ref=f74e82] [cursor=pointer]:
+                      - generic [ref=f74e83]:
+                        - generic [ref=f74e85]: +
+                        - generic [ref=f74e87]: Add a new book
+            - generic [ref=e544]:
+              - generic [ref=e545]:
+                - paragraph [ref=e546]: Book Cards · book-002
+                - heading "Book Card 002" [level=2] [ref=e547]
+              - generic [ref=e548]:
+                - button "Abrir" [ref=e549] [cursor=pointer]
+                - button "Copiar" [ref=e550] [cursor=pointer]
+          - article [ref=e551]:
+            - iframe [ref=e553]:
+              - main [ref=f75e2]:
+                - generic [ref=f75e3]:
+                  - generic [ref=f75e4]:
+                    - generic [ref=f75e5]:
+                      - generic [ref=f75e6]: COLLECTION
+                      - heading "Audiobooks" [level=1] [ref=f75e7]
+                    - button "More options" [ref=f75e8] [cursor=pointer]:
+                      - generic [ref=f75e9]: 
+                  - generic [ref=f75e10]:
+                    - article [ref=f75e11] [cursor=pointer]:
+                      - img "Book cover" [ref=f75e13]
+                      - generic [ref=f75e14]:
+                        - heading "Harry Potter and the Chamber of Secrets" [level=2] [ref=f75e15]
+                        - paragraph [ref=f75e16]: J. K. Rowling
+                        - generic [ref=f75e17]:
+                          - generic [ref=f75e18]: 15 hrs 55 mins
+                          - button "Play" [ref=f75e19]:
+                            - generic [ref=f75e20]: 
+                    - article [ref=f75e21] [cursor=pointer]:
+                      - img "Book cover" [ref=f75e23]
+                      - generic [ref=f75e24]:
+                        - heading "The Goblet of Fire" [level=2] [ref=f75e25]
+                        - paragraph [ref=f75e26]: J. K. Rowling
+                        - generic [ref=f75e27]:
+                          - generic [ref=f75e28]: 20 hrs 55 mins
+                          - button "Play" [ref=f75e29]:
+                            - generic [ref=f75e30]: 
+                    - article [ref=f75e31] [cursor=pointer]:
+                      - img "Book cover" [ref=f75e33]
+                      - generic [ref=f75e34]:
+                        - 'heading "A Game of Thrones: A Song of Ice and Fire" [level=2] [ref=f75e35]'
+                        - paragraph [ref=f75e36]: Roy Dotrice
+                        - generic [ref=f75e37]:
+                          - generic [ref=f75e38]: 20 hrs 55 mins
+                          - button "Play" [ref=f75e39]:
+                            - generic [ref=f75e40]: 
+                    - article [ref=f75e41] [cursor=pointer]:
+                      - img "Book cover" [ref=f75e43]
+                      - generic [ref=f75e44]:
+                        - 'heading "Born a Crime: Stories from a South African Childhood" [level=2] [ref=f75e45]'
+                        - paragraph [ref=f75e46]: Trevor Noah
+                        - generic [ref=f75e47]:
+                          - generic [ref=f75e48]: 20 hrs 55 mins
+                          - button "Play" [ref=f75e49]:
+                            - generic [ref=f75e50]: 
+                    - article [ref=f75e51] [cursor=pointer]:
+                      - img "Book cover" [ref=f75e53]
+                      - generic [ref=f75e54]:
+                        - heading "The Subtle Art of Not Giving a F*ck" [level=2] [ref=f75e55]
+                        - paragraph [ref=f75e56]: Mark Manson
+                        - generic [ref=f75e57]:
+                          - generic [ref=f75e58]: 15 hrs 55 mins
+                          - button "Play" [ref=f75e59]:
+                            - generic [ref=f75e60]: 
+                    - article [ref=f75e61] [cursor=pointer]:
+                      - img "Book cover" [ref=f75e63]
+                      - generic [ref=f75e64]:
+                        - heading "Traction and Orthopaedic Appliances" [level=2] [ref=f75e65]
+                        - paragraph [ref=f75e66]: Martin White
+                        - generic [ref=f75e67]:
+                          - generic [ref=f75e68]: 20 hrs 55 mins
+                          - button "Play" [ref=f75e69]:
+                            - generic [ref=f75e70]: 
+                    - article [ref=f75e71] [cursor=pointer]:
+                      - img "Book cover" [ref=f75e73]
+                      - generic [ref=f75e74]:
+                        - heading "Competitive Advantage" [level=2] [ref=f75e75]
+                        - paragraph [ref=f75e76]: Michael E. Porter
+                        - generic [ref=f75e77]:
+                          - generic [ref=f75e78]: 20 hrs 55 mins
+                          - button "Play" [ref=f75e79]:
+                            - generic [ref=f75e80]: 
+                    - article [ref=f75e81] [cursor=pointer]:
+                      - img "Book cover" [ref=f75e83]
+                      - generic [ref=f75e84]:
+                        - heading "Steve Jobs" [level=2] [ref=f75e85]
+                        - paragraph [ref=f75e86]: Walter Isaacson
+                        - generic [ref=f75e87]:
+                          - generic [ref=f75e88]: 20 hrs 55 mins
+                          - button "Play" [ref=f75e89]:
+                            - generic [ref=f75e90]: 
+            - generic [ref=e554]:
+              - generic [ref=e555]:
+                - paragraph [ref=e556]: Book Cards · book-003
+                - heading "Book Card 003" [level=2] [ref=e557]
+              - generic [ref=e558]:
+                - button "Abrir" [ref=e559] [cursor=pointer]
+                - button "Copiar" [ref=e560] [cursor=pointer]
+          - article [ref=e561]:
+            - iframe [ref=e563]:
+              - main [ref=f76e2]:
+                - generic [ref=f76e4]:
+                  - article [ref=f76e5]:
+                    - img "The Jungle Book" [ref=f76e7]
+                    - generic [ref=f76e8]:
+                      - heading "The Jungle Book" [level=3] [ref=f76e9]
+                      - generic [ref=f76e10]:
+                        - paragraph [ref=f76e11]: On a warm evening in the Seeonee hills, a family of wolves finds someone at the threshold of their cave—a human child, who grows up among animals and learns the laws of the jungle.
+                        - button "more" [ref=f76e12] [cursor=pointer]
+                      - generic [ref=f76e13]:
+                        - img "Rudyard Kipling" [ref=f76e15]
+                        - generic [ref=f76e16]:
+                          - generic [ref=f76e17]: Story by
+                          - generic [ref=f76e18]: Rudyard Kipling
+                  - article [ref=f76e19]:
+                    - img "The Wolf Wilder" [ref=f76e21]
+                    - generic [ref=f76e22]:
+                      - heading "The Wolf Wilder" [level=3] [ref=f76e23]
+                      - generic [ref=f76e24]:
+                        - paragraph [ref=f76e25]: “Fairy tale and history merge seamlessly” in this enchanting and lyrical novel about love, survival, and the wild spirit that cannot be tamed.
+                        - button "more" [ref=f76e26] [cursor=pointer]
+                      - generic [ref=f76e27]:
+                        - img "Katherine Rundell" [ref=f76e29]
+                        - generic [ref=f76e30]:
+                          - generic [ref=f76e31]: Novel by
+                          - generic [ref=f76e32]: K. Rundell
+                  - article [ref=f76e33]:
+                    - img "The Girl of Ink & Stars" [ref=f76e35]
+                    - generic [ref=f76e36]:
+                      - heading "The Girl of Ink & Stars" [level=3] [ref=f76e37]
+                      - generic [ref=f76e38]:
+                        - paragraph [ref=f76e39]: Forbidden to leave her island, Isabella dreams of the faraway lands her cartographer father once mapped. When her friend disappears, she begins a dangerous journey.
+                        - button "more" [ref=f76e40] [cursor=pointer]
+                      - generic [ref=f76e41]:
+                        - img "Kiran M. Hargrave" [ref=f76e43]
+                        - generic [ref=f76e44]:
+                          - generic [ref=f76e45]: Book by
+                          - generic [ref=f76e46]: Kiran M. Hargrave
+                  - article [ref=f76e47]:
+                    - img "Cogheart" [ref=f76e49]
+                    - generic [ref=f76e50]:
+                      - heading "Cogheart" [level=3] [ref=f76e51]
+                      - generic [ref=f76e52]:
+                        - paragraph [ref=f76e53]: When 13-year-old Lily’s inventor father vanishes after a Zeppelin crash, Lily’s determined to hunt down the truth behind his disappearance before it is too late.
+                        - button "more" [ref=f76e54] [cursor=pointer]
+                      - generic [ref=f76e55]:
+                        - img "Peter Bunzl" [ref=f76e57]
+                        - generic [ref=f76e58]:
+                          - generic [ref=f76e59]: Novel by
+                          - generic [ref=f76e60]: Peter Bunzl
+                  - article [ref=f76e61]:
+                    - img "Macbeth" [ref=f76e63]
+                    - generic [ref=f76e64]:
+                      - heading "Macbeth" [level=3] [ref=f76e65]
+                      - generic [ref=f76e66]:
+                        - paragraph [ref=f76e67]: “Fairy tale and history merge seamlessly” in this intense tragedy of ambition, prophecy, guilt, and power, one of Shakespeare’s darkest and most memorable plays.
+                        - button "more" [ref=f76e68] [cursor=pointer]
+                      - generic [ref=f76e69]:
+                        - img "William Shakespeare" [ref=f76e71]
+                        - generic [ref=f76e72]:
+                          - generic [ref=f76e73]: Play by
+                          - generic [ref=f76e74]: William Shakespeare
+            - generic [ref=e564]:
+              - generic [ref=e565]:
+                - paragraph [ref=e566]: Book Cards · book-004
+                - heading "Book Card 004" [level=2] [ref=e567]
+              - generic [ref=e568]:
+                - button "Abrir" [ref=e569] [cursor=pointer]
+                - button "Copiar" [ref=e570] [cursor=pointer]
+          - article [ref=e571]:
+            - iframe [ref=e573]:
+              - main [ref=f77e2]:
+                - generic [ref=f77e3]:
+                  - article [ref=f77e4] [cursor=pointer]:
+                    - generic:
+                      - img "Nike Air sneaker"
+                    - heading "Nike Air" [level=2] [ref=f77e7]
+                  - article [ref=f77e8] [cursor=pointer]:
+                    - generic:
+                      - img "Sport sneaker"
+                    - heading "Air Runner" [level=2] [ref=f77e11]
+                  - article [ref=f77e12] [cursor=pointer]:
+                    - generic:
+                      - img "Nike sneaker"
+                    - heading "Urban Max" [level=2] [ref=f77e15]
+            - generic [ref=e574]:
+              - generic [ref=e575]:
+                - paragraph [ref=e576]: Cards · card-001
+                - heading "Interactive Product Card" [level=2] [ref=e577]
+              - generic [ref=e578]:
+                - button "Abrir" [ref=e579] [cursor=pointer]
+                - button "Copiar" [ref=e580] [cursor=pointer]
+          - article [ref=e581]:
+            - iframe [ref=e583]:
+              - main [ref=f78e2]:
+                - generic [ref=f78e3]:
+                  - heading "Elevated home theater sound. Just in time for Ted’s return." [level=2] [ref=f78e5]
+                  - generic "Productos destacados" [ref=f78e7]:
+                    - generic [ref=f78e8]:
+                      - article [aria-hidden] [ref=f78e9]:
+                        - link [ref=f78e10] [cursor=pointer]:
+                          - /url: "#"
+                          - generic [ref=f78e16]:
+                            - heading [level=3] [ref=f78e17]: Beats Solo 4 — On-Ear Wireless Headphones — Slate Blue
+                            - paragraph [ref=f78e18]: $199.99
+                      - article [aria-hidden] [ref=f78e19]:
+                        - link [ref=f78e20] [cursor=pointer]:
+                          - /url: "#"
+                          - generic [ref=f78e25]:
+                            - heading [level=3] [ref=f78e26]: HomePod - White
+                            - paragraph [ref=f78e27]: $349.00
+                      - article [aria-hidden] [ref=f78e28]:
+                        - link [ref=f78e29] [cursor=pointer]:
+                          - /url: "#"
+                          - generic [ref=f78e31]:
+                            - heading [level=3] [ref=f78e32]: Siri Remote
+                            - paragraph [ref=f78e33]: $59.00
+                      - article [aria-hidden] [ref=f78e34]:
+                        - link [ref=f78e35] [cursor=pointer]:
+                          - /url: "#"
+                          - generic [ref=f78e37]:
+                            - generic [ref=f78e38]: Smart Home Accessories
+                            - heading [level=3] [ref=f78e39]: Nanoleaf Essentials Matter Smart Multicolor HD Lightstrip
+                            - paragraph [ref=f78e40]: $69.95
+                      - article [aria-hidden] [ref=f78e41]:
+                        - link [ref=f78e42] [cursor=pointer]:
+                          - /url: "#"
+                          - generic [ref=f78e50]:
+                            - generic [ref=f78e51]: Free Engraving
+                            - heading [level=3] [ref=f78e52]: AirPods Max 2 - Blue
+                            - paragraph [ref=f78e53]: $549.00
+                      - article [aria-hidden] [ref=f78e54]:
+                        - link [ref=f78e55] [cursor=pointer]:
+                          - /url: "#"
+                          - generic [ref=f78e60]:
+                            - heading [level=3] [ref=f78e61]: Studio Pro Wireless Headphones
+                            - paragraph [ref=f78e62]: $349.99
+                      - article [ref=f78e63]:
+                        - link [ref=f78e64] [cursor=pointer]:
+                          - /url: "#"
+                          - generic [ref=f78e65]:
+                            - img "Beats Solo 4"
+                          - generic [ref=f78e70]:
+                            - heading "Beats Solo 4 — On-Ear Wireless Headphones — Slate Blue" [level=3] [ref=f78e71]
+                            - paragraph [ref=f78e72]: $199.99
+                      - article [ref=f78e73]:
+                        - link [ref=f78e74] [cursor=pointer]:
+                          - /url: "#"
+                          - generic [ref=f78e75]:
+                            - img "HomePod White"
+                          - generic [ref=f78e79]:
+                            - heading "HomePod - White" [level=3] [ref=f78e80]
+                            - paragraph [ref=f78e81]: $349.00
+                      - article [ref=f78e82]:
+                        - link [ref=f78e83] [cursor=pointer]:
+                          - /url: "#"
+                          - generic [ref=f78e84]:
+                            - img "Siri Remote"
+                          - generic [ref=f78e85]:
+                            - heading "Siri Remote" [level=3] [ref=f78e86]
+                            - paragraph [ref=f78e87]: $59.00
+                      - article [ref=f78e88]:
+                        - link "Nanoleaf Essentials Smart Home Accessories Nanoleaf Essentials Matter Smart Multicolor HD Lightstrip $69.95" [ref=f78e89] [cursor=pointer]:
+                          - /url: "#"
+                          - generic [ref=f78e90]:
+                            - img "Nanoleaf Essentials"
+                          - generic [ref=f78e91]:
+                            - generic [ref=f78e92]: Smart Home Accessories
+                            - heading "Nanoleaf Essentials Matter Smart Multicolor HD Lightstrip" [level=3] [ref=f78e93]
+                            - paragraph [ref=f78e94]: $69.95
+                      - article [ref=f78e95]:
+                        - link "AirPods Max Free Engraving AirPods Max 2 - Blue $549.00" [ref=f78e96] [cursor=pointer]:
+                          - /url: "#"
+                          - generic [ref=f78e97]:
+                            - img "AirPods Max"
+                          - generic [ref=f78e104]:
+                            - generic [ref=f78e105]: Free Engraving
+                            - heading "AirPods Max 2 - Blue" [level=3] [ref=f78e106]
+                            - paragraph [ref=f78e107]: $549.00
+                      - article [ref=f78e108]:
+                        - link [ref=f78e109] [cursor=pointer]:
+                          - /url: "#"
+                          - generic [ref=f78e110]:
+                            - img "Studio Pro Headphones"
+                          - generic [ref=f78e114]:
+                            - heading "Studio Pro Wireless Headphones" [level=3] [ref=f78e115]
+                            - paragraph [ref=f78e116]: $349.99
+                      - article [aria-hidden] [ref=f78e117]:
+                        - link [ref=f78e118] [cursor=pointer]:
+                          - /url: "#"
+                          - generic [ref=f78e124]:
+                            - heading [level=3] [ref=f78e125]: Beats Solo 4 — On-Ear Wireless Headphones — Slate Blue
+                            - paragraph [ref=f78e126]: $199.99
+                      - article [aria-hidden] [ref=f78e127]:
+                        - link [ref=f78e128] [cursor=pointer]:
+                          - /url: "#"
+                          - generic [ref=f78e133]:
+                            - heading [level=3] [ref=f78e134]: HomePod - White
+                            - paragraph [ref=f78e135]: $349.00
+                      - article [aria-hidden] [ref=f78e136]:
+                        - link [ref=f78e137] [cursor=pointer]:
+                          - /url: "#"
+                          - generic [ref=f78e139]:
+                            - heading [level=3] [ref=f78e140]: Siri Remote
+                            - paragraph [ref=f78e141]: $59.00
+                      - article [aria-hidden] [ref=f78e142]:
+                        - link [ref=f78e143] [cursor=pointer]:
+                          - /url: "#"
+                          - generic [ref=f78e145]:
+                            - generic [ref=f78e146]: Smart Home Accessories
+                            - heading [level=3] [ref=f78e147]: Nanoleaf Essentials Matter Smart Multicolor HD Lightstrip
+                            - paragraph [ref=f78e148]: $69.95
+                      - article [aria-hidden] [ref=f78e149]:
+                        - link [ref=f78e150] [cursor=pointer]:
+                          - /url: "#"
+                          - generic [ref=f78e158]:
+                            - generic [ref=f78e159]: Free Engraving
+                            - heading [level=3] [ref=f78e160]: AirPods Max 2 - Blue
+                            - paragraph [ref=f78e161]: $549.00
+                      - article [aria-hidden] [ref=f78e162]:
+                        - link [ref=f78e163] [cursor=pointer]:
+                          - /url: "#"
+                          - generic [ref=f78e168]:
+                            - heading [level=3] [ref=f78e169]: Studio Pro Wireless Headphones
+                            - paragraph [ref=f78e170]: $349.99
+            - generic [ref=e584]:
+              - generic [ref=e585]:
+                - paragraph [ref=e586]: Cards · card-002
+                - heading "Product Card 002" [level=2] [ref=e587]
+              - generic [ref=e588]:
+                - button "Abrir" [ref=e589] [cursor=pointer]
+                - button "Copiar" [ref=e590] [cursor=pointer]
+          - article [ref=e591]:
+            - iframe [ref=e593]:
+              - main [ref=f79e2]:
+                - generic [ref=f79e3]:
+                  - article [ref=f79e4]:
+                    - generic:
+                      - generic:
+                        - img "New York"
+                        - button "Guardar destino" [ref=f79e5] [cursor=pointer]
+                        - generic:
+                          - generic:
+                            - heading "New York" [level=2]
+                            - paragraph: Economy
+                          - generic:
+                            - generic [ref=f79e11]:
+                              - text: from
+                              - strong [ref=f79e12]: $120
+                            - strong [ref=f79e16]: JFK
+                      - button "Search flight" [ref=f79e17] [cursor=pointer]
+                      - generic [ref=f79e18]:
+                        - generic:
+                          - generic:
+                            - heading "New York" [level=2]
+                            - paragraph: Economy
+                          - generic:
+                            - generic [ref=f79e22]:
+                              - text: from
+                              - strong [ref=f79e23]: $120
+                            - strong [ref=f79e27]: JFK
+                        - generic:
+                          - button "Search flight" [ref=f79e28] [cursor=pointer]
+                          - button "Guardar destino" [ref=f79e29] [cursor=pointer]
+                  - article [ref=f79e32]:
+                    - generic:
+                      - generic:
+                        - img "San Francisco"
+                        - button "Guardar destino" [ref=f79e33] [cursor=pointer]
+                        - generic:
+                          - generic:
+                            - heading "San Francisco" [level=2]
+                            - paragraph: Premium economy
+                          - generic:
+                            - generic [ref=f79e39]:
+                              - text: from
+                              - strong [ref=f79e40]: $240
+                            - strong [ref=f79e44]: SFO
+                      - button "Search flight" [ref=f79e45] [cursor=pointer]
+                      - generic [ref=f79e46]:
+                        - generic:
+                          - generic:
+                            - heading "San Francisco" [level=2]
+                            - paragraph: Premium economy
+                          - generic:
+                            - generic [ref=f79e50]:
+                              - text: from
+                              - strong [ref=f79e51]: $240
+                            - strong [ref=f79e55]: SFO
+                        - generic:
+                          - button "Search flight" [ref=f79e56] [cursor=pointer]
+                          - button "Guardar destino" [ref=f79e57] [cursor=pointer]
+            - generic [ref=e594]:
+              - generic [ref=e595]:
+                - paragraph [ref=e596]: Cards · card-003
+                - heading "Product Card 003" [level=2] [ref=e597]
+              - generic [ref=e598]:
+                - button "Abrir" [ref=e599] [cursor=pointer]
+                - button "Copiar" [ref=e600] [cursor=pointer]
+          - article [ref=e601]:
+            - iframe [ref=e603]:
+              - main [ref=f80e2]:
+                - generic [ref=f80e3]:
+                  - article [ref=f80e4]:
+                    - generic [ref=f80e5]:
+                      - button "Compartir perfil" [ref=f80e6] [cursor=pointer]
+                      - generic [ref=f80e10]:
+                        - img "Chloe Harrison" [ref=f80e12]
+                        - generic [ref=f80e13]:
+                          - heading "Chloe Harrison" [level=2] [ref=f80e14]
+                          - paragraph [ref=f80e15]: Product designer
+                        - generic [ref=f80e16]:
+                          - generic [ref=f80e17]: Figma
+                          - generic [ref=f80e18]: UX Design
+                      - generic [ref=f80e19]:
+                        - generic [ref=f80e20]:
+                          - strong [ref=f80e24]: "4.5"
+                          - generic [ref=f80e25]: Rating
+                        - generic [ref=f80e26]:
+                          - strong [ref=f80e27]: $15K+
+                          - generic [ref=f80e28]: Earned
+                        - generic [ref=f80e29]:
+                          - strong [ref=f80e30]: $80/hr
+                          - generic [ref=f80e31]: Rate
+                      - generic [ref=f80e32]:
+                        - button "Get in touch" [ref=f80e33] [cursor=pointer]
+                        - button "Guardar perfil" [ref=f80e37] [cursor=pointer]
+                  - article [ref=f80e40]:
+                    - generic [ref=f80e41]:
+                      - button "Compartir perfil" [ref=f80e42] [cursor=pointer]
+                      - generic [ref=f80e46]:
+                        - img "Ethan Walker" [ref=f80e48]
+                        - generic [ref=f80e49]:
+                          - heading "Ethan Walker" [level=2] [ref=f80e50]
+                          - paragraph [ref=f80e51]: Creative developer
+                        - generic [ref=f80e52]:
+                          - generic [ref=f80e53]: WebGL
+                          - generic [ref=f80e54]: Motion
+                      - generic [ref=f80e55]:
+                        - generic [ref=f80e56]:
+                          - strong [ref=f80e60]: "4.9"
+                          - generic [ref=f80e61]: Rating
+                        - generic [ref=f80e62]:
+                          - strong [ref=f80e63]: $24K+
+                          - generic [ref=f80e64]: Earned
+                        - generic [ref=f80e65]:
+                          - strong [ref=f80e66]: $95/hr
+                          - generic [ref=f80e67]: Rate
+                      - generic [ref=f80e68]:
+                        - button "Get in touch" [ref=f80e69] [cursor=pointer]
+                        - button "Guardar perfil" [ref=f80e73] [cursor=pointer]
+            - generic [ref=e604]:
+              - generic [ref=e605]:
+                - paragraph [ref=e606]: Cards · card-004
+                - heading "Product Card 004" [level=2] [ref=e607]
+              - generic [ref=e608]:
+                - button "Abrir" [ref=e609] [cursor=pointer]
+                - button "Copiar" [ref=e610] [cursor=pointer]
+          - article [ref=e611]:
+            - iframe [ref=e613]
+            - generic [ref=e614]:
+              - generic [ref=e615]:
+                - paragraph [ref=e616]: Forms · login-001
+                - heading "Login 001 — Split Screen" [level=2] [ref=e617]
+              - generic [ref=e618]:
+                - button "Abrir" [ref=e619] [cursor=pointer]
+                - button "Copiar" [ref=e620] [cursor=pointer]
+          - article [ref=e621]:
+            - iframe [ref=e623]
+            - generic [ref=e624]:
+              - generic [ref=e625]:
+                - paragraph [ref=e626]: Forms · login-004
+                - heading "Login 004" [level=2] [ref=e627]
+              - generic [ref=e628]:
+                - button "Abrir" [ref=e629] [cursor=pointer]
+                - button "Copiar" [ref=e630] [cursor=pointer]
+          - article [ref=e631]:
+            - iframe [ref=e633]
+            - generic [ref=e634]:
+              - generic [ref=e635]:
+                - paragraph [ref=e636]: Forms · login-005
+                - heading "Login 005" [level=2] [ref=e637]
+              - generic [ref=e638]:
+                - button "Abrir" [ref=e639] [cursor=pointer]
+                - button "Copiar" [ref=e640] [cursor=pointer]
+          - article [ref=e641]:
+            - iframe [ref=e643]
+            - generic [ref=e644]:
+              - generic [ref=e645]:
+                - paragraph [ref=e646]: Forms · login-006
+                - heading "Login 006" [level=2] [ref=e647]
+              - generic [ref=e648]:
+                - button "Abrir" [ref=e649] [cursor=pointer]
+                - button "Copiar" [ref=e650] [cursor=pointer]
+          - article [ref=e651]:
+            - iframe [ref=e653]
+            - generic [ref=e654]:
+              - generic [ref=e655]:
+                - paragraph [ref=e656]: Pricing · pricing-001
+                - heading "Pricing 001" [level=2] [ref=e657]
+              - generic [ref=e658]:
+                - button "Abrir" [ref=e659] [cursor=pointer]
+                - button "Copiar" [ref=e660] [cursor=pointer]
+          - article [ref=e661]:
+            - iframe [ref=e663]
+            - generic [ref=e664]:
+              - generic [ref=e665]:
+                - paragraph [ref=e666]: Pricing · pricing-002
+                - heading "Pricing 002" [level=2] [ref=e667]
+              - generic [ref=e668]:
+                - button "Abrir" [ref=e669] [cursor=pointer]
+                - button "Copiar" [ref=e670] [cursor=pointer]
+          - article [ref=e671]:
+            - iframe [ref=e673]
+            - generic [ref=e674]:
+              - generic [ref=e675]:
+                - paragraph [ref=e676]: Pricing · pricing-003
+                - heading "Pricing 003" [level=2] [ref=e677]
+              - generic [ref=e678]:
+                - button "Abrir" [ref=e679] [cursor=pointer]
+                - button "Copiar" [ref=e680] [cursor=pointer]
+          - article [ref=e681]:
+            - iframe [ref=e683]
+            - generic [ref=e684]:
+              - generic [ref=e685]:
+                - paragraph [ref=e686]: Pricing · pricing-004
+                - heading "Pricing 004" [level=2] [ref=e687]
+              - generic [ref=e688]:
+                - button "Abrir" [ref=e689] [cursor=pointer]
+                - button "Copiar" [ref=e690] [cursor=pointer]
+          - article [ref=e691]:
+            - iframe [ref=e693]
+            - generic [ref=e694]:
+              - generic [ref=e695]:
+                - paragraph [ref=e696]: Pricing · pricing-005
+                - heading "Pricing 005" [level=2] [ref=e697]
+              - generic [ref=e698]:
+                - button "Abrir" [ref=e699] [cursor=pointer]
+                - button "Copiar" [ref=e700] [cursor=pointer]
+          - article [ref=e701]:
+            - iframe [ref=e703]
+            - generic [ref=e704]:
+              - generic [ref=e705]:
+                - paragraph [ref=e706]: Testimonials · testimonial-001
+                - heading "Testimonial 001" [level=2] [ref=e707]
+              - generic [ref=e708]:
+                - button "Abrir" [ref=e709] [cursor=pointer]
+                - button "Copiar" [ref=e710] [cursor=pointer]
+          - article [ref=e711]:
+            - iframe [ref=e713]
+            - generic [ref=e714]:
+              - generic [ref=e715]:
+                - paragraph [ref=e716]: Testimonials · testimonial-002
+                - heading "Testimonial 002" [level=2] [ref=e717]
+              - generic [ref=e718]:
+                - button "Abrir" [ref=e719] [cursor=pointer]
+                - button "Copiar" [ref=e720] [cursor=pointer]
+          - article [ref=e721]:
+            - iframe [ref=e723]
+            - generic [ref=e724]:
+              - generic [ref=e725]:
+                - paragraph [ref=e726]: Testimonials · testimonial-003
+                - heading "Testimonial 003" [level=2] [ref=e727]
+              - generic [ref=e728]:
+                - button "Abrir" [ref=e729] [cursor=pointer]
+                - button "Copiar" [ref=e730] [cursor=pointer]
+          - article [ref=e731]:
+            - iframe [ref=e733]
+            - generic [ref=e734]:
+              - generic [ref=e735]:
+                - paragraph [ref=e736]: Testimonials · testimonial-004
+                - heading "Testimonial 004" [level=2] [ref=e737]
+              - generic [ref=e738]:
+                - button "Abrir" [ref=e739] [cursor=pointer]
+                - button "Copiar" [ref=e740] [cursor=pointer]
+          - article [ref=e741]:
+            - iframe [ref=e743]
+            - generic [ref=e744]:
+              - generic [ref=e745]:
+                - paragraph [ref=e746]: Testimonials · testimonial-005
+                - heading "Testimonial 005" [level=2] [ref=e747]
+              - generic [ref=e748]:
+                - button "Abrir" [ref=e749] [cursor=pointer]
+                - button "Copiar" [ref=e750] [cursor=pointer]
+          - article [ref=e751]:
+            - iframe [ref=e753]
+            - generic [ref=e754]:
+              - generic [ref=e755]:
+                - paragraph [ref=e756]: Testimonials · testimonial-006
+                - heading "Testimonial 006" [level=2] [ref=e757]
+              - generic [ref=e758]:
+                - button "Abrir" [ref=e759] [cursor=pointer]
+                - button "Copiar" [ref=e760] [cursor=pointer]
+          - article [ref=e761]:
+            - iframe [ref=e763]
+            - generic [ref=e764]:
+              - generic [ref=e765]:
+                - paragraph [ref=e766]: Testimonials · testimonial-007
+                - heading "Testimonial 007" [level=2] [ref=e767]
+              - generic [ref=e768]:
+                - button "Abrir" [ref=e769] [cursor=pointer]
+                - button "Copiar" [ref=e770] [cursor=pointer]
+          - article [ref=e771]:
+            - iframe [ref=e773]
+            - generic [ref=e774]:
+              - generic [ref=e775]:
+                - paragraph [ref=e776]: Icons · icons-catalog
+                - heading "Icon Catalog" [level=2] [ref=e777]
+              - generic [ref=e778]:
+                - button "Abrir" [ref=e779] [cursor=pointer]
+                - button "Copiar" [ref=e780] [cursor=pointer]
+          - article [ref=e781]:
+            - iframe [ref=e783]
+            - generic [ref=e784]:
+              - generic [ref=e785]:
+                - paragraph [ref=e786]: Typography · font-samples
+                - heading "Font Samples" [level=2] [ref=e787]
+              - generic [ref=e788]:
+                - button "Abrir" [ref=e789] [cursor=pointer]
+                - button "Copiar" [ref=e790] [cursor=pointer]
+  - status

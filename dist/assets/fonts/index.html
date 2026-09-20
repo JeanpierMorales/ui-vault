@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Typography Combo Library</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Libre+Baskerville:wght@400;700&family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700&family=Syne:wght@500;600;700;800&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Source+Serif+4:wght@400;500;600;700&family=Urbanist:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700&family=Figtree:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&family=Raleway:wght@400;500;600;700;800&family=Nunito+Sans:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&family=Lora:wght@400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#f7f7f4;
+      --surface:#ffffff;
+      --text:#101114;
+      --muted:#777a80;
+      --line:#e6e6e1;
+      --soft:#efefe9;
+      --accent:#111;
+      --radius:22px;
+      --shadow:0 20px 60px rgba(10,10,10,.07);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at 10% 0%,rgba(0,0,0,.025),transparent 34%),
+        var(--bg);
+      color:var(--text);
+      font-family:Inter,system-ui,sans-serif;
+    }
+
+    .shell{max-width:1500px;margin:auto;padding:28px}
+
+    header{
+      position:sticky;
+      top:18px;
+      z-index:20;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:24px;
+      padding:14px 18px;
+      border:1px solid rgba(20,20,20,.08);
+      background:rgba(255,255,255,.86);
+      backdrop-filter:blur(18px);
+      border-radius:18px;
+      box-shadow:0 10px 35px rgba(0,0,0,.05);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      letter-spacing:-.04em;
+    }
+
+    .brand-mark{
+      width:35px;height:35px;
+      border-radius:10px;
+      display:grid;place-items:center;
+      background:#111;color:#fff;
+      font-family:"IBM Plex Mono";
+      font-size:13px;
+    }
+
+    nav{display:flex;gap:8px;flex-wrap:wrap}
+    nav button{
+      border:0;
+      background:transparent;
+      padding:9px 13px;
+      border-radius:10px;
+      cursor:pointer;
+      color:#666;
+      font-weight:600;
+    }
+    nav button:hover,nav button.active{
+      background:#111;color:#fff;
+    }
+
+    .hero{
+      padding:92px 4px 70px;
+      display:grid;
+      grid-template-columns:1.3fr .7fr;
+      gap:50px;
+      align-items:end;
+    }
+
+    .eyebrow{
+      font-family:"IBM Plex Mono";
+      font-size:12px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:#777;
+      margin-bottom:18px;
+    }
+
+    .hero h1{
+      font-family:"Space Grotesk";
+      font-size:clamp(55px,8vw,126px);
+      line-height:.87;
+      margin:0;
+      letter-spacing:-.075em;
+      max-width:1050px;
+    }
+
+    .hero p{
+      font-size:17px;
+      line-height:1.75;
+      color:#686a70;
+      max-width:480px;
+      margin:0 0 9px;
+    }
+
+    .tools{
+      display:flex;
+      gap:10px;
+      margin-top:24px;
+      flex-wrap:wrap;
+    }
+
+    .tool{
+      border:1px solid var(--line);
+      background:#fff;
+      padding:10px 13px;
+      border-radius:12px;
+      color:#555;
+      font-size:13px;
+    }
+
+    .section{padding:26px 0 70px}
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:30px;
+      margin-bottom:24px;
+    }
+    .section-head h2{
+      margin:0;
+      font-size:clamp(34px,4vw,58px);
+      letter-spacing:-.055em;
+      line-height:.95;
+    }
+    .section-head p{
+      color:#777;
+      max-width:560px;
+      line-height:1.65;
+      margin:0;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:22px;
+    }
+
+    .card{
+      background:var(--surface);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      overflow:hidden;
+      transition:.32s ease;
+      min-height:520px;
+      display:flex;
+      flex-direction:column;
+    }
+    .card:hover{
+      transform:translateY(-6px);
+      box-shadow:var(--shadow);
+      border-color:#d2d2cb;
+    }
+
+    .card-top{
+      padding:18px 20px 0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      font-size:12px;
+      color:#777;
+    }
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      padding:7px 10px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:#fafaf7;
+      font-weight:650;
+    }
+    .dot{width:6px;height:6px;border-radius:50%;background:#111}
+
+    .preview{
+      margin:16px;
+      border-radius:16px;
+      min-height:350px;
+      padding:34px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      overflow:hidden;
+      position:relative;
+      background:#f4f4ef;
+    }
+
+    .preview:after{
+      content:"Aa";
+      position:absolute;
+      right:-10px;
+      bottom:-48px;
+      font-size:150px;
+      line-height:1;
+      font-family:Georgia,serif;
+      opacity:.035;
+      pointer-events:none;
+    }
+
+    .sample-kicker{
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      opacity:.6;
+      margin-bottom:16px;
+    }
+    .sample-h1{
+      font-size:clamp(36px,4vw,64px);
+      line-height:.95;
+      letter-spacing:-.055em;
+      margin:0 0 18px;
+      max-width:640px;
+    }
+    .sample-body{
+      font-size:15px;
+      line-height:1.65;
+      max-width:560px;
+      opacity:.72;
+      margin:0;
+    }
+    .sample-actions{
+      display:flex;
+      gap:9px;
+      margin-top:28px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .sample-button{
+      display:inline-flex;
+      padding:10px 14px;
+      border-radius:999px;
+      background:#111;color:#fff;
+      font-size:12px;
+      font-weight:700;
+      text-decoration:none;
+    }
+    .sample-link{
+      font-size:12px;
+      font-weight:700;
+      text-decoration:none;
+      color:inherit;
+      border-bottom:1px solid currentColor;
+      padding-bottom:2px;
+    }
+
+    .meta{
+      padding:4px 20px 22px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+      margin-top:auto;
+    }
+    .meta b{
+      display:block;
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.11em;
+      margin-bottom:6px;
+    }
+    .meta span{
+      font-size:13px;
+      color:#6e7176;
+      line-height:1.45;
+    }
+
+    .dark .preview{
+      background:#111317;
+      color:white;
+    }
+    .warm .preview{
+      background:#efe8dd;
+      color:#1e1d1b;
+    }
+    .editorial .preview{
+      background:#f2eee7;
+      color:#171614;
+    }
+    .blue .preview{
+      background:#eaf1f4;
+      color:#142026;
+    }
+    .cream .preview{
+      background:#f5f0e4;
+      color:#211d16;
+    }
+    .green .preview{
+      background:#e8eee8;
+      color:#182018;
+    }
+
+    .combo-1 .sample-h1{font-family:"Space Grotesk"}
+    .combo-1 .sample-body,.combo-1 .sample-button,.combo-1 .sample-kicker{font-family:"DM Sans"}
+
+    .combo-2 .sample-h1{font-family:"Playfair Display"}
+    .combo-2 .sample-body,.combo-2 .sample-button,.combo-2 .sample-kicker{font-family:"Manrope"}
+
+    .combo-3 .sample-h1{font-family:"Cormorant Garamond";font-weight:600;letter-spacing:-.03em}
+    .combo-3 .sample-body,.combo-3 .sample-button,.combo-3 .sample-kicker{font-family:"Montserrat"}
+
+    .combo-4 .sample-h1{font-family:"Syne"}
+    .combo-4 .sample-body,.combo-4 .sample-button,.combo-4 .sample-kicker{font-family:"Plus Jakarta Sans"}
+
+    .combo-5 .sample-h1{font-family:"Outfit"}
+    .combo-5 .sample-body,.combo-5 .sample-button{font-family:"Inter"}
+    .combo-5 .sample-kicker{font-family:"IBM Plex Mono"}
+
+    .combo-6 .sample-h1{font-family:"Barlow Condensed";text-transform:uppercase;letter-spacing:-.02em}
+    .combo-6 .sample-body,.combo-6 .sample-button,.combo-6 .sample-kicker{font-family:"Barlow"}
+
+    .combo-7 .sample-h1{font-family:"Source Serif 4";font-weight:600;letter-spacing:-.04em}
+    .combo-7 .sample-body,.combo-7 .sample-button,.combo-7 .sample-kicker{font-family:"IBM Plex Sans"}
+
+    .combo-8 .sample-h1{font-family:"Urbanist"}
+    .combo-8 .sample-body,.combo-8 .sample-button,.combo-8 .sample-kicker{font-family:"Figtree"}
+
+    .combo-9 .sample-h1{font-family:"Bebas Neue";letter-spacing:.01em}
+    .combo-9 .sample-body,.combo-9 .sample-button,.combo-9 .sample-kicker{font-family:"Work Sans"}
+
+    .combo-10 .sample-h1{font-family:"Libre Baskerville";font-size:clamp(31px,3.5vw,53px);line-height:1.05;letter-spacing:-.035em}
+    .combo-10 .sample-body,.combo-10 .sample-button,.combo-10 .sample-kicker{font-family:"Nunito Sans"}
+
+    .combo-11 .sample-h1{font-family:"Oswald";text-transform:uppercase;letter-spacing:-.02em}
+    .combo-11 .sample-body,.combo-11 .sample-button{font-family:"Rubik"}
+    .combo-11 .sample-kicker{font-family:"JetBrains Mono"}
+
+    .combo-12 .sample-h1{font-family:"Lora";font-weight:600;letter-spacing:-.035em}
+    .combo-12 .sample-body,.combo-12 .sample-button,.combo-12 .sample-kicker{font-family:"DM Sans"}
+
+    .combo-13 .sample-h1{font-family:"Archivo";font-weight:700}
+    .combo-13 .sample-body,.combo-13 .sample-button{font-family:"IBM Plex Sans"}
+    .combo-13 .sample-kicker{font-family:"IBM Plex Mono"}
+
+    .combo-14 .sample-h1{font-family:"Raleway";font-weight:800}
+    .combo-14 .sample-body,.combo-14 .sample-button,.combo-14 .sample-kicker{font-family:"Manrope"}
+
+    .combo-15 .sample-h1{font-family:"Manrope";font-weight:800}
+    .combo-15 .sample-body,.combo-15 .sample-button{font-family:"Inter"}
+    .combo-15 .sample-kicker{font-family:"JetBrains Mono"}
+
+    .combo-16 .sample-h1{font-family:"Montserrat";font-weight:800;text-transform:uppercase}
+    .combo-16 .sample-body,.combo-16 .sample-button,.combo-16 .sample-kicker{font-family:"DM Sans"}
+
+    .footer{
+      margin-top:40px;
+      border-top:1px solid var(--line);
+      padding:40px 0 70px;
+      color:#777;
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .hidden{display:none!important}
+
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;padding-top:70px}
+      .grid{grid-template-columns:1fr}
+      .hero h1{font-size:clamp(58px,13vw,110px)}
+    }
+
+    @media (max-width:640px){
+      .shell{padding:14px}
+      header{top:8px;align-items:flex-start;flex-direction:column}
+      nav{width:100%;overflow:auto;flex-wrap:nowrap}
+      nav button{white-space:nowrap}
+      .hero{padding:54px 0}
+      .preview{padding:26px 22px;min-height:360px}
+      .meta{grid-template-columns:1fr}
+      .section-head{display:block}
+      .section-head p{margin-top:12px}
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+
+    <header>
+      <div class="brand">
+        <div class="brand-mark">Aa</div>
+        Typography Combo Library
+      </div>
+      <nav id="filters">
+        <button class="active" data-filter="all">Todos</button>
+        <button data-filter="saas">SaaS</button>
+        <button data-filter="luxury">Luxury</button>
+        <button data-filter="creative">Creative</button>
+        <button data-filter="editorial">Editorial</button>
+        <button data-filter="tech">Tech</button>
+        <button data-filter="commerce">E-commerce</button>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Repositorio / Tipografía</div>
+        <h1>TEXT<br>COMBOS.</h1>
+      </div>
+      <div>
+        <p>
+          Una colección de sistemas tipográficos completos para reutilizar según el carácter del proyecto.
+          Cada combo define display, texto, UI y un contexto recomendado.
+        </p>
+        <div class="tools">
+          <span class="tool">16 combinaciones</span>
+          <span class="tool">Google Fonts</span>
+          <span class="tool">Responsive</span>
+          <span class="tool">Filtros por proyecto</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="modern">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">01 / Modern Digital</div>
+          <h2>SaaS, startups & products</h2>
+        </div>
+        <p>Combinaciones con buena legibilidad, personalidad tecnológica y jerarquías claras para productos digitales, dashboards y landing pages.</p>
+      </div>
+
+      <div class="grid">
+
+        <article class="card combo-1" data-category="saas tech">
+          <div class="card-top"><span class="tag"><i class="dot"></i> Modern SaaS</span><span>01</span></div>
+          <div class="preview">
+            <div>
+              <div class="sample-kicker">AI WORKSPACE / 2026</div>
+              <h3 class="sample-h1">Build smarter.<br>Move faster.</h3>
+              <p class="sample-body">A clear, flexible pairing for software products, AI platforms and conversion-focused landing pages.</p>
+            </div>
+            <div class="sample-actions"><a class="sample-button">Start building</a><a class="sample-link">View product</a></div>
+          </div>
+          <div class="meta">
+            <div><b>Fuentes</b><span>Space Grotesk + DM Sans</span></div>
+            <div><b>Ideal para</b><span>SaaS, IA, startups, dashboards</span></div>
+          </div>
+        </article>
+
+        <article class="card combo-5 blue" data-category="saas tech">
+          <div class="card-top"><span class="tag"><i class="dot"></i> Product UI</span><span>02</span></div>
+          <div class="preview">
+            <div>
+              <div class="sample-kicker">SYSTEM / VERSION 4.0</div>
+              <h3 class="sample-h1">One place for your entire workflow.</h3>
+              <p class="sample-body">Friendly geometric headlines with an extremely neutral interface font and monospace labels.</p>
+            </div>
+            <div class="sample-actions"><a class="sample-button">Open workspace</a><a class="sample-link">Documentation</a></div>
+          </div>
+          <div class="meta">
+            <div><b>Fuentes</b><span>Outfit + Inter + IBM Plex Mono</span></div>
+            <div><b>Ideal para</b><span>Apps, fintech, productividad</span></div>
+          </div>
+        </article>
+
+        <article class="card combo-8" data-category="saas commerce">
+          <div class="card-top"><span class="tag"><i class="dot"></i> Friendly Digital</span><span>03</span></div>
+          <div class="preview">
+            <div>
+              <div class="sample-kicker">DESIGNED FOR PEOPLE</div>
+              <h3 class="sample-h1">Simple tools for ambitious teams.</h3>
+              <p class="sample-body">Soft, approachable and modern. Works well when the product needs to feel accessible instead of overly technical.</p>
+            </div>
+            <div class="sample-actions"><a class="sample-button">Try it free</a><a class="sample-link">See how it works</a></div>
+          </div>
+          <div class="meta">
+            <div><b>Fuentes</b><span>Urbanist + Figtree</span></div>
+            <div><b>Ideal para</b><span>SaaS B2C, educación, wellness</span></div>
+          </div>
+        </article>
+
+        <article class="card combo-15 dark" data-category="saas tech">
+          <div class="card-top"><span class="tag"><i class="dot"></i> AI / Developer</span><span>04</span></div>
+          <div class="preview">
+            <div>
+              <div class="sample-kicker">CORE ENGINE / ONLINE</div>
+              <h3 class="sample-h1">Infrastructure that disappears into the product.</h3>
+              <p class="sample-body">A precise system for technical products where the interface needs to feel mature, credible and engineered.</p>
+            </div>
+            <div class="sample-actions"><a class="sample-button">Read the docs</a><a class="sample-link">Explore API</a></div>
+          </div>
+          <div class="meta">
+            <div><b>Fuentes</b><span>Manrope + Inter + JetBrains Mono</span></div>
+            <div><b>Ideal para</b><span>Developer tools, cloud, AI infra</span></div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="section" id="premium">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">02 / Refined</div>
+          <h2>Luxury & premium brands</h2>
+        </div>
+        <p>Contraste entre serif editoriales y sans limpias. Adecuado para hospitality, moda, beauty, arquitectura, restaurantes y marcas de alto ticket.</p>
+      </div>
+
+      <div class="grid">
+
+        <article class="card combo-2 warm" data-category="luxury editorial">
+          <div class="card-top"><span class="tag"><i class="dot"></i> Quiet Luxury</span><span>05</span></div>
+          <div class="preview">
+            <div>
+              <div class="sample-kicker">PRIVATE COLLECTION / 2026</div>
+              <h3 class="sample-h1">Objects shaped by intention.</h3>
+              <p class="sample-body">Elegant display typography balanced by a highly readable sans-serif for premium digital experiences.</p>
+            </div>
+            <div class="sample-actions"><a class="sample-button">Discover collection</a><a class="sample-link">Our story</a></div>
+          </div>
+          <div class="meta">
+            <div><b>Fuentes</b><span>Playfair Display + Manrope</span></div>
+            <div><b>Ideal para</b><span>Luxury, moda, beauty, hoteles</span></div>
+          </div>
+        </article>
+
+        <article class="card combo-3 cream" data-category="luxury editorial">
+          <div class="card-top"><span class="tag"><i class="dot"></i> Editorial Luxury</span><span>06</span></div>
+          <div class="preview">
+            <div>
+              <div class="sample-kicker">ATELIER / LIMA</div>
+              <h3 class="sample-h1">Crafted slowly.<br>Remembered forever.</h3>
+              <p class="sample-body">High-contrast elegance for brands that want more editorial character and less startup energy.</p>
+            </div>
+            <div class="sample-actions"><a class="sample-button">View atelier</a><a class="sample-link">Journal</a></div>
+          </div>
+          <div class="meta">
+            <div><b>Fuentes</b><span>Cormorant Garamond + Montserrat</span></div>
+            <div><b>Ideal para</b><span>Joyería, moda, arquitectura</span></div>
+          </div>
+        </article>
+
+        <article class="card combo-10 editorial" data-category="luxury editorial">
+          <div class="card-top"><span class="tag"><i class="dot"></i> Heritage</span><span>07</span></div>
+          <div class="preview">
+            <div>
+              <div class="sample-kicker">SINCE 1984</div>
+              <h3 class="sample-h1">A tradition refined for a new generation.</h3>
+              <p class="sample-body">More conservative and trustworthy. Useful when heritage, craftsmanship and permanence matter more than novelty.</p>
+            </div>
+            <div class="sample-actions"><a class="sample-button">Explore heritage</a><a class="sample-link">Our philosophy</a></div>
+          </div>
+          <div class="meta">
+            <div><b>Fuentes</b><span>Libre Baskerville + Nunito Sans</span></div>
+            <div><b>Ideal para</b><span>Hoteles, vinos, legal, real estate</span></div>
+          </div>
+        </article>
+
+        <article class="card combo-12 green" data-category="luxury editorial">
+          <div class="card-top"><span class="tag"><i class="dot"></i> Natural Premium</span><span>08</span></div>
+          <div class="preview">
+            <div>
+              <div class="sample-kicker">ROOTED IN NATURE</div>
+              <h3 class="sample-h1">Made with less.<br>Designed to last.</h3>
+              <p class="sample-body">Warm editorial tone with restrained body typography, ideal for calm, sustainable and premium brands.</p>
+            </div>
+            <div class="sample-actions"><a class="sample-button">Our materials</a><a class="sample-link">Read journal</a></div>
+          </div>
+          <div class="meta">
+            <div><b>Fuentes</b><span>Lora + DM Sans</span></div>
+            <div><b>Ideal para</b><span>Skincare, wellness, eco, food</span></div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="section" id="creative">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">03 / Expressive</div>
+          <h2>Creative studios & portfolios</h2>
+        </div>
+        <p>Jerarquías más agresivas, tipografías display con carácter y contrastes pensados para estudios, portfolios, cultura, música y campañas.</p>
+      </div>
+
+      <div class="grid">
+
+        <article class="card combo-4 dark" data-category="creative">
+          <div class="card-top"><span class="tag"><i class="dot"></i> Art Direction</span><span>09</span></div>
+          <div class="preview">
+            <div>
+              <div class="sample-kicker">INDEPENDENT STUDIO</div>
+              <h3 class="sample-h1">We make brands impossible to ignore.</h3>
+              <p class="sample-body">Distinctive display typography with a cleaner supporting sans. Strong without sacrificing readability.</p>
+            </div>
+            <div class="sample-actions"><a class="sample-button">Selected work</a><a class="sample-link">About studio</a></div>
+          </div>
+          <div class="meta">
+            <div><b>Fuentes</b><span>Syne + Plus Jakarta Sans</span></div>
+            <div><b>Ideal para</b><span>Agencias, portfolios, branding</span></div>
+          </div>
+        </article>
+
+        <article class="card combo-9" data-category="creative commerce">
+          <div class="card-top"><span class="tag"><i class="dot"></i> Bold Campaign</span><span>10</span></div>
+          <div class="preview">
+            <div>
+              <div class="sample-kicker">DROP 04 / AVAILABLE NOW</div>
+              <h3 class="sample-h1">NO RULES.<br>JUST MOTION.</h3>
+              <p class="sample-body">Impact-first typography made for campaigns, streetwear, launches and visual-heavy landing pages.</p>
+            </div>
+            <div class="sample-actions"><a class="sample-button">Shop the drop</a><a class="sample-link">Lookbook</a></div>
+          </div>
+          <div class="meta">
+            <div><b>Fuentes</b><span>Bebas Neue + Work Sans</span></div>
+            <div><b>Ideal para</b><span>Streetwear, eventos, música</span></div>
+          </div>
+        </article>
+
+        <article class="card combo-11 blue" data-category="creative tech">
+          <div class="card-top"><span class="tag"><i class="dot"></i> Industrial</span><span>11</span></div>
+          <div class="preview">
+            <div>
+              <div class="sample-kicker">SYSTEM 03 / SIGNAL FOUND</div>
+              <h3 class="sample-h1">BUILT FOR THE EDGE.</h3>
+              <p class="sample-body">Condensed headlines and utilitarian body copy for automotive, industrial and high-performance projects.</p>
+            </div>
+            <div class="sample-actions"><a class="sample-button">Explore platform</a><a class="sample-link">Specifications</a></div>
+          </div>
+          <div class="meta">
+            <div><b>Fuentes</b><span>Oswald + Rubik + JetBrains Mono</span></div>
+            <div><b>Ideal para</b><span>Automotive, IoT, industrial</span></div>
+          </div>
+        </article>
+
+        <article class="card combo-6 cream" data-category="creative">
+          <div class="card-top"><span class="tag"><i class="dot"></i> Condensed Identity</span><span>12</span></div>
+          <div class="preview">
+            <div>
+              <div class="sample-kicker">DESIGN / CULTURE / DIGITAL</div>
+              <h3 class="sample-h1">IDEAS MADE VISIBLE.</h3>
+              <p class="sample-body">Compact, confident and architectural. Excellent when oversized headlines are part of the visual system.</p>
+            </div>
+            <div class="sample-actions"><a class="sample-button">View projects</a><a class="sample-link">Capabilities</a></div>
+          </div>
+          <div class="meta">
+            <div><b>Fuentes</b><span>Barlow Condensed + Barlow</span></div>
+            <div><b>Ideal para</b><span>Estudios, arquitectura, KANZO-style</span></div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="section" id="editorial">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">04 / Content First</div>
+          <h2>Editorial & knowledge products</h2>
+        </div>
+        <p>Combinaciones enfocadas en lectura extensa, autoridad y claridad. Funcionan bien en blogs, revistas digitales, recursos educativos y documentación.</p>
+      </div>
+
+      <div class="grid">
+
+        <article class="card combo-7 editorial" data-category="editorial">
+          <div class="card-top"><span class="tag"><i class="dot"></i> Modern Editorial</span><span>13</span></div>
+          <div class="preview">
+            <div>
+              <div class="sample-kicker">ESSAYS / ISSUE 08</div>
+              <h3 class="sample-h1">Technology changes. Good thinking compounds.</h3>
+              <p class="sample-body">A highly readable serif for content paired with a neutral sans for interface elements and metadata.</p>
+            </div>
+            <div class="sample-actions"><a class="sample-button">Read article</a><a class="sample-link">Browse archive</a></div>
+          </div>
+          <div class="meta">
+            <div><b>Fuentes</b><span>Source Serif 4 + IBM Plex Sans</span></div>
+            <div><b>Ideal para</b><span>Blogs, research, newsletters</span></div>
+          </div>
+        </article>
+
+        <article class="card combo-13" data-category="editorial tech">
+          <div class="card-top"><span class="tag"><i class="dot"></i> Technical Knowledge</span><span>14</span></div>
+          <div class="preview">
+            <div>
+              <div class="sample-kicker">DOCS / ARCHITECTURE</div>
+              <h3 class="sample-h1">Documentation people actually want to read.</h3>
+              <p class="sample-body">A professional technical combination with enough personality for developer documentation and knowledge systems.</p>
+            </div>
+            <div class="sample-actions"><a class="sample-button">Read docs</a><a class="sample-link">API reference</a></div>
+          </div>
+          <div class="meta">
+            <div><b>Fuentes</b><span>Archivo + IBM Plex Sans + Mono</span></div>
+            <div><b>Ideal para</b><span>Docs, dev portals, knowledge base</span></div>
+          </div>
+        </article>
+
+        <article class="card combo-14 warm" data-category="editorial commerce">
+          <div class="card-top"><span class="tag"><i class="dot"></i> Lifestyle Editorial</span><span>15</span></div>
+          <div class="preview">
+            <div>
+              <div class="sample-kicker">THE EDIT / SUMMER 2026</div>
+              <h3 class="sample-h1">Stories, places and objects worth keeping.</h3>
+              <p class="sample-body">Elegant but contemporary, useful for lifestyle brands that blend commerce with editorial storytelling.</p>
+            </div>
+            <div class="sample-actions"><a class="sample-button">Explore stories</a><a class="sample-link">Latest edition</a></div>
+          </div>
+          <div class="meta">
+            <div><b>Fuentes</b><span>Raleway + Manrope</span></div>
+            <div><b>Ideal para</b><span>Lifestyle, travel, magazine</span></div>
+          </div>
+        </article>
+
+        <article class="card combo-16 dark" data-category="commerce creative">
+          <div class="card-top"><span class="tag"><i class="dot"></i> Commercial Impact</span><span>16</span></div>
+          <div class="preview">
+            <div>
+              <div class="sample-kicker">NEW SEASON / ONLINE</div>
+              <h3 class="sample-h1">DESIGNED TO BE NOTICED.</h3>
+              <p class="sample-body">Strong geometric hierarchy for campaigns and stores where clear calls to action matter as much as brand identity.</p>
+            </div>
+            <div class="sample-actions"><a class="sample-button">Shop now</a><a class="sample-link">Discover campaign</a></div>
+          </div>
+          <div class="meta">
+            <div><b>Fuentes</b><span>Montserrat ExtraBold + DM Sans</span></div>
+            <div><b>Ideal para</b><span>E-commerce, sports, promotions</span></div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>Typography Combo Library — Web Component Repository</span>
+      <span>Tip: usa máximo 2 familias por proyecto; 3 solo si Mono cumple una función UI clara.</span>
+    </footer>
+
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll('#filters button');
+    const cards = document.querySelectorAll('.card');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        button.classList.add('active');
+
+        const filter = button.dataset.filter;
+
+        cards.forEach(card => {
+          const categories = card.dataset.category.split(' ');
+          const shouldShow = filter === 'all' || categories.includes(filter);
+          card.classList.toggle('hidden', !shouldShow);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

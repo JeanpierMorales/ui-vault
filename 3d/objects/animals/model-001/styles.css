@@ -1,0 +1,1186 @@
+/* ============================================================
+   RESET
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+
+  min-height: 100vh;
+
+  font-family:
+    Inter,
+    ui-sans-serif,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  background: #f7f7f9;
+  color: #101116;
+
+  overflow-x: hidden;
+}
+
+button {
+  font: inherit;
+}
+
+
+
+/* ============================================================
+   VARIABLES
+   ============================================================ */
+
+:root {
+
+  --black: #0a0b0f;
+
+  --violet:
+    #7166ff;
+
+  --violet-soft:
+    rgba(113, 102, 255, 0.18);
+
+  --white:
+    #f8f8fb;
+
+  --page-padding:
+    clamp(28px, 7vw, 110px);
+
+}
+
+
+
+/* ============================================================
+   BACKGROUND
+   ============================================================ */
+
+.ambient-background {
+  position: fixed;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  overflow: hidden;
+
+  z-index: -10;
+}
+
+.ambient-light {
+  position: absolute;
+
+  border-radius: 999px;
+
+  filter: blur(110px);
+
+  opacity: 0.5;
+}
+
+.ambient-light--1 {
+  width: 420px;
+  height: 420px;
+
+  top: 3vh;
+  right: 9vw;
+
+  background:
+    rgba(115, 96, 255, 0.16);
+}
+
+.ambient-light--2 {
+  width: 400px;
+  height: 400px;
+
+  bottom: 3vh;
+  left: 6vw;
+
+  background:
+    rgba(125, 159, 255, 0.12);
+}
+
+
+
+/* ============================================================
+   RAVEN GLOBAL LAYER
+   ============================================================ */
+
+.raven-flight-layer {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 50;
+
+  pointer-events: none;
+
+  perspective: 1400px;
+
+  transform-style: preserve-3d;
+}
+
+
+
+/* ============================================================
+   RAVEN WRAPPER
+   ============================================================ */
+
+.raven-wrapper {
+  position: absolute;
+
+  width:
+    clamp(
+      220px,
+      30vw,
+      420px
+    );
+
+  aspect-ratio:
+    600 / 720;
+
+  left: 70%;
+  top: 52%;
+
+  transform:
+    translate(-50%, -50%);
+
+  transform-origin:
+    50% 50%;
+
+  will-change:
+    transform,
+    left,
+    top;
+
+  filter:
+    drop-shadow(
+      0 30px 35px
+      rgba(0,0,0,0.12)
+    );
+}
+
+
+
+/* ============================================================
+   RAVEN SVG
+   ============================================================ */
+
+.raven {
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+
+  transform-style: preserve-3d;
+
+  animation:
+    ravenIdle
+    4.5s
+    ease-in-out
+    infinite;
+}
+
+
+
+/* ============================================================
+   IDLE
+   ============================================================ */
+
+@keyframes ravenIdle {
+
+  0%,
+  100% {
+    translate:
+      0
+      0;
+  }
+
+  50% {
+    translate:
+      0
+      -7px;
+  }
+
+}
+
+
+
+/* ============================================================
+   SHADOW
+   ============================================================ */
+
+.raven-shadow {
+  position: absolute;
+
+  left: 50%;
+  bottom: 2%;
+
+  width: 49%;
+  height: 7%;
+
+  transform:
+    translateX(-50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(13,14,23,.27),
+      rgba(13,14,23,.08) 45%,
+      transparent 70%
+    );
+
+  filter:
+    blur(10px);
+
+  transition:
+    opacity
+    300ms ease,
+    scale
+    300ms ease;
+
+  opacity: 0.8;
+}
+
+
+
+/* ============================================================
+   SVG BODY
+   ============================================================ */
+
+.body {
+  transform-origin:
+    300px 430px;
+}
+
+
+
+/* ============================================================
+   HEAD
+   ============================================================ */
+
+.head-group {
+  transform-origin:
+    300px 290px;
+
+  will-change:
+    transform;
+}
+
+.head-feather {
+  fill:
+    #181a24;
+}
+
+.face-feather {
+  fill:
+    #11131a;
+}
+
+
+
+/* ============================================================
+   EYES
+   ============================================================ */
+
+.eye-white {
+  fill:
+    #f1eff6;
+
+  stroke:
+    rgba(8,9,14,0.76);
+
+  stroke-width:
+    6px;
+}
+
+.iris {
+  transform-origin:
+    center;
+
+  will-change:
+    transform;
+}
+
+.eyelid {
+  fill:
+    #151720;
+
+  transform-origin:
+    center;
+
+  opacity: 0;
+}
+
+.brow {
+  fill: none;
+
+  stroke:
+    #101219;
+
+  stroke-width:
+    12;
+
+  stroke-linecap:
+    round;
+}
+
+
+
+/* ============================================================
+   BEAK
+   ============================================================ */
+
+.beak-group {
+  transform-origin:
+    304px 264px;
+}
+
+.beak-highlight {
+  fill: none;
+
+  stroke:
+    rgba(255,255,255,0.14);
+
+  stroke-width:
+    5;
+
+  stroke-linecap:
+    round;
+}
+
+
+
+/* ============================================================
+   WINGS
+   ============================================================ */
+
+.wing {
+  will-change:
+    transform;
+
+  transition:
+    filter
+    400ms ease;
+}
+
+.wing--left {
+  transform-origin:
+    260px 308px;
+}
+
+.wing--right {
+  transform-origin:
+    340px 308px;
+}
+
+.wing-feather {
+  stroke:
+    rgba(255,255,255,0.018);
+
+  stroke-width:
+    1;
+}
+
+
+
+/* ============================================================
+   CHEST
+   ============================================================ */
+
+.chest-feathers path {
+  fill:
+    #171a23;
+
+  opacity:
+    0.8;
+}
+
+
+
+/* ============================================================
+   LEGS
+   ============================================================ */
+
+.leg,
+.toe {
+  fill: none;
+
+  stroke:
+    #24262e;
+
+  stroke-width:
+    13;
+
+  stroke-linecap:
+    round;
+}
+
+
+
+/* ============================================================
+   PAGE SECTIONS
+   ============================================================ */
+
+.page {
+  position: relative;
+
+  z-index: 1;
+}
+
+.section {
+  position: relative;
+
+  min-height: 115vh;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(300px, .85fr);
+
+  align-items: center;
+
+  gap:
+    clamp(
+      40px,
+      8vw,
+      140px
+    );
+
+  padding:
+    12vh
+    var(--page-padding);
+
+  overflow: hidden;
+}
+
+
+
+/* ============================================================
+   GENERAL CONTENT
+   ============================================================ */
+
+.section-content {
+  position: relative;
+
+  z-index: 4;
+
+  max-width: 650px;
+}
+
+.section-number,
+.eyebrow {
+  margin:
+    0 0 30px;
+
+  font-size:
+    11px;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    .2em;
+
+  text-transform:
+    uppercase;
+
+  opacity:
+    .36;
+}
+
+.section h1,
+.section h2 {
+  margin: 0;
+
+  font-weight: 530;
+
+  letter-spacing:
+    -.055em;
+
+  line-height:
+    .95;
+}
+
+.section h1 {
+  max-width: 800px;
+
+  font-size:
+    clamp(
+      64px,
+      8vw,
+      126px
+    );
+}
+
+.section h2 {
+  max-width: 670px;
+
+  font-size:
+    clamp(
+      54px,
+      6vw,
+      100px
+    );
+}
+
+.section h1 span,
+.section h2 span {
+  display: block;
+
+  color:
+    #7166ff;
+}
+
+.section-content > p:not(
+  .section-number,
+  .eyebrow
+) {
+  max-width: 490px;
+
+  margin-top:
+    34px;
+
+  font-size:
+    clamp(
+      16px,
+      1.4vw,
+      20px
+    );
+
+  line-height:
+    1.65;
+
+  color:
+    rgba(10,11,15,.57);
+}
+
+
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
+.hero {
+  min-height:
+    125vh;
+
+  background:
+    radial-gradient(
+      circle at 75% 39%,
+      rgba(111,102,255,0.11),
+      transparent 31%
+    ),
+    linear-gradient(
+      180deg,
+      #fafafd,
+      #f3f3f7
+    );
+}
+
+.hero-content {
+  margin-bottom:
+    10vh;
+}
+
+.hero-description {
+  font-size:
+    20px !important;
+}
+
+.hero-raven-space {
+  min-height:
+    500px;
+}
+
+
+
+/* ============================================================
+   BUTTON
+   ============================================================ */
+
+.primary-button {
+  position: relative;
+
+  margin-top:
+    27px;
+
+  padding:
+    15px
+    25px;
+
+  border:
+    1px solid
+    rgba(0,0,0,.08);
+
+  border-radius:
+    12px;
+
+  background:
+    #111218;
+
+  color:
+    white;
+
+  cursor:
+    pointer;
+
+  font-weight:
+    550;
+
+  transition:
+    transform
+    300ms
+    cubic-bezier(.2,.8,.2,1),
+    box-shadow
+    300ms ease;
+}
+
+.primary-button:hover {
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 12px 35px
+    rgba(0,0,0,.13);
+}
+
+.primary-button--light {
+  background:
+    white;
+
+  color:
+    #111218;
+}
+
+
+
+/* ============================================================
+   LIGHT SECTION
+   ============================================================ */
+
+.section-light {
+  background:
+    #f9f9fb;
+}
+
+
+
+/* ============================================================
+   DARK SECTION
+   ============================================================ */
+
+.section-dark {
+  background:
+    #0b0c10;
+
+  color:
+    white;
+}
+
+.section-dark
+.section-content
+> p:not(.section-number) {
+  color:
+    rgba(255,255,255,.46);
+}
+
+
+
+/* ============================================================
+   BOOK COMPONENT
+   ============================================================ */
+
+.demo-card {
+  display: grid;
+
+  place-items: center;
+
+  min-height:
+    500px;
+}
+
+.book {
+  position: relative;
+
+  width:
+    min(260px, 60vw);
+
+  aspect-ratio:
+    0.69;
+
+  transform:
+    rotateY(-18deg)
+    rotateX(8deg)
+    rotateZ(3deg);
+
+  transform-style:
+    preserve-3d;
+
+  filter:
+    drop-shadow(
+      0 35px 45px
+      rgba(0,0,0,.16)
+    );
+}
+
+.book-cover {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 2;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content:
+    flex-end;
+
+  padding:
+    30px;
+
+  border-radius:
+    5px 13px 13px 5px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #201d38,
+      #0d0d17
+    );
+
+  color:
+    white;
+}
+
+.book-cover span {
+  font-size:
+    10px;
+
+  letter-spacing:
+    .3em;
+
+  opacity:
+    .6;
+}
+
+.book-cover strong {
+  margin-top:
+    7px;
+
+  font-size:
+    36px;
+
+  line-height:
+    .9;
+
+  letter-spacing:
+    -.05em;
+}
+
+.book-pages {
+  position: absolute;
+
+  top:
+    7px;
+
+  left:
+    13px;
+
+  right:
+    -13px;
+
+  bottom:
+    -9px;
+
+  border-radius:
+    4px 12px 12px 4px;
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      #eeeae1
+      0 2px,
+
+      #d6d3cc
+      2px 3px
+    );
+}
+
+
+
+/* ============================================================
+   CREATION
+   ============================================================ */
+
+.creation-card {
+  width:
+    min(380px, 90%);
+
+  margin:
+    0 auto;
+
+  padding:
+    12px;
+
+  border:
+    1px solid
+    rgba(255,255,255,.09);
+
+  border-radius:
+    24px;
+
+  background:
+    rgba(255,255,255,.04);
+
+  backdrop-filter:
+    blur(18px);
+
+  transform:
+    rotate(-4deg);
+}
+
+.creation-image {
+  height:
+    410px;
+
+  border-radius:
+    18px;
+
+  background:
+    radial-gradient(
+      circle at 40% 35%,
+      #8277ff,
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 70% 65%,
+      #243b76,
+      transparent 35%
+    ),
+    linear-gradient(
+      145deg,
+      #242239,
+      #101118
+    );
+}
+
+.creation-copy {
+  padding:
+    20px 6px 8px;
+}
+
+.creation-copy span {
+  display: block;
+
+  margin-bottom:
+    8px;
+
+  font-size:
+    11px;
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    .15em;
+
+  opacity:
+    .35;
+}
+
+.creation-copy strong {
+  display: block;
+
+  font-size:
+    20px;
+
+  font-weight:
+    500;
+}
+
+
+
+/* ============================================================
+   BUCKET
+   ============================================================ */
+
+.bucket-card {
+  width:
+    min(
+      380px,
+      90%
+    );
+
+  margin:
+    0 auto;
+
+  padding:
+    30px;
+
+  border:
+    1px solid
+    rgba(17,18,24,.08);
+
+  border-radius:
+    28px;
+
+  background:
+    rgba(255,255,255,.82);
+
+  box-shadow:
+    0 30px 80px
+    rgba(19,20,30,.08);
+
+  backdrop-filter:
+    blur(20px);
+}
+
+.bucket-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content:
+    space-between;
+
+  font-size:
+    13px;
+
+  font-weight:
+    600;
+}
+
+.status-dot {
+  width:
+    9px;
+
+  height:
+    9px;
+
+  border-radius:
+    50%;
+
+  background:
+    #7166ff;
+
+  box-shadow:
+    0 0 16px
+    rgba(113,102,255,.65);
+}
+
+.bucket-number {
+  margin-top:
+    55px;
+
+  font-size:
+    96px;
+
+  font-weight:
+    470;
+
+  line-height:
+    .85;
+
+  letter-spacing:
+    -.07em;
+}
+
+.bucket-card > p {
+  margin:
+    13px 0 35px;
+
+  color:
+    rgba(0,0,0,.42);
+}
+
+.bucket-stats {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  padding-top:
+    22px;
+
+  border-top:
+    1px solid
+    rgba(0,0,0,.07);
+}
+
+.bucket-stats div {
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    5px;
+}
+
+.bucket-stats strong {
+  font-size:
+    23px;
+}
+
+.bucket-stats span {
+  font-size:
+    12px;
+
+  opacity:
+    .4;
+}
+
+
+
+/* ============================================================
+   FINAL
+   ============================================================ */
+
+.section-final {
+  min-height:
+    130vh;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  text-align:
+    center;
+
+  color:
+    white;
+
+  background:
+    #08090d;
+}
+
+.final-content {
+  max-width:
+    900px;
+}
+
+.final-content h2 {
+  margin:
+    0 auto;
+}
+
+.final-content
+.section-number {
+  color:
+    white;
+}
+
+.final-glow {
+  position: absolute;
+
+  width:
+    700px;
+
+  height:
+    700px;
+
+  border-radius:
+    50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(114,102,255,.19),
+      transparent 65%
+    );
+
+  filter:
+    blur(70px);
+}
+
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media
+(max-width: 900px) {
+
+  .section {
+    grid-template-columns:
+      1fr;
+
+    gap:
+      70px;
+
+    min-height:
+      120vh;
+
+    padding-top:
+      16vh;
+
+    padding-bottom:
+      16vh;
+  }
+
+  .hero {
+    min-height:
+      130vh;
+  }
+
+  .raven-wrapper {
+    width:
+      clamp(
+        170px,
+        48vw,
+        300px
+      );
+  }
+
+  .hero-raven-space {
+    min-height:
+      380px;
+  }
+
+}
+
+
+
+@media
+(prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration:
+      .001ms !important;
+
+    animation-iteration-count:
+      1 !important;
+
+    transition-duration:
+      .001ms !important;
+  }
+
+}

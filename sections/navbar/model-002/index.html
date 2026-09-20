@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Glass Navigation</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <main class="page">
+
+    <nav class="glass-nav" id="glassNav">
+
+      <!-- LOGO -->
+      <a href="#inicio" class="brand-button" aria-label="Inicio">
+        <span class="brand-symbol">
+          <span class="brand-circle brand-circle-main"></span>
+          <span class="brand-circle brand-circle-small"></span>
+          <span class="brand-circle brand-circle-mini"></span>
+        </span>
+      </a>
+
+
+      <!-- LINKS -->
+      <div class="nav-menu" id="navMenu">
+
+        <!-- indicador móvil -->
+        <span
+          class="nav-indicator"
+          id="navIndicator"
+          aria-hidden="true"
+        ></span>
+
+        <a
+          href="#inicio"
+          class="nav-item active"
+          data-nav
+        >
+          Inicio
+        </a>
+
+        <a
+          href="#pricing"
+          class="nav-item"
+          data-nav
+        >
+          Pricing
+        </a>
+
+        <a
+          href="#nosotros"
+          class="nav-item"
+          data-nav
+        >
+          Quiénes somos
+        </a>
+
+        <a
+          href="#servicios"
+          class="nav-item"
+          data-nav
+        >
+          Servicios
+        </a>
+
+        <a
+          href="#contacto"
+          class="nav-item"
+          data-nav
+        >
+          Contacto
+        </a>
+
+      </div>
+
+
+      <!-- DIVIDER -->
+      <div class="nav-divider"></div>
+
+
+      <!-- CTA -->
+      <a href="#contacto" class="nav-cta">
+        <span>Hablemos</span>
+
+        <span class="cta-arrow">
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              d="M5 12h14M13 6l6 6-6 6"
+            />
+          </svg>
+        </span>
+      </a>
+
+    </nav>
+
+
+
+    <!-- SOLO PARA PROBAR EL SCROLL -->
+
+    <section id="inicio" class="section">
+      <span>Inicio</span>
+    </section>
+
+    <section id="pricing" class="section">
+      <span>Pricing</span>
+    </section>
+
+    <section id="nosotros" class="section">
+      <span>Quiénes somos</span>
+    </section>
+
+    <section id="servicios" class="section">
+      <span>Servicios</span>
+    </section>
+
+    <section id="contacto" class="section">
+      <span>Contacto</span>
+    </section>
+
+  </main>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

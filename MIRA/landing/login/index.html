@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicia sesión — MIRA</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&amp;family=Montserrat:wght@800&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <main class="auth-wrapper">
+      <a class="auth-back" href="../index.html" aria-label="Volver a la página principal de MIRA">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6" /></svg>
+        <span>Volver a MIRA</span>
+      </a>
+
+      <!-- Structure and panel transition from UI Vault pages/login/login-004. -->
+      <section class="auth-container" id="authContainer" aria-label="Acceso a MIRA">
+        <div class="form-panel sign-in-panel">
+          <div class="form-content">
+            <p class="form-mark">MIRA</p>
+            <h1>Vuelve a tu espacio.</h1>
+
+            <div class="social-buttons" aria-label="Opciones de acceso social">
+              <button class="social-button" type="button" aria-label="Continuar con Google"><i class="fa-brands fa-google" aria-hidden="true"></i></button>
+              <button class="social-button" type="button" aria-label="Continuar con TikTok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></button>
+              <button class="social-button" type="button" aria-label="Continuar con Apple"><i class="fa-brands fa-apple" aria-hidden="true"></i></button>
+            </div>
+
+            <p class="form-description">O USA TU CORREO</p>
+
+            <div class="fields">
+              <div class="field">
+                <div class="input-group"><input id="loginEmail" type="email" autocomplete="email" placeholder="Correo electrónico" /></div>
+                <span class="field-error">Ingresa tu correo electrónico.</span>
+              </div>
+
+              <div class="field">
+                <div class="input-group"><input id="loginPassword" type="password" autocomplete="current-password" placeholder="Contraseña" /></div>
+                <span class="field-error">Ingresa tu contraseña.</span>
+              </div>
+            </div>
+
+            <a href="#loginPassword" class="forgot-password">¿Olvidaste tu contraseña?</a>
+            <button class="primary-button" id="loginSubmit" type="button">ENTRAR A MIRA</button>
+          </div>
+        </div>
+
+        <div class="form-panel sign-up-panel">
+          <div class="form-content">
+            <p class="form-mark">MIRA</p>
+            <h1>Hazle espacio a tu historia.</h1>
+
+            <div class="social-buttons" aria-label="Opciones de registro social">
+              <button class="social-button" type="button" aria-label="Registrarte con Google"><i class="fa-brands fa-google" aria-hidden="true"></i></button>
+              <button class="social-button" type="button" aria-label="Registrarte con TikTok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></button>
+              <button class="social-button" type="button" aria-label="Registrarte con Apple"><i class="fa-brands fa-apple" aria-hidden="true"></i></button>
+            </div>
+
+            <p class="form-description">O CREA TU CUENTA CON CORREO</p>
+
+            <div class="fields">
+              <div class="field">
+                <div class="input-group"><input id="registerName" type="text" autocomplete="name" placeholder="Nombre" /></div>
+                <span class="field-error">Ingresa tu nombre.</span>
+              </div>
+
+              <div class="field">
+                <div class="input-group"><input id="registerEmail" type="email" autocomplete="email" placeholder="Correo electrónico" /></div>
+                <span class="field-error">Ingresa tu correo electrónico.</span>
+              </div>
+
+              <div class="field">
+                <div class="input-group"><input id="registerPassword" type="password" autocomplete="new-password" placeholder="Crea una contraseña" /></div>
+                <span class="field-error">Crea una contraseña.</span>
+              </div>
+            </div>
+
+            <button class="primary-button" id="registerSubmit" type="button">CREAR MI CUENTA</button>
+          </div>
+        </div>
+
+        <div class="overlay-container" aria-live="polite">
+          <div class="overlay">
+            <div class="overlay-panel overlay-left">
+              <div class="decor-circle decor-circle-top"></div>
+              <div class="decor-circle decor-circle-bottom"></div>
+              <div class="overlay-content">
+                <h2>Qué bueno verte.</h2>
+                <p>Vuelve a organizar el contenido de tu libro sin dejar de escribir.</p>
+                <button class="ghost-button" id="signInButton" type="button">INICIAR SESIÓN</button>
+              </div>
+            </div>
+
+            <div class="overlay-panel overlay-right">
+              <div class="decor-circle decor-circle-top"></div>
+              <div class="decor-circle decor-circle-bottom"></div>
+              <div class="overlay-content">
+                <h2>Tu escritura sigue al centro.</h2>
+                <p>Crea tu espacio y convierte tu historia en contenido con intención.</p>
+                <button class="ghost-button" id="signUpButton" type="button">CREAR CUENTA</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="../../../pages/login/login-004/script.js"></script>
+  </body>
+</html>

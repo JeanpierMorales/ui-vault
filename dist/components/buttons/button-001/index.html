@@ -1,0 +1,1054 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Button Motion Library</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="page">
+      <header class="hero">
+        <span class="eyebrow">ADVANCED BUTTON MOTION LIBRARY</span>
+
+        <h1>
+          Interaction-first
+          <br />
+          button system.
+        </h1>
+
+        <p>
+          Una biblioteca de botones orientada a acciones reales: navegación,
+          descarga, confirmación, subida, favoritos, compra, progreso,
+          reproducción y estados.
+        </p>
+      </header>
+
+      <section class="toolbar">
+        <div class="filters">
+          <button class="filter active" data-filter="all">Todos</button>
+
+          <button class="filter" data-filter="cta">CTA</button>
+
+          <button class="filter" data-filter="navigation">Navegación</button>
+
+          <button class="filter" data-filter="download">Descarga</button>
+
+          <button class="filter" data-filter="state">Estados</button>
+
+          <button class="filter" data-filter="icon">Iconos</button>
+
+          <button class="filter" data-filter="motion">Motion</button>
+
+          <button class="filter" data-filter="commerce">Commerce</button>
+        </div>
+
+        <input id="search" type="search" placeholder="Buscar botón..." />
+      </section>
+
+      <main class="grid">
+        <!-- 01 -->
+        <article class="card" data-category="cta motion" data-name="apple soft">
+          <div class="preview soft">
+            <button class="btn apple-soft">Get started</button>
+          </div>
+
+          <footer>
+            <strong>Soft CTA</strong>
+            <code>.apple-soft</code>
+          </footer>
+        </article>
+
+        <!-- 02 -->
+        <article class="card" data-category="cta motion" data-name="spotlight">
+          <div class="preview dark">
+            <button class="btn spotlight-btn" data-spotlight>Explore</button>
+          </div>
+
+          <footer>
+            <strong>Spotlight</strong>
+            <code>.spotlight-btn</code>
+          </footer>
+        </article>
+
+        <!-- 03 -->
+        <article
+          class="card"
+          data-category="navigation motion"
+          data-name="arrow follow"
+        >
+          <div class="preview sand">
+            <button class="btn arrow-follow">
+              <span>Discover</span>
+
+              <span class="arrow-circle"> → </span>
+            </button>
+          </div>
+
+          <footer>
+            <strong>Arrow Follow</strong>
+            <code>.arrow-follow</code>
+          </footer>
+        </article>
+
+        <!-- 04 -->
+        <article
+          class="card"
+          data-category="navigation motion"
+          data-name="arrow reveal"
+        >
+          <div class="preview">
+            <button class="btn arrow-reveal">
+              <span>Next project</span>
+              <span>→</span>
+            </button>
+          </div>
+
+          <footer>
+            <strong>Arrow Reveal</strong>
+            <code>.arrow-reveal</code>
+          </footer>
+        </article>
+
+        <!-- 05 -->
+        <article class="card" data-category="cta motion" data-name="magnetic">
+          <div class="preview">
+            <button class="btn magnetic" data-magnetic>Magnetic</button>
+          </div>
+
+          <footer>
+            <strong>Magnetic</strong>
+            <code>.magnetic</code>
+          </footer>
+        </article>
+
+        <!-- 06 -->
+        <article
+          class="card"
+          data-category="motion cta"
+          data-name="cursor fill"
+        >
+          <div class="preview mint">
+            <button class="btn cursor-fill" data-cursor-fill>
+              View more
+              <span class="cursor-bubble"></span>
+            </button>
+          </div>
+
+          <footer>
+            <strong>Cursor Fill</strong>
+            <code>.cursor-fill</code>
+          </footer>
+        </article>
+
+        <!-- 07 -->
+        <article class="card" data-category="cta motion" data-name="liquid">
+          <div class="preview cyan">
+            <button class="btn liquid">
+              <span>Connect</span>
+            </button>
+          </div>
+
+          <footer>
+            <strong>Liquid Rise</strong>
+            <code>.liquid</code>
+          </footer>
+        </article>
+
+        <!-- 08 -->
+        <article class="card" data-category="cta motion" data-name="diagonal">
+          <div class="preview">
+            <button class="btn diagonal-fill">Contact us</button>
+          </div>
+
+          <footer>
+            <strong>Diagonal Fill</strong>
+            <code>.diagonal-fill</code>
+          </footer>
+        </article>
+
+        <!-- 09 -->
+        <article class="card" data-category="cta motion" data-name="split">
+          <div class="preview dark">
+            <button class="btn split-btn">
+              <span>Start building</span>
+            </button>
+          </div>
+
+          <footer>
+            <strong>Split Layers</strong>
+            <code>.split-btn</code>
+          </footer>
+        </article>
+
+        <!-- 10 -->
+        <article class="card" data-category="motion cta" data-name="text swap">
+          <div class="preview dark">
+            <button class="btn text-swap">
+              <span class="text-a">Start now</span>
+              <span class="text-b">Let's go →</span>
+            </button>
+          </div>
+
+          <footer>
+            <strong>Text Swap</strong>
+            <code>.text-swap</code>
+          </footer>
+        </article>
+
+        <!-- 11 -->
+        <article class="card" data-category="cta motion" data-name="shimmer">
+          <div class="preview purple">
+            <button class="btn shimmer">Upgrade</button>
+          </div>
+
+          <footer>
+            <strong>Shimmer</strong>
+            <code>.shimmer</code>
+          </footer>
+        </article>
+
+        <!-- 12 -->
+        <article
+          class="card"
+          data-category="motion cta"
+          data-name="aurora border"
+        >
+          <div class="preview dark">
+            <button class="btn aurora-border">Continue</button>
+          </div>
+
+          <footer>
+            <strong>Aurora Border</strong>
+            <code>.aurora-border</code>
+          </footer>
+        </article>
+
+        <!-- 13 -->
+        <article class="card" data-category="cta motion" data-name="glass">
+          <div class="preview gradient">
+            <button class="btn glass">View details</button>
+          </div>
+
+          <footer>
+            <strong>Glass</strong>
+            <code>.glass</code>
+          </footer>
+        </article>
+
+        <!-- 14 -->
+        <article class="card" data-category="motion" data-name="physical">
+          <div class="preview blue">
+            <button class="btn physical">Press me</button>
+          </div>
+
+          <footer>
+            <strong>Physical</strong>
+            <code>.physical</code>
+          </footer>
+        </article>
+
+        <!-- 15 -->
+        <article class="card" data-category="motion" data-name="spring">
+          <div class="preview">
+            <button class="btn spring-btn">Bounce</button>
+          </div>
+
+          <footer>
+            <strong>Spring</strong>
+            <code>.spring-btn</code>
+          </footer>
+        </article>
+
+        <!-- 16 -->
+        <article class="card" data-category="motion" data-name="soft press">
+          <div class="preview soft">
+            <button class="btn soft-press">Continue</button>
+          </div>
+
+          <footer>
+            <strong>Soft Press</strong>
+            <code>.soft-press</code>
+          </footer>
+        </article>
+
+        <!-- 17 -->
+        <article class="card" data-category="navigation" data-name="underline">
+          <div class="preview">
+            <button class="btn underline">Read article</button>
+          </div>
+
+          <footer>
+            <strong>Underline Travel</strong>
+            <code>.underline</code>
+          </footer>
+        </article>
+
+        <!-- 18 -->
+        <article class="card" data-category="navigation" data-name="brackets">
+          <div class="preview">
+            <button class="btn brackets">
+              <span>[</span>
+              About
+              <span>]</span>
+            </button>
+          </div>
+
+          <footer>
+            <strong>Brackets</strong>
+            <code>.brackets</code>
+          </footer>
+        </article>
+
+        <!-- 19 -->
+        <article
+          class="card"
+          data-category="navigation motion"
+          data-name="corner frame"
+        >
+          <div class="preview sand">
+            <button class="btn corners">
+              Open case study
+              <i class="tl"></i>
+              <i class="tr"></i>
+              <i class="bl"></i>
+              <i class="br"></i>
+            </button>
+          </div>
+
+          <footer>
+            <strong>Corner Frame</strong>
+            <code>.corners</code>
+          </footer>
+        </article>
+
+        <!-- 20 -->
+        <article
+          class="card"
+          data-category="navigation motion"
+          data-name="back"
+        >
+          <div class="preview">
+            <button class="btn back-btn">
+              <span class="back-arrow">←</span>
+              <span>Back</span>
+            </button>
+          </div>
+
+          <footer>
+            <strong>Back Glide</strong>
+            <code>.back-btn</code>
+          </footer>
+        </article>
+
+        <!-- 21 -->
+        <article
+          class="card"
+          data-category="navigation icon"
+          data-name="next circle"
+        >
+          <div class="preview dark">
+            <button class="icon-btn circle-next">→</button>
+          </div>
+
+          <footer>
+            <strong>Circle Next</strong>
+            <code>.circle-next</code>
+          </footer>
+        </article>
+
+        <!-- 22 -->
+        <article
+          class="card"
+          data-category="icon motion"
+          data-name="menu morph"
+        >
+          <div class="preview">
+            <button class="icon-btn menu-btn">
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+
+          <footer>
+            <strong>Menu Morph</strong>
+            <code>.menu-btn</code>
+          </footer>
+        </article>
+
+        <!-- 23 -->
+        <article class="card" data-category="icon state" data-name="heart">
+          <div class="preview rose">
+            <button class="icon-btn heart-btn">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 1 0-7.8 7.8L12 21.2l8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <footer>
+            <strong>Favorite</strong>
+            <code>.heart-btn</code>
+          </footer>
+        </article>
+
+        <!-- 24 -->
+        <article class="card" data-category="icon state" data-name="bookmark">
+          <div class="preview blue">
+            <button class="icon-btn bookmark-btn">
+              <svg viewBox="0 0 24 24">
+                <path d="M6 4h12v17l-6-4-6 4Z" />
+              </svg>
+            </button>
+          </div>
+
+          <footer>
+            <strong>Bookmark</strong>
+            <code>.bookmark-btn</code>
+          </footer>
+        </article>
+
+        <!-- 25 -->
+        <article class="card" data-category="icon state" data-name="plus check">
+          <div class="preview mint">
+            <button class="icon-btn plus-check">
+              <span class="plus-line a"></span>
+              <span class="plus-line b"></span>
+            </button>
+          </div>
+
+          <footer>
+            <strong>Plus → Check</strong>
+            <code>.plus-check</code>
+          </footer>
+        </article>
+
+        <!-- 26 -->
+        <article
+          class="card"
+          data-category="icon motion"
+          data-name="play pause"
+        >
+          <div class="preview dark">
+            <button class="icon-btn play-pause">
+              <span class="play-shape"></span>
+            </button>
+          </div>
+
+          <footer>
+            <strong>Play / Pause</strong>
+            <code>.play-pause</code>
+          </footer>
+        </article>
+
+        <!-- 27 -->
+        <article
+          class="card"
+          data-category="download icon"
+          data-name="download hover"
+        >
+          <div class="preview blue">
+            <button class="btn download-hover">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 3v12m0 0 5-5m-5 5-5-5M5 21h14" />
+              </svg>
+
+              Download
+            </button>
+          </div>
+
+          <footer>
+            <strong>Download Drop</strong>
+            <code>.download-hover</code>
+          </footer>
+        </article>
+
+        <!-- 28 -->
+        <article
+          class="card"
+          data-category="download state"
+          data-name="download progress"
+        >
+          <div class="preview">
+            <button class="btn download-progress" data-download>
+              <span class="download-label"> Download </span>
+
+              <span class="download-progress-bar"></span>
+
+              <span class="download-percent"> 0% </span>
+            </button>
+          </div>
+
+          <footer>
+            <strong>Download Progress</strong>
+            <code>.download-progress</code>
+          </footer>
+        </article>
+
+        <!-- 29 -->
+        <article
+          class="card"
+          data-category="download state"
+          data-name="download success"
+        >
+          <div class="preview mint">
+            <button class="btn download-success" data-download-success>
+              <span class="download-icon"> ↓ </span>
+
+              <span class="success-icon"> ✓ </span>
+
+              <span class="success-label"> Download </span>
+            </button>
+          </div>
+
+          <footer>
+            <strong>Download Success</strong>
+            <code>.download-success</code>
+          </footer>
+        </article>
+
+        <!-- 30 -->
+        <article class="card" data-category="state motion" data-name="loading">
+          <div class="preview">
+            <button class="btn loading-btn" data-loading>
+              <span class="loading-label"> Generate </span>
+
+              <span class="spinner"></span>
+
+              <span class="done-label"> Done </span>
+            </button>
+          </div>
+
+          <footer>
+            <strong>Loading Morph</strong>
+            <code>.loading-btn</code>
+          </footer>
+        </article>
+
+        <!-- 31 -->
+        <article
+          class="card"
+          data-category="state motion"
+          data-name="loading dots"
+        >
+          <div class="preview dark">
+            <button class="btn loading-dots" data-loading-dots>
+              <span class="dots-label"> Continue </span>
+
+              <span class="dot-wrap">
+                <i></i>
+                <i></i>
+                <i></i>
+              </span>
+            </button>
+          </div>
+
+          <footer>
+            <strong>Loading Dots</strong>
+            <code>.loading-dots</code>
+          </footer>
+        </article>
+
+        <!-- 32 -->
+        <article class="card" data-category="state" data-name="success">
+          <div class="preview mint">
+            <button class="btn success-btn" data-success>Confirm</button>
+          </div>
+
+          <footer>
+            <strong>Success Confirm</strong>
+            <code>.success-btn</code>
+          </footer>
+        </article>
+
+        <!-- 33 -->
+        <article class="card" data-category="state" data-name="retry">
+          <div class="preview sand">
+            <button class="btn retry-btn" data-retry>
+              <span class="retry-icon"> ↻ </span>
+
+              Try again
+            </button>
+          </div>
+
+          <footer>
+            <strong>Retry Spin</strong>
+            <code>.retry-btn</code>
+          </footer>
+        </article>
+
+        <!-- 34 -->
+        <article class="card" data-category="state" data-name="toggle">
+          <div class="preview soft">
+            <button class="btn toggle-btn" aria-pressed="false">
+              <span class="toggle-indicator"></span>
+
+              <span class="toggle-label"> Notifications off </span>
+            </button>
+          </div>
+
+          <footer>
+            <strong>Toggle State</strong>
+            <code>.toggle-btn</code>
+          </footer>
+        </article>
+
+        <!-- 35 -->
+        <article
+          class="card"
+          data-category="state motion"
+          data-name="hold delete"
+        >
+          <div class="preview rose">
+            <button class="btn hold-delete" data-hold-delete>
+              <span class="hold-fill"></span>
+
+              <span class="hold-label"> Hold to delete </span>
+            </button>
+          </div>
+
+          <footer>
+            <strong>Hold Delete</strong>
+            <code>.hold-delete</code>
+          </footer>
+        </article>
+
+        <!-- 36 -->
+        <article class="card" data-category="state motion" data-name="undo">
+          <div class="preview soft">
+            <button class="btn undo-btn" data-undo>Delete</button>
+          </div>
+
+          <footer>
+            <strong>Delete → Undo</strong>
+            <code>.undo-btn</code>
+          </footer>
+        </article>
+
+        <!-- 37 -->
+        <article class="card" data-category="state icon" data-name="copy">
+          <div class="preview">
+            <button class="btn copy-btn" data-copy-button>
+              <span class="copy-symbol">□</span>
+              <span class="copy-label">Copy</span>
+            </button>
+          </div>
+
+          <footer>
+            <strong>Copy Confirm</strong>
+            <code>.copy-btn</code>
+          </footer>
+        </article>
+
+        <!-- 38 -->
+        <article class="card" data-category="commerce state" data-name="cart">
+          <div class="preview sand">
+            <button class="btn cart-btn" data-cart>
+              <span class="cart-icon">🛒</span>
+              <span class="cart-label">Add to cart</span>
+            </button>
+          </div>
+
+          <footer>
+            <strong>Add to Cart</strong>
+            <code>.cart-btn</code>
+          </footer>
+        </article>
+
+        <!-- 39 -->
+        <article class="card" data-category="commerce motion" data-name="buy">
+          <div class="preview dark">
+            <button class="btn buy-btn">
+              Buy now
+              <span>→</span>
+            </button>
+          </div>
+
+          <footer>
+            <strong>Buy Now</strong>
+            <code>.buy-btn</code>
+          </footer>
+        </article>
+
+        <!-- 40 -->
+        <article
+          class="card"
+          data-category="commerce state"
+          data-name="quantity"
+        >
+          <div class="preview soft">
+            <div class="quantity-control">
+              <button class="quantity-btn minus">−</button>
+
+              <span class="quantity-value"> 1 </span>
+
+              <button class="quantity-btn plus">+</button>
+            </div>
+          </div>
+
+          <footer>
+            <strong>Quantity Control</strong>
+            <code>.quantity-control</code>
+          </footer>
+        </article>
+
+        <!-- 41 -->
+        <article class="card" data-category="state motion" data-name="upload">
+          <div class="preview blue">
+            <button class="btn upload-btn" data-upload>
+              <span class="upload-arrow"> ↑ </span>
+
+              <span class="upload-label"> Upload </span>
+            </button>
+          </div>
+
+          <footer>
+            <strong>Upload</strong>
+            <code>.upload-btn</code>
+          </footer>
+        </article>
+
+        <!-- 42 -->
+        <article class="card" data-category="icon motion" data-name="share">
+          <div class="preview purple">
+            <button class="btn share-btn" data-share>
+              <span class="share-dot a"></span>
+              <span class="share-dot b"></span>
+              <span class="share-dot c"></span>
+
+              <span class="share-label"> Share </span>
+            </button>
+          </div>
+
+          <footer>
+            <strong>Share Burst</strong>
+            <code>.share-btn</code>
+          </footer>
+        </article>
+
+        <!-- 43 -->
+        <article class="card" data-category="icon state" data-name="follow">
+          <div class="preview">
+            <button class="btn follow-btn" data-follow>Follow</button>
+          </div>
+
+          <footer>
+            <strong>Follow State</strong>
+            <code>.follow-btn</code>
+          </footer>
+        </article>
+
+        <!-- 44 -->
+        <article class="card" data-category="icon state" data-name="like">
+          <div class="preview rose">
+            <button class="btn like-btn" data-like>
+              <span class="like-icon"> ♡ </span>
+
+              <span class="like-count"> 128 </span>
+            </button>
+          </div>
+
+          <footer>
+            <strong>Like</strong>
+            <code>.like-btn</code>
+          </footer>
+        </article>
+
+        <!-- 45 -->
+        <article class="card" data-category="motion cta" data-name="glow">
+          <div class="preview dark">
+            <button class="btn glow-btn">Launch</button>
+          </div>
+
+          <footer>
+            <strong>Glow</strong>
+            <code>.glow-btn</code>
+          </footer>
+        </article>
+
+        <!-- 46 -->
+        <article class="card" data-category="motion cta" data-name="scan">
+          <div class="preview dark">
+            <button class="btn scan-btn">Analyze</button>
+          </div>
+
+          <footer>
+            <strong>Scanline</strong>
+            <code>.scan-btn</code>
+          </footer>
+        </article>
+
+        <!-- 47 -->
+        <article class="card" data-category="motion cta" data-name="glitch">
+          <div class="preview dark">
+            <button class="btn glitch-btn">Deploy</button>
+          </div>
+
+          <footer>
+            <strong>Micro Glitch</strong>
+            <code>.glitch-btn</code>
+          </footer>
+        </article>
+
+        <!-- 48 -->
+        <article class="card" data-category="motion cta" data-name="terminal">
+          <div class="preview dark">
+            <button class="btn terminal-btn">
+              Run
+              <span class="terminal-cursor">_</span>
+            </button>
+          </div>
+
+          <footer>
+            <strong>Terminal</strong>
+            <code>.terminal-btn</code>
+          </footer>
+        </article>
+
+        <!-- 49 -->
+        <article class="card" data-category="motion cta" data-name="tilt">
+          <div class="preview blue">
+            <button class="btn tilt-btn" data-tilt>Explore</button>
+          </div>
+
+          <footer>
+            <strong>3D Tilt</strong>
+            <code>.tilt-btn</code>
+          </footer>
+        </article>
+
+        <!-- 50 -->
+        <article class="card" data-category="motion cta" data-name="blob">
+          <div class="preview cyan">
+            <button class="btn blob-btn">Create</button>
+          </div>
+
+          <footer>
+            <strong>Blob Motion</strong>
+            <code>.blob-btn</code>
+          </footer>
+        </article>
+
+        <!-- 51 -->
+        <article
+          class="card"
+          data-category="motion cta"
+          data-name="border trace"
+        >
+          <div class="preview dark">
+            <button class="btn border-trace">Initialize</button>
+          </div>
+
+          <footer>
+            <strong>Border Trace</strong>
+            <code>.border-trace</code>
+          </footer>
+        </article>
+
+        <!-- 52 -->
+        <article class="card" data-category="cta" data-name="editorial">
+          <div class="preview sand">
+            <button class="btn editorial-btn">Explore collection</button>
+          </div>
+
+          <footer>
+            <strong>Editorial</strong>
+            <code>.editorial-btn</code>
+          </footer>
+        </article>
+
+        <!-- 53 -->
+        <article class="card" data-category="cta" data-name="minimal">
+          <div class="preview">
+            <button class="btn minimal-btn">Continue</button>
+          </div>
+
+          <footer>
+            <strong>Minimal</strong>
+            <code>.minimal-btn</code>
+          </footer>
+        </article>
+
+        <!-- 54 -->
+        <article
+          class="card"
+          data-category="cta motion"
+          data-name="circle expand"
+        >
+          <div class="preview mint">
+            <button class="btn circle-expand">
+              <span>Learn more</span>
+
+              <span class="circle-icon"> → </span>
+            </button>
+          </div>
+
+          <footer>
+            <strong>Circle Expand</strong>
+            <code>.circle-expand</code>
+          </footer>
+        </article>
+
+        <!-- 55 -->
+        <article
+          class="card"
+          data-category="navigation motion"
+          data-name="slide arrow"
+        >
+          <div class="preview">
+            <button class="btn slide-arrow">
+              <span class="slide-arrow-icon"> → </span>
+
+              <span> See details </span>
+            </button>
+          </div>
+
+          <footer>
+            <strong>Slide Arrow</strong>
+            <code>.slide-arrow</code>
+          </footer>
+        </article>
+
+        <!-- 56 -->
+        <article class="card" data-category="cta motion" data-name="invert">
+          <div class="preview">
+            <button class="btn invert-btn">Open</button>
+          </div>
+
+          <footer>
+            <strong>Invert</strong>
+            <code>.invert-btn</code>
+          </footer>
+        </article>
+
+        <!-- 57 -->
+        <article class="card" data-category="motion" data-name="ripple">
+          <div class="preview blue">
+            <button class="btn ripple-btn" data-ripple>Click me</button>
+          </div>
+
+          <footer>
+            <strong>Ripple Click</strong>
+            <code>.ripple-btn</code>
+          </footer>
+        </article>
+
+        <!-- 58 -->
+        <article class="card" data-category="motion state" data-name="pulse">
+          <div class="preview rose">
+            <button class="btn pulse-btn">Live</button>
+          </div>
+
+          <footer>
+            <strong>Live Pulse</strong>
+            <code>.pulse-btn</code>
+          </footer>
+        </article>
+
+        <!-- 59 -->
+        <article class="card" data-category="state icon" data-name="eye">
+          <div class="preview">
+            <button class="btn eye-btn" data-eye>
+              <span class="eye-symbol"> ◉ </span>
+
+              <span class="eye-label"> Show password </span>
+            </button>
+          </div>
+
+          <footer>
+            <strong>Show / Hide</strong>
+            <code>.eye-btn</code>
+          </footer>
+        </article>
+
+        <!-- 60 -->
+        <article class="card" data-category="state" data-name="record">
+          <div class="preview dark">
+            <button class="btn record-btn" data-record>
+              <span class="record-dot"></span>
+
+              <span class="record-label"> Record </span>
+            </button>
+          </div>
+
+          <footer>
+            <strong>Record</strong>
+            <code>.record-btn</code>
+          </footer>
+        </article>
+
+        <!-- 61 -->
+        <article class="card" data-category="state motion" data-name="send">
+          <div class="preview blue">
+            <button class="btn send-btn" data-send>
+              <span class="send-label"> Send </span>
+
+              <span class="send-plane"> ↗ </span>
+            </button>
+          </div>
+
+          <footer>
+            <strong>Send</strong>
+            <code>.send-btn</code>
+          </footer>
+        </article>
+
+        <!-- 62 -->
+        <article
+          class="card"
+          data-category="motion navigation"
+          data-name="expand"
+        >
+          <div class="preview">
+            <button class="btn expand-btn">
+              Expand
+              <span>↗</span>
+            </button>
+          </div>
+
+          <footer>
+            <strong>Expand</strong>
+            <code>.expand-btn</code>
+          </footer>
+        </article>
+
+        <!-- 63 -->
+        <article class="card" data-category="cta motion" data-name="chrome">
+          <div class="preview dark">
+            <button class="btn chrome-btn">Premium</button>
+          </div>
+
+          <footer>
+            <strong>Chrome Sweep</strong>
+            <code>.chrome-btn</code>
+          </footer>
+        </article>
+
+        <!-- 64 -->
+        <article class="card" data-category="state" data-name="disabled">
+          <div class="preview soft">
+            <button class="btn disabled-btn" disabled>Processing</button>
+          </div>
+
+          <footer>
+            <strong>Disabled</strong>
+            <code>.disabled-btn</code>
+          </footer>
+        </article>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

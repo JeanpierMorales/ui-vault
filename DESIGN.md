@@ -2,9 +2,9 @@
 
 ## Propósito y superficie
 
-UI Vault es un índice de experiencia para descubrir, ejecutar e inspeccionar componentes web independientes. La interfaz del vault funciona como una capa silenciosa alrededor de las piezas: ofrece navegación por categorías, búsqueda global, filtros, cuadrícula o lista, y una vista de detalle con preview y fuente. No rediseña ni simula el contenido catalogado: la superficie visual principal proviene de los documentos reales del repositorio.
+UI Vault es un espacio de composición para descubrir, ejecutar e insertar componentes web independientes. La interfaz funciona como una capa silenciosa alrededor de las piezas: ofrece biblioteca por categorías, búsqueda global, un lienzo de página, una bandeja de variantes y un inspector. No rediseña ni simula el contenido catalogado: la superficie visual principal proviene de los documentos reales del repositorio.
 
-La superficie se organiza como una aplicación de escritorio: una barra de utilidades fija arriba, una barra lateral numerada por categorías y un área de trabajo clara para el catálogo o el detalle. El catálogo puede presentar previews simultáneos; el detalle amplía una pieza, permite abrirla en otra pestaña, solicitar pantalla completa y copiar su fuente.
+La superficie se organiza como una aplicación de escritorio: una barra de utilidades fija arriba, una biblioteca lateral por categorías, un centro dividido 60/40 entre lienzo y piezas disponibles, y un inspector a la derecha. La bandeja presenta nombres reales de cada variante y mantiene una sola preview ejecutable activa para no cargar decenas de documentos pesados a la vez. Al añadir una variante, el lienzo muestra únicamente esa pieza.
 
 ## Paleta y tipografía
 
@@ -31,11 +31,11 @@ En detalle, una cabecera de retorno y acciones precede la ficha de la pieza. El 
 
 ## Componentes UI
 
-- Barra superior con marca `UV`, búsqueda, atajo visible `⌘ K`, total de componentes, selector cuadrícula/lista, control de tema y menú móvil. Sus iconos se cargan desde el catálogo de iconos del repositorio y animan semánticamente al interactuar.
-- Navegación lateral con overview, grupos/categorías, cantidades por categoría y una nota sobre la carga aislada.
-- Filtros rápidos, documentos vivos del repositorio, estado vacío y contador de resultados. El registro incluye tarjetas, loaders, proceso de scroll, modelo 3D y experiencia 3D de scroll que existan como documentos ejecutables.
-- Vista de detalle con volver al catálogo, ruta, descripción, ID, preview, abrir preview, pantalla completa, pestañas de fuente y copia de código.
-- Toast temporal para confirmar copias o comunicar fallos de lectura.
+- Barra superior con marca `UV`, nombre editable del proyecto, deshacer/rehacer, preview publicado, exportación, tema y menú móvil.
+- Biblioteca lateral con grupos/categorías, cantidades de piezas atómicas y una nota sobre la carga aislada.
+- Lienzo central con selector desktop/tablet/móvil y bloques reordenables; cada bloque tiene controles de subir, bajar y eliminar.
+- Bandeja inferior de variantes individuales: botones y cards de documentos fuente se descubren como piezas independientes, mientras login, pricing, testimonios y otras superficies ya unitarias conservan su documento completo.
+- Inspector de bloque con altura, fondo, duplicación y eliminación; toast para confirmar inserciones y exportación.
 
 Los controles se resuelven con texto, reglas y cambios de color; los únicos contenedores redondeados de forma discreta son utilidades compactas como búsqueda, toggles e iconos. Las tarjetas permanecen rectangulares, separadas por líneas de 1 px.
 

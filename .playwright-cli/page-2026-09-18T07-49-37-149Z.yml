@@ -1,0 +1,584 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - button "Crear una página nueva" [ref=e4] [cursor=pointer]:
+        - generic [aria-hidden] [ref=e5]: UV
+        - generic [ref=e6]: UI Vault
+      - generic [ref=e7]:
+        - generic [ref=e8]: Proyecto
+        - textbox "Proyecto" [ref=e9]: Página sin título
+      - generic [ref=e10]:
+        - button "Deshacer" [ref=e11] [cursor=pointer]
+        - button "Rehacer" [disabled] [ref=e12]
+        - button "Ver publicación ↗" [ref=e13] [cursor=pointer]
+        - button "Exportar proyecto" [ref=e14] [cursor=pointer]
+        - button "Cambiar a modo oscuro" [ref=e16] [cursor=pointer]
+    - main [ref=e17]:
+      - complementary "Biblioteca de componentes" [ref=e18]:
+        - generic [ref=e19]:
+          - generic [ref=e20]: Biblioteca
+          - generic [ref=e21]: 123 piezas
+        - searchbox [ref=e23]
+        - navigation "Categorías disponibles" [ref=e24]:
+          - button "Todo el archivo 123" [ref=e1013] [cursor=pointer]:
+            - text: Todo el archivo
+            - generic [ref=e1014]: "123"
+          - paragraph [ref=e1015]: Foundations
+          - button "Typography 1" [ref=e1016] [cursor=pointer]:
+            - text: Typography
+            - generic [ref=e1017]: "1"
+          - button "Icons 1" [ref=e1018] [cursor=pointer]:
+            - text: Icons
+            - generic [ref=e1019]: "1"
+          - paragraph [ref=e1020]: Components
+          - button "Buttons 64" [ref=e1021] [cursor=pointer]:
+            - text: Buttons
+            - generic [ref=e1022]: "64"
+          - button "Cards 14" [ref=e1023] [cursor=pointer]:
+            - text: Cards
+            - generic [ref=e1024]: "14"
+          - button "Book Cards 21" [ref=e1025] [cursor=pointer]:
+            - text: Book Cards
+            - generic [ref=e1026]: "21"
+          - button "Loaders 3" [ref=e1027] [cursor=pointer]:
+            - text: Loaders
+            - generic [ref=e1028]: "3"
+          - button "Forms 4" [ref=e1029] [cursor=pointer]:
+            - text: Forms
+            - generic [ref=e1030]: "4"
+          - paragraph [ref=e1031]: Sections
+          - button "Pricing 5" [ref=e1032] [cursor=pointer]:
+            - text: Pricing
+            - generic [ref=e1033]: "5"
+          - button "Testimonials 7" [ref=e1034] [cursor=pointer]:
+            - text: Testimonials
+            - generic [ref=e1035]: "7"
+          - button "Process 1" [ref=e1036] [cursor=pointer]:
+            - text: Process
+            - generic [ref=e1037]: "1"
+          - paragraph [ref=e1038]: Interactions
+          - button "3D Models 1" [ref=e1039] [cursor=pointer]:
+            - text: 3D Models
+            - generic [ref=e1040]: "1"
+          - button "Scroll Experiences 1" [ref=e1041] [cursor=pointer]:
+            - text: Scroll Experiences
+            - generic [ref=e1042]: "1"
+        - generic [ref=e55]:
+          - paragraph [ref=e56]: Las piezas cargan su HTML, CSS y JavaScript originales.
+          - text: Arrastra o inserta para componer.
+      - region "Constructor de página" [ref=e57]:
+        - generic [ref=e58]:
+          - generic [ref=e59]:
+            - generic [ref=e60]:
+              - text: Lienzo
+              - heading "Página sin título" [level=1] [ref=e61]
+            - group "Cambiar dispositivo" [ref=e62]:
+              - button "Desktop" [pressed] [ref=e63] [cursor=pointer]
+              - button "Tablet" [ref=e65] [cursor=pointer]
+              - button "Móvil" [ref=e67] [cursor=pointer]
+          - article [ref=e1043]:
+            - generic [ref=e1044]:
+              - generic [ref=e1045]: "01"
+              - generic [ref=e1046]: Buttons / Arrow Follow
+              - generic [ref=e1047]:
+                - button "Subir bloque" [ref=e1048] [cursor=pointer]
+                - button "Bajar bloque" [ref=e1052] [cursor=pointer]
+                - button "Eliminar bloque" [ref=e1056] [cursor=pointer]
+            - iframe [ref=e1061]:
+              - iframe [ref=f5e2]:
+                - main [ref=f7e3]:
+                  - article [ref=f7e4]:
+                    - button "Discover →" [ref=f7e6] [cursor=pointer]:
+                      - generic [ref=f7e7]: Discover
+                      - generic [ref=f7e8]: →
+                    - generic [ref=f7e9]:
+                      - strong [ref=f7e10]: Arrow Follow
+                      - code [ref=f7e11]: .arrow-follow
+        - region [ref=e74]:
+          - generic [ref=e75]:
+            - generic [ref=e76]:
+              - text: Piezas disponibles
+              - heading "Buttons" [level=2] [ref=e77]
+            - paragraph [ref=e78]: 64 piezas disponibles · Inserta o arrastra al lienzo.
+          - generic [ref=e79]:
+            - article [ref=e1062]:
+              - iframe [ref=e1064]:
+                - iframe [ref=f4e2]:
+                  - main [ref=f6e3]:
+                    - article [ref=f6e4]:
+                      - button "Get started" [ref=f6e6] [cursor=pointer]
+                      - generic [ref=f6e7]:
+                        - strong [ref=f6e8]: Soft CTA
+                        - code [ref=f6e9]: .apple-soft
+              - generic [ref=e1065]:
+                - generic [ref=e1066]:
+                  - paragraph [ref=e1067]: Buttons · individual
+                  - heading "Apple Soft" [level=3] [ref=e1068]
+                - button "Añadir Apple Soft" [ref=e1069] [cursor=pointer]
+            - article [ref=e1073]:
+              - button "Vista individual" [ref=e1075] [cursor=pointer]
+              - generic [ref=e1079]:
+                - generic [ref=e1080]:
+                  - paragraph [ref=e1081]: Buttons · individual
+                  - heading "Spotlight" [level=3] [ref=e1082]
+                - button "Añadir Spotlight" [ref=e1083] [cursor=pointer]
+            - article [ref=e1087]:
+              - button "Vista individual" [ref=e1089] [cursor=pointer]
+              - generic [ref=e1093]:
+                - generic [ref=e1094]:
+                  - paragraph [ref=e1095]: Buttons · individual
+                  - heading "Arrow Follow" [level=3] [ref=e1096]
+                - button "Añadir Arrow Follow" [ref=e1097] [cursor=pointer]
+            - article [ref=e1101]:
+              - button "Vista individual" [ref=e1103] [cursor=pointer]
+              - generic [ref=e1104]:
+                - generic [ref=e1105]:
+                  - paragraph [ref=e1106]: Buttons · individual
+                  - heading "Arrow Reveal" [level=3] [ref=e1107]
+                - button "Añadir Arrow Reveal" [ref=e1108] [cursor=pointer]
+            - article [ref=e1109]:
+              - button "Vista individual" [ref=e1111] [cursor=pointer]
+              - generic [ref=e1112]:
+                - generic [ref=e1113]:
+                  - paragraph [ref=e1114]: Buttons · individual
+                  - heading "Magnetic" [level=3] [ref=e1115]
+                - button "Añadir Magnetic" [ref=e1116] [cursor=pointer]
+            - article [ref=e1117]:
+              - button "Vista individual" [ref=e1119] [cursor=pointer]
+              - generic [ref=e1120]:
+                - generic [ref=e1121]:
+                  - paragraph [ref=e1122]: Buttons · individual
+                  - heading "Cursor Fill" [level=3] [ref=e1123]
+                - button "Añadir Cursor Fill" [ref=e1124] [cursor=pointer]
+            - article [ref=e1125]:
+              - button "Vista individual" [ref=e1127] [cursor=pointer]
+              - generic [ref=e1128]:
+                - generic [ref=e1129]:
+                  - paragraph [ref=e1130]: Buttons · individual
+                  - heading "Liquid" [level=3] [ref=e1131]
+                - button "Añadir Liquid" [ref=e1132] [cursor=pointer]
+            - article [ref=e1133]:
+              - button "Vista individual" [ref=e1135] [cursor=pointer]
+              - generic [ref=e1136]:
+                - generic [ref=e1137]:
+                  - paragraph [ref=e1138]: Buttons · individual
+                  - heading "Diagonal" [level=3] [ref=e1139]
+                - button "Añadir Diagonal" [ref=e1140] [cursor=pointer]
+            - article [ref=e1141]:
+              - button "Vista individual" [ref=e1143] [cursor=pointer]
+              - generic [ref=e1144]:
+                - generic [ref=e1145]:
+                  - paragraph [ref=e1146]: Buttons · individual
+                  - heading "Split" [level=3] [ref=e1147]
+                - button "Añadir Split" [ref=e1148] [cursor=pointer]
+            - article [ref=e1149]:
+              - button "Vista individual" [ref=e1151] [cursor=pointer]
+              - generic [ref=e1152]:
+                - generic [ref=e1153]:
+                  - paragraph [ref=e1154]: Buttons · individual
+                  - heading "Text Swap" [level=3] [ref=e1155]
+                - button "Añadir Text Swap" [ref=e1156] [cursor=pointer]
+            - article [ref=e1157]:
+              - button "Vista individual" [ref=e1159] [cursor=pointer]
+              - generic [ref=e1160]:
+                - generic [ref=e1161]:
+                  - paragraph [ref=e1162]: Buttons · individual
+                  - heading "Shimmer" [level=3] [ref=e1163]
+                - button "Añadir Shimmer" [ref=e1164] [cursor=pointer]
+            - article [ref=e1165]:
+              - button "Vista individual" [ref=e1167] [cursor=pointer]
+              - generic [ref=e1168]:
+                - generic [ref=e1169]:
+                  - paragraph [ref=e1170]: Buttons · individual
+                  - heading "Aurora Border" [level=3] [ref=e1171]
+                - button "Añadir Aurora Border" [ref=e1172] [cursor=pointer]
+            - article [ref=e1173]:
+              - button "Vista individual" [ref=e1175] [cursor=pointer]
+              - generic [ref=e1176]:
+                - generic [ref=e1177]:
+                  - paragraph [ref=e1178]: Buttons · individual
+                  - heading "Glass" [level=3] [ref=e1179]
+                - button "Añadir Glass" [ref=e1180] [cursor=pointer]
+            - article [ref=e1181]:
+              - button "Vista individual" [ref=e1183] [cursor=pointer]
+              - generic [ref=e1184]:
+                - generic [ref=e1185]:
+                  - paragraph [ref=e1186]: Buttons · individual
+                  - heading "Physical" [level=3] [ref=e1187]
+                - button "Añadir Physical" [ref=e1188] [cursor=pointer]
+            - article [ref=e1189]:
+              - button "Vista individual" [ref=e1191] [cursor=pointer]
+              - generic [ref=e1192]:
+                - generic [ref=e1193]:
+                  - paragraph [ref=e1194]: Buttons · individual
+                  - heading "Spring" [level=3] [ref=e1195]
+                - button "Añadir Spring" [ref=e1196] [cursor=pointer]
+            - article [ref=e1197]:
+              - button "Vista individual" [ref=e1199] [cursor=pointer]
+              - generic [ref=e1200]:
+                - generic [ref=e1201]:
+                  - paragraph [ref=e1202]: Buttons · individual
+                  - heading "Soft Press" [level=3] [ref=e1203]
+                - button "Añadir Soft Press" [ref=e1204] [cursor=pointer]
+            - article [ref=e1205]:
+              - button "Vista individual" [ref=e1207] [cursor=pointer]
+              - generic [ref=e1208]:
+                - generic [ref=e1209]:
+                  - paragraph [ref=e1210]: Buttons · individual
+                  - heading "Underline" [level=3] [ref=e1211]
+                - button "Añadir Underline" [ref=e1212] [cursor=pointer]
+            - article [ref=e1213]:
+              - button "Vista individual" [ref=e1215] [cursor=pointer]
+              - generic [ref=e1216]:
+                - generic [ref=e1217]:
+                  - paragraph [ref=e1218]: Buttons · individual
+                  - heading "Brackets" [level=3] [ref=e1219]
+                - button "Añadir Brackets" [ref=e1220] [cursor=pointer]
+            - article [ref=e1221]:
+              - button "Vista individual" [ref=e1223] [cursor=pointer]
+              - generic [ref=e1224]:
+                - generic [ref=e1225]:
+                  - paragraph [ref=e1226]: Buttons · individual
+                  - heading "Corner Frame" [level=3] [ref=e1227]
+                - button "Añadir Corner Frame" [ref=e1228] [cursor=pointer]
+            - article [ref=e1229]:
+              - button "Vista individual" [ref=e1231] [cursor=pointer]
+              - generic [ref=e1232]:
+                - generic [ref=e1233]:
+                  - paragraph [ref=e1234]: Buttons · individual
+                  - heading "Back" [level=3] [ref=e1235]
+                - button "Añadir Back" [ref=e1236] [cursor=pointer]
+            - article [ref=e1237]:
+              - button "Vista individual" [ref=e1239] [cursor=pointer]
+              - generic [ref=e1240]:
+                - generic [ref=e1241]:
+                  - paragraph [ref=e1242]: Buttons · individual
+                  - heading "Next Circle" [level=3] [ref=e1243]
+                - button "Añadir Next Circle" [ref=e1244] [cursor=pointer]
+            - article [ref=e1245]:
+              - button "Vista individual" [ref=e1247] [cursor=pointer]
+              - generic [ref=e1248]:
+                - generic [ref=e1249]:
+                  - paragraph [ref=e1250]: Buttons · individual
+                  - heading "Menu Morph" [level=3] [ref=e1251]
+                - button "Añadir Menu Morph" [ref=e1252] [cursor=pointer]
+            - article [ref=e1253]:
+              - button "Vista individual" [ref=e1255] [cursor=pointer]
+              - generic [ref=e1256]:
+                - generic [ref=e1257]:
+                  - paragraph [ref=e1258]: Buttons · individual
+                  - heading "Heart" [level=3] [ref=e1259]
+                - button "Añadir Heart" [ref=e1260] [cursor=pointer]
+            - article [ref=e1261]:
+              - button "Vista individual" [ref=e1263] [cursor=pointer]
+              - generic [ref=e1264]:
+                - generic [ref=e1265]:
+                  - paragraph [ref=e1266]: Buttons · individual
+                  - heading "Bookmark" [level=3] [ref=e1267]
+                - button "Añadir Bookmark" [ref=e1268] [cursor=pointer]
+            - article [ref=e1269]:
+              - button "Vista individual" [ref=e1271] [cursor=pointer]
+              - generic [ref=e1272]:
+                - generic [ref=e1273]:
+                  - paragraph [ref=e1274]: Buttons · individual
+                  - heading "Plus Check" [level=3] [ref=e1275]
+                - button "Añadir Plus Check" [ref=e1276] [cursor=pointer]
+            - article [ref=e1277]:
+              - button "Vista individual" [ref=e1279] [cursor=pointer]
+              - generic [ref=e1280]:
+                - generic [ref=e1281]:
+                  - paragraph [ref=e1282]: Buttons · individual
+                  - heading "Play Pause" [level=3] [ref=e1283]
+                - button "Añadir Play Pause" [ref=e1284] [cursor=pointer]
+            - article [ref=e1285]:
+              - button "Vista individual" [ref=e1287] [cursor=pointer]
+              - generic [ref=e1288]:
+                - generic [ref=e1289]:
+                  - paragraph [ref=e1290]: Buttons · individual
+                  - heading "Download Hover" [level=3] [ref=e1291]
+                - button "Añadir Download Hover" [ref=e1292] [cursor=pointer]
+            - article [ref=e1293]:
+              - button "Vista individual" [ref=e1295] [cursor=pointer]
+              - generic [ref=e1296]:
+                - generic [ref=e1297]:
+                  - paragraph [ref=e1298]: Buttons · individual
+                  - heading "Download Progress" [level=3] [ref=e1299]
+                - button "Añadir Download Progress" [ref=e1300] [cursor=pointer]
+            - article [ref=e1301]:
+              - button "Vista individual" [ref=e1303] [cursor=pointer]
+              - generic [ref=e1304]:
+                - generic [ref=e1305]:
+                  - paragraph [ref=e1306]: Buttons · individual
+                  - heading "Download Success" [level=3] [ref=e1307]
+                - button "Añadir Download Success" [ref=e1308] [cursor=pointer]
+            - article [ref=e1309]:
+              - button "Vista individual" [ref=e1311] [cursor=pointer]
+              - generic [ref=e1312]:
+                - generic [ref=e1313]:
+                  - paragraph [ref=e1314]: Buttons · individual
+                  - heading "Loading" [level=3] [ref=e1315]
+                - button "Añadir Loading" [ref=e1316] [cursor=pointer]
+            - article [ref=e1317]:
+              - button "Vista individual" [ref=e1319] [cursor=pointer]
+              - generic [ref=e1320]:
+                - generic [ref=e1321]:
+                  - paragraph [ref=e1322]: Buttons · individual
+                  - heading "Loading Dots" [level=3] [ref=e1323]
+                - button "Añadir Loading Dots" [ref=e1324] [cursor=pointer]
+            - article [ref=e1325]:
+              - button "Vista individual" [ref=e1327] [cursor=pointer]
+              - generic [ref=e1328]:
+                - generic [ref=e1329]:
+                  - paragraph [ref=e1330]: Buttons · individual
+                  - heading "Success" [level=3] [ref=e1331]
+                - button "Añadir Success" [ref=e1332] [cursor=pointer]
+            - article [ref=e1333]:
+              - button "Vista individual" [ref=e1335] [cursor=pointer]
+              - generic [ref=e1336]:
+                - generic [ref=e1337]:
+                  - paragraph [ref=e1338]: Buttons · individual
+                  - heading "Retry" [level=3] [ref=e1339]
+                - button "Añadir Retry" [ref=e1340] [cursor=pointer]
+            - article [ref=e1341]:
+              - button "Vista individual" [ref=e1343] [cursor=pointer]
+              - generic [ref=e1344]:
+                - generic [ref=e1345]:
+                  - paragraph [ref=e1346]: Buttons · individual
+                  - heading "Toggle" [level=3] [ref=e1347]
+                - button "Añadir Toggle" [ref=e1348] [cursor=pointer]
+            - article [ref=e1349]:
+              - button "Vista individual" [ref=e1351] [cursor=pointer]
+              - generic [ref=e1352]:
+                - generic [ref=e1353]:
+                  - paragraph [ref=e1354]: Buttons · individual
+                  - heading "Hold Delete" [level=3] [ref=e1355]
+                - button "Añadir Hold Delete" [ref=e1356] [cursor=pointer]
+            - article [ref=e1357]:
+              - button "Vista individual" [ref=e1359] [cursor=pointer]
+              - generic [ref=e1360]:
+                - generic [ref=e1361]:
+                  - paragraph [ref=e1362]: Buttons · individual
+                  - heading "Undo" [level=3] [ref=e1363]
+                - button "Añadir Undo" [ref=e1364] [cursor=pointer]
+            - article [ref=e1365]:
+              - button "Vista individual" [ref=e1367] [cursor=pointer]
+              - generic [ref=e1368]:
+                - generic [ref=e1369]:
+                  - paragraph [ref=e1370]: Buttons · individual
+                  - heading "Copy" [level=3] [ref=e1371]
+                - button "Añadir Copy" [ref=e1372] [cursor=pointer]
+            - article [ref=e1373]:
+              - button "Vista individual" [ref=e1375] [cursor=pointer]
+              - generic [ref=e1376]:
+                - generic [ref=e1377]:
+                  - paragraph [ref=e1378]: Buttons · individual
+                  - heading "Cart" [level=3] [ref=e1379]
+                - button "Añadir Cart" [ref=e1380] [cursor=pointer]
+            - article [ref=e1381]:
+              - button "Vista individual" [ref=e1383] [cursor=pointer]
+              - generic [ref=e1384]:
+                - generic [ref=e1385]:
+                  - paragraph [ref=e1386]: Buttons · individual
+                  - heading "Buy" [level=3] [ref=e1387]
+                - button "Añadir Buy" [ref=e1388] [cursor=pointer]
+            - article [ref=e1389]:
+              - button "Vista individual" [ref=e1391] [cursor=pointer]
+              - generic [ref=e1392]:
+                - generic [ref=e1393]:
+                  - paragraph [ref=e1394]: Buttons · individual
+                  - heading "Quantity" [level=3] [ref=e1395]
+                - button "Añadir Quantity" [ref=e1396] [cursor=pointer]
+            - article [ref=e1397]:
+              - button "Vista individual" [ref=e1399] [cursor=pointer]
+              - generic [ref=e1400]:
+                - generic [ref=e1401]:
+                  - paragraph [ref=e1402]: Buttons · individual
+                  - heading "Upload" [level=3] [ref=e1403]
+                - button "Añadir Upload" [ref=e1404] [cursor=pointer]
+            - article [ref=e1405]:
+              - button "Vista individual" [ref=e1407] [cursor=pointer]
+              - generic [ref=e1408]:
+                - generic [ref=e1409]:
+                  - paragraph [ref=e1410]: Buttons · individual
+                  - heading "Share" [level=3] [ref=e1411]
+                - button "Añadir Share" [ref=e1412] [cursor=pointer]
+            - article [ref=e1413]:
+              - button "Vista individual" [ref=e1415] [cursor=pointer]
+              - generic [ref=e1416]:
+                - generic [ref=e1417]:
+                  - paragraph [ref=e1418]: Buttons · individual
+                  - heading "Follow" [level=3] [ref=e1419]
+                - button "Añadir Follow" [ref=e1420] [cursor=pointer]
+            - article [ref=e1421]:
+              - button "Vista individual" [ref=e1423] [cursor=pointer]
+              - generic [ref=e1424]:
+                - generic [ref=e1425]:
+                  - paragraph [ref=e1426]: Buttons · individual
+                  - heading "Like" [level=3] [ref=e1427]
+                - button "Añadir Like" [ref=e1428] [cursor=pointer]
+            - article [ref=e1429]:
+              - button "Vista individual" [ref=e1431] [cursor=pointer]
+              - generic [ref=e1432]:
+                - generic [ref=e1433]:
+                  - paragraph [ref=e1434]: Buttons · individual
+                  - heading "Glow" [level=3] [ref=e1435]
+                - button "Añadir Glow" [ref=e1436] [cursor=pointer]
+            - article [ref=e1437]:
+              - button "Vista individual" [ref=e1439] [cursor=pointer]
+              - generic [ref=e1440]:
+                - generic [ref=e1441]:
+                  - paragraph [ref=e1442]: Buttons · individual
+                  - heading "Scan" [level=3] [ref=e1443]
+                - button "Añadir Scan" [ref=e1444] [cursor=pointer]
+            - article [ref=e1445]:
+              - button "Vista individual" [ref=e1447] [cursor=pointer]
+              - generic [ref=e1448]:
+                - generic [ref=e1449]:
+                  - paragraph [ref=e1450]: Buttons · individual
+                  - heading "Glitch" [level=3] [ref=e1451]
+                - button "Añadir Glitch" [ref=e1452] [cursor=pointer]
+            - article [ref=e1453]:
+              - button "Vista individual" [ref=e1455] [cursor=pointer]
+              - generic [ref=e1456]:
+                - generic [ref=e1457]:
+                  - paragraph [ref=e1458]: Buttons · individual
+                  - heading "Terminal" [level=3] [ref=e1459]
+                - button "Añadir Terminal" [ref=e1460] [cursor=pointer]
+            - article [ref=e1461]:
+              - button "Vista individual" [ref=e1463] [cursor=pointer]
+              - generic [ref=e1464]:
+                - generic [ref=e1465]:
+                  - paragraph [ref=e1466]: Buttons · individual
+                  - heading "Tilt" [level=3] [ref=e1467]
+                - button "Añadir Tilt" [ref=e1468] [cursor=pointer]
+            - article [ref=e1469]:
+              - button "Vista individual" [ref=e1471] [cursor=pointer]
+              - generic [ref=e1472]:
+                - generic [ref=e1473]:
+                  - paragraph [ref=e1474]: Buttons · individual
+                  - heading "Blob" [level=3] [ref=e1475]
+                - button "Añadir Blob" [ref=e1476] [cursor=pointer]
+            - article [ref=e1477]:
+              - button "Vista individual" [ref=e1479] [cursor=pointer]
+              - generic [ref=e1480]:
+                - generic [ref=e1481]:
+                  - paragraph [ref=e1482]: Buttons · individual
+                  - heading "Border Trace" [level=3] [ref=e1483]
+                - button "Añadir Border Trace" [ref=e1484] [cursor=pointer]
+            - article [ref=e1485]:
+              - button "Vista individual" [ref=e1487] [cursor=pointer]
+              - generic [ref=e1488]:
+                - generic [ref=e1489]:
+                  - paragraph [ref=e1490]: Buttons · individual
+                  - heading "Editorial" [level=3] [ref=e1491]
+                - button "Añadir Editorial" [ref=e1492] [cursor=pointer]
+            - article [ref=e1493]:
+              - button "Vista individual" [ref=e1495] [cursor=pointer]
+              - generic [ref=e1496]:
+                - generic [ref=e1497]:
+                  - paragraph [ref=e1498]: Buttons · individual
+                  - heading "Minimal" [level=3] [ref=e1499]
+                - button "Añadir Minimal" [ref=e1500] [cursor=pointer]
+            - article [ref=e1501]:
+              - button "Vista individual" [ref=e1503] [cursor=pointer]
+              - generic [ref=e1504]:
+                - generic [ref=e1505]:
+                  - paragraph [ref=e1506]: Buttons · individual
+                  - heading "Circle Expand" [level=3] [ref=e1507]
+                - button "Añadir Circle Expand" [ref=e1508] [cursor=pointer]
+            - article [ref=e1509]:
+              - button "Vista individual" [ref=e1511] [cursor=pointer]
+              - generic [ref=e1512]:
+                - generic [ref=e1513]:
+                  - paragraph [ref=e1514]: Buttons · individual
+                  - heading "Slide Arrow" [level=3] [ref=e1515]
+                - button "Añadir Slide Arrow" [ref=e1516] [cursor=pointer]
+            - article [ref=e1517]:
+              - button "Vista individual" [ref=e1519] [cursor=pointer]
+              - generic [ref=e1520]:
+                - generic [ref=e1521]:
+                  - paragraph [ref=e1522]: Buttons · individual
+                  - heading "Invert" [level=3] [ref=e1523]
+                - button "Añadir Invert" [ref=e1524] [cursor=pointer]
+            - article [ref=e1525]:
+              - button "Vista individual" [ref=e1527] [cursor=pointer]
+              - generic [ref=e1528]:
+                - generic [ref=e1529]:
+                  - paragraph [ref=e1530]: Buttons · individual
+                  - heading "Ripple" [level=3] [ref=e1531]
+                - button "Añadir Ripple" [ref=e1532] [cursor=pointer]
+            - article [ref=e1533]:
+              - button "Vista individual" [ref=e1535] [cursor=pointer]
+              - generic [ref=e1536]:
+                - generic [ref=e1537]:
+                  - paragraph [ref=e1538]: Buttons · individual
+                  - heading "Pulse" [level=3] [ref=e1539]
+                - button "Añadir Pulse" [ref=e1540] [cursor=pointer]
+            - article [ref=e1541]:
+              - button "Vista individual" [ref=e1543] [cursor=pointer]
+              - generic [ref=e1544]:
+                - generic [ref=e1545]:
+                  - paragraph [ref=e1546]: Buttons · individual
+                  - heading "Eye" [level=3] [ref=e1547]
+                - button "Añadir Eye" [ref=e1548] [cursor=pointer]
+            - article [ref=e1549]:
+              - button "Vista individual" [ref=e1551] [cursor=pointer]
+              - generic [ref=e1552]:
+                - generic [ref=e1553]:
+                  - paragraph [ref=e1554]: Buttons · individual
+                  - heading "Record" [level=3] [ref=e1555]
+                - button "Añadir Record" [ref=e1556] [cursor=pointer]
+            - article [ref=e1557]:
+              - button "Vista individual" [ref=e1559] [cursor=pointer]
+              - generic [ref=e1560]:
+                - generic [ref=e1561]:
+                  - paragraph [ref=e1562]: Buttons · individual
+                  - heading "Send" [level=3] [ref=e1563]
+                - button "Añadir Send" [ref=e1564] [cursor=pointer]
+            - article [ref=e1565]:
+              - button "Vista individual" [ref=e1567] [cursor=pointer]
+              - generic [ref=e1568]:
+                - generic [ref=e1569]:
+                  - paragraph [ref=e1570]: Buttons · individual
+                  - heading "Expand" [level=3] [ref=e1571]
+                - button "Añadir Expand" [ref=e1572] [cursor=pointer]
+            - article [ref=e1573]:
+              - button "Vista individual" [ref=e1575] [cursor=pointer]
+              - generic [ref=e1576]:
+                - generic [ref=e1577]:
+                  - paragraph [ref=e1578]: Buttons · individual
+                  - heading "Chrome" [level=3] [ref=e1579]
+                - button "Añadir Chrome" [ref=e1580] [cursor=pointer]
+            - article [ref=e1581]:
+              - button "Vista individual" [ref=e1583] [cursor=pointer]
+              - generic [ref=e1584]:
+                - generic [ref=e1585]:
+                  - paragraph [ref=e1586]: Buttons · individual
+                  - heading "Disabled" [level=3] [ref=e1587]
+                - button "Añadir Disabled" [ref=e1588] [cursor=pointer]
+      - complementary "Inspector de bloque" [ref=e592]:
+        - generic [ref=e593]:
+          - generic [ref=e594]: Inspector
+          - generic [ref=e595]: 1 bloque
+        - generic [ref=e596]:
+          - generic [ref=e1589]:
+            - text: Buttons / individual
+            - heading "Arrow Follow" [level=2] [ref=e1590]
+            - paragraph [ref=e1591]: button-001--3
+          - generic [ref=e1592]:
+            - generic [ref=e1593]:
+              - generic [ref=e1594]:
+                - generic [ref=e1595]: Altura del lienzo
+                - status "Altura del lienzo" [ref=e1596]: 300px
+              - slider [ref=e1597]: "300"
+            - generic [ref=e1598]:
+              - generic [ref=e1599]: Fondo del contenedor
+              - combobox "Fondo del contenedor" [ref=e1600]:
+                - option "Papel" [selected]
+                - option "Tinta"
+                - option "Gris cálido"
+            - generic [ref=e1601]:
+              - button "Duplicar bloque" [ref=e1602] [cursor=pointer]
+              - button "Eliminar" [ref=e1606] [cursor=pointer]
+        - paragraph [ref=e601]: “Exportar proyecto” descarga el plano. Usa el exportador incluido para crear una carpeta de preview autónoma.
+  - status: Arrow Follow añadido al lienzo

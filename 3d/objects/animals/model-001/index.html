@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>INK Bird Component</title>
+
+  <style>
+    /* =========================================================
+       RESET
+       ========================================================= */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 50% 30%,
+          rgba(126, 110, 255, 0.10),
+          transparent 26%
+        ),
+        linear-gradient(
+          180deg,
+          #f1f1f6 0%,
+          #ececf2 100%
+        );
+    }
+
+    :root {
+      --mx: 0;
+      --my: 0;
+      --look-x: 0px;
+      --look-y: 0px;
+    }
+
+    /* =========================================================
+       STAGE
+       ========================================================= */
+    .stage {
+      position: relative;
+      width: min(520px, 88vw);
+      aspect-ratio: 1 / 1.12;
+      display: grid;
+      place-items: center;
+    }
+
+    .glow {
+      position: absolute;
+      width: 58%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        radial-gradient(
+          circle,
+          rgba(114, 102, 255, 0.18),
+          rgba(114, 102, 255, 0.06) 42%,
+          transparent 72%
+        );
+      filter: blur(22px);
+      transform:
+        translateY(-6%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .shadow {
+      position: absolute;
+      width: 36%;
+      height: 6.5%;
+      bottom: 10.5%;
+      border-radius: 50%;
+      background:
+        radial-gradient(
+          ellipse,
+          rgba(16, 18, 28, 0.32),
+          rgba(16, 18, 28, 0.12) 42%,
+          transparent 72%
+        );
+      filter: blur(10px);
+      z-index: 0;
+      animation: shadowFloat 3.8s ease-in-out infinite;
+    }
+
+    @keyframes shadowFloat {
+      0%, 100% {
+        transform: scaleX(1);
+        opacity: 0.75;
+      }
+      50% {
+        transform: scaleX(1.08);
+        opacity: 0.58;
+      }
+    }
+
+    /* =========================================================
+       BIRD WRAPPER
+       ========================================================= */
+    .bird-wrap {
+      position: relative;
+      width: 64%;
+      aspect-ratio: 0.9 / 1.34;
+      transform-style: preserve-3d;
+      z-index: 2;
+      animation: birdFloat 3.8s ease-in-out infinite;
+      will-change: transform;
+    }
+
+    @keyframes birdFloat {
+      0%, 100% {
+        transform:
+          translateY(0px)
+          rotateZ(0deg);
+      }
+      50% {
+        transform:
+          translateY(-10px)
+          rotateZ(-0.4deg);
+      }
+    }
+
+    /* =========================================================
+       SVG
+       ========================================================= */
+    .bird-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      overflow: visible;
+      filter:
+        drop-shadow(0 18px 24px rgba(12, 12, 22, 0.14));
+    }
+
+    .head-group {
+      transform-origin: 250px 150px;
+      transition: transform 140ms ease-out;
+      will-change: transform;
+    }
+
+    .iris {
+      transform-origin: center;
+      transition: transform 90ms linear;
+      will-change: transform;
+    }
+
+    .eyelid {
+      opacity: 0;
+      transition: opacity 80ms ease;
+    }
+
+    .eye.blink .eyelid {
+      opacity: 1;
+    }
+
+    .wing-left {
+      transform-origin: 188px 230px;
+      animation: leftWingIdle 3.8s ease-in-out infinite;
+    }
+
+    .wing-right {
+      transform-origin: 312px 230px;
+      animation: rightWingIdle 3.8s ease-in-out infinite;
+    }
+
+    @keyframes leftWingIdle {
+      0%, 100% {
+        transform: rotate(0deg);
+      }
+      50% {
+        transform: rotate(-2.2deg);
+      }
+    }
+
+    @keyframes rightWingIdle {
+      0%, 100% {
+        transform: rotate(0deg);
+      }
+      50% {
+        transform: rotate(2.2deg);
+      }
+    }
+
+    .tail-group {
+      animation: tailIdle 3.8s ease-in-out infinite;
+      transform-origin: 250px 430px;
+    }
+
+    @keyframes tailIdle {
+      0%, 100% {
+        transform: rotate(0deg);
+      }
+      50% {
+        transform: rotate(1.4deg);
+      }
+    }
+
+    /* =========================================================
+       OPTIONAL LABEL
+       ========================================================= */
+    .label {
+      position: absolute;
+      bottom: -12%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(25, 28, 39, 0.34);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    /* =========================================================
+       REDUCED MOTION
+       ========================================================= */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stage">
+    <div class="glow"></div>
+    <div class="shadow"></div>
+
+    <div class="bird-wrap" id="birdWrap">
+      <svg
+        class="bird-svg"
+        viewBox="0 0 500 620"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-label="INK bird"
+        role="img"
+      >
+        <defs>
+          <!-- body -->
+          <radialGradient id="bodyGrad" cx="40%" cy="18%" r="80%">
+            <stop offset="0%" stop-color="#31344A" />
+            <stop offset="24%" stop-color="#24283B" />
+            <stop offset="58%" stop-color="#171A28" />
+            <stop offset="100%" stop-color="#090B11" />
+          </radialGradient>
+
+          <radialGradient id="headGrad" cx="38%" cy="20%" r="78%">
+            <stop offset="0%" stop-color="#35384C" />
+            <stop offset="28%" stop-color="#24273A" />
+            <stop offset="68%" stop-color="#131622" />
+            <stop offset="100%" stop-color="#090B10" />
+          </radialGradient>
+
+          <linearGradient id="wingGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#303349" />
+            <stop offset="36%" stop-color="#23273A" />
+            <stop offset="100%" stop-color="#0A0C12" />
+          </linearGradient>
+
+          <linearGradient id="featherGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#31354A" />
+            <stop offset="38%" stop-color="#22263A" />
+            <stop offset="100%" stop-color="#090B11" />
+          </linearGradient>
+
+          <linearGradient id="violetFeatherGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#4B4A69" />
+            <stop offset="40%" stop-color="#2B2D48" />
+            <stop offset="100%" stop-color="#10131B" />
+          </linearGradient>
+
+          <linearGradient id="beakGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#474A58" />
+            <stop offset="40%" stop-color="#2A2D39" />
+            <stop offset="100%" stop-color="#0E1118" />
+          </linearGradient>
+
+          <radialGradient id="irisGrad" cx="35%" cy="30%" r="70%">
+            <stop offset="0%" stop-color="#E4DEFF" />
+            <stop offset="13%" stop-color="#B7ADFF" />
+            <stop offset="35%" stop-color="#7A6CFF" />
+            <stop offset="70%" stop-color="#3D376A" />
+            <stop offset="100%" stop-color="#13131B" />
+          </radialGradient>
+
+          <filter id="softGlow" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur stdDeviation="12" />
+          </filter>
+        </defs>
+
+        <!-- background halo -->
+        <ellipse
+          cx="250"
+          cy="250"
+          rx="145"
+          ry="200"
+          fill="#7369FF"
+          opacity="0.08"
+          filter="url(#softGlow)"
+        />
+
+        <!-- tail -->
+        <g class="tail-group">
+          <path
+            d="M215 418 C192 473 192 535 218 585 C238 550 246 489 240 425 Z"
+            fill="url(#featherGrad)"
+          />
+          <path
+            d="M244 420 C238 489 244 545 260 604 C279 551 279 490 269 424 Z"
+            fill="url(#featherGrad)"
+          />
+          <path
+            d="M270 420 C280 486 297 538 322 585 C330 531 312 473 294 423 Z"
+            fill="url(#featherGrad)"
+          />
+        </g>
+
+        <!-- left wing -->
+        <g class="wing-left">
+          <path
+            d="M228 215 C176 222 129 273 110 341 C134 336 154 327 170 313 C155 346 150 387 157 419 C184 401 201 377 212 347 C209 388 216 419 231 444 C250 418 257 385 256 330 C255 283 245 244 228 215 Z"
+            fill="url(#wingGrad)"
+          />
+          <path
+            d="M212 254 C173 274 142 306 122 350 C146 345 177 325 203 292 Z"
+            fill="url(#featherGrad)"
+          />
+          <path
+            d="M225 284 C189 311 168 347 161 392 C190 375 212 347 228 315 Z"
+            fill="url(#violetFeatherGrad)"
+          />
+          <path
+            d="M234 317 C206 346 193 383 194 422 C217 402 232 372 241 339 Z"
+            fill="url(#featherGrad)"
+          />
+          <path
+            d="M241 344 C222 371 216 402 221 430 C238 412 248 386 251 360 Z"
+            fill="url(#featherGrad)"
+          />
+        </g>
+
+        <!-- right wing -->
+        <g class="wing-right">
+          <path
+            d="M272 215 C324 222 371 273 390 341 C366 336 346 327 330 313 C345 346 350 387 343 419 C316 401 299 377 288 347 C291 388 284 419 269 444 C250 418 243 385 244 330 C245 283 255 244 272 215 Z"
+            fill="url(#wingGrad)"
+          />
+          <path
+            d="M288 254 C327 274 358 306 378 350 C354 345 323 325 297 292 Z"
+            fill="url(#featherGrad)"
+          />
+          <path
+            d="M275 284 C311 311 332 347 339 392 C310 375 288 347 272 315 Z"
+            fill="url(#violetFeatherGrad)"
+          />
+          <path
+            d="M266 317 C294 346 307 383 306 422 C283 402 268 372 259 339 Z"
+            fill="url(#featherGrad)"
+          />
+          <path
+            d="M259 344 C278 371 284 402 279 430 C262 412 252 386 249 360 Z"
+            fill="url(#featherGrad)"
+          />
+        </g>
+
+        <!-- body -->
+        <path
+          d="M250 188 C195 188 161 230 158 296 C155 370 176 450 214 494 C228 510 239 518 250 520 C261 518 272 510 286 494 C324 450 345 370 342 296 C339 230 305 188 250 188 Z"
+          fill="url(#bodyGrad)"
+        />
+
+        <!-- chest lighting -->
+        <ellipse
+          cx="230"
+          cy="318"
+          rx="48"
+          ry="112"
+          fill="#776CFF"
+          opacity="0.055"
+        />
+
+        <!-- chest layered feathers -->
+        <g opacity="0.92">
+          <path
+            d="M214 282 C230 270 248 274 258 287 C242 296 226 298 214 282 Z"
+            fill="#171A25"
+          />
+          <path
+            d="M242 320 C258 307 278 311 289 324 C272 334 254 335 242 320 Z"
+            fill="#171A25"
+          />
+          <path
+            d="M226 354 C246 340 266 345 279 360 C260 371 240 371 226 354 Z"
+            fill="#171A25"
+          />
+        </g>
+
+        <!-- legs -->
+        <g>
+          <path
+            d="M224 475 C225 506 220 536 213 559"
+            fill="none"
+            stroke="#232733"
+            stroke-width="11"
+            stroke-linecap="round"
+          />
+          <path
+            d="M276 475 C275 506 280 536 287 559"
+            fill="none"
+            stroke="#232733"
+            stroke-width="11"
+            stroke-linecap="round"
+          />
+
+          <path
+            d="M213 559 C198 566 188 576 181 589"
+            fill="none"
+            stroke="#232733"
+            stroke-width="11"
+            stroke-linecap="round"
+          />
+          <path
+            d="M213 559 C213 575 215 586 221 596"
+            fill="none"
+            stroke="#232733"
+            stroke-width="11"
+            stroke-linecap="round"
+          />
+          <path
+            d="M213 559 C228 566 239 576 245 588"
+            fill="none"
+            stroke="#232733"
+            stroke-width="11"
+            stroke-linecap="round"
+          />
+
+          <path
+            d="M287 559 C272 566 261 576 255 588"
+            fill="none"
+            stroke="#232733"
+            stroke-width="11"
+            stroke-linecap="round"
+          />
+          <path
+            d="M287 559 C287 575 285 586 279 596"
+            fill="none"
+            stroke="#232733"
+            stroke-width="11"
+            stroke-linecap="round"
+          />
+          <path
+            d="M287 559 C302 566 312 576 319 589"
+            fill="none"
+            stroke="#232733"
+            stroke-width="11"
+            stroke-linecap="round"
+          />
+        </g>
+
+        <!-- neck / side feathers -->
+        <path
+          d="M180 222 C161 233 154 252 159 274 C177 268 189 255 194 235 Z"
+          fill="#12141C"
+        />
+        <path
+          d="M320 222 C339 233 346 252 341 274 C323 268 311 255 306 235 Z"
+          fill="#12141C"
+        />
+
+        <!-- head -->
+        <g class="head-group" id="headGroup">
+          <!-- crest -->
+          <path
+            d="M198 144 C183 127 180 109 185 95 C200 107 211 121 215 138 Z"
+            fill="#181B26"
+          />
+          <path
+            d="M216 132 C208 110 211 92 223 80 C234 100 237 117 232 135 Z"
+            fill="#181B26"
+          />
+
+          <!-- head core -->
+          <path
+            d="M250 96 C202 96 176 126 174 177 C172 219 186 255 210 273 C226 285 274 285 290 273 C314 255 328 219 326 177 C324 126 298 96 250 96 Z"
+            fill="url(#headGrad)"
+          />
+
+          <!-- eyes -->
+          <g class="eye" id="eyeLeft">
+            <ellipse
+              cx="224"
+              cy="172"
+              rx="26"
+              ry="28"
+              fill="#F2F0F8"
+              stroke="#0A0B10"
+              stroke-width="5"
+            />
+            <g class="iris" id="leftIris">
+              <circle cx="224" cy="175" r="16" fill="url(#irisGrad)" />
+              <circle cx="224" cy="175" r="7" fill="#090A0F" />
+              <circle cx="218" cy="168" r="4.1" fill="#ffffff" />
+              <circle cx="228" cy="181" r="1.9" fill="#d6d0ff" />
+            </g>
+            <path
+              class="eyelid"
+              d="M198 173 Q224 143 250 173 Q224 161 198 173 Z"
+              fill="#151821"
+            />
+          </g>
+
+          <g class="eye" id="eyeRight">
+            <ellipse
+              cx="276"
+              cy="172"
+              rx="26"
+              ry="28"
+              fill="#F2F0F8"
+              stroke="#0A0B10"
+              stroke-width="5"
+            />
+            <g class="iris" id="rightIris">
+              <circle cx="276" cy="175" r="16" fill="url(#irisGrad)" />
+              <circle cx="276" cy="175" r="7" fill="#090A0F" />
+              <circle cx="270" cy="168" r="4.1" fill="#ffffff" />
+              <circle cx="280" cy="181" r="1.9" fill="#d6d0ff" />
+            </g>
+            <path
+              class="eyelid"
+              d="M250 173 Q276 143 302 173 Q276 161 250 173 Z"
+              fill="#151821"
+            />
+          </g>
+
+          <!-- brows -->
+          <path
+            d="M198 146 Q222 135 245 149"
+            fill="none"
+            stroke="#0F1118"
+            stroke-width="10"
+            stroke-linecap="round"
+          />
+          <path
+            d="M255 149 Q278 135 302 146"
+            fill="none"
+            stroke="#0F1118"
+            stroke-width="10"
+            stroke-linecap="round"
+          />
+
+          <!-- cheek feathers -->
+          <path
+            d="M182 196 C165 202 154 214 152 228 C168 227 181 220 190 208 Z"
+            fill="#10131A"
+          />
+          <path
+            d="M318 196 C335 202 346 214 348 228 C332 227 319 220 310 208 Z"
+            fill="#10131A"
+          />
+
+          <!-- beak -->
+          <g>
+            <path
+              d="M250 192 C287 184 330 187 372 208 C339 216 306 224 255 227 C247 219 246 204 250 192 Z"
+              fill="url(#beakGrad)"
+            />
+            <path
+              d="M255 228 C293 227 328 220 363 213 C332 235 301 245 264 244 C258 239 255 234 255 228 Z"
+              fill="#11141C"
+            />
+            <path
+              d="M266 198 C294 195 323 197 344 204"
+              fill="none"
+              stroke="rgba(255,255,255,0.12)"
+              stroke-width="4"
+              stroke-linecap="round"
+            />
+          </g>
+        </g>
+
+        <!-- subtle accent -->
+        <path
+          d="M165 330 C181 310 198 298 214 291 C198 317 182 338 160 351 Z"
+          fill="#7268FF"
+          opacity="0.14"
+          filter="url(#softGlow)"
+        />
+      </svg>
+    </div>
+
+    <div class="label">INK / bird component</div>
+  </div>
+
+  <script>
+    const headGroup = document.getElementById("headGroup");
+    const leftIris = document.getElementById("leftIris");
+    const rightIris = document.getElementById("rightIris");
+    const eyeLeft = document.getElementById("eyeLeft");
+    const eyeRight = document.getElementById("eyeRight");
+
+    let targetX = 0;
+    let targetY = 0;
+    let currentX = 0;
+    let currentY = 0;
+
+    function clamp(value, min, max) {
+      return Math.max(min, Math.min(max, value));
+    }
+
+    window.addEventListener("pointermove", (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 2;
+      const y = (e.clientY / window.innerHeight - 0.5) * 2;
+
+      targetX = clamp(x, -1, 1);
+      targetY = clamp(y, -1, 1);
+    });
+
+    document.addEventListener("mouseleave", () => {
+      targetX = 0;
+      targetY = 0;
+    });
+
+    function animate() {
+      currentX += (targetX - currentX) * 0.08;
+      currentY += (targetY - currentY) * 0.08;
+
+      const eyeX = currentX * 5;
+      const eyeY = currentY * 3.6;
+
+      leftIris.style.transform = `translate(${eyeX}px, ${eyeY}px)`;
+      rightIris.style.transform = `translate(${eyeX}px, ${eyeY}px)`;
+
+      const headTX = currentX * 2.2;
+      const headTY = currentY * 1.6;
+      const headRotate = currentX * 1.4;
+
+      headGroup.style.transform =
+        `translate(${headTX}px, ${headTY}px) rotate(${headRotate}deg)`;
+
+      requestAnimationFrame(animate);
+    }
+
+    function blink() {
+      eyeLeft.classList.add("blink");
+      eyeRight.classList.add("blink");
+
+      setTimeout(() => {
+        eyeLeft.classList.remove("blink");
+        eyeRight.classList.remove("blink");
+      }, 115);
+
+      const next = 2400 + Math.random() * 3600;
+      setTimeout(blink, next);
+    }
+
+    animate();
+    setTimeout(blink, 1200);
+  </script>
+
+</body>
+</html>

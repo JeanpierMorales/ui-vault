@@ -1,0 +1,157 @@
+- generic [ref=e1]:
+  - navigation [ref=e2]:
+    - link "MIRA" [ref=e3] [cursor=pointer]:
+      - /url: "#hero"
+      - text: M
+    - generic [ref=e4]:
+      - link "Inicio" [ref=e5] [cursor=pointer]:
+        - /url: "#hero"
+      - link "Cómo funciona" [ref=e6] [cursor=pointer]:
+        - /url: "#how"
+      - link "Crear" [ref=e7] [cursor=pointer]:
+        - /url: "#content"
+      - link "Booketeer" [ref=e8] [cursor=pointer]:
+        - /url: "#booketeer"
+      - link "Analytics" [ref=e9] [cursor=pointer]:
+        - /url: "#analytics"
+      - link "Pricing" [ref=e10] [cursor=pointer]:
+        - /url: "#pricing"
+    - link "Hablemos" [ref=e12] [cursor=pointer]:
+      - /url: "#cta"
+  - generic [ref=e17]:
+    - generic [ref=e18]: "01"
+    - paragraph [ref=e19]: Hero Section
+    - heading "¿Qué es MIRA y para qué me sirve?" [level=1] [ref=e20]
+  - generic [ref=e22]:
+    - generic [ref=e23]: "02"
+    - paragraph [ref=e24]: How MIRA works
+    - heading "¿Cómo funciona sin complicarme?" [level=2] [ref=e25]
+  - generic [ref=e27]:
+    - generic [ref=e28]: "03"
+    - paragraph [ref=e29]: Content Creation
+    - heading "¿Tengo que crear todo desde cero?" [level=2] [ref=e30]
+  - generic [ref=e32]:
+    - generic [ref=e33]: "04"
+    - paragraph [ref=e34]: Campaigns & Buckets
+    - heading "¿Cómo organiza y publica MIRA mi contenido?" [level=2] [ref=e35]
+  - generic [ref=e37]:
+    - generic [ref=e38]: "05"
+    - paragraph [ref=e39]: Booketeer
+    - heading "¿Qué pasa si quiero trabajar directamente con mi libro?" [level=2] [ref=e40]
+  - generic [ref=e42]:
+    - generic [ref=e43]: 05 → 06
+    - paragraph [ref=e44]: Done For You
+    - heading "Si no tengo mucho tiempo, ¿cómo me lo facilitan?" [level=2] [ref=e45]
+  - generic [ref=e47]:
+    - generic [ref=e48]: "06"
+    - paragraph [ref=e49]: Analytics
+    - heading "¿Cómo sé si realmente está funcionando?" [level=2] [ref=e50]
+  - region [ref=e51]:
+    - generic [ref=e52]:
+      - generic [ref=e53]:
+        - paragraph [ref=e54]: / AUTHOR STORIES
+        - generic [aria-hidden] [ref=e55]: (07)
+        - heading "What changes when authors keep control of their content." [level=2] [ref=e56]
+      - generic "Testimonial controls" [ref=e57]:
+        - button "Previous testimonials" [ref=e168] [cursor=pointer]
+        - button "Next testimonials" [active] [ref=e58] [cursor=pointer]
+      - generic [ref=e62]:
+        - article [ref=e63]:
+          - paragraph [ref=e64]: CONTENT FIRST
+          - blockquote [ref=e65]: “I bring the work I already finished. MIRA helps me decide what to share without starting from zero.”
+          - generic [ref=e66]:
+            - generic [ref=e67]: "01"
+            - generic [ref=e68]:
+              - strong [ref=e69]: Author workflow
+              - generic [ref=e70]: Finished work, ready to use
+        - article [ref=e71]:
+          - paragraph [ref=e72]: OWNED ACCOUNTS
+          - blockquote [ref=e73]: “My own accounts stay at the center. I can add capacity only when I actually need it.”
+          - generic [ref=e74]:
+            - generic [ref=e75]: "02"
+            - generic [ref=e76]:
+              - strong [ref=e77]: Account flexibility
+              - generic [ref=e78]: Own, rent, or combine
+        - article [ref=e79]:
+          - paragraph [ref=e80]: BOOKETEER
+          - blockquote [ref=e81]: “Choosing a scene from the manuscript makes content planning feel connected to the book, not separate from it.”
+          - generic [ref=e82]:
+            - generic [ref=e83]: "03"
+            - generic [ref=e84]:
+              - strong [ref=e85]: Scene-led planning
+              - generic [ref=e86]: Optional manuscript indexing
+        - article [ref=e87]:
+          - paragraph [ref=e88]: CAMPAIGNS
+          - blockquote [ref=e89]: “I can set a rhythm for a campaign and still decide what is appropriate to publish next.”
+          - generic [ref=e90]:
+            - generic [ref=e91]: "04"
+            - generic [ref=e92]:
+              - strong [ref=e93]: Controlled automation
+              - generic [ref=e94]: Campaigns on your terms
+        - article [ref=e95]:
+          - paragraph [ref=e96]: CREDITS
+          - blockquote [ref=e97]: “Generation is there when I need a new idea, not something I have to pay for every time I upload my own work.”
+          - generic [ref=e98]:
+            - generic [ref=e99]: "05"
+            - generic [ref=e100]:
+              - strong [ref=e101]: Clear credit use
+              - generic [ref=e102]: Only for new generation
+  - region [ref=e105]:
+    - generic [ref=e106]:
+      - generic [ref=e108]:
+        - paragraph [ref=e109]: SUBSCRIPTION
+        - heading "Choose only what you need." [level=2] [ref=e110]
+        - paragraph [ref=e111]: The MIRA subscription covers the platform and the connected-account slots listed below. Content generation uses credits. Booketeer indexing and rented MIRA accounts are optional add-ons.
+      - tablist "MIRA subscription plans" [ref=e113]:
+        - tab "Free" [selected] [ref=e115] [cursor=pointer]
+        - tab "Pro" [ref=e116] [cursor=pointer]
+        - tab "Studio" [ref=e117] [cursor=pointer]
+      - article [ref=e118]:
+        - generic [ref=e119]:
+          - generic [ref=e120]:
+            - generic [ref=e121]:
+              - generic [ref=e122]: Free
+              - generic [ref=e123]: MIRA
+            - generic [ref=e124]: $0
+            - paragraph [ref=e126]: Try MIRA’s content tools, create your two free assets, and connect 1 TikTok account you own.
+          - generic [ref=e127]:
+            - generic [ref=e128]: +
+            - generic [ref=e129]: Two free assets included.
+        - generic [ref=e130]:
+          - generic [ref=e131]:
+            - paragraph [ref=e132]: WHAT'S INCLUDED
+            - list [ref=e133]:
+              - listitem [ref=e134]: ✦ MIRA content tools
+              - listitem [ref=e135]: ✦ 2 free assets
+              - listitem [ref=e136]: ✦ 1 TikTok account you own
+              - listitem [ref=e137]: ✦ Generation available with credits
+          - generic [ref=e138]:
+            - generic [ref=e139]:
+              - generic [ref=e140]: Connected accounts
+              - strong [ref=e141]: 1 owned account
+            - link "Start free +" [ref=e142] [cursor=pointer]:
+              - /url: https://mira.indieauthormedia.com/alpha/pricing
+              - generic [ref=e143]: Start free
+              - generic [ref=e144]: +
+      - generic [ref=e145]:
+        - paragraph [ref=e146]:
+          - strong [ref=e147]: Your content stays yours.
+          - text: Upload finished text, images, videos, captions, and hashtags. Credits are used only when you ask MIRA to create something new.
+        - paragraph [ref=e148]:
+          - strong [ref=e149]: Booketeer and rentals are optional.
+          - text: Index a manuscript to choose scenes inside MIRA, then use accounts you own, rented accounts, or both. Rented accounts are priced separately and never count toward your connected-account limit.
+  - generic [ref=e151]:
+    - generic [ref=e152]: "09"
+    - paragraph [ref=e153]: FAQ
+    - heading "¿Qué dudas me quedan antes de probarlo?" [level=2] [ref=e154]
+  - generic [ref=e156]:
+    - generic [ref=e157]: "09"
+    - paragraph [ref=e158]: CTA
+    - heading "¿Qué hago ahora?" [level=2] [ref=e159]
+    - link "Empezar con MIRA" [ref=e160] [cursor=pointer]:
+      - /url: "#hero"
+  - contentinfo [ref=e163]:
+    - generic [ref=e164]:
+      - generic [ref=e165]: "10"
+      - paragraph [ref=e166]: Footer
+      - heading "Información secundaria, soporte y aspectos legales." [level=2] [ref=e167]

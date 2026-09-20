@@ -1,0 +1,878 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+
+  background: #0a0a0a;
+  color: #f5f5f2;
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  overflow-x: hidden;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+
+/* =========================================================
+   EXPERIENCE
+========================================================= */
+
+.experience {
+  position: relative;
+  width: 100%;
+}
+
+
+/* =========================================================
+   STAGE
+========================================================= */
+
+.stage {
+  position: sticky;
+
+  top: 0;
+
+  width: 100%;
+
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(300px, 0.78fr)
+    minmax(500px, 1.22fr);
+
+  align-items: center;
+
+  gap:
+    clamp(
+      30px,
+      5vw,
+      90px
+    );
+
+  padding:
+    clamp(
+      40px,
+      7vw,
+      110px
+    );
+
+  background:
+    radial-gradient(
+      circle at 72% 42%,
+      #1b1b1b 0%,
+      #111111 35%,
+      #090909 72%
+    );
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.background-glow {
+  position: absolute;
+
+  border-radius: 50%;
+
+  filter: blur(70px);
+
+  pointer-events: none;
+}
+
+.glow-1 {
+  width: 420px;
+  height: 420px;
+
+  right: 8%;
+  top: 16%;
+
+  background:
+    rgba(125, 119, 255, 0.08);
+}
+
+.glow-2 {
+  width: 300px;
+  height: 300px;
+
+  right: 28%;
+  bottom: 5%;
+
+  background:
+    rgba(255, 255, 255, 0.035);
+}
+
+
+/* =========================================================
+   LEFT COPY
+========================================================= */
+
+.stage-copy {
+  position: relative;
+
+  z-index: 10;
+
+  max-width: 580px;
+}
+
+.stage-index {
+  display: block;
+
+  margin-bottom: 26px;
+
+  color:
+    rgba(255, 255, 255, 0.36);
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.22em;
+
+  text-transform: uppercase;
+}
+
+.stage-copy h1 {
+  margin: 0 0 30px;
+
+  font-size:
+    clamp(
+      62px,
+      7vw,
+      125px
+    );
+
+  line-height: 0.91;
+
+  letter-spacing: -0.06em;
+
+  font-weight: 500;
+}
+
+.stage-copy p {
+  max-width: 470px;
+
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.48);
+
+  font-size:
+    clamp(
+      16px,
+      1.25vw,
+      19px
+    );
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   MORPH AREA
+========================================================= */
+
+.morph-area {
+  position: relative;
+
+  min-height: 680px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  perspective: 1600px;
+
+  z-index: 20;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.morph-card {
+  position: relative;
+
+  width:
+    clamp(
+      390px,
+      38vw,
+      610px
+    );
+
+  height:
+    clamp(
+      460px,
+      46vw,
+      650px
+    );
+
+  transform-style: preserve-3d;
+
+  transform-origin: center center;
+
+  will-change:
+    transform,
+    width,
+    height;
+}
+
+
+/* =========================================================
+   FRONT FACE
+========================================================= */
+
+.card-front {
+  position: absolute;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  border-radius: 34px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f0eee8,
+      #d7d2c8
+    );
+
+  color: #151515;
+
+  box-shadow:
+    0 70px 150px rgba(0, 0, 0, 0.32);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.22);
+
+  transform:
+    translateZ(0);
+
+  will-change:
+    border-radius,
+    background,
+    box-shadow;
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.card-content {
+  position: relative;
+
+  z-index: 10;
+
+  height: 100%;
+
+  padding:
+    clamp(
+      28px,
+      4vw,
+      55px
+    );
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  will-change:
+    opacity,
+    transform;
+}
+
+
+.card-top {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+
+.card-label,
+.card-number,
+.card-bottom {
+  font-size: 11px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.18em;
+
+  color:
+    rgba(0, 0, 0, 0.48);
+}
+
+
+.card-main {
+  max-width: 450px;
+}
+
+
+.persistent-dot {
+  width: 16px;
+  height: 16px;
+
+  margin-bottom: 30px;
+
+  border-radius: 50%;
+
+  background: #111;
+
+  box-shadow:
+    0 0 0 7px
+    rgba(0, 0, 0, 0.055);
+
+  will-change:
+    transform,
+    background;
+}
+
+
+.card-main h2 {
+  margin:
+    0
+    0
+    22px;
+
+  font-size:
+    clamp(
+      37px,
+      4vw,
+      62px
+    );
+
+  line-height: 0.98;
+
+  letter-spacing: -0.05em;
+
+  font-weight: 500;
+}
+
+
+.card-main p {
+  margin: 0;
+
+  max-width: 390px;
+
+  font-size: 16px;
+
+  line-height: 1.55;
+
+  color:
+    rgba(0, 0, 0, 0.53);
+}
+
+
+.card-bottom {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  border-top:
+    1px solid
+    rgba(0, 0, 0, 0.1);
+
+  padding-top: 22px;
+}
+
+
+.arrow {
+  font-size: 20px;
+
+  color:
+    rgba(0, 0, 0, 0.7);
+}
+
+
+/* =========================================================
+   FRAME HOLE
+
+   Empieza invisible.
+========================================================= */
+
+.frame-hole {
+  position: absolute;
+
+  z-index: 4;
+
+  top: 50%;
+  left: 50%;
+
+  width: 0;
+  height: 0;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  border-radius: 18px;
+
+  background: #0b0b0b;
+
+  opacity: 0;
+
+  will-change:
+    width,
+    height,
+    opacity,
+    border-radius;
+}
+
+
+/* =========================================================
+   FAKE 3D SIDES
+========================================================= */
+
+.card-side {
+  position: absolute;
+
+  pointer-events: none;
+
+  background:
+    #aaa69c;
+
+  opacity: 0;
+
+  will-change:
+    opacity,
+    transform;
+}
+
+
+/* right */
+
+.card-side-right {
+  top: 16px;
+
+  right: -28px;
+
+  width: 30px;
+
+  height:
+    calc(
+      100% - 18px
+    );
+
+  transform-origin:
+    left center;
+
+  transform:
+    rotateY(90deg);
+
+  background:
+    linear-gradient(
+      90deg,
+      #99958d,
+      #706d67
+    );
+}
+
+
+/* bottom */
+
+.card-side-bottom {
+  left: 17px;
+
+  bottom: -28px;
+
+  width:
+    calc(
+      100% - 17px
+    );
+
+  height: 30px;
+
+  transform-origin:
+    center top;
+
+  transform:
+    rotateX(-90deg);
+
+  background:
+    linear-gradient(
+      180deg,
+      #aaa69e,
+      #716e67
+    );
+}
+
+
+/* =========================================================
+   PROGRESS UI
+========================================================= */
+
+.progress-ui {
+  position: absolute;
+
+  left:
+    clamp(
+      25px,
+      6vw,
+      95px
+    );
+
+  bottom:
+    clamp(
+      25px,
+      5vw,
+      70px
+    );
+
+  z-index: 50;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  color:
+    rgba(255, 255, 255, 0.4);
+
+  font-size: 10px;
+
+  letter-spacing: 0.15em;
+
+  text-transform: uppercase;
+}
+
+
+.progress-track {
+  position: relative;
+
+  width: 110px;
+  height: 1px;
+
+  overflow: hidden;
+
+  background:
+    rgba(255, 255, 255, 0.15);
+}
+
+
+.progress-fill {
+  position: absolute;
+
+  inset:
+    0
+    auto
+    0
+    0;
+
+  width: 0%;
+
+  background: #fff;
+}
+
+
+/* =========================================================
+   SCROLL SPACE
+
+   Esta sección solo aporta recorrido físico.
+========================================================= */
+
+.scroll-space {
+  position: relative;
+
+  height: 520vh;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   DEBUG / STATE MARKERS
+========================================================= */
+
+.scroll-marker {
+  position: absolute;
+
+  left: 30px;
+
+  font-size: 10px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.15em;
+
+  color:
+    rgba(255, 255, 255, 0.16);
+}
+
+.marker-1 {
+  top: 5%;
+}
+
+.marker-2 {
+  top: 30%;
+}
+
+.marker-3 {
+  top: 58%;
+}
+
+.marker-4 {
+  top: 83%;
+}
+
+
+/* =========================================================
+   FINAL SECTION
+========================================================= */
+
+.final-section {
+  position: relative;
+
+  min-height: 120vh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding:
+    clamp(
+      40px,
+      8vw,
+      130px
+    );
+
+  background:
+    #ebe8e0;
+
+  color: #111;
+
+  overflow: hidden;
+}
+
+
+.final-content {
+  max-width: 850px;
+
+  text-align: center;
+}
+
+
+.final-number {
+  display: block;
+
+  margin-bottom: 25px;
+
+  color:
+    rgba(0, 0, 0, 0.35);
+
+  font-size: 11px;
+
+  letter-spacing: 0.22em;
+}
+
+
+.final-content h2 {
+  margin:
+    0
+    0
+    32px;
+
+  font-size:
+    clamp(
+      60px,
+      8vw,
+      125px
+    );
+
+  line-height: 0.91;
+
+  letter-spacing: -0.06em;
+
+  font-weight: 500;
+}
+
+
+.final-content p {
+  max-width: 500px;
+
+  margin: 0 auto;
+
+  color:
+    rgba(0, 0, 0, 0.5);
+
+  font-size: 18px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 950px) {
+
+  .stage {
+    grid-template-columns: 1fr;
+
+    align-content: center;
+
+    gap: 20px;
+
+    padding:
+      70px
+      25px;
+  }
+
+
+  .stage-copy {
+    margin:
+      0 auto;
+
+    text-align: center;
+  }
+
+
+  .stage-copy p {
+    margin:
+      0 auto;
+  }
+
+
+  .morph-area {
+    min-height: 580px;
+  }
+
+
+  .morph-card {
+    width:
+      min(
+        78vw,
+        500px
+      );
+
+    height:
+      min(
+        88vw,
+        580px
+      );
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .stage {
+    min-height: 100vh;
+
+    padding:
+      50px
+      18px;
+  }
+
+
+  .stage-copy h1 {
+    font-size:
+      clamp(
+        54px,
+        16vw,
+        78px
+      );
+  }
+
+
+  .morph-area {
+    min-height: 470px;
+  }
+
+
+  .morph-card {
+    width:
+      min(
+        86vw,
+        390px
+      );
+
+    height:
+      min(
+        105vw,
+        480px
+      );
+  }
+
+
+  .card-main h2 {
+    font-size:
+      36px;
+  }
+
+
+  .progress-ui {
+    left: 20px;
+
+    bottom: 18px;
+  }
+
+
+  .progress-track {
+    width: 70px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (
+  prefers-reduced-motion: reduce
+) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration:
+      0.001ms !important;
+
+    animation-iteration-count:
+      1 !important;
+  }
+
+}

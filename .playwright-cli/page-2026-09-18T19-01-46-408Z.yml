@@ -1,0 +1,60 @@
+- main [ref=f1e2]:
+  - link "Volver a la página principal de MIRA" [ref=f1e3] [cursor=pointer]:
+    - /url: ../
+    - generic [ref=f1e6]: Volver a MIRA
+  - region "Acceso a MIRA" [ref=f1e7]:
+    - generic:
+      - generic:
+        - paragraph: MIRA
+        - heading "Vuelve a tu espacio." [level=1]
+        - generic "Opciones de acceso social":
+          - button "Continuar con Google":
+            - generic [aria-hidden]: 
+          - button "Continuar con TikTok":
+            - generic [aria-hidden]: 
+          - button "Continuar con Apple":
+            - generic [aria-hidden]: 
+        - paragraph: O USA TU CORREO
+        - generic:
+          - generic:
+            - generic:
+              - textbox "Correo electrónico"
+            - generic: Ingresa tu correo electrónico.
+          - generic:
+            - generic:
+              - textbox "Contraseña"
+            - generic: Ingresa tu contraseña.
+        - link "¿Olvidaste tu contraseña?":
+          - /url: "#loginPassword"
+        - button "ENTRAR A MIRA"
+    - generic [ref=f1e46]:
+      - paragraph [ref=f1e47]: MIRA
+      - heading "Hazle espacio a tu historia." [level=1] [ref=f1e48]
+      - generic "Opciones de registro social" [ref=f1e49]:
+        - button "Registrarte con Google" [ref=f1e50] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f1e51]: 
+        - button "Registrarte con TikTok" [ref=f1e52] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f1e53]: 
+        - button "Registrarte con Apple" [ref=f1e54] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f1e55]: 
+      - paragraph [ref=f1e56]: O CREA TU CUENTA CON CORREO
+      - generic [ref=f1e57]:
+        - generic [ref=f1e58]:
+          - textbox "Nombre" [ref=f1e60]
+          - generic: Ingresa tu nombre.
+        - generic [ref=f1e61]:
+          - textbox "Correo electrónico" [ref=f1e63]
+          - generic: Ingresa tu correo electrónico.
+        - generic [ref=f1e64]:
+          - textbox "Crea una contraseña" [ref=f1e66]
+          - generic: Crea una contraseña.
+      - button "CREAR MI CUENTA" [ref=f1e67] [cursor=pointer]
+    - generic [ref=f1e30]:
+      - generic [ref=f1e34]:
+        - heading "Qué bueno verte." [level=2] [ref=f1e35]
+        - paragraph [ref=f1e36]: Vuelve a organizar el contenido de tu libro sin dejar de escribir.
+        - button "INICIAR SESIÓN" [ref=f1e37] [cursor=pointer]
+      - generic [ref=f1e41]:
+        - heading "Tu escritura sigue al centro." [level=2] [ref=f1e42]
+        - paragraph [ref=f1e43]: Crea tu espacio y convierte tu historia en contenido con intención.
+        - button "CREAR CUENTA" [active] [ref=f1e44] [cursor=pointer]

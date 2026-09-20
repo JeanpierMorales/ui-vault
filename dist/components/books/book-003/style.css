@@ -1,0 +1,589 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background: #f7f6f1;
+
+  --card: #ffffff;
+
+  --text: #181818;
+  --muted: #9b9b96;
+
+  --border: #e9e8e3;
+
+  --ease:
+    cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  background: var(--background);
+
+  color: var(--text);
+}
+
+
+/* =========================================
+   PAGE
+========================================= */
+
+.page {
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+
+  padding: 70px 50px;
+}
+
+
+/* =========================================
+   LIBRARY
+========================================= */
+
+.library {
+  width: min(1600px, 100%);
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.library-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  margin-bottom: 36px;
+}
+
+.eyebrow {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: var(--muted);
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.2em;
+}
+
+.library-header h1 {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(38px, 4vw, 58px);
+
+  line-height: 1;
+
+  font-weight: 500;
+
+  letter-spacing: -0.04em;
+}
+
+
+/* =========================================
+   MORE
+========================================= */
+
+.more-button {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  background: transparent;
+
+  color: #333;
+
+  font-size: 18px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.more-button:hover {
+  background:
+    rgba(0, 0, 0, 0.06);
+
+  transform:
+    scale(1.06);
+}
+
+
+/* =========================================
+   GRID
+========================================= */
+
+.books-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 22px;
+}
+
+
+/* =========================================
+   BOOK CARD
+========================================= */
+
+.book-card {
+  position: relative;
+
+  min-height: 190px;
+
+  display: grid;
+
+  grid-template-columns:
+    115px 1fr;
+
+  gap: 20px;
+
+  padding: 16px;
+
+  overflow: hidden;
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 6px;
+
+  background:
+    var(--card);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.4s var(--ease),
+    box-shadow 0.4s var(--ease),
+    border-color 0.35s ease;
+}
+
+.book-card:hover {
+  transform:
+    translateY(-6px);
+
+  border-color:
+    #dbdad5;
+
+  box-shadow:
+    0 16px 35px
+    rgba(25, 24, 20, 0.08);
+}
+
+
+/* =========================================
+   COVER
+========================================= */
+
+.book-cover {
+  position: relative;
+
+  width: 115px;
+
+  height: 158px;
+
+  overflow: hidden;
+
+  border-radius: 3px;
+
+  box-shadow:
+    0 9px 18px
+    rgba(20, 20, 18, 0.16);
+
+  transition:
+    transform 0.45s var(--ease),
+    box-shadow 0.45s var(--ease);
+}
+
+
+/*
+Book spine
+*/
+
+.book-cover::before {
+  content: "";
+
+  position: absolute;
+
+  z-index: 2;
+
+  top: 0;
+  bottom: 0;
+  left: 0;
+
+  width: 6px;
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.19),
+      rgba(255, 255, 255, 0.08)
+    );
+
+  pointer-events: none;
+}
+
+.book-cover img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.5s var(--ease);
+}
+
+
+/* =========================================
+   COVER HOVER
+========================================= */
+
+.book-card:hover
+.book-cover {
+  transform:
+    translateY(-3px)
+    rotateY(-5deg);
+
+  box-shadow:
+    10px 15px 25px
+    rgba(20, 20, 18, 0.2);
+}
+
+.book-card:hover
+.book-cover img {
+  transform:
+    scale(1.04);
+}
+
+
+/* =========================================
+   INFO
+========================================= */
+
+.book-info {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  padding:
+    3px 0 0;
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.book-info h2 {
+  display: -webkit-box;
+
+  overflow: hidden;
+
+  -webkit-line-clamp: 2;
+
+  -webkit-box-orient: vertical;
+
+  margin-bottom: 14px;
+
+  font-size: 17px;
+
+  line-height: 1.3;
+
+  font-weight: 600;
+
+  letter-spacing: -0.02em;
+}
+
+
+/* =========================================
+   AUTHOR
+========================================= */
+
+.author {
+  margin-bottom: auto;
+
+  color:
+    var(--muted);
+
+  font-size: 14px;
+
+  transition:
+    color 0.25s ease;
+}
+
+.book-card:hover
+.author {
+  color:
+    #62625d;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.book-footer {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding-top: 20px;
+}
+
+.duration {
+  color: #373733;
+
+  font-size: 13px;
+
+  font-weight: 500;
+}
+
+
+/* =========================================
+   PLAY BUTTON
+========================================= */
+
+.play-button {
+  position: relative;
+
+  width: 40px;
+  height: 40px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border:
+    2px solid #181818;
+
+  border-radius: 50%;
+
+  background:
+    transparent;
+
+  color:
+    #181818;
+
+  cursor: pointer;
+
+  isolation: isolate;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s var(--ease);
+}
+
+
+/*
+Circular fill
+*/
+
+.play-button::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -1px;
+
+  z-index: -1;
+
+  border-radius: 50%;
+
+  background:
+    #181818;
+
+  transform:
+    scale(0);
+
+  transition:
+    transform
+    0.4s
+    var(--ease);
+}
+
+
+.play-button:hover::before,
+.play-button.playing::before {
+  transform:
+    scale(1);
+}
+
+
+.play-button:hover,
+.play-button.playing {
+  color: #ffffff;
+}
+
+
+.play-button:hover {
+  transform:
+    scale(1.08);
+}
+
+
+.play-button:active {
+  transform:
+    scale(0.94);
+}
+
+
+/*
+Slight correction for play triangle
+*/
+
+.play-button .fa-play {
+  transform:
+    translateX(1px);
+}
+
+
+/* =========================================
+   ACTIVE / PLAYING CARD
+========================================= */
+
+.book-card.is-playing {
+  border-color:
+    #cac9c3;
+
+  box-shadow:
+    0 18px 38px
+    rgba(20, 20, 18, 0.1);
+}
+
+
+/*
+Small highlight bar
+*/
+
+.book-card::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+
+  width: 0;
+  height: 3px;
+
+  background:
+    #181818;
+
+  transition:
+    width 0.55s var(--ease);
+}
+
+
+.book-card:hover::after,
+.book-card.is-playing::after {
+  width: 100%;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1250px) {
+
+  .books-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+  .page {
+    padding:
+      45px 20px;
+  }
+
+  .books-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 430px) {
+
+  .book-card {
+    grid-template-columns:
+      95px 1fr;
+
+    min-height: 165px;
+
+    gap: 16px;
+  }
+
+  .book-cover {
+    width: 95px;
+    height: 135px;
+  }
+
+  .book-info h2 {
+    font-size: 15px;
+  }
+
+  .play-button {
+    width: 36px;
+    height: 36px;
+  }
+
+}

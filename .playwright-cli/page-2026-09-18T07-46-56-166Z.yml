@@ -1,0 +1,656 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - button "Crear una página nueva" [ref=e4] [cursor=pointer]:
+        - generic [aria-hidden] [ref=e5]: UV
+        - generic [ref=e6]: UI Vault
+      - generic [ref=e7]:
+        - generic [ref=e8]: Proyecto
+        - textbox "Proyecto" [ref=e9]: Página sin título
+      - generic [ref=e10]:
+        - button "Deshacer" [disabled] [ref=e11]
+        - button "Rehacer" [disabled] [ref=e15]
+        - button "Ver publicación ↗" [ref=e19] [cursor=pointer]
+        - button "Exportar proyecto" [ref=e20] [cursor=pointer]
+        - button "Cambiar a modo oscuro" [ref=e22] [cursor=pointer]
+    - main [ref=e26]:
+      - complementary "Biblioteca de componentes" [ref=e27]:
+        - generic [ref=e28]:
+          - generic [ref=e29]: Biblioteca
+          - generic [ref=e30]: 123 piezas
+        - searchbox [ref=e35]
+        - navigation "Categorías disponibles" [ref=e36]:
+          - button "Todo el archivo 123" [ref=e37] [cursor=pointer]:
+            - text: Todo el archivo
+            - generic [ref=e38]: "123"
+          - paragraph [ref=e39]: Foundations
+          - button "Typography 1" [ref=e40] [cursor=pointer]:
+            - text: Typography
+            - generic [ref=e41]: "1"
+          - button "Icons 1" [ref=e42] [cursor=pointer]:
+            - text: Icons
+            - generic [ref=e43]: "1"
+          - paragraph [ref=e44]: Components
+          - button "Buttons 64" [ref=e45] [cursor=pointer]:
+            - text: Buttons
+            - generic [ref=e46]: "64"
+          - button "Cards 14" [ref=e47] [cursor=pointer]:
+            - text: Cards
+            - generic [ref=e48]: "14"
+          - button "Book Cards 21" [ref=e49] [cursor=pointer]:
+            - text: Book Cards
+            - generic [ref=e50]: "21"
+          - button "Loaders 3" [ref=e51] [cursor=pointer]:
+            - text: Loaders
+            - generic [ref=e52]: "3"
+          - button "Forms 4" [ref=e53] [cursor=pointer]:
+            - text: Forms
+            - generic [ref=e54]: "4"
+          - paragraph [ref=e55]: Sections
+          - button "Pricing 5" [ref=e56] [cursor=pointer]:
+            - text: Pricing
+            - generic [ref=e57]: "5"
+          - button "Testimonials 7" [ref=e58] [cursor=pointer]:
+            - text: Testimonials
+            - generic [ref=e59]: "7"
+          - button "Process 1" [ref=e60] [cursor=pointer]:
+            - text: Process
+            - generic [ref=e61]: "1"
+          - paragraph [ref=e62]: Interactions
+          - button "3D Models 1" [ref=e63] [cursor=pointer]:
+            - text: 3D Models
+            - generic [ref=e64]: "1"
+          - button "Scroll Experiences 1" [ref=e65] [cursor=pointer]:
+            - text: Scroll Experiences
+            - generic [ref=e66]: "1"
+        - generic [ref=e67]:
+          - paragraph [ref=e68]: Las piezas cargan su HTML, CSS y JavaScript originales.
+          - text: Arrastra o inserta para componer.
+      - region "Constructor de página" [ref=e69]:
+        - generic [ref=e70]:
+          - generic [ref=e71]:
+            - generic [ref=e72]:
+              - text: Lienzo
+              - heading "Página sin título" [level=1] [ref=e73]
+            - group "Cambiar dispositivo" [ref=e74]:
+              - button "Desktop" [pressed] [ref=e75] [cursor=pointer]
+              - button "Tablet" [ref=e80] [cursor=pointer]
+              - button "Móvil" [ref=e85] [cursor=pointer]
+          - generic [ref=e92]:
+            - heading "Empieza con una pieza real" [level=2] [ref=e96]
+            - paragraph [ref=e97]: Elige una variante de la biblioteca y añade solo esa pieza. Cada una queda aislada para conservar su comportamiento original.
+        - region [ref=e98]:
+          - generic [ref=e99]:
+            - generic [ref=e100]:
+              - text: Piezas disponibles
+              - heading "Buttons" [level=2] [ref=e101]
+            - paragraph [ref=e102]: 64 piezas disponibles · Inserta o arrastra al lienzo.
+          - generic [ref=e103]:
+            - article [ref=e104]:
+              - iframe [ref=e106]:
+                - iframe [ref=f2e2]:
+                  - main [ref=f76e3]:
+                    - article [ref=f76e4]:
+                      - button "Get started" [ref=f76e6] [cursor=pointer]
+                      - generic [ref=f76e7]:
+                        - strong [ref=f76e8]: Soft CTA
+                        - code [ref=f76e9]: .apple-soft
+              - generic [ref=e107]:
+                - generic [ref=e108]:
+                  - paragraph [ref=e109]: Buttons · individual
+                  - heading "Apple Soft" [level=3] [ref=e110]
+                - button "Añadir Apple Soft" [ref=e111] [cursor=pointer]
+            - article [ref=e115]:
+              - iframe [ref=e117]:
+                - iframe [ref=f3e2]:
+                  - main [ref=f78e3]:
+                    - article [ref=f78e4]:
+                      - button "Explore" [ref=f78e6] [cursor=pointer]
+                      - generic [ref=f78e7]:
+                        - strong [ref=f78e8]: Spotlight
+                        - code [ref=f78e9]: .spotlight-btn
+              - generic [ref=e118]:
+                - generic [ref=e119]:
+                  - paragraph [ref=e120]: Buttons · individual
+                  - heading "Spotlight" [level=3] [ref=e121]
+                - button "Añadir Spotlight" [ref=e122] [cursor=pointer]
+            - article [ref=e126]:
+              - iframe [ref=e128]:
+                - iframe [ref=f4e2]:
+                  - main [ref=f68e3]:
+                    - article [ref=f68e4]:
+                      - button "Discover →" [ref=f68e6] [cursor=pointer]:
+                        - generic [ref=f68e7]: Discover
+                        - generic [ref=f68e8]: →
+                      - generic [ref=f68e9]:
+                        - strong [ref=f68e10]: Arrow Follow
+                        - code [ref=f68e11]: .arrow-follow
+              - generic [ref=e129]:
+                - generic [ref=e130]:
+                  - paragraph [ref=e131]: Buttons · individual
+                  - heading "Arrow Follow" [level=3] [ref=e132]
+                - button "Añadir Arrow Follow" [ref=e133] [cursor=pointer]
+            - article [ref=e137]:
+              - iframe [ref=e139]:
+                - iframe [ref=f5e2]:
+                  - main [ref=f73e3]:
+                    - article [ref=f73e4]:
+                      - button "Next project →" [ref=f73e6] [cursor=pointer]:
+                        - generic [ref=f73e7]: Next project
+                        - generic [ref=f73e8]: →
+                      - generic [ref=f73e9]:
+                        - strong [ref=f73e10]: Arrow Reveal
+                        - code [ref=f73e11]: .arrow-reveal
+              - generic [ref=e140]:
+                - generic [ref=e141]:
+                  - paragraph [ref=e142]: Buttons · individual
+                  - heading "Arrow Reveal" [level=3] [ref=e143]
+                - button "Añadir Arrow Reveal" [ref=e144] [cursor=pointer]
+            - article [ref=e148]:
+              - iframe [ref=e150]:
+                - iframe [ref=f6e2]:
+                  - main [ref=f74e3]:
+                    - article [ref=f74e4]:
+                      - button "Magnetic" [ref=f74e6] [cursor=pointer]
+                      - generic [ref=f74e7]:
+                        - strong [ref=f74e8]: Magnetic
+                        - code [ref=f74e9]: .magnetic
+              - generic [ref=e151]:
+                - generic [ref=e152]:
+                  - paragraph [ref=e153]: Buttons · individual
+                  - heading "Magnetic" [level=3] [ref=e154]
+                - button "Añadir Magnetic" [ref=e155] [cursor=pointer]
+            - article [ref=e159]:
+              - iframe [ref=e161]:
+                - iframe [ref=f7e2]:
+                  - main [ref=f67e3]:
+                    - article [ref=f67e4]:
+                      - button "View more" [ref=f67e6] [cursor=pointer]
+                      - generic [ref=f67e7]:
+                        - strong [ref=f67e8]: Cursor Fill
+                        - code [ref=f67e9]: .cursor-fill
+              - generic [ref=e162]:
+                - generic [ref=e163]:
+                  - paragraph [ref=e164]: Buttons · individual
+                  - heading "Cursor Fill" [level=3] [ref=e165]
+                - button "Añadir Cursor Fill" [ref=e166] [cursor=pointer]
+            - article [ref=e170]:
+              - iframe [ref=e172]:
+                - iframe [ref=f8e2]:
+                  - main [ref=f70e3]:
+                    - article [ref=f70e4]:
+                      - button "Connect" [ref=f70e6] [cursor=pointer]
+                      - generic [ref=f70e7]:
+                        - strong [ref=f70e8]: Liquid Rise
+                        - code [ref=f70e9]: .liquid
+              - generic [ref=e173]:
+                - generic [ref=e174]:
+                  - paragraph [ref=e175]: Buttons · individual
+                  - heading "Liquid" [level=3] [ref=e176]
+                - button "Añadir Liquid" [ref=e177] [cursor=pointer]
+            - article [ref=e181]:
+              - iframe [ref=e183]:
+                - iframe [ref=f9e2]:
+                  - main [ref=f66e3]:
+                    - article [ref=f66e4]:
+                      - button "Contact us" [ref=f66e6] [cursor=pointer]
+                      - generic [ref=f66e7]:
+                        - strong [ref=f66e8]: Diagonal Fill
+                        - code [ref=f66e9]: .diagonal-fill
+              - generic [ref=e184]:
+                - generic [ref=e185]:
+                  - paragraph [ref=e186]: Buttons · individual
+                  - heading "Diagonal" [level=3] [ref=e187]
+                - button "Añadir Diagonal" [ref=e188] [cursor=pointer]
+            - article [ref=e192]:
+              - iframe [ref=e194]:
+                - iframe [ref=f10e2]:
+                  - main [ref=f75e3]:
+                    - article [ref=f75e4]:
+                      - button "Start building" [ref=f75e6] [cursor=pointer]
+                      - generic [ref=f75e7]:
+                        - strong [ref=f75e8]: Split Layers
+                        - code [ref=f75e9]: .split-btn
+              - generic [ref=e195]:
+                - generic [ref=e196]:
+                  - paragraph [ref=e197]: Buttons · individual
+                  - heading "Split" [level=3] [ref=e198]
+                - button "Añadir Split" [ref=e199] [cursor=pointer]
+            - article [ref=e203]:
+              - iframe [ref=e205]:
+                - iframe [ref=f11e2]:
+                  - main [ref=f80e3]:
+                    - article [ref=f80e4]:
+                      - button "Start now Let's go →" [ref=f80e6] [cursor=pointer]:
+                        - generic [ref=f80e7]: Start now
+                        - generic [ref=f80e8]: Let's go →
+                      - generic [ref=f80e9]:
+                        - strong [ref=f80e10]: Text Swap
+                        - code [ref=f80e11]: .text-swap
+              - generic [ref=e206]:
+                - generic [ref=e207]:
+                  - paragraph [ref=e208]: Buttons · individual
+                  - heading "Text Swap" [level=3] [ref=e209]
+                - button "Añadir Text Swap" [ref=e210] [cursor=pointer]
+            - article [ref=e214]:
+              - iframe [ref=e216]:
+                - iframe [ref=f12e2]:
+                  - main [ref=f77e3]:
+                    - article [ref=f77e4]:
+                      - button "Upgrade" [ref=f77e6] [cursor=pointer]
+                      - generic [ref=f77e7]:
+                        - strong [ref=f77e8]: Shimmer
+                        - code [ref=f77e9]: .shimmer
+              - generic [ref=e217]:
+                - generic [ref=e218]:
+                  - paragraph [ref=e219]: Buttons · individual
+                  - heading "Shimmer" [level=3] [ref=e220]
+                - button "Añadir Shimmer" [ref=e221] [cursor=pointer]
+            - article [ref=e225]:
+              - iframe [ref=e227]:
+                - iframe [ref=f13e2]:
+                  - main [ref=f69e3]:
+                    - article [ref=f69e4]:
+                      - button "Continue" [ref=f69e6] [cursor=pointer]
+                      - generic [ref=f69e7]:
+                        - strong [ref=f69e8]: Aurora Border
+                        - code [ref=f69e9]: .aurora-border
+              - generic [ref=e228]:
+                - generic [ref=e229]:
+                  - paragraph [ref=e230]: Buttons · individual
+                  - heading "Aurora Border" [level=3] [ref=e231]
+                - button "Añadir Aurora Border" [ref=e232] [cursor=pointer]
+            - article [ref=e236]:
+              - iframe [ref=e238]:
+                - iframe [ref=f14e2]:
+                  - main [ref=f79e3]:
+                    - article [ref=f79e4]:
+                      - button "View details" [ref=f79e6] [cursor=pointer]
+                      - generic [ref=f79e7]:
+                        - strong [ref=f79e8]: Glass
+                        - code [ref=f79e9]: .glass
+              - generic [ref=e239]:
+                - generic [ref=e240]:
+                  - paragraph [ref=e241]: Buttons · individual
+                  - heading "Glass" [level=3] [ref=e242]
+                - button "Añadir Glass" [ref=e243] [cursor=pointer]
+            - article [ref=e247]:
+              - iframe [ref=e249]:
+                - iframe [ref=f15e2]:
+                  - main [ref=f71e3]:
+                    - article [ref=f71e4]:
+                      - button "Press me" [ref=f71e6] [cursor=pointer]
+                      - generic [ref=f71e7]:
+                        - strong [ref=f71e8]: Physical
+                        - code [ref=f71e9]: .physical
+              - generic [ref=e250]:
+                - generic [ref=e251]:
+                  - paragraph [ref=e252]: Buttons · individual
+                  - heading "Physical" [level=3] [ref=e253]
+                - button "Añadir Physical" [ref=e254] [cursor=pointer]
+            - article [ref=e258]:
+              - iframe [ref=e260]:
+                - iframe [ref=f16e2]:
+                  - main [ref=f72e3]:
+                    - article [ref=f72e4]:
+                      - button "Bounce" [ref=f72e6] [cursor=pointer]
+                      - generic [ref=f72e7]:
+                        - strong [ref=f72e8]: Spring
+                        - code [ref=f72e9]: .spring-btn
+              - generic [ref=e261]:
+                - generic [ref=e262]:
+                  - paragraph [ref=e263]: Buttons · individual
+                  - heading "Spring" [level=3] [ref=e264]
+                - button "Añadir Spring" [ref=e265] [cursor=pointer]
+            - article [ref=e269]:
+              - iframe [ref=e271]
+              - generic [ref=e272]:
+                - generic [ref=e273]:
+                  - paragraph [ref=e274]: Buttons · individual
+                  - heading "Soft Press" [level=3] [ref=e275]
+                - button "Añadir Soft Press" [ref=e276] [cursor=pointer]
+            - article [ref=e280]:
+              - iframe [ref=e282]
+              - generic [ref=e283]:
+                - generic [ref=e284]:
+                  - paragraph [ref=e285]: Buttons · individual
+                  - heading "Underline" [level=3] [ref=e286]
+                - button "Añadir Underline" [ref=e287] [cursor=pointer]
+            - article [ref=e291]:
+              - iframe [ref=e293]
+              - generic [ref=e294]:
+                - generic [ref=e295]:
+                  - paragraph [ref=e296]: Buttons · individual
+                  - heading "Brackets" [level=3] [ref=e297]
+                - button "Añadir Brackets" [ref=e298] [cursor=pointer]
+            - article [ref=e302]:
+              - iframe [ref=e304]
+              - generic [ref=e305]:
+                - generic [ref=e306]:
+                  - paragraph [ref=e307]: Buttons · individual
+                  - heading "Corner Frame" [level=3] [ref=e308]
+                - button "Añadir Corner Frame" [ref=e309] [cursor=pointer]
+            - article [ref=e313]:
+              - iframe [ref=e315]
+              - generic [ref=e316]:
+                - generic [ref=e317]:
+                  - paragraph [ref=e318]: Buttons · individual
+                  - heading "Back" [level=3] [ref=e319]
+                - button "Añadir Back" [ref=e320] [cursor=pointer]
+            - article [ref=e324]:
+              - iframe [ref=e326]
+              - generic [ref=e327]:
+                - generic [ref=e328]:
+                  - paragraph [ref=e329]: Buttons · individual
+                  - heading "Next Circle" [level=3] [ref=e330]
+                - button "Añadir Next Circle" [ref=e331] [cursor=pointer]
+            - article [ref=e335]:
+              - iframe [ref=e337]
+              - generic [ref=e338]:
+                - generic [ref=e339]:
+                  - paragraph [ref=e340]: Buttons · individual
+                  - heading "Menu Morph" [level=3] [ref=e341]
+                - button "Añadir Menu Morph" [ref=e342] [cursor=pointer]
+            - article [ref=e346]:
+              - iframe [ref=e348]
+              - generic [ref=e349]:
+                - generic [ref=e350]:
+                  - paragraph [ref=e351]: Buttons · individual
+                  - heading "Heart" [level=3] [ref=e352]
+                - button "Añadir Heart" [ref=e353] [cursor=pointer]
+            - article [ref=e357]:
+              - iframe [ref=e359]
+              - generic [ref=e360]:
+                - generic [ref=e361]:
+                  - paragraph [ref=e362]: Buttons · individual
+                  - heading "Bookmark" [level=3] [ref=e363]
+                - button "Añadir Bookmark" [ref=e364] [cursor=pointer]
+            - article [ref=e368]:
+              - iframe [ref=e370]
+              - generic [ref=e371]:
+                - generic [ref=e372]:
+                  - paragraph [ref=e373]: Buttons · individual
+                  - heading "Plus Check" [level=3] [ref=e374]
+                - button "Añadir Plus Check" [ref=e375] [cursor=pointer]
+            - article [ref=e379]:
+              - iframe [ref=e381]
+              - generic [ref=e382]:
+                - generic [ref=e383]:
+                  - paragraph [ref=e384]: Buttons · individual
+                  - heading "Play Pause" [level=3] [ref=e385]
+                - button "Añadir Play Pause" [ref=e386] [cursor=pointer]
+            - article [ref=e390]:
+              - iframe [ref=e392]
+              - generic [ref=e393]:
+                - generic [ref=e394]:
+                  - paragraph [ref=e395]: Buttons · individual
+                  - heading "Download Hover" [level=3] [ref=e396]
+                - button "Añadir Download Hover" [ref=e397] [cursor=pointer]
+            - article [ref=e401]:
+              - iframe [ref=e403]
+              - generic [ref=e404]:
+                - generic [ref=e405]:
+                  - paragraph [ref=e406]: Buttons · individual
+                  - heading "Download Progress" [level=3] [ref=e407]
+                - button "Añadir Download Progress" [ref=e408] [cursor=pointer]
+            - article [ref=e412]:
+              - iframe [ref=e414]
+              - generic [ref=e415]:
+                - generic [ref=e416]:
+                  - paragraph [ref=e417]: Buttons · individual
+                  - heading "Download Success" [level=3] [ref=e418]
+                - button "Añadir Download Success" [ref=e419] [cursor=pointer]
+            - article [ref=e423]:
+              - iframe [ref=e425]
+              - generic [ref=e426]:
+                - generic [ref=e427]:
+                  - paragraph [ref=e428]: Buttons · individual
+                  - heading "Loading" [level=3] [ref=e429]
+                - button "Añadir Loading" [ref=e430] [cursor=pointer]
+            - article [ref=e434]:
+              - iframe [ref=e436]
+              - generic [ref=e437]:
+                - generic [ref=e438]:
+                  - paragraph [ref=e439]: Buttons · individual
+                  - heading "Loading Dots" [level=3] [ref=e440]
+                - button "Añadir Loading Dots" [ref=e441] [cursor=pointer]
+            - article [ref=e445]:
+              - iframe [ref=e447]
+              - generic [ref=e448]:
+                - generic [ref=e449]:
+                  - paragraph [ref=e450]: Buttons · individual
+                  - heading "Success" [level=3] [ref=e451]
+                - button "Añadir Success" [ref=e452] [cursor=pointer]
+            - article [ref=e456]:
+              - iframe [ref=e458]
+              - generic [ref=e459]:
+                - generic [ref=e460]:
+                  - paragraph [ref=e461]: Buttons · individual
+                  - heading "Retry" [level=3] [ref=e462]
+                - button "Añadir Retry" [ref=e463] [cursor=pointer]
+            - article [ref=e467]:
+              - iframe [ref=e469]
+              - generic [ref=e470]:
+                - generic [ref=e471]:
+                  - paragraph [ref=e472]: Buttons · individual
+                  - heading "Toggle" [level=3] [ref=e473]
+                - button "Añadir Toggle" [ref=e474] [cursor=pointer]
+            - article [ref=e478]:
+              - iframe [ref=e480]
+              - generic [ref=e481]:
+                - generic [ref=e482]:
+                  - paragraph [ref=e483]: Buttons · individual
+                  - heading "Hold Delete" [level=3] [ref=e484]
+                - button "Añadir Hold Delete" [ref=e485] [cursor=pointer]
+            - article [ref=e489]:
+              - iframe [ref=e491]
+              - generic [ref=e492]:
+                - generic [ref=e493]:
+                  - paragraph [ref=e494]: Buttons · individual
+                  - heading "Undo" [level=3] [ref=e495]
+                - button "Añadir Undo" [ref=e496] [cursor=pointer]
+            - article [ref=e500]:
+              - iframe [ref=e502]
+              - generic [ref=e503]:
+                - generic [ref=e504]:
+                  - paragraph [ref=e505]: Buttons · individual
+                  - heading "Copy" [level=3] [ref=e506]
+                - button "Añadir Copy" [ref=e507] [cursor=pointer]
+            - article [ref=e511]:
+              - iframe [ref=e513]
+              - generic [ref=e514]:
+                - generic [ref=e515]:
+                  - paragraph [ref=e516]: Buttons · individual
+                  - heading "Cart" [level=3] [ref=e517]
+                - button "Añadir Cart" [ref=e518] [cursor=pointer]
+            - article [ref=e522]:
+              - iframe [ref=e524]
+              - generic [ref=e525]:
+                - generic [ref=e526]:
+                  - paragraph [ref=e527]: Buttons · individual
+                  - heading "Buy" [level=3] [ref=e528]
+                - button "Añadir Buy" [ref=e529] [cursor=pointer]
+            - article [ref=e533]:
+              - iframe [ref=e535]
+              - generic [ref=e536]:
+                - generic [ref=e537]:
+                  - paragraph [ref=e538]: Buttons · individual
+                  - heading "Quantity" [level=3] [ref=e539]
+                - button "Añadir Quantity" [ref=e540] [cursor=pointer]
+            - article [ref=e544]:
+              - iframe [ref=e546]
+              - generic [ref=e547]:
+                - generic [ref=e548]:
+                  - paragraph [ref=e549]: Buttons · individual
+                  - heading "Upload" [level=3] [ref=e550]
+                - button "Añadir Upload" [ref=e551] [cursor=pointer]
+            - article [ref=e555]:
+              - iframe [ref=e557]
+              - generic [ref=e558]:
+                - generic [ref=e559]:
+                  - paragraph [ref=e560]: Buttons · individual
+                  - heading "Share" [level=3] [ref=e561]
+                - button "Añadir Share" [ref=e562] [cursor=pointer]
+            - article [ref=e566]:
+              - iframe [ref=e568]
+              - generic [ref=e569]:
+                - generic [ref=e570]:
+                  - paragraph [ref=e571]: Buttons · individual
+                  - heading "Follow" [level=3] [ref=e572]
+                - button "Añadir Follow" [ref=e573] [cursor=pointer]
+            - article [ref=e577]:
+              - iframe [ref=e579]
+              - generic [ref=e580]:
+                - generic [ref=e581]:
+                  - paragraph [ref=e582]: Buttons · individual
+                  - heading "Like" [level=3] [ref=e583]
+                - button "Añadir Like" [ref=e584] [cursor=pointer]
+            - article [ref=e588]:
+              - iframe [ref=e590]
+              - generic [ref=e591]:
+                - generic [ref=e592]:
+                  - paragraph [ref=e593]: Buttons · individual
+                  - heading "Glow" [level=3] [ref=e594]
+                - button "Añadir Glow" [ref=e595] [cursor=pointer]
+            - article [ref=e599]:
+              - iframe [ref=e601]
+              - generic [ref=e602]:
+                - generic [ref=e603]:
+                  - paragraph [ref=e604]: Buttons · individual
+                  - heading "Scan" [level=3] [ref=e605]
+                - button "Añadir Scan" [ref=e606] [cursor=pointer]
+            - article [ref=e610]:
+              - iframe [ref=e612]
+              - generic [ref=e613]:
+                - generic [ref=e614]:
+                  - paragraph [ref=e615]: Buttons · individual
+                  - heading "Glitch" [level=3] [ref=e616]
+                - button "Añadir Glitch" [ref=e617] [cursor=pointer]
+            - article [ref=e621]:
+              - iframe [ref=e623]
+              - generic [ref=e624]:
+                - generic [ref=e625]:
+                  - paragraph [ref=e626]: Buttons · individual
+                  - heading "Terminal" [level=3] [ref=e627]
+                - button "Añadir Terminal" [ref=e628] [cursor=pointer]
+            - article [ref=e632]:
+              - iframe [ref=e634]
+              - generic [ref=e635]:
+                - generic [ref=e636]:
+                  - paragraph [ref=e637]: Buttons · individual
+                  - heading "Tilt" [level=3] [ref=e638]
+                - button "Añadir Tilt" [ref=e639] [cursor=pointer]
+            - article [ref=e643]:
+              - iframe [ref=e645]
+              - generic [ref=e646]:
+                - generic [ref=e647]:
+                  - paragraph [ref=e648]: Buttons · individual
+                  - heading "Blob" [level=3] [ref=e649]
+                - button "Añadir Blob" [ref=e650] [cursor=pointer]
+            - article [ref=e654]:
+              - iframe [ref=e656]
+              - generic [ref=e657]:
+                - generic [ref=e658]:
+                  - paragraph [ref=e659]: Buttons · individual
+                  - heading "Border Trace" [level=3] [ref=e660]
+                - button "Añadir Border Trace" [ref=e661] [cursor=pointer]
+            - article [ref=e665]:
+              - iframe [ref=e667]
+              - generic [ref=e668]:
+                - generic [ref=e669]:
+                  - paragraph [ref=e670]: Buttons · individual
+                  - heading "Editorial" [level=3] [ref=e671]
+                - button "Añadir Editorial" [ref=e672] [cursor=pointer]
+            - article [ref=e676]:
+              - iframe [ref=e678]
+              - generic [ref=e679]:
+                - generic [ref=e680]:
+                  - paragraph [ref=e681]: Buttons · individual
+                  - heading "Minimal" [level=3] [ref=e682]
+                - button "Añadir Minimal" [ref=e683] [cursor=pointer]
+            - article [ref=e687]:
+              - iframe [ref=e689]
+              - generic [ref=e690]:
+                - generic [ref=e691]:
+                  - paragraph [ref=e692]: Buttons · individual
+                  - heading "Circle Expand" [level=3] [ref=e693]
+                - button "Añadir Circle Expand" [ref=e694] [cursor=pointer]
+            - article [ref=e698]:
+              - iframe [ref=e700]
+              - generic [ref=e701]:
+                - generic [ref=e702]:
+                  - paragraph [ref=e703]: Buttons · individual
+                  - heading "Slide Arrow" [level=3] [ref=e704]
+                - button "Añadir Slide Arrow" [ref=e705] [cursor=pointer]
+            - article [ref=e709]:
+              - iframe [ref=e711]
+              - generic [ref=e712]:
+                - generic [ref=e713]:
+                  - paragraph [ref=e714]: Buttons · individual
+                  - heading "Invert" [level=3] [ref=e715]
+                - button "Añadir Invert" [ref=e716] [cursor=pointer]
+            - article [ref=e720]:
+              - iframe [ref=e722]
+              - generic [ref=e723]:
+                - generic [ref=e724]:
+                  - paragraph [ref=e725]: Buttons · individual
+                  - heading "Ripple" [level=3] [ref=e726]
+                - button "Añadir Ripple" [ref=e727] [cursor=pointer]
+            - article [ref=e731]:
+              - iframe [ref=e733]
+              - generic [ref=e734]:
+                - generic [ref=e735]:
+                  - paragraph [ref=e736]: Buttons · individual
+                  - heading "Pulse" [level=3] [ref=e737]
+                - button "Añadir Pulse" [ref=e738] [cursor=pointer]
+            - article [ref=e742]:
+              - iframe [ref=e744]
+              - generic [ref=e745]:
+                - generic [ref=e746]:
+                  - paragraph [ref=e747]: Buttons · individual
+                  - heading "Eye" [level=3] [ref=e748]
+                - button "Añadir Eye" [ref=e749] [cursor=pointer]
+            - article [ref=e753]:
+              - iframe [ref=e755]
+              - generic [ref=e756]:
+                - generic [ref=e757]:
+                  - paragraph [ref=e758]: Buttons · individual
+                  - heading "Record" [level=3] [ref=e759]
+                - button "Añadir Record" [ref=e760] [cursor=pointer]
+            - article [ref=e764]:
+              - iframe [ref=e766]
+              - generic [ref=e767]:
+                - generic [ref=e768]:
+                  - paragraph [ref=e769]: Buttons · individual
+                  - heading "Send" [level=3] [ref=e770]
+                - button "Añadir Send" [ref=e771] [cursor=pointer]
+            - article [ref=e775]:
+              - iframe [ref=e777]
+              - generic [ref=e778]:
+                - generic [ref=e779]:
+                  - paragraph [ref=e780]: Buttons · individual
+                  - heading "Expand" [level=3] [ref=e781]
+                - button "Añadir Expand" [ref=e782] [cursor=pointer]
+            - article [ref=e786]:
+              - iframe [ref=e788]
+              - generic [ref=e789]:
+                - generic [ref=e790]:
+                  - paragraph [ref=e791]: Buttons · individual
+                  - heading "Chrome" [level=3] [ref=e792]
+                - button "Añadir Chrome" [ref=e793] [cursor=pointer]
+            - article [ref=e797]:
+              - iframe [ref=e799]
+              - generic [ref=e800]:
+                - generic [ref=e801]:
+                  - paragraph [ref=e802]: Buttons · individual
+                  - heading "Disabled" [level=3] [ref=e803]
+                - button "Añadir Disabled" [ref=e804] [cursor=pointer]
+      - complementary "Inspector de bloque" [ref=e808]:
+        - generic [ref=e809]:
+          - generic [ref=e810]: Inspector
+          - generic [ref=e811]: 0 bloques
+        - generic [ref=e813]:
+          - heading "Selecciona un bloque" [level=2] [ref=e817]
+          - paragraph [ref=e818]: Aquí ajustarás el espacio del bloque y su orden dentro de la página.
+        - paragraph [ref=e823]: “Exportar proyecto” descarga el plano. Usa el exportador incluido para crear una carpeta de preview autónoma.
+  - status

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Morphing Content Card</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <main class="experience" id="experience">
+
+    <!-- =====================================================
+         STICKY STAGE
+    ====================================================== -->
+
+    <section class="stage">
+
+      <div class="background-glow glow-1"></div>
+      <div class="background-glow glow-2"></div>
+
+      <div class="stage-copy">
+
+        <span class="stage-index">
+          02 — Morphing Card
+        </span>
+
+        <h1>
+          One component.<br>
+          Four identities.
+        </h1>
+
+        <p>
+          Una misma tarjeta evoluciona hasta convertirse
+          en parte de la siguiente sección.
+        </p>
+
+      </div>
+
+
+      <!-- ===================================================
+           MORPHING OBJECT
+      ==================================================== -->
+
+      <div class="morph-area">
+
+        <div class="morph-card" id="morph-card">
+
+          <!-- cara principal -->
+          <div class="card-face card-front">
+
+            <div class="card-content">
+
+              <div class="card-top">
+
+                <span class="card-label">
+                  Product systems
+                </span>
+
+                <span class="card-number">
+                  01 / 03
+                </span>
+
+              </div>
+
+
+              <div class="card-main">
+
+                <div class="persistent-dot"></div>
+
+                <h2>
+                  Digital products built
+                  around clarity.
+                </h2>
+
+                <p>
+                  Interfaces, interactions and systems designed
+                  to feel intentional from the first movement.
+                </p>
+
+              </div>
+
+
+              <div class="card-bottom">
+
+                <span>
+                  Explore system
+                </span>
+
+                <span class="arrow">
+                  ↗
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <!-- centro que desaparecerá -->
+            <div class="frame-hole"></div>
+
+          </div>
+
+
+          <!-- profundidad falsa -->
+          <div class="card-side card-side-right"></div>
+          <div class="card-side card-side-bottom"></div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ===================================================
+           PROGRESS
+      ==================================================== -->
+
+      <div class="progress-ui">
+
+        <span id="progress-step">
+          Card
+        </span>
+
+        <div class="progress-track">
+
+          <div
+            class="progress-fill"
+            id="progress-fill"
+          ></div>
+
+        </div>
+
+        <span id="progress-value">
+          0%
+        </span>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SCROLL SPACE
+    ====================================================== -->
+
+    <section class="scroll-space">
+
+      <div class="scroll-marker marker-1">
+        Card
+      </div>
+
+      <div class="scroll-marker marker-2">
+        Block
+      </div>
+
+      <div class="scroll-marker marker-3">
+        Frame
+      </div>
+
+      <div class="scroll-marker marker-4">
+        Section
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FINAL SECTION
+    ====================================================== -->
+
+    <section class="final-section">
+
+      <div class="final-content">
+
+        <span class="final-number">
+          03
+        </span>
+
+        <h2>
+          The component<br>
+          became the layout.
+        </h2>
+
+        <p>
+          El contenedor anterior termina convertido
+          en la base visual de esta sección.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js">
+  </script>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js">
+  </script>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

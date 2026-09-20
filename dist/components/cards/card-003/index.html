@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Travel Cards</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="travel-demo">
+    <section class="travel-grid">
+
+      <!-- CARD 1 -->
+      <article class="travel-card">
+        <div class="travel-card__inner">
+
+          <div class="travel-card__media">
+            <img
+              src="https://images.unsplash.com/photo-1499092346589-b9b6be3e94b2?auto=format&fit=crop&w=1200&q=90"
+              alt="New York"
+              class="travel-card__image"
+              draggable="false"
+            />
+
+            <div class="travel-card__shade"></div>
+
+            <button class="travel-card__favorite travel-card__favorite--top" type="button" aria-label="Guardar destino">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 21.35 10.55 20C5.4 15.24 2 12.09 2 8.27 2 5.4 4.24 3.2 7.1 3.2c1.63 0 3.2.76 4.2 1.95 1-1.19 2.57-1.95 4.2-1.95 2.86 0 5.1 2.2 5.1 5.07 0 3.82-3.4 6.97-8.55 11.73L12 21.35Z"/>
+              </svg>
+            </button>
+
+            <div class="travel-card__overlay">
+              <div class="travel-card__heading">
+                <h2 class="travel-card__title">New York</h2>
+                <p class="travel-card__subtitle">Economy</p>
+              </div>
+
+              <div class="travel-card__meta travel-card__meta--light">
+                <div class="travel-meta">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M20 12 12 20 4 12 12 4 20 12Z"/>
+                  </svg>
+                  <span>from <strong>$120</strong></span>
+                </div>
+
+                <div class="travel-meta">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M21.5 2.5 14.7 21.5l-3.9-8.3-8.3-3.9L21.5 2.5Z"/>
+                  </svg>
+                  <strong>JFK</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="travel-card__bottom travel-card__bottom--base">
+            <button class="travel-card__search travel-card__search--light" type="button">
+              Search flight
+            </button>
+          </div>
+
+          <div class="travel-card__panel">
+            <div class="travel-card__panel-content">
+              <div class="travel-card__heading travel-card__heading--dark">
+                <h2 class="travel-card__title">New York</h2>
+                <p class="travel-card__subtitle travel-card__subtitle--dark">Economy</p>
+              </div>
+
+              <div class="travel-card__meta travel-card__meta--dark">
+                <div class="travel-meta">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M20 12 12 20 4 12 12 4 20 12Z"/>
+                  </svg>
+                  <span>from <strong>$120</strong></span>
+                </div>
+
+                <div class="travel-meta">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M21.5 2.5 14.7 21.5l-3.9-8.3-8.3-3.9L21.5 2.5Z"/>
+                  </svg>
+                  <strong>JFK</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="travel-card__actions">
+              <button class="travel-card__search travel-card__search--dark" type="button">
+                Search flight
+              </button>
+
+              <button class="travel-card__favorite travel-card__favorite--bottom" type="button" aria-label="Guardar destino">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 21.35 10.55 20C5.4 15.24 2 12.09 2 8.27 2 5.4 4.24 3.2 7.1 3.2c1.63 0 3.2.76 4.2 1.95 1-1.19 2.57-1.95 4.2-1.95 2.86 0 5.1 2.2 5.1 5.07 0 3.82-3.4 6.97-8.55 11.73L12 21.35Z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </article>
+
+      <!-- CARD 2 -->
+      <article class="travel-card">
+        <div class="travel-card__inner">
+
+          <div class="travel-card__media">
+            <img
+              src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1200&q=90"
+              alt="San Francisco"
+              class="travel-card__image"
+              draggable="false"
+            />
+
+            <div class="travel-card__shade"></div>
+
+            <button class="travel-card__favorite travel-card__favorite--top" type="button" aria-label="Guardar destino">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 21.35 10.55 20C5.4 15.24 2 12.09 2 8.27 2 5.4 4.24 3.2 7.1 3.2c1.63 0 3.2.76 4.2 1.95 1-1.19 2.57-1.95 4.2-1.95 2.86 0 5.1 2.2 5.1 5.07 0 3.82-3.4 6.97-8.55 11.73L12 21.35Z"/>
+              </svg>
+            </button>
+
+            <div class="travel-card__overlay">
+              <div class="travel-card__heading">
+                <h2 class="travel-card__title">San Francisco</h2>
+                <p class="travel-card__subtitle">Premium economy</p>
+              </div>
+
+              <div class="travel-card__meta travel-card__meta--light">
+                <div class="travel-meta">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M20 12 12 20 4 12 12 4 20 12Z"/>
+                  </svg>
+                  <span>from <strong>$240</strong></span>
+                </div>
+
+                <div class="travel-meta">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M21.5 2.5 14.7 21.5l-3.9-8.3-8.3-3.9L21.5 2.5Z"/>
+                  </svg>
+                  <strong>SFO</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="travel-card__bottom travel-card__bottom--base">
+            <button class="travel-card__search travel-card__search--light" type="button">
+              Search flight
+            </button>
+          </div>
+
+          <div class="travel-card__panel">
+            <div class="travel-card__panel-content">
+              <div class="travel-card__heading travel-card__heading--dark">
+                <h2 class="travel-card__title">San Francisco</h2>
+                <p class="travel-card__subtitle travel-card__subtitle--dark">Premium economy</p>
+              </div>
+
+              <div class="travel-card__meta travel-card__meta--dark">
+                <div class="travel-meta">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M20 12 12 20 4 12 12 4 20 12Z"/>
+                  </svg>
+                  <span>from <strong>$240</strong></span>
+                </div>
+
+                <div class="travel-meta">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M21.5 2.5 14.7 21.5l-3.9-8.3-8.3-3.9L21.5 2.5Z"/>
+                  </svg>
+                  <strong>SFO</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="travel-card__actions">
+              <button class="travel-card__search travel-card__search--dark" type="button">
+                Search flight
+              </button>
+
+              <button class="travel-card__favorite travel-card__favorite--bottom" type="button" aria-label="Guardar destino">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 21.35 10.55 20C5.4 15.24 2 12.09 2 8.27 2 5.4 4.24 3.2 7.1 3.2c1.63 0 3.2.76 4.2 1.95 1-1.19 2.57-1.95 4.2-1.95 2.86 0 5.1 2.2 5.1 5.07 0 3.82-3.4 6.97-8.55 11.73L12 21.35Z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

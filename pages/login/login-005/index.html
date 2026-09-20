@@ -1,249 +1,125 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
 
-  <title>Login Model 002</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" href="style.css" />
+    <title>Glass Navigation</title>
 
-  <!-- Font Awesome -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-  />
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
+  <body>
+    <main class="page">
+      <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
 
-  <main class="page">
+      <nav class="glass-nav" id="glassNav">
+        <!-- BRAND -->
+        <a href="#inicio" class="brand-button" aria-label="Ir al inicio">
+          <span class="brand-symbol">
+            <span class="brand-circle brand-circle-main"></span>
 
-    <section class="auth-card" id="authCard">
+            <span class="brand-circle brand-circle-small"></span>
 
-      <!-- ==================================
-           SIGN IN FORM
-      =================================== -->
+            <span class="brand-circle brand-circle-mini"></span>
+          </span>
+        </a>
 
-      <div class="form-side sign-in-side">
+        <!-- MENU -->
+        <div class="nav-menu" id="navMenu">
+          <!-- selector deslizante -->
+          <span
+            class="nav-indicator"
+            id="navIndicator"
+            aria-hidden="true"
+          ></span>
 
-        <div class="form-content">
+          <a href="#inicio" class="nav-item active" data-nav> Inicio </a>
 
-          <h1>Sign In</h1>
+          <a href="#pricing" class="nav-item" data-nav> Pricing </a>
 
-          <div class="social-list">
+          <a href="#nosotros" class="nav-item" data-nav> Quiénes somos </a>
 
-            <button class="social-btn" type="button">
-              <i class="fa-brands fa-google-plus-g"></i>
-            </button>
+          <a href="#servicios" class="nav-item" data-nav> Servicios </a>
 
-            <button class="social-btn" type="button">
-              <i class="fa-brands fa-facebook-f"></i>
-            </button>
+          <a href="#recursos" class="nav-item" data-nav> Recursos </a>
 
-            <button class="social-btn" type="button">
-              <i class="fa-brands fa-github"></i>
-            </button>
-
-            <button class="social-btn" type="button">
-              <i class="fa-brands fa-linkedin-in"></i>
-            </button>
-
-          </div>
-
-          <p class="helper-text">
-            or use your email and password
-          </p>
-
-          <div class="fields">
-
-            <div class="field">
-              <input
-                id="loginEmail"
-                type="email"
-                placeholder="Email"
-              />
-
-              <span class="error-message">
-                Email is required
-              </span>
-            </div>
-
-            <div class="field">
-              <input
-                id="loginPassword"
-                type="password"
-                placeholder="Password"
-              />
-
-              <span class="error-message">
-                Password is required
-              </span>
-            </div>
-
-          </div>
-
-          <a href="#" class="forgot">
-            Forget Your Password ?
-          </a>
-
-          <button
-            class="fill-btn primary-btn"
-            id="loginSubmit"
-            type="button"
-          >
-            <span>SIGN IN</span>
-          </button>
-
+          <a href="#contacto" class="nav-item" data-nav> Contacto </a>
         </div>
 
-      </div>
+        <!-- DIVIDER -->
+        <div class="nav-divider"></div>
 
+        <!-- CTA -->
+        <a href="#contacto" class="nav-cta">
+          <span class="cta-label"> Hablemos </span>
 
-      <!-- ==================================
-           SIGN UP FORM
-      =================================== -->
+          <span class="cta-arrow">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </span>
+        </a>
+      </nav>
 
-      <div class="form-side sign-up-side">
+      <!-- =====================================================
+         SECCIONES DEMO
+    ====================================================== -->
 
-        <div class="form-content">
+      <section id="inicio" class="section section-light">
+        <div class="section-content">
+          <span class="section-number"> 01 </span>
 
-          <h1>Create account</h1>
+          <h1>Inicio</h1>
 
-          <div class="social-list">
-
-            <button class="social-btn" type="button">
-              <i class="fa-brands fa-google-plus-g"></i>
-            </button>
-
-            <button class="social-btn" type="button">
-              <i class="fa-brands fa-facebook-f"></i>
-            </button>
-
-            <button class="social-btn" type="button">
-              <i class="fa-brands fa-github"></i>
-            </button>
-
-            <button class="social-btn" type="button">
-              <i class="fa-brands fa-linkedin-in"></i>
-            </button>
-
-          </div>
-
-          <p class="helper-text">
-            or use your email for registration
-          </p>
-
-          <div class="fields">
-
-            <div class="field">
-              <input
-                id="registerName"
-                type="text"
-                placeholder="Name"
-              />
-
-              <span class="error-message">
-                Name is required
-              </span>
-            </div>
-
-            <div class="field">
-              <input
-                id="registerEmail"
-                type="email"
-                placeholder="Email"
-              />
-
-              <span class="error-message">
-                Email is required
-              </span>
-            </div>
-
-            <div class="field">
-              <input
-                id="registerPassword"
-                type="password"
-                placeholder="Password"
-              />
-
-              <span class="error-message">
-                Password is required
-              </span>
-            </div>
-
-          </div>
-
-          <button
-            class="fill-btn primary-btn"
-            id="registerSubmit"
-            type="button"
-          >
-            <span>SIGN UP</span>
-          </button>
-
+          <p>Scroll para probar la navegación.</p>
         </div>
+      </section>
 
-      </div>
+      <section id="pricing" class="section section-soft">
+        <div class="section-content">
+          <span class="section-number"> 02 </span>
 
-
-      <!-- ==================================
-           BLUE SLIDING PANEL
-      =================================== -->
-
-      <div class="blue-panel">
-
-        <!-- visual shape -->
-        <div class="blue-background"></div>
-
-        <!-- SIGN UP CTA -->
-        <div class="panel-content panel-signup">
-
-          <h2>Hello, Friend!</h2>
-
-          <p>
-            Register with your personal details
-            to use all of site features
-          </p>
-
-          <button
-            class="fill-btn outline-btn"
-            id="showRegister"
-            type="button"
-          >
-            <span>SIGN UP</span>
-          </button>
-
+          <h2>Pricing</h2>
         </div>
+      </section>
 
+      <section id="nosotros" class="section section-light">
+        <div class="section-content">
+          <span class="section-number"> 03 </span>
 
-        <!-- SIGN IN CTA -->
-        <div class="panel-content panel-signin">
-
-          <h2>Welcome Back!</h2>
-
-          <p>
-            Enter your personal details
-            to use all of site features
-          </p>
-
-          <button
-            class="fill-btn outline-btn"
-            id="showLogin"
-            type="button"
-          >
-            <span>SIGN IN</span>
-          </button>
-
+          <h2>Quiénes somos</h2>
         </div>
+      </section>
 
-      </div>
+      <section id="servicios" class="section section-soft">
+        <div class="section-content">
+          <span class="section-number"> 04 </span>
 
-    </section>
+          <h2>Servicios</h2>
+        </div>
+      </section>
 
-  </main>
+      <section id="recursos" class="section section-light">
+        <div class="section-content">
+          <span class="section-number"> 05 </span>
 
-  <script src="script.js"></script>
+          <h2>Recursos</h2>
+        </div>
+      </section>
 
-</body>
+      <section id="contacto" class="section section-dark">
+        <div class="section-content">
+          <span class="section-number"> 06 </span>
+
+          <h2>Contacto</h2>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
 </html>

@@ -1,0 +1,185 @@
+- generic [active] [ref=e1]:
+  - generic [aria-hidden] [ref=e2]:
+    - generic:
+      - generic: Welcome to
+      - paragraph: MIRA
+  - navigation [ref=e3]:
+    - link "MIRA" [ref=e4] [cursor=pointer]:
+      - /url: "#hero"
+      - text: M
+    - generic [ref=e5]:
+      - link "Inicio" [ref=e6] [cursor=pointer]:
+        - /url: "#hero"
+      - link "Cómo funciona" [ref=e7] [cursor=pointer]:
+        - /url: "#how"
+      - link "Crear" [ref=e8] [cursor=pointer]:
+        - /url: "#content"
+      - link "Booketeer" [ref=e9] [cursor=pointer]:
+        - /url: "#booketeer"
+      - link "Analytics" [ref=e10] [cursor=pointer]:
+        - /url: "#analytics"
+      - link "Pricing" [ref=e11] [cursor=pointer]:
+        - /url: "#pricing"
+    - link "Hablemos" [ref=e13] [cursor=pointer]:
+      - /url: "#cta"
+  - generic [ref=e18]:
+    - paragraph [ref=e19]: TikTok marketing for authors
+    - heading "¿Qué es MIRA y para qué me sirve?" [level=1] [ref=e20]
+    - paragraph [ref=e21]: Create, organize and publish content without letting marketing take over your writing life.
+    - button "Conectar" [ref=e22] [cursor=pointer]
+  - generic [ref=e24]:
+    - generic [ref=e25]: "02"
+    - paragraph [ref=e26]: How MIRA works
+    - heading "¿Cómo funciona sin complicarme?" [level=2] [ref=e27]
+  - generic [ref=e29]:
+    - generic [ref=e30]: "03"
+    - paragraph [ref=e31]: Content Creation
+    - heading "¿Tengo que crear todo desde cero?" [level=2] [ref=e32]
+  - generic [ref=e34]:
+    - generic [ref=e35]: "04"
+    - paragraph [ref=e36]: Campaigns & Buckets
+    - heading "¿Cómo organiza y publica MIRA mi contenido?" [level=2] [ref=e37]
+  - generic [ref=e39]:
+    - generic [ref=e40]: "05"
+    - paragraph [ref=e41]: Booketeer
+    - heading "¿Qué pasa si quiero trabajar directamente con mi libro?" [level=2] [ref=e42]
+  - generic [ref=e44]:
+    - generic [ref=e45]: 05 → 06
+    - paragraph [ref=e46]: Done For You
+    - heading "Si no tengo mucho tiempo, ¿cómo me lo facilitan?" [level=2] [ref=e47]
+  - generic [ref=e49]:
+    - generic [ref=e50]: "06"
+    - paragraph [ref=e51]: Analytics
+    - heading "¿Cómo sé si realmente está funcionando?" [level=2] [ref=e52]
+  - region [ref=e53]:
+    - generic [ref=e54]:
+      - generic [ref=e55]:
+        - paragraph [ref=e56]: / Testimonials
+        - generic [aria-hidden] [ref=e57]: (07)
+        - heading "Success stories from our clients." [level=2] [ref=e58]
+      - generic [ref=e59]:
+        - button "Previous testimonial" [disabled]
+        - button "Next testimonial" [ref=e60] [cursor=pointer]
+      - generic [ref=e64]:
+        - article [ref=e65]:
+          - generic [ref=e66]:
+            - img "Alex D., Creative Director" [ref=e67]
+            - generic [ref=e69]:
+              - generic "5 out of 5 stars" [ref=e70]: ★★★★★
+              - generic [ref=e71]: 4.9/5
+            - button "Play testimonial from Alex D." [ref=e72] [cursor=pointer]
+            - generic [ref=e75]:
+              - strong [ref=e76]: Alex D.
+              - generic [ref=e77]: Creative Director
+        - article [ref=e78]:
+          - generic [ref=e79]:
+            - generic "5 out of 5 stars" [ref=e80]: ★★★★★
+            - generic [ref=e81]: 4.5/5
+          - blockquote [ref=e82]: “Working with Kanso felt effortless. They have a rare ability to take complex ideas and distill them into something beautifully simple.”
+          - generic [ref=e83]:
+            - img "Emma V." [ref=e84]
+            - generic [ref=e85]:
+              - strong [ref=e86]: Emma V.
+              - generic [ref=e87]: Founder
+        - article [ref=e88]:
+          - generic [ref=e89]:
+            - generic "5 out of 5 stars" [ref=e90]: ★★★★★
+            - generic [ref=e91]: 4.8/5
+          - blockquote [ref=e92]: “Kanso doesn't just design, they listen, interpret, and then create with precision.”
+          - generic [ref=e93]:
+            - img "Julian M." [ref=e94]
+            - generic [ref=e95]:
+              - strong [ref=e96]: Julian M.
+              - generic [ref=e97]: Creative Director
+        - article [ref=e98]:
+          - generic [ref=e99]:
+            - generic "5 out of 5 stars" [ref=e100]: ★★★★★
+            - generic [ref=e101]: 5.0/5
+          - blockquote [ref=e102]: “Every detail felt intentional. The final experience was clearer, faster and more confident than what we originally imagined.”
+          - generic [ref=e103]:
+            - img "Sophia R." [ref=e104]
+            - generic [ref=e105]:
+              - strong [ref=e106]: Sophia R.
+              - generic [ref=e107]: Product Lead
+        - article [ref=e108]:
+          - generic [ref=e109]:
+            - generic "5 out of 5 stars" [ref=e110]: ★★★★★
+            - generic [ref=e111]: 4.9/5
+          - blockquote [ref=e112]: “The process was remarkably disciplined. Nothing was added without a reason and nothing important was overlooked.”
+          - generic [ref=e113]:
+            - img "Daniel K." [ref=e114]
+            - generic [ref=e115]:
+              - strong [ref=e116]: Daniel K.
+              - generic [ref=e117]: CEO
+        - article [ref=e118]:
+          - generic [ref=e119]:
+            - generic "5 out of 5 stars" [ref=e120]: ★★★★★
+            - generic [ref=e121]: 4.7/5
+          - blockquote [ref=e122]: “They understood where our product needed clarity before we even knew how to articulate the problem.”
+          - generic [ref=e123]:
+            - img "Maya L." [ref=e124]
+            - generic [ref=e125]:
+              - strong [ref=e126]: Maya L.
+              - generic [ref=e127]: Marketing Director
+        - article [ref=e128]:
+          - generic [ref=e129]:
+            - generic "5 out of 5 stars" [ref=e130]: ★★★★★
+            - generic [ref=e131]: 5.0/5
+          - blockquote [ref=e132]: “The result wasn't simply a better website. It gave the entire brand a stronger sense of direction.”
+          - generic [ref=e133]:
+            - img "Marcus T." [ref=e134]
+            - generic [ref=e135]:
+              - strong [ref=e136]: Marcus T.
+              - generic [ref=e137]: Co-Founder
+  - region [ref=e140]:
+    - generic [ref=e141]:
+      - generic [ref=e143]:
+        - paragraph [ref=e144]: SUBSCRIPTION
+        - heading "Choose only what you need." [level=2] [ref=e145]
+        - paragraph [ref=e146]: The MIRA subscription covers the platform and the connected-account slots listed below. Content generation uses credits. Booketeer indexing and rented MIRA accounts are optional add-ons.
+      - tablist "MIRA subscription plans" [ref=e148]:
+        - tab "Free" [selected] [ref=e150] [cursor=pointer]
+        - tab "Pro" [ref=e151] [cursor=pointer]
+        - tab "Studio" [ref=e152] [cursor=pointer]
+      - article [ref=e153]:
+        - generic [ref=e154]:
+          - generic [ref=e155]:
+            - generic [ref=e156]:
+              - generic [ref=e157]: Free
+              - generic [ref=e158]: MIRA
+            - generic [ref=e159]: $0
+            - paragraph [ref=e161]: Try MIRA’s content tools, create your two free assets, and connect 1 TikTok account you own.
+          - generic [ref=e162]:
+            - generic [ref=e163]: +
+            - generic [ref=e164]: Two free assets included.
+        - generic [ref=e165]:
+          - generic [ref=e166]:
+            - paragraph [ref=e167]: WHAT'S INCLUDED
+            - list [ref=e168]:
+              - listitem [ref=e169]: ✦ MIRA content tools
+              - listitem [ref=e170]: ✦ 2 free assets
+              - listitem [ref=e171]: ✦ 1 TikTok account you own
+              - listitem [ref=e172]: ✦ Generation available with credits
+          - generic [ref=e173]:
+            - generic [ref=e174]:
+              - generic [ref=e175]: Connected accounts
+              - strong [ref=e176]: 1 owned account
+            - link "Start free +" [ref=e177] [cursor=pointer]:
+              - /url: https://mira.indieauthormedia.com/alpha/pricing
+              - generic [ref=e178]: Start free
+              - generic [ref=e179]: +
+  - generic [ref=e181]:
+    - generic [ref=e182]: "09"
+    - paragraph [ref=e183]: FAQ
+    - heading "¿Qué dudas me quedan antes de probarlo?" [level=2] [ref=e184]
+  - generic [ref=e186]:
+    - generic [ref=e187]: "09"
+    - paragraph [ref=e188]: CTA
+    - heading "¿Qué hago ahora?" [level=2] [ref=e189]
+    - link "Empezar con MIRA" [ref=e190] [cursor=pointer]:
+      - /url: "#hero"
+  - contentinfo [ref=e193]:
+    - generic [ref=e194]:
+      - generic [ref=e195]: "10"
+      - paragraph [ref=e196]: Footer
+      - heading "Información secundaria, soporte y aspectos legales." [level=2] [ref=e197]

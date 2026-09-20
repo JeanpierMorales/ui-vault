@@ -15,6 +15,7 @@ await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
 await Promise.all([
   copy('index.html', 'index.html'),
+  copy('preview.html', 'preview.html'),
   copy('app', 'app'),
   copy('.openai/hosting.json', '.openai/hosting.json'),
   ...components.map(({ path }) => {

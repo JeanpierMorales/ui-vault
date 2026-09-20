@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>MIRA — Process</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Barlow+Condensed:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <section class="spacer spacer-dark">
+      <span>Scroll down</span>
+
+      <h1>MIRA</h1>
+    </section>
+
+    <section class="process" id="process">
+      <div class="process-sticky">
+        <!-- =====================================================
+           BACKGROUND
+      ====================================================== -->
+
+        <div class="background-noise"></div>
+
+        <div class="background-number">03</div>
+
+        <!-- =====================================================
+           HEADER
+      ====================================================== -->
+
+        <header class="process-header">
+          <div>
+            <span class="process-label"> Process </span>
+
+            <h2>How it works</h2>
+          </div>
+
+          <div class="process-progress-label">
+            <span id="progressCurrent"> 01 </span>
+
+            <div class="header-progress-line">
+              <span id="headerProgress"></span>
+            </div>
+
+            <span> 03 </span>
+          </div>
+        </header>
+
+        <!-- =====================================================
+           LEFT TIMELINE
+      ====================================================== -->
+
+        <aside class="timeline">
+          <div class="timeline-track">
+            <span class="timeline-progress" id="timelineProgress"></span>
+          </div>
+
+          <div class="timeline-point active" data-point="0">
+            <span class="point-dot"></span>
+
+            <div>
+              <small> 01 </small>
+
+              <strong> Content </strong>
+            </div>
+          </div>
+
+          <div class="timeline-point" data-point="1">
+            <span class="point-dot"></span>
+
+            <div>
+              <small> 02 </small>
+
+              <strong> Campaign </strong>
+            </div>
+          </div>
+
+          <div class="timeline-point" data-point="2">
+            <span class="point-dot"></span>
+
+            <div>
+              <small> 03 </small>
+
+              <strong> Publish </strong>
+            </div>
+          </div>
+        </aside>
+
+        <!-- =====================================================
+           CONTENT
+      ====================================================== -->
+
+        <main class="process-main">
+          <!-- LEFT COPY -->
+
+          <div class="copy-area">
+            <div class="copy-step" id="copyStep">
+              <span class="copy-number"> 01 </span>
+
+              <h3 id="copyTitle">Add your content.</h3>
+
+              <p id="copyDescription">
+                Upload finished posts, write a scene yourself, or pull content
+                directly from a Booketeer-indexed book.
+              </p>
+
+              <div class="copy-meta">
+                <span id="metaOne"> Upload </span>
+
+                <span id="metaTwo"> Write </span>
+
+                <span id="metaThree"> Import </span>
+              </div>
+            </div>
+
+            <div class="supporting-copy">
+              <span> Three steps. One place. </span>
+
+              <p>
+                Create, organize and publish without jumping between multiple
+                tools.
+              </p>
+            </div>
+          </div>
+
+          <!-- RIGHT VISUAL -->
+
+          <div class="visual-area">
+            <!-- ================= CONTENT LIBRARY ================= -->
+
+            <div class="visual-layer visual-layer-content" id="layerContent">
+              <div class="content-window">
+                <div class="window-top">
+                  <span> Content library </span>
+
+                  <span> 24 items </span>
+                </div>
+
+                <div class="content-grid">
+                  <article class="content-card content-card-large">
+                    <img
+                      src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=1000&q=80"
+                      alt=""
+                    />
+
+                    <div>
+                      <span> Scene </span>
+
+                      <strong> Midnight Library </strong>
+                    </div>
+                  </article>
+
+                  <article class="content-card">
+                    <img
+                      src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80"
+                      alt=""
+                    />
+
+                    <span> Quote </span>
+                  </article>
+
+                  <article class="content-card">
+                    <img
+                      src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=600&q=80"
+                      alt=""
+                    />
+
+                    <span> Hook </span>
+                  </article>
+
+                  <article class="content-card">
+                    <img
+                      src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?auto=format&fit=crop&w=600&q=80"
+                      alt=""
+                    />
+
+                    <span> Book </span>
+                  </article>
+                </div>
+              </div>
+            </div>
+
+            <!-- ================= CAMPAIGN ================= -->
+
+            <div class="visual-layer visual-layer-campaign" id="layerCampaign">
+              <div class="campaign-window">
+                <div class="campaign-header">
+                  <div>
+                    <span> New campaign </span>
+
+                    <strong> Autumn launch </strong>
+                  </div>
+
+                  <span class="campaign-state"> Draft </span>
+                </div>
+
+                <div class="campaign-layout">
+                  <div class="campaign-content">
+                    <span class="micro-title"> Selected content </span>
+
+                    <div class="selected-card">
+                      <img
+                        src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80"
+                        alt=""
+                      />
+
+                      <div>
+                        <strong> Scene 04 </strong>
+
+                        <span> Midnight Library </span>
+                      </div>
+                    </div>
+
+                    <div class="selected-card">
+                      <img
+                        src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=600&q=80"
+                        alt=""
+                      />
+
+                      <div>
+                        <strong> Quote 03 </strong>
+
+                        <span> The Last Chapter </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="campaign-settings">
+                    <div class="setting-row">
+                      <span> Accounts </span>
+
+                      <strong> 06 </strong>
+                    </div>
+
+                    <div class="setting-row">
+                      <span> Posts </span>
+
+                      <strong> 18 </strong>
+                    </div>
+
+                    <div class="setting-row">
+                      <span> Schedule </span>
+
+                      <strong> 7 days </strong>
+                    </div>
+
+                    <div class="schedule-lines">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ================= PUBLISH ================= -->
+
+            <div class="visual-layer visual-layer-publish" id="layerPublish">
+              <div class="publish-panel">
+                <div class="publish-circle">
+                  <div class="publish-ring">
+                    <button
+                      class="publish-button"
+                      type="button"
+                      aria-label="Publish campaign"
+                    >
+                      <span></span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="publish-info">
+                  <span class="publish-small"> Campaign ready </span>
+
+                  <strong> Press play. </strong>
+
+                  <p>MIRA will publish your content according to schedule.</p>
+
+                  <div class="publish-metrics">
+                    <div>
+                      <span> Accounts </span>
+
+                      <strong> 06 </strong>
+                    </div>
+
+                    <div>
+                      <span> Posts </span>
+
+                      <strong> 18 </strong>
+                    </div>
+
+                    <div>
+                      <span> Days </span>
+
+                      <strong> 07 </strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- FLOATING CONNECTOR -->
+
+            <div class="floating-piece" id="floatingPiece">
+              <span></span>
+            </div>
+          </div>
+        </main>
+
+        <!-- =====================================================
+           FOOTER INDICATOR
+      ====================================================== -->
+
+        <div class="process-footer">
+          <span id="footerText"> Add your content </span>
+
+          <div class="footer-line">
+            <span id="footerProgress"></span>
+          </div>
+
+          <span> Scroll to continue </span>
+        </div>
+      </div>
+    </section>
+
+    <section class="spacer spacer-light">
+      <span> Done </span>
+
+      <h2>Your campaign is live.</h2>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

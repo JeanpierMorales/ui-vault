@@ -1,0 +1,236 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - button "Crear una página nueva" [ref=e4] [cursor=pointer]:
+        - generic [aria-hidden] [ref=e5]: UV
+        - generic [ref=e6]: UI Vault
+      - generic [ref=e7]:
+        - generic [ref=e8]: Proyecto
+        - textbox "Proyecto" [ref=e9]: Página sin título
+      - generic [ref=e10]:
+        - button "Deshacer" [ref=e11] [cursor=pointer]
+        - button "Rehacer" [disabled] [ref=e12]
+        - button "Ver publicación ↗" [ref=e13] [cursor=pointer]
+        - button "Exportar proyecto" [ref=e14] [cursor=pointer]
+        - button "Cambiar a modo oscuro" [ref=e16] [cursor=pointer]
+    - main [ref=e17]:
+      - complementary "Biblioteca de componentes" [ref=e18]:
+        - generic [ref=e19]:
+          - generic [ref=e20]: Biblioteca
+          - generic [ref=e21]: 123 piezas
+        - searchbox [ref=e23]
+        - navigation "Categorías disponibles" [ref=e24]:
+          - button "Todo el archivo 123" [ref=e1610] [cursor=pointer]:
+            - text: Todo el archivo
+            - generic [ref=e1611]: "123"
+          - paragraph [ref=e1612]: Foundations
+          - button "Typography 1" [ref=e1613] [cursor=pointer]:
+            - text: Typography
+            - generic [ref=e1614]: "1"
+          - button "Icons 1" [ref=e1615] [cursor=pointer]:
+            - text: Icons
+            - generic [ref=e1616]: "1"
+          - paragraph [ref=e1617]: Components
+          - button "Buttons 64" [ref=e1618] [cursor=pointer]:
+            - text: Buttons
+            - generic [ref=e1619]: "64"
+          - button "Cards 14" [ref=e1620] [cursor=pointer]:
+            - text: Cards
+            - generic [ref=e1621]: "14"
+          - button "Book Cards 21" [ref=e1622] [cursor=pointer]:
+            - text: Book Cards
+            - generic [ref=e1623]: "21"
+          - button "Loaders 3" [ref=e1624] [cursor=pointer]:
+            - text: Loaders
+            - generic [ref=e1625]: "3"
+          - button "Forms 4" [ref=e1626] [cursor=pointer]:
+            - text: Forms
+            - generic [ref=e1627]: "4"
+          - paragraph [ref=e1628]: Sections
+          - button "Pricing 5" [ref=e1629] [cursor=pointer]:
+            - text: Pricing
+            - generic [ref=e1630]: "5"
+          - button "Testimonials 7" [ref=e1631] [cursor=pointer]:
+            - text: Testimonials
+            - generic [ref=e1632]: "7"
+          - button "Process 1" [ref=e1633] [cursor=pointer]:
+            - text: Process
+            - generic [ref=e1634]: "1"
+          - paragraph [ref=e1635]: Interactions
+          - button "3D Models 1" [ref=e1636] [cursor=pointer]:
+            - text: 3D Models
+            - generic [ref=e1637]: "1"
+          - button "Scroll Experiences 1" [ref=e1638] [cursor=pointer]:
+            - text: Scroll Experiences
+            - generic [ref=e1639]: "1"
+        - generic [ref=e55]:
+          - paragraph [ref=e56]: Las piezas cargan su HTML, CSS y JavaScript originales.
+          - text: Arrastra o inserta para componer.
+      - region "Constructor de página" [ref=e57]:
+        - generic [ref=e58]:
+          - generic [ref=e59]:
+            - generic [ref=e60]:
+              - text: Lienzo
+              - heading "Página sin título" [level=1] [ref=e61]
+            - group "Cambiar dispositivo" [ref=e62]:
+              - button "Desktop" [pressed] [ref=e63] [cursor=pointer]
+              - button "Tablet" [ref=e65] [cursor=pointer]
+              - button "Móvil" [ref=e67] [cursor=pointer]
+          - article [ref=e1043]:
+            - generic [ref=e1044]:
+              - generic [ref=e1045]: "01"
+              - generic [ref=e1046]: Buttons / Arrow Follow
+              - generic [ref=e1047]:
+                - button "Subir bloque" [ref=e1048] [cursor=pointer]
+                - button "Bajar bloque" [ref=e1052] [cursor=pointer]
+                - button "Eliminar bloque" [ref=e1056] [cursor=pointer]
+            - iframe [ref=e1061]:
+              - iframe [ref=f5e2]:
+                - main [ref=f7e3]:
+                  - article [ref=f7e4]:
+                    - button "Discover →" [ref=f7e6] [cursor=pointer]:
+                      - generic [ref=f7e7]: Discover
+                      - generic [ref=f7e8]: →
+                    - generic [ref=f7e9]:
+                      - strong [ref=f7e10]: Arrow Follow
+                      - code [ref=f7e11]: .arrow-follow
+        - region [ref=e1640]:
+          - generic [ref=e75]:
+            - generic [ref=e76]:
+              - text: Piezas disponibles
+              - heading "Cards" [level=2] [ref=e1641]
+            - paragraph [ref=e78]: 14 piezas disponibles · Inserta o arrastra al lienzo.
+          - generic [ref=e79]:
+            - article [ref=e1642]:
+              - iframe [ref=e1644]:
+                - iframe [ref=f8e2]:
+                  - main [ref=f9e2]:
+                    - generic:
+                      - article:
+                        - generic [ref=f9e3] [cursor=pointer]
+                        - generic:
+                          - img "Nike Air sneaker"
+                        - generic [ref=f9e4] [cursor=pointer]:
+                          - heading "Nike Air" [level=2]
+              - generic [ref=e1645]:
+                - generic [ref=e1646]:
+                  - paragraph [ref=e1647]: Cards · individual
+                  - heading "Nike Air" [level=3] [ref=e1648]
+                - button "Añadir Nike Air" [ref=e1649] [cursor=pointer]
+            - article [ref=e1653]:
+              - button "Vista individual" [ref=e1655] [cursor=pointer]
+              - generic [ref=e1659]:
+                - generic [ref=e1660]:
+                  - paragraph [ref=e1661]: Cards · individual
+                  - heading "Air Runner" [level=3] [ref=e1662]
+                - button "Añadir Air Runner" [ref=e1663] [cursor=pointer]
+            - article [ref=e1667]:
+              - button "Vista individual" [ref=e1669] [cursor=pointer]
+              - generic [ref=e1673]:
+                - generic [ref=e1674]:
+                  - paragraph [ref=e1675]: Cards · individual
+                  - heading "Urban Max" [level=3] [ref=e1676]
+                - button "Añadir Urban Max" [ref=e1677] [cursor=pointer]
+            - article [ref=e1681]:
+              - button "Vista individual" [ref=e1683] [cursor=pointer]
+              - generic [ref=e1684]:
+                - generic [ref=e1685]:
+                  - paragraph [ref=e1686]: Cards · individual
+                  - heading "Beats Solo 4 — On-Ear Wireless Headphones — Slate Blue" [level=3] [ref=e1687]
+                - button "Añadir Beats Solo 4 — On-Ear Wireless Headphones — Slate Blue" [ref=e1688] [cursor=pointer]
+            - article [ref=e1689]:
+              - button "Vista individual" [ref=e1691] [cursor=pointer]
+              - generic [ref=e1692]:
+                - generic [ref=e1693]:
+                  - paragraph [ref=e1694]: Cards · individual
+                  - heading "HomePod - White" [level=3] [ref=e1695]
+                - button "Añadir HomePod - White" [ref=e1696] [cursor=pointer]
+            - article [ref=e1697]:
+              - button "Vista individual" [ref=e1699] [cursor=pointer]
+              - generic [ref=e1700]:
+                - generic [ref=e1701]:
+                  - paragraph [ref=e1702]: Cards · individual
+                  - heading "Siri Remote" [level=3] [ref=e1703]
+                - button "Añadir Siri Remote" [ref=e1704] [cursor=pointer]
+            - article [ref=e1705]:
+              - button "Vista individual" [ref=e1707] [cursor=pointer]
+              - generic [ref=e1708]:
+                - generic [ref=e1709]:
+                  - paragraph [ref=e1710]: Cards · individual
+                  - heading "Nanoleaf Essentials Matter Smart Multicolor HD Lightstrip" [level=3] [ref=e1711]
+                - button "Añadir Nanoleaf Essentials Matter Smart Multicolor HD Lightstrip" [ref=e1712] [cursor=pointer]
+            - article [ref=e1713]:
+              - button "Vista individual" [ref=e1715] [cursor=pointer]
+              - generic [ref=e1716]:
+                - generic [ref=e1717]:
+                  - paragraph [ref=e1718]: Cards · individual
+                  - heading "AirPods Max 2 - Blue" [level=3] [ref=e1719]
+                - button "Añadir AirPods Max 2 - Blue" [ref=e1720] [cursor=pointer]
+            - article [ref=e1721]:
+              - button "Vista individual" [ref=e1723] [cursor=pointer]
+              - generic [ref=e1724]:
+                - generic [ref=e1725]:
+                  - paragraph [ref=e1726]: Cards · individual
+                  - heading "Studio Pro Wireless Headphones" [level=3] [ref=e1727]
+                - button "Añadir Studio Pro Wireless Headphones" [ref=e1728] [cursor=pointer]
+            - article [ref=e1729]:
+              - button "Vista individual" [ref=e1731] [cursor=pointer]
+              - generic [ref=e1732]:
+                - generic [ref=e1733]:
+                  - paragraph [ref=e1734]: Cards · individual
+                  - heading "New York" [level=3] [ref=e1735]
+                - button "Añadir New York" [ref=e1736] [cursor=pointer]
+            - article [ref=e1737]:
+              - button "Vista individual" [ref=e1739] [cursor=pointer]
+              - generic [ref=e1740]:
+                - generic [ref=e1741]:
+                  - paragraph [ref=e1742]: Cards · individual
+                  - heading "San Francisco" [level=3] [ref=e1743]
+                - button "Añadir San Francisco" [ref=e1744] [cursor=pointer]
+            - article [ref=e1745]:
+              - button "Vista individual" [ref=e1747] [cursor=pointer]
+              - generic [ref=e1748]:
+                - generic [ref=e1749]:
+                  - paragraph [ref=e1750]: Cards · individual
+                  - heading "Chloe Harrison" [level=3] [ref=e1751]
+                - button "Añadir Chloe Harrison" [ref=e1752] [cursor=pointer]
+            - article [ref=e1753]:
+              - button "Vista individual" [ref=e1755] [cursor=pointer]
+              - generic [ref=e1756]:
+                - generic [ref=e1757]:
+                  - paragraph [ref=e1758]: Cards · individual
+                  - heading "Ethan Walker" [level=3] [ref=e1759]
+                - button "Añadir Ethan Walker" [ref=e1760] [cursor=pointer]
+            - article [ref=e1761]:
+              - button "Vista individual" [ref=e1763] [cursor=pointer]
+              - generic [ref=e1764]:
+                - generic [ref=e1765]:
+                  - paragraph [ref=e1766]: Cards · individual
+                  - heading "John David / 38 yr" [level=3] [ref=e1767]
+                - button "Añadir John David / 38 yr" [ref=e1768] [cursor=pointer]
+      - complementary "Inspector de bloque" [ref=e592]:
+        - generic [ref=e593]:
+          - generic [ref=e594]: Inspector
+          - generic [ref=e595]: 1 bloque
+        - generic [ref=e596]:
+          - generic [ref=e1589]:
+            - text: Buttons / individual
+            - heading "Arrow Follow" [level=2] [ref=e1590]
+            - paragraph [ref=e1591]: button-001--3
+          - generic [ref=e1592]:
+            - generic [ref=e1593]:
+              - generic [ref=e1594]:
+                - generic [ref=e1595]: Altura del lienzo
+                - status "Altura del lienzo" [ref=e1596]: 300px
+              - slider [ref=e1597]: "300"
+            - generic [ref=e1598]:
+              - generic [ref=e1599]: Fondo del contenedor
+              - combobox "Fondo del contenedor" [ref=e1600]:
+                - option "Papel" [selected]
+                - option "Tinta"
+                - option "Gris cálido"
+            - generic [ref=e1601]:
+              - button "Duplicar bloque" [ref=e1602] [cursor=pointer]
+              - button "Eliminar" [ref=e1606] [cursor=pointer]
+        - paragraph [ref=e601]: “Exportar proyecto” descarga el plano. Usa el exportador incluido para crear una carpeta de preview autónoma.
+  - status: Arrow Follow añadido al lienzo

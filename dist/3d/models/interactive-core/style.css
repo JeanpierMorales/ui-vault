@@ -1,0 +1,397 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #0a0a0a;
+  color: #f3f3f1;
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  overflow-x: hidden;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+  position: relative;
+
+  min-height: 100vh;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(260px, 0.8fr)
+    minmax(400px, 1.2fr);
+
+  align-items: center;
+
+  gap: 40px;
+
+  padding:
+    clamp(40px, 7vw, 110px);
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 68% 45%,
+      #191919 0%,
+      #101010 30%,
+      #090909 62%
+    );
+}
+
+
+/* subtle background */
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 700px;
+  height: 700px;
+
+  right: -200px;
+  top: 50%;
+
+  transform:
+    translateY(-50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.035),
+      transparent 68%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   COPY
+========================================================= */
+
+.copy {
+  position: relative;
+
+  z-index: 10;
+
+  max-width: 580px;
+}
+
+.eyebrow {
+  display: block;
+
+  margin-bottom: 26px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+
+  color:
+    rgba(255, 255, 255, 0.4);
+}
+
+.copy h1 {
+  margin: 0 0 32px;
+
+  font-size:
+    clamp(
+      66px,
+      8vw,
+      135px
+    );
+
+  line-height: 0.87;
+
+  letter-spacing: -0.065em;
+
+  font-weight: 500;
+}
+
+.copy p {
+  max-width: 470px;
+
+  margin: 0;
+
+  font-size:
+    clamp(
+      16px,
+      1.3vw,
+      19px
+    );
+
+  line-height: 1.65;
+
+  color:
+    rgba(255, 255, 255, 0.48);
+}
+
+
+/* =========================================================
+   3D SCENE
+========================================================= */
+
+.scene-wrapper {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 680px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  cursor: grab;
+
+  touch-action: pan-y;
+}
+
+.scene-wrapper:active {
+  cursor: grabbing;
+}
+
+#three-canvas {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+
+  inset: 0;
+
+  outline: none;
+}
+
+
+/* =========================================================
+   CLICK HINT
+========================================================= */
+
+.interaction-hint {
+  position: absolute;
+
+  bottom: 70px;
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color:
+    rgba(255, 255, 255, 0.4);
+
+  font-size: 11px;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+
+  pointer-events: none;
+}
+
+.hint-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #fff;
+
+  box-shadow:
+    0 0 16px
+    rgba(255, 255, 255, 0.65);
+
+  animation:
+    pulse 2s
+    ease-in-out
+    infinite;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+
+}
+
+
+/* =========================================================
+   STATE INDICATOR
+========================================================= */
+
+.state-indicator {
+  position: absolute;
+
+  right:
+    clamp(
+      28px,
+      5vw,
+      80px
+    );
+
+  bottom:
+    clamp(
+      28px,
+      5vw,
+      70px
+    );
+
+  z-index: 10;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  font-size: 11px;
+
+  letter-spacing: 0.15em;
+
+  text-transform: uppercase;
+
+  color:
+    rgba(255, 255, 255, 0.4);
+}
+
+.state-line {
+  width: 45px;
+  height: 1px;
+
+  background:
+    rgba(255, 255, 255, 0.18);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .hero {
+    grid-template-columns: 1fr;
+
+    min-height: auto;
+
+    padding:
+      80px
+      28px
+      30px;
+  }
+
+  .copy {
+    text-align: center;
+
+    margin: 0 auto;
+  }
+
+  .copy p {
+    margin:
+      0 auto;
+  }
+
+  .scene-wrapper {
+    min-height: 580px;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .hero {
+    padding:
+      65px
+      20px
+      35px;
+  }
+
+  .copy h1 {
+    font-size:
+      clamp(
+        58px,
+        18vw,
+        82px
+      );
+  }
+
+  .scene-wrapper {
+    min-height: 480px;
+  }
+
+  .interaction-hint {
+    bottom: 35px;
+  }
+
+  .state-indicator {
+    position: relative;
+
+    right: auto;
+    bottom: auto;
+
+    justify-content: center;
+
+    margin-top: 15px;
+  }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hint-dot {
+    animation: none;
+  }
+
+}

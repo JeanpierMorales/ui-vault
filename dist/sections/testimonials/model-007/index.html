@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Testimonials Carousel</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <main>
+    <section
+      class="testimonial-section"
+      id="testimonial-section"
+      aria-labelledby="testimonial-heading"
+    >
+      <div class="testimonial-section__container">
+
+        <header class="testimonial-section__header">
+          <div class="testimonial-section__intro">
+            
+
+            <h2
+              class="testimonial-section__title"
+              id="testimonial-heading"
+            >
+              What the procrastinators say
+            </h2>
+
+            <p class="testimonial-section__description">
+              Diam quis enim lobortis scelerisque fermentum dui faucibus. Urna nunc id cursus
+            </p>
+          </div>
+
+          <div class="testimonial-section__nav">
+            <button
+              class="testimonial-nav-btn testimonial-nav-btn--prev"
+              type="button"
+              aria-label="Previous testimonials"
+            >
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M15 18L9 12L15 6"
+                  stroke="currentColor"
+                  stroke-width="1.9"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+
+            <button
+              class="testimonial-nav-btn testimonial-nav-btn--next"
+              type="button"
+              aria-label="Next testimonials"
+            >
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M9 6L15 12L9 18"
+                  stroke="currentColor"
+                  stroke-width="1.9"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </header>
+
+
+        <div class="testimonial-carousel">
+          <div class="testimonial-carousel__viewport">
+            <div class="testimonial-carousel__track">
+
+              <!-- CARD 1 -->
+              <article class="testimonial-card">
+                <div class="testimonial-card__image-wrap">
+                  <img
+                    src="https://images.unsplash.com/photo-1504257432389-52343af06ae3?auto=format&fit=crop&w=1000&q=90"
+                    alt="Blake Star"
+                    draggable="false"
+                  />
+
+                  <button
+                    class="testimonial-card__corner"
+                    type="button"
+                    aria-label="Open Blake Star testimonial"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path
+                        d="M7 17L17 7"
+                        stroke="currentColor"
+                        stroke-width="1.9"
+                        stroke-linecap="round"
+                      />
+                      <path
+                        d="M8 7H17V16"
+                        stroke="currentColor"
+                        stroke-width="1.9"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+
+                  <div class="testimonial-card__overlay">
+                    <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+                      <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+
+                    <h3 class="testimonial-card__name">Blake Star</h3>
+                    <p class="testimonial-card__role">COO, blackstar.com</p>
+                  </div>
+                </div>
+              </article>
+
+
+              <!-- CARD 2 -->
+              <article class="testimonial-card">
+                <div class="testimonial-card__image-wrap">
+                  <img
+                    src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1000&q=90"
+                    alt="David Gilmore"
+                    draggable="false"
+                  />
+
+                  <button
+                    class="testimonial-card__corner"
+                    type="button"
+                    aria-label="Open David Gilmore testimonial"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path
+                        d="M7 17L17 7"
+                        stroke="currentColor"
+                        stroke-width="1.9"
+                        stroke-linecap="round"
+                      />
+                      <path
+                        d="M8 7H17V16"
+                        stroke="currentColor"
+                        stroke-width="1.9"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+
+                  <div class="testimonial-card__overlay">
+                    <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+                      <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+
+                    <h3 class="testimonial-card__name">David Gilmore</h3>
+                    <p class="testimonial-card__role">CTO, darkside.ai</p>
+                  </div>
+                </div>
+              </article>
+
+
+              <!-- CARD 3 -->
+              <article class="testimonial-card">
+                <div class="testimonial-card__image-wrap">
+                  <img
+                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1000&q=90"
+                    alt="Gerard White"
+                    draggable="false"
+                  />
+
+                  <button
+                    class="testimonial-card__corner"
+                    type="button"
+                    aria-label="Open Gerard White testimonial"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path
+                        d="M7 17L17 7"
+                        stroke="currentColor"
+                        stroke-width="1.9"
+                        stroke-linecap="round"
+                      />
+                      <path
+                        d="M8 7H17V16"
+                        stroke="currentColor"
+                        stroke-width="1.9"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+
+                  <div class="testimonial-card__overlay">
+                    <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+                      <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+
+                    <h3 class="testimonial-card__name">Gerard White</h3>
+                    <p class="testimonial-card__role">COO, exo4emo.ai</p>
+                  </div>
+                </div>
+              </article>
+
+
+              <!-- CARD 4 -->
+              <article class="testimonial-card">
+                <div class="testimonial-card__image-wrap">
+                  <img
+                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1000&q=90"
+                    alt="Azuny Cole"
+                    draggable="false"
+                  />
+
+                  <button
+                    class="testimonial-card__corner"
+                    type="button"
+                    aria-label="Open Azuny Cole testimonial"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path
+                        d="M7 17L17 7"
+                        stroke="currentColor"
+                        stroke-width="1.9"
+                        stroke-linecap="round"
+                      />
+                      <path
+                        d="M8 7H17V16"
+                        stroke="currentColor"
+                        stroke-width="1.9"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+
+                  <div class="testimonial-card__overlay">
+                    <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+                      <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+
+                    <h3 class="testimonial-card__name">Azuny Cole</h3>
+                    <p class="testimonial-card__role">COO, frameforge.io</p>
+                  </div>
+                </div>
+              </article>
+
+
+              <!-- CARD 5 -->
+              <article class="testimonial-card">
+                <div class="testimonial-card__image-wrap">
+                  <img
+                    src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1000&q=90"
+                    alt="Ryan Well"
+                    draggable="false"
+                  />
+
+                  <button
+                    class="testimonial-card__corner"
+                    type="button"
+                    aria-label="Open Ryan Well testimonial"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path
+                        d="M7 17L17 7"
+                        stroke="currentColor"
+                        stroke-width="1.9"
+                        stroke-linecap="round"
+                      />
+                      <path
+                        d="M8 7H17V16"
+                        stroke="currentColor"
+                        stroke-width="1.9"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+
+                  <div class="testimonial-card__overlay">
+                    <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+                      <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+
+                    <h3 class="testimonial-card__name">Ryan Well</h3>
+                    <p class="testimonial-card__role">Founder, orbital.dev</p>
+                  </div>
+                </div>
+              </article>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

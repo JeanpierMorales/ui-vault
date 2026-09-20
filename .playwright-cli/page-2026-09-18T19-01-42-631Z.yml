@@ -1,0 +1,61 @@
+- main [ref=f1e2]:
+  - link "Volver a la página principal de MIRA" [ref=f1e3] [cursor=pointer]:
+    - /url: ../
+    - generic [ref=f1e6]: Volver a MIRA
+  - region "Acceso a MIRA" [ref=f1e7]:
+    - generic [ref=f1e9]:
+      - paragraph [ref=f1e10]: MIRA
+      - heading "Vuelve a tu espacio." [level=1] [ref=f1e11]
+      - generic "Opciones de acceso social" [ref=f1e12]:
+        - button "Continuar con Google" [ref=f1e13] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f1e14]: 
+        - button "Continuar con TikTok" [ref=f1e15] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f1e16]: 
+        - button "Continuar con Apple" [ref=f1e17] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f1e18]: 
+      - paragraph [ref=f1e19]: O USA TU CORREO
+      - generic [ref=f1e20]:
+        - generic [ref=f1e21]:
+          - textbox "Correo electrónico" [ref=f1e23]
+          - generic: Ingresa tu correo electrónico.
+        - generic [ref=f1e24]:
+          - textbox "Contraseña" [ref=f1e26]
+          - generic: Ingresa tu contraseña.
+      - link "¿Olvidaste tu contraseña?" [ref=f1e27] [cursor=pointer]:
+        - /url: "#loginPassword"
+      - button "ENTRAR A MIRA" [ref=f1e28] [cursor=pointer]
+    - generic:
+      - generic:
+        - paragraph: MIRA
+        - heading "Hazle espacio a tu historia." [level=1]
+        - generic "Opciones de registro social":
+          - button "Registrarte con Google":
+            - generic [aria-hidden]: 
+          - button "Registrarte con TikTok":
+            - generic [aria-hidden]: 
+          - button "Registrarte con Apple":
+            - generic [aria-hidden]: 
+        - paragraph: O CREA TU CUENTA CON CORREO
+        - generic:
+          - generic:
+            - generic:
+              - textbox "Nombre"
+            - generic: Ingresa tu nombre.
+          - generic:
+            - generic:
+              - textbox "Correo electrónico"
+            - generic: Ingresa tu correo electrónico.
+          - generic:
+            - generic:
+              - textbox "Crea una contraseña"
+            - generic: Crea una contraseña.
+        - button "CREAR MI CUENTA"
+    - generic [ref=f1e30]:
+      - generic [ref=f1e34]:
+        - heading "Qué bueno verte." [level=2] [ref=f1e35]
+        - paragraph [ref=f1e36]: Vuelve a organizar el contenido de tu libro sin dejar de escribir.
+        - button "INICIAR SESIÓN" [ref=f1e37] [cursor=pointer]
+      - generic [ref=f1e41]:
+        - heading "Tu escritura sigue al centro." [level=2] [ref=f1e42]
+        - paragraph [ref=f1e43]: Crea tu espacio y convierte tu historia en contenido con intención.
+        - button "CREAR CUENTA" [ref=f1e44] [cursor=pointer]

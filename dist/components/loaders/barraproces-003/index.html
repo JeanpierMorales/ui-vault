@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Progreso Vertical</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <main class="page">
+    <section class="progress-layout">
+
+      <!-- PANEL IZQUIERDO -->
+      <section class="progress-card" aria-labelledby="progress-title">
+
+        <header class="progress-header">
+          <div>
+            <p class="eyebrow">Seguimiento del proceso</p>
+            <h1 id="progress-title">Estado de tu solicitud</h1>
+            <p class="header-description">
+              Revisa el avance de cada fase. Puedes ver el detalle del paso
+              actual y navegar entre etapas de forma clara.
+            </p>
+          </div>
+
+          <div class="progress-summary">
+            <span class="summary-label">Progreso total</span>
+            <strong id="progressPercent">20%</strong>
+          </div>
+        </header>
+
+        <div class="progress-main">
+
+          <!-- TIMELINE -->
+          <div class="timeline-wrap">
+            <div class="timeline-line"></div>
+            <div class="timeline-line-fill" id="timelineFill"></div>
+
+            <div class="timeline-steps" id="timelineSteps">
+
+              <button class="timeline-step active" data-step="0" type="button">
+                <span class="step-marker">
+                  <span class="step-number">01</span>
+                  <span class="step-check">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M5 12.5L9.3 16.6L19 7.2"></path>
+                    </svg>
+                  </span>
+                </span>
+
+                <span class="step-copy">
+                  <span class="step-title">Recepción</span>
+                  <span class="step-subtitle">Tu solicitud fue registrada</span>
+                </span>
+              </button>
+
+              <button class="timeline-step" data-step="1" type="button">
+                <span class="step-marker">
+                  <span class="step-number">02</span>
+                  <span class="step-check">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M5 12.5L9.3 16.6L19 7.2"></path>
+                    </svg>
+                  </span>
+                </span>
+
+                <span class="step-copy">
+                  <span class="step-title">Validación</span>
+                  <span class="step-subtitle">Verificación de información</span>
+                </span>
+              </button>
+
+              <button class="timeline-step" data-step="2" type="button">
+                <span class="step-marker">
+                  <span class="step-number">03</span>
+                  <span class="step-check">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M5 12.5L9.3 16.6L19 7.2"></path>
+                    </svg>
+                  </span>
+                </span>
+
+                <span class="step-copy">
+                  <span class="step-title">Procesamiento</span>
+                  <span class="step-subtitle">Gestión operativa en curso</span>
+                </span>
+              </button>
+
+              <button class="timeline-step" data-step="3" type="button">
+                <span class="step-marker">
+                  <span class="step-number">04</span>
+                  <span class="step-check">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M5 12.5L9.3 16.6L19 7.2"></path>
+                    </svg>
+                  </span>
+                </span>
+
+                <span class="step-copy">
+                  <span class="step-title">Revisión final</span>
+                  <span class="step-subtitle">Control de calidad y confirmación</span>
+                </span>
+              </button>
+
+              <button class="timeline-step" data-step="4" type="button">
+                <span class="step-marker">
+                  <span class="step-number">05</span>
+                  <span class="step-check">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M5 12.5L9.3 16.6L19 7.2"></path>
+                    </svg>
+                  </span>
+                </span>
+
+                <span class="step-copy">
+                  <span class="step-title">Completado</span>
+                  <span class="step-subtitle">Proceso terminado correctamente</span>
+                </span>
+              </button>
+
+            </div>
+          </div>
+
+          <!-- PANEL DE DETALLE -->
+          <aside class="detail-panel">
+
+            <div class="detail-top">
+              <div class="detail-index" id="detailIndex">01</div>
+
+              <div class="detail-state">
+                <span class="detail-state-label">Estado actual</span>
+                <strong id="detailStatus">En progreso</strong>
+              </div>
+            </div>
+
+            <div class="detail-content" id="detailContent">
+              <p class="detail-overline">PASO ACTUAL</p>
+              <h2 id="detailTitle">Recepción</h2>
+              <p id="detailDescription">
+                Hemos recibido tu solicitud y quedó registrada correctamente en el sistema.
+                Este es el punto inicial del proceso.
+              </p>
+
+              <ul class="detail-list" id="detailList">
+                <li>Registro inicial validado</li>
+                <li>Datos básicos almacenados</li>
+                <li>Inicio del flujo operativo</li>
+              </ul>
+            </div>
+
+            <div class="detail-footer">
+              <div class="detail-meta">
+                <span>Siguiente fase</span>
+                <strong id="nextPhase">Validación</strong>
+              </div>
+
+              <div class="detail-actions">
+                <button class="action-btn secondary" id="prevBtn" type="button">
+                  Anterior
+                </button>
+
+                <button class="action-btn primary" id="nextBtn" type="button">
+                  Continuar
+                </button>
+              </div>
+            </div>
+
+          </aside>
+        </div>
+      </section>
+
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
