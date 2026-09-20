@@ -1,0 +1,76 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - link "Volver a UI Vault" [ref=e3] [cursor=pointer]:
+      - /url: ../index.html
+      - text: 2D
+    - generic [ref=e4]:
+      - heading "Motion library." [level=1] [ref=e5]
+      - paragraph [ref=e6]: 9 personajes · 6 fotogramas por loop
+    - button "Pausar todos" [ref=e7] [cursor=pointer]
+  - main "Visor de animaciones 2D" [ref=e8]:
+    - region [ref=e9]:
+      - generic [ref=e10]:
+        - generic [ref=e11]: Modelo 001
+        - heading "Zorros" [level=2] [ref=e12]
+      - generic [ref=e13]:
+        - article [ref=e14]:
+          - img "Zorro, versión uno" [ref=e15]
+          - generic [ref=e16]:
+            - generic [ref=e17]: Zorro 01
+            - generic [ref=e18]: 01—06
+        - article [ref=e19]:
+          - img "Zorro, versión dos" [ref=e20]
+          - generic [ref=e21]:
+            - generic [ref=e22]: Zorro 02
+            - generic [ref=e23]: 01—06
+    - region [ref=e24]:
+      - generic [ref=e25]:
+        - generic [ref=e26]: Modelo 002
+        - heading "Cuervos" [level=2] [ref=e27]
+      - generic [ref=e28]:
+        - article [ref=e29]:
+          - img "Cuervo, versión uno" [ref=e30]
+          - generic [ref=e31]:
+            - generic [ref=e32]: Cuervo 01
+            - generic [ref=e33]: 01—06
+        - article [ref=e34]:
+          - img "Cuervo, versión dos" [ref=e35]
+          - generic [ref=e36]:
+            - generic [ref=e37]: Cuervo 02
+            - generic [ref=e38]: 01—06
+    - region [ref=e39]:
+      - generic [ref=e40]:
+        - generic [ref=e41]: Modelo 003
+        - heading "Búhos" [level=2] [ref=e42]
+      - generic [ref=e43]:
+        - article [ref=e44]:
+          - img "Búho, versión uno" [ref=e45]
+          - generic [ref=e46]:
+            - generic [ref=e47]: Búho 01
+            - generic [ref=e48]: 01—06
+        - article [ref=e49]:
+          - img "Búho, versión dos" [ref=e50]
+          - generic [ref=e51]:
+            - generic [ref=e52]: Búho 02
+            - generic [ref=e53]: 01—06
+    - region [ref=e54]:
+      - generic [ref=e55]:
+        - generic [ref=e56]: Modelo 004
+        - heading "Libros" [level=2] [ref=e57]
+      - generic [ref=e58]:
+        - article [ref=e59]:
+          - img "Libro, versión uno" [ref=e60]
+          - generic [ref=e61]:
+            - generic [ref=e62]: Libro 01
+            - generic [ref=e63]: 01—06
+        - article [ref=e64]:
+          - img "Libro, versión dos" [ref=e65]
+          - generic [ref=e66]:
+            - generic [ref=e67]: Libro 02
+            - generic [ref=e68]: 01—06
+        - article [ref=e69]:
+          - img "Libro, versión tres" [ref=e70]
+          - generic [ref=e71]:
+            - generic [ref=e72]: Libro 03
+            - generic [ref=e73]: 01—06
+  - paragraph [ref=e74]: Las nueve secuencias se están reproduciendo.

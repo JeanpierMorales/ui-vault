@@ -1,0 +1,432 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]: ADVANCED BUTTON MOTION LIBRARY
+    - heading "Interaction-first button system." [level=1] [ref=e5]
+    - paragraph [ref=e6]: "Una biblioteca de botones orientada a acciones reales: navegación, descarga, confirmación, subida, favoritos, compra, progreso, reproducción y estados."
+  - generic [ref=e7]:
+    - generic [ref=e8]:
+      - button "Todos" [ref=e9] [cursor=pointer]
+      - button "CTA" [ref=e10] [cursor=pointer]
+      - button "Navegación" [ref=e11] [cursor=pointer]
+      - button "Acciones" [ref=e12] [cursor=pointer]
+      - button "Descarga" [ref=e13] [cursor=pointer]
+      - button "Estados" [ref=e14] [cursor=pointer]
+      - button "Iconos" [ref=e15] [cursor=pointer]
+      - button "Motion" [ref=e16] [cursor=pointer]
+      - button "Commerce" [ref=e17] [cursor=pointer]
+    - searchbox "Buscar botón..." [ref=e18]
+  - main [ref=e19]:
+    - article [ref=e20]:
+      - button "Get started" [ref=e22] [cursor=pointer]
+      - generic [ref=e23]:
+        - strong [ref=e24]: Soft CTA
+        - code [ref=e25]: .apple-soft
+    - article [ref=e26]:
+      - button "Explore" [ref=e28] [cursor=pointer]
+      - generic [ref=e29]:
+        - strong [ref=e30]: Spotlight
+        - code [ref=e31]: .spotlight-btn
+    - article [ref=e32]:
+      - button "Discover →" [ref=e34] [cursor=pointer]:
+        - generic [ref=e35]: Discover
+        - generic [ref=e36]: →
+      - generic [ref=e37]:
+        - strong [ref=e38]: Arrow Follow
+        - code [ref=e39]: .arrow-follow
+    - article [ref=e40]:
+      - button "Next project →" [ref=e42] [cursor=pointer]:
+        - generic [ref=e43]: Next project
+        - generic [ref=e44]: →
+      - generic [ref=e45]:
+        - strong [ref=e46]: Arrow Reveal
+        - code [ref=e47]: .arrow-reveal
+    - article [ref=e48]:
+      - button "Magnetic" [ref=e50] [cursor=pointer]
+      - generic [ref=e51]:
+        - strong [ref=e52]: Magnetic
+        - code [ref=e53]: .magnetic
+    - article [ref=e54]:
+      - button "View more" [ref=e56] [cursor=pointer]
+      - generic [ref=e57]:
+        - strong [ref=e58]: Cursor Fill
+        - code [ref=e59]: .cursor-fill
+    - article [ref=e60]:
+      - button "Connect" [ref=e62] [cursor=pointer]
+      - generic [ref=e63]:
+        - strong [ref=e64]: Liquid Rise
+        - code [ref=e65]: .liquid
+    - article [ref=e66]:
+      - button "Contact us" [ref=e68] [cursor=pointer]
+      - generic [ref=e69]:
+        - strong [ref=e70]: Diagonal Fill
+        - code [ref=e71]: .diagonal-fill
+    - article [ref=e72]:
+      - button "Start building" [ref=e74] [cursor=pointer]
+      - generic [ref=e75]:
+        - strong [ref=e76]: Split Layers
+        - code [ref=e77]: .split-btn
+    - article [ref=e78]:
+      - button "Start now Let's go →" [ref=e80] [cursor=pointer]:
+        - generic [ref=e81]: Start now
+        - generic [ref=e82]: Let's go →
+      - generic [ref=e83]:
+        - strong [ref=e84]: Text Swap
+        - code [ref=e85]: .text-swap
+    - article [ref=e86]:
+      - button "Upgrade" [ref=e88] [cursor=pointer]
+      - generic [ref=e89]:
+        - strong [ref=e90]: Shimmer
+        - code [ref=e91]: .shimmer
+    - article [ref=e92]:
+      - button "Continue" [ref=e94] [cursor=pointer]
+      - generic [ref=e95]:
+        - strong [ref=e96]: Aurora Border
+        - code [ref=e97]: .aurora-border
+    - article [ref=e98]:
+      - button "View details" [ref=e100] [cursor=pointer]
+      - generic [ref=e101]:
+        - strong [ref=e102]: Glass
+        - code [ref=e103]: .glass
+    - article [ref=e104]:
+      - button "Press me" [ref=e106] [cursor=pointer]
+      - generic [ref=e107]:
+        - strong [ref=e108]: Physical
+        - code [ref=e109]: .physical
+    - article [ref=e110]:
+      - button "Bounce" [ref=e112] [cursor=pointer]
+      - generic [ref=e113]:
+        - strong [ref=e114]: Spring
+        - code [ref=e115]: .spring-btn
+    - article [ref=e116]:
+      - button "Continue" [ref=e118] [cursor=pointer]
+      - generic [ref=e119]:
+        - strong [ref=e120]: Soft Press
+        - code [ref=e121]: .soft-press
+    - article [ref=e122]:
+      - button "Read article" [ref=e124] [cursor=pointer]
+      - generic [ref=e125]:
+        - strong [ref=e126]: Underline Travel
+        - code [ref=e127]: .underline
+    - article [ref=e128]:
+      - button "[ About ]" [ref=e130] [cursor=pointer]:
+        - generic [ref=e131]: "["
+        - text: About
+        - generic [ref=e132]: "]"
+      - generic [ref=e133]:
+        - strong [ref=e134]: Brackets
+        - code [ref=e135]: .brackets
+    - article [ref=e136]:
+      - button "Open case study" [ref=e138] [cursor=pointer]
+      - generic [ref=e143]:
+        - strong [ref=e144]: Corner Frame
+        - code [ref=e145]: .corners
+    - article [ref=e146]:
+      - button "← Back" [ref=e148] [cursor=pointer]:
+        - generic [ref=e149]: ←
+        - generic [ref=e150]: Back
+      - generic [ref=e151]:
+        - strong [ref=e152]: Back Glide
+        - code [ref=e153]: .back-btn
+    - article [ref=e154]:
+      - button "→" [ref=e156] [cursor=pointer]
+      - generic [ref=e157]:
+        - strong [ref=e158]: Circle Next
+        - code [ref=e159]: .circle-next
+    - article [ref=e160]:
+      - button [ref=e162] [cursor=pointer]
+      - generic [ref=e165]:
+        - strong [ref=e166]: Menu Morph
+        - code [ref=e167]: .menu-btn
+    - article [ref=e168]:
+      - button [ref=e170] [cursor=pointer]
+      - generic [ref=e173]:
+        - strong [ref=e174]: Favorite
+        - code [ref=e175]: .heart-btn
+    - article [ref=e176]:
+      - button [ref=e178] [cursor=pointer]
+      - generic [ref=e181]:
+        - strong [ref=e182]: Bookmark
+        - code [ref=e183]: .bookmark-btn
+    - article [ref=e184]:
+      - button [ref=e186] [cursor=pointer]
+      - generic [ref=e189]:
+        - strong [ref=e190]: Plus → Check
+        - code [ref=e191]: .plus-check
+    - article [ref=e192]:
+      - button [ref=e194] [cursor=pointer]
+      - generic [ref=e196]:
+        - strong [ref=e197]: Play / Pause
+        - code [ref=e198]: .play-pause
+    - article [ref=e199]:
+      - button "Download" [ref=e201] [cursor=pointer]
+      - generic [ref=e204]:
+        - strong [ref=e205]: Download Drop
+        - code [ref=e206]: .download-hover
+    - article [ref=e207]:
+      - button "Download" [ref=e209] [cursor=pointer]
+      - generic [ref=e210]:
+        - strong [ref=e211]: Download Progress
+        - code [ref=e212]: .download-progress
+    - article [ref=e213]:
+      - button "↓ Download" [ref=e215] [cursor=pointer]
+      - generic [ref=e216]:
+        - strong [ref=e217]: Download Success
+        - code [ref=e218]: .download-success
+    - article [ref=e219]:
+      - button "Generate Done" [ref=e221] [cursor=pointer]:
+        - text: Generate
+        - generic [ref=e223]: Done
+      - generic [ref=e224]:
+        - strong [ref=e225]: Loading Morph
+        - code [ref=e226]: .loading-btn
+    - article [ref=e227]:
+      - button "Continue" [ref=e229] [cursor=pointer]
+      - generic [ref=e230]:
+        - strong [ref=e231]: Loading Dots
+        - code [ref=e232]: .loading-dots
+    - article [ref=e233]:
+      - button "Confirm" [ref=e235] [cursor=pointer]
+      - generic [ref=e236]:
+        - strong [ref=e237]: Success Confirm
+        - code [ref=e238]: .success-btn
+    - article [ref=e239]:
+      - button "↻ Try again" [ref=e241] [cursor=pointer]:
+        - generic [ref=e242]: ↻
+        - text: Try again
+      - generic [ref=e243]:
+        - strong [ref=e244]: Retry Spin
+        - code [ref=e245]: .retry-btn
+    - article [ref=e246]:
+      - button "Notifications off" [ref=e248] [cursor=pointer]
+      - generic [ref=e251]:
+        - strong [ref=e252]: Toggle State
+        - code [ref=e253]: .toggle-btn
+    - article [ref=e254]:
+      - button "Hold to delete" [ref=e256] [cursor=pointer]
+      - generic [ref=e257]:
+        - strong [ref=e258]: Hold Delete
+        - code [ref=e259]: .hold-delete
+    - article [ref=e260]:
+      - button "Delete" [ref=e262] [cursor=pointer]
+      - generic [ref=e263]:
+        - strong [ref=e264]: Delete → Undo
+        - code [ref=e265]: .undo-btn
+    - article [ref=e266]:
+      - button "□ Copy" [ref=e268] [cursor=pointer]:
+        - generic [ref=e269]: □
+        - generic [ref=e270]: Copy
+      - generic [ref=e271]:
+        - strong [ref=e272]: Copy Confirm
+        - code [ref=e273]: .copy-btn
+    - article [ref=e274]:
+      - button "🛒 Add to cart" [ref=e276] [cursor=pointer]:
+        - generic [ref=e277]: 🛒
+        - generic [ref=e278]: Add to cart
+      - generic [ref=e279]:
+        - strong [ref=e280]: Add to Cart
+        - code [ref=e281]: .cart-btn
+    - article [ref=e282]:
+      - button "Buy now →" [ref=e284] [cursor=pointer]:
+        - text: Buy now
+        - generic [ref=e285]: →
+      - generic [ref=e286]:
+        - strong [ref=e287]: Buy Now
+        - code [ref=e288]: .buy-btn
+    - article [ref=e289]:
+      - generic [ref=e291]:
+        - button "−" [ref=e292] [cursor=pointer]
+        - generic [ref=e293]: "1"
+        - button "+" [ref=e294] [cursor=pointer]
+      - generic [ref=e295]:
+        - strong [ref=e296]: Quantity Control
+        - code [ref=e297]: .quantity-control
+    - article [ref=e298]:
+      - button "↑ Upload" [ref=e300] [cursor=pointer]:
+        - generic [ref=e301]: ↑
+        - generic [ref=e302]: Upload
+      - generic [ref=e303]:
+        - strong [ref=e304]: Upload
+        - code [ref=e305]: .upload-btn
+    - article [ref=e306]:
+      - button "Share" [ref=e308] [cursor=pointer]
+      - generic [ref=e313]:
+        - strong [ref=e314]: Share Burst
+        - code [ref=e315]: .share-btn
+    - article [ref=e316]:
+      - button "Follow" [ref=e318] [cursor=pointer]
+      - generic [ref=e319]:
+        - strong [ref=e320]: Follow State
+        - code [ref=e321]: .follow-btn
+    - article [ref=e322]:
+      - button "♡ 128" [ref=e324] [cursor=pointer]:
+        - generic [ref=e325]: ♡
+        - generic [ref=e326]: "128"
+      - generic [ref=e327]:
+        - strong [ref=e328]: Like
+        - code [ref=e329]: .like-btn
+    - article [ref=e330]:
+      - button "Launch" [ref=e332] [cursor=pointer]
+      - generic [ref=e333]:
+        - strong [ref=e334]: Glow
+        - code [ref=e335]: .glow-btn
+    - article [ref=e336]:
+      - button "Analyze" [ref=e338] [cursor=pointer]
+      - generic [ref=e339]:
+        - strong [ref=e340]: Scanline
+        - code [ref=e341]: .scan-btn
+    - article [ref=e342]:
+      - button "Deploy" [ref=e344] [cursor=pointer]
+      - generic [ref=e345]:
+        - strong [ref=e346]: Micro Glitch
+        - code [ref=e347]: .glitch-btn
+    - article [ref=e348]:
+      - button "Run _" [ref=e350] [cursor=pointer]
+      - generic [ref=e351]:
+        - strong [ref=e352]: Terminal
+        - code [ref=e353]: .terminal-btn
+    - article [ref=e354]:
+      - button "Explore" [ref=e356] [cursor=pointer]
+      - generic [ref=e357]:
+        - strong [ref=e358]: 3D Tilt
+        - code [ref=e359]: .tilt-btn
+    - article [ref=e360]:
+      - button "Create" [ref=e362] [cursor=pointer]
+      - generic [ref=e363]:
+        - strong [ref=e364]: Blob Motion
+        - code [ref=e365]: .blob-btn
+    - article [ref=e366]:
+      - button "Initialize" [ref=e368] [cursor=pointer]
+      - generic [ref=e369]:
+        - strong [ref=e370]: Border Trace
+        - code [ref=e371]: .border-trace
+    - article [ref=e372]:
+      - button "Explore collection" [ref=e374] [cursor=pointer]
+      - generic [ref=e375]:
+        - strong [ref=e376]: Editorial
+        - code [ref=e377]: .editorial-btn
+    - article [ref=e378]:
+      - button "Continue" [ref=e380] [cursor=pointer]
+      - generic [ref=e381]:
+        - strong [ref=e382]: Minimal
+        - code [ref=e383]: .minimal-btn
+    - article [ref=e384]:
+      - button "Learn more →" [ref=e386] [cursor=pointer]:
+        - generic [ref=e387]: Learn more
+        - generic [ref=e388]: →
+      - generic [ref=e389]:
+        - strong [ref=e390]: Circle Expand
+        - code [ref=e391]: .circle-expand
+    - article [ref=e392]:
+      - button "→ See details" [ref=e394] [cursor=pointer]:
+        - generic [ref=e395]: →
+        - generic [ref=e396]: See details
+      - generic [ref=e397]:
+        - strong [ref=e398]: Slide Arrow
+        - code [ref=e399]: .slide-arrow
+    - article [ref=e400]:
+      - button "Open" [ref=e402] [cursor=pointer]
+      - generic [ref=e403]:
+        - strong [ref=e404]: Invert
+        - code [ref=e405]: .invert-btn
+    - article [ref=e406]:
+      - button "Click me" [ref=e408] [cursor=pointer]
+      - generic [ref=e409]:
+        - strong [ref=e410]: Ripple Click
+        - code [ref=e411]: .ripple-btn
+    - article [ref=e412]:
+      - button "Live" [ref=e414] [cursor=pointer]
+      - generic [ref=e415]:
+        - strong [ref=e416]: Live Pulse
+        - code [ref=e417]: .pulse-btn
+    - article [ref=e418]:
+      - button "◉ Show password" [ref=e420] [cursor=pointer]:
+        - generic [ref=e421]: ◉
+        - generic [ref=e422]: Show password
+      - generic [ref=e423]:
+        - strong [ref=e424]: Show / Hide
+        - code [ref=e425]: .eye-btn
+    - article [ref=e426]:
+      - button "Record" [ref=e428] [cursor=pointer]
+      - generic [ref=e431]:
+        - strong [ref=e432]: Record
+        - code [ref=e433]: .record-btn
+    - article [ref=e434]:
+      - button "Send ↗" [ref=e436] [cursor=pointer]:
+        - generic [ref=e437]: Send
+        - generic [ref=e438]: ↗
+      - generic [ref=e439]:
+        - strong [ref=e440]: Send
+        - code [ref=e441]: .send-btn
+    - article [ref=e442]:
+      - button "Expand ↗" [ref=e444] [cursor=pointer]:
+        - text: Expand
+        - generic [ref=e445]: ↗
+      - generic [ref=e446]:
+        - strong [ref=e447]: Expand
+        - code [ref=e448]: .expand-btn
+    - article [ref=e449]:
+      - button "Premium" [ref=e451] [cursor=pointer]
+      - generic [ref=e452]:
+        - strong [ref=e453]: Chrome Sweep
+        - code [ref=e454]: .chrome-btn
+    - article [ref=e455]:
+      - button "Processing" [disabled] [ref=e457]
+      - generic [ref=e458]:
+        - strong [ref=e459]: Disabled
+        - code [ref=e460]: .disabled-btn
+    - article [ref=e461]:
+      - button "Back" [ref=e463] [cursor=pointer]
+      - generic [ref=e467]:
+        - strong [ref=e468]: Action Back
+        - code [ref=e469]: .action-btn--back
+    - article [ref=e470]:
+      - button "Next" [ref=e472] [cursor=pointer]
+      - generic [ref=e476]:
+        - strong [ref=e477]: Action Next
+        - code [ref=e478]: .action-btn--next
+    - article [ref=e479]:
+      - button "Submit" [ref=e481] [cursor=pointer]
+      - generic [ref=e485]:
+        - strong [ref=e486]: Action Submit
+        - code [ref=e487]: .action-btn--submit
+    - article [ref=e488]:
+      - button "Cancel" [ref=e490] [cursor=pointer]
+      - generic [ref=e494]:
+        - strong [ref=e495]: Action Cancel
+        - code [ref=e496]: .action-btn--cancel
+    - article [ref=e497]:
+      - button "Delete" [ref=e499] [cursor=pointer]
+      - generic [ref=e503]:
+        - strong [ref=e504]: Action Delete
+        - code [ref=e505]: .action-btn--delete
+    - article [ref=e506]:
+      - button "Add" [ref=e508] [cursor=pointer]
+      - generic [ref=e512]:
+        - strong [ref=e513]: Action Add
+        - code [ref=e514]: .action-btn--add
+    - article [ref=e515]:
+      - button "Edit" [ref=e517] [cursor=pointer]
+      - generic [ref=e521]:
+        - strong [ref=e522]: Action Edit
+        - code [ref=e523]: .action-btn--edit
+    - article [ref=e524]:
+      - button "Expand" [ref=e526] [cursor=pointer]
+      - generic [ref=e530]:
+        - strong [ref=e531]: Action Expand
+        - code [ref=e532]: .action-btn--expand
+    - article [ref=e533]:
+      - button "Date" [ref=e535] [cursor=pointer]
+      - generic [ref=e540]:
+        - strong [ref=e541]: Action Date
+        - code [ref=e542]: .action-btn--date
+    - article [ref=e543]:
+      - button "More options" [ref=e545] [cursor=pointer]:
+        - generic [ref=e550]: More
+      - generic [ref=e551]:
+        - strong [ref=e552]: Action More
+        - code [ref=e553]: .action-btn--more
+    - article [ref=e554]:
+      - button "Open" [ref=e556] [cursor=pointer]
+      - generic [ref=e560]:
+        - strong [ref=e561]: Action Open
+        - code [ref=e562]: .action-btn--open

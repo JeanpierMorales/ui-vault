@@ -54,7 +54,7 @@ async function atomicItemsFor(component) {
     if (!candidates.length) return [sourceItem(component)];
     return candidates.map((element, index) => ({
       id: `${component.id}--${index + 1}`, name: nameForAtomicElement(element, component.name, index), category: component.category, group: component.group,
-      description: `${component.description} Variante individual ${index + 1}.`, tags: [...(component.tags || []), 'individual'], sourcePath: component.path, selector: selectorFor(element),
+      description: `${component.description} Variante individual ${index + 1}.`, tags: [...(component.tags || []), ...(element.dataset.category || '').split(' ').filter(Boolean), 'individual'], sourcePath: component.path, selector: selectorFor(element),
     }));
   } catch { return [sourceItem(component)]; }
 }

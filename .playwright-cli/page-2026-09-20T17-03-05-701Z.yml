@@ -1,0 +1,74 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]: ADVANCED BUTTON MOTION LIBRARY
+    - heading "Interaction-first button system." [level=1] [ref=e5]
+    - paragraph [ref=e6]: "Una biblioteca de botones orientada a acciones reales: navegación, descarga, confirmación, subida, favoritos, compra, progreso, reproducción y estados."
+  - generic [ref=e7]:
+    - generic [ref=e8]:
+      - button "Todos" [ref=e9] [cursor=pointer]
+      - button "CTA" [ref=e10] [cursor=pointer]
+      - button "Navegación" [ref=e11] [cursor=pointer]
+      - button "Acciones" [active] [ref=e12] [cursor=pointer]
+      - button "Descarga" [ref=e13] [cursor=pointer]
+      - button "Estados" [ref=e14] [cursor=pointer]
+      - button "Iconos" [ref=e15] [cursor=pointer]
+      - button "Motion" [ref=e16] [cursor=pointer]
+      - button "Commerce" [ref=e17] [cursor=pointer]
+    - searchbox "Buscar botón..." [ref=e18]
+  - main [ref=e19]:
+    - article [ref=e461]:
+      - button "Back" [ref=e463] [cursor=pointer]
+      - generic [ref=e467]:
+        - strong [ref=e468]: Action Back
+        - code [ref=e469]: .action-btn--back
+    - article [ref=e470]:
+      - button "Next" [ref=e472] [cursor=pointer]
+      - generic [ref=e476]:
+        - strong [ref=e477]: Action Next
+        - code [ref=e478]: .action-btn--next
+    - article [ref=e479]:
+      - button "Submit" [ref=e481] [cursor=pointer]
+      - generic [ref=e485]:
+        - strong [ref=e486]: Action Submit
+        - code [ref=e487]: .action-btn--submit
+    - article [ref=e488]:
+      - button "Cancel" [ref=e490] [cursor=pointer]
+      - generic [ref=e494]:
+        - strong [ref=e495]: Action Cancel
+        - code [ref=e496]: .action-btn--cancel
+    - article [ref=e497]:
+      - button "Delete" [ref=e499] [cursor=pointer]
+      - generic [ref=e503]:
+        - strong [ref=e504]: Action Delete
+        - code [ref=e505]: .action-btn--delete
+    - article [ref=e506]:
+      - button "Add" [ref=e508] [cursor=pointer]
+      - generic [ref=e512]:
+        - strong [ref=e513]: Action Add
+        - code [ref=e514]: .action-btn--add
+    - article [ref=e515]:
+      - button "Edit" [ref=e517] [cursor=pointer]
+      - generic [ref=e521]:
+        - strong [ref=e522]: Action Edit
+        - code [ref=e523]: .action-btn--edit
+    - article [ref=e524]:
+      - button "Expand" [ref=e526] [cursor=pointer]
+      - generic [ref=e530]:
+        - strong [ref=e531]: Action Expand
+        - code [ref=e532]: .action-btn--expand
+    - article [ref=e533]:
+      - button "Date" [ref=e535] [cursor=pointer]
+      - generic [ref=e540]:
+        - strong [ref=e541]: Action Date
+        - code [ref=e542]: .action-btn--date
+    - article [ref=e543]:
+      - button "More options" [ref=e545] [cursor=pointer]:
+        - generic [ref=e550]: More
+      - generic [ref=e551]:
+        - strong [ref=e552]: Action More
+        - code [ref=e553]: .action-btn--more
+    - article [ref=e554]:
+      - button "Open" [ref=e556] [cursor=pointer]
+      - generic [ref=e560]:
+        - strong [ref=e561]: Action Open
+        - code [ref=e562]: .action-btn--open

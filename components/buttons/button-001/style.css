@@ -2224,6 +2224,55 @@ button {
 }
 
 /* ===================================================== */
+/* 65–75 ACTION BUTTONS */
+/* ===================================================== */
+
+.action-preview {
+  background: #f7f7f5;
+}
+
+.action-btn {
+  --action: #1b66be;
+  --action-ink: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 18px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: var(--action);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.action-btn svg {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.action-btn:hover { transform: translateY(-1px); }
+.action-btn:active { transform: translateY(0); }
+
+.action-btn--outline { border-color: color-mix(in srgb, var(--action) 48%, #ffffff); background: #ffffff; }
+.action-btn--outline:hover { border-color: var(--action); background: color-mix(in srgb, var(--action) 8%, #ffffff); }
+.action-btn--quiet { background: color-mix(in srgb, var(--action) 10%, #ffffff); }
+.action-btn--quiet:hover { background: color-mix(in srgb, var(--action) 17%, #ffffff); }
+.action-btn--solid { background: var(--action); box-shadow: 0 5px 10px color-mix(in srgb, var(--action) 24%, transparent); color: var(--action-ink); }
+.action-btn--solid:hover { background: color-mix(in srgb, var(--action) 88%, #000000); }
+.action-btn--success { --action: #198a35; }
+.action-btn--danger { --action: #d52b2b; }
+.action-btn--delete { --action: #a76608; }
+
+/* ===================================================== */
 /* RESPONSIVE */
 /* ===================================================== */
 
