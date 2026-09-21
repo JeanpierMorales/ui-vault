@@ -1,102 +1,144 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
   />
-
-  <title>Liquid Glass Navigation</title>
-
+  <title>Dark Glass Navbar Demo</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-  <main class="page">
+  <!-- =====================================================
+       NAVBAR
+  ====================================================== -->
+  <nav class="glass-navbar" id="glassNavbar">
 
-    <nav
-      class="liquid-nav"
-      id="liquidNav"
-      aria-label="Navegación principal"
+    <!-- LEFT ICON -->
+    <a
+      href="#work"
+      class="nav-icon-button"
+      aria-label="Go to Work section"
     >
+      <span class="nav-icon-shell">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M15.8 13.7c-.3.9-1.3 1.5-2.3 1.3-2.8-.5-5.1-2.8-5.6-5.6-.2-1 .4-2 1.3-2.3l1-.3c.5-.2 1 0 1.3.4l1 1.5c.3.4.2 1-.1 1.4l-.7.8c.5.9 1.3 1.7 2.2 2.2l.8-.7c.4-.3 1-.4 1.4-.1l1.5 1c.4.3.6.8.4 1.3l-.2 1.1Z"
+          />
+        </svg>
+      </span>
+    </a>
 
-      <!-- brillo dinámico -->
-      <div class="nav-light" aria-hidden="true"></div>
 
-      <!-- inicio -->
-      <a
-        href="#home"
-        class="nav-logo"
-        aria-label="Inicio"
-      >
-        <span class="nav-logo-inner">
+    <!-- CENTER MENU -->
+    <div class="nav-menu" id="navMenu">
 
-          <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path
-              d="M19.4 4.6c-3.7-3.7-9.8-3.7-13.5 0C2.3 8.2
-              2.2 14 5.6 17.7c3 3.3 7.8 4 11.6 1.7l2.3
-              1.2-.8-2.6c3.2-3.8 3-9.7.7-13.4Zm-4.3
-              10.7c-.5.8-1.5 1.3-2.5 1.1-2.5-.4-4.6-2.5-5-5
-              -.2-1 .3-2 1.1-2.5.4-.2.8-.2 1.1.1l1.5
-              1.4c.3.3.4.8.1 1.2l-.6.9c.5 1.1 1.4 2 2.5
-              2.5l.9-.6c.4-.3.9-.2 1.2.1l1.4 1.5c.3.3.3.7.1 1.1Z"
-            />
-          </svg>
+      <span
+        class="nav-active-indicator"
+        id="navActiveIndicator"
+        aria-hidden="true"
+      ></span>
 
-        </span>
+      <a href="#work" class="nav-link active" data-nav>
+        Work
       </a>
 
+      <a href="#about" class="nav-link" data-nav>
+        About
+      </a>
 
-      <!-- links -->
-      <div class="nav-links">
+      <a href="#playground" class="nav-link" data-nav>
+        Playground
+      </a>
 
-        <a href="#work" class="nav-link">
-          Work
-        </a>
+      <a href="#resource" class="nav-link" data-nav>
+        Resource
+      </a>
 
-        <a href="#about" class="nav-link">
-          About
-        </a>
+    </div>
 
-        <a href="#playground" class="nav-link">
-          Playground
-        </a>
 
-        <a href="#resource" class="nav-link">
-          Resource
-        </a>
+    <!-- RIGHT CTA -->
+    <a
+      href="mailto:hiyaet@gmail.com"
+      class="nav-email"
+      aria-label="Send email to hiyaet@gmail.com"
+    >
+      hiyaet@gmail.com
+    </a>
 
+  </nav>
+
+
+  <!-- =====================================================
+       SECTIONS
+  ====================================================== -->
+  <main class="page-content">
+
+    <section id="work" class="section section-light">
+      <div class="section-inner">
+        <span class="section-number">01</span>
+        <p class="section-label">Work</p>
+        <h1>
+          Selected work that balances
+          clarity, function and style.
+        </h1>
+        <p class="section-description">
+          Explore featured projects, interfaces and visual systems
+          built to feel elegant, useful and easy to navigate.
+        </p>
       </div>
+    </section>
 
+    <section id="about" class="section section-soft">
+      <div class="section-inner">
+        <span class="section-number">02</span>
+        <p class="section-label">About</p>
+        <h2>
+          A design approach focused on
+          simplicity and meaningful detail.
+        </h2>
+        <p class="section-description">
+          Learn more about the philosophy, process and intention
+          behind the product, the interface and the visual decisions.
+        </p>
+      </div>
+    </section>
 
-      <!-- contacto -->
-      <a
-        href="mailto:hiyaet@gmail.com"
-        class="nav-contact"
-      >
+    <section id="playground" class="section section-light">
+      <div class="section-inner">
+        <span class="section-number">03</span>
+        <p class="section-label">Playground</p>
+        <h2>
+          Experimental ideas,
+          animations and interaction concepts.
+        </h2>
+        <p class="section-description">
+          This area showcases creative explorations, motion studies
+          and interface experiments designed to test new directions.
+        </p>
+      </div>
+    </section>
 
-        <span class="contact-text">
-          hiyaet@gmail.com
-        </span>
-
-        <span class="contact-arrow">
-          ↗
-        </span>
-
-      </a>
-
-    </nav>
+    <section id="resource" class="section section-dark">
+      <div class="section-inner">
+        <span class="section-number">04</span>
+        <p class="section-label">Resource</p>
+        <h2>
+          Useful resources, references
+          and practical tools.
+        </h2>
+        <p class="section-description">
+          Find supporting materials, documentation, visual references
+          and curated assets that help extend the overall experience.
+        </p>
+      </div>
+    </section>
 
   </main>
 
-
   <script src="script.js"></script>
-
 </body>
 </html>

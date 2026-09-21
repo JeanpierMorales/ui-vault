@@ -1,0 +1,1080 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "Inter",
+    "Segoe UI",
+    sans-serif;
+
+  background: #f4f4f2;
+
+  color: #111;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+
+a {
+  color: inherit;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+  position: fixed;
+
+  top: 24px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  z-index: 1000;
+
+
+  /* 90% DE LA VISTA */
+
+  width: 90vw;
+
+
+  min-height: 76px;
+
+
+  display: flex;
+
+  align-items: center;
+
+
+  padding:
+    10px 12px 10px 24px;
+
+
+  /*
+    SIN ESQUINAS REDONDEADAS
+  */
+
+  border-radius: 0;
+
+
+  /*
+    GLASS CLARO
+  */
+
+  background:
+    rgba(
+      248,
+      248,
+      246,
+      0.56
+    );
+
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.72
+    );
+
+
+  /*
+    Blur suficiente para separar
+    el navbar del contenido,
+    pero todavía permite ver
+    las tarjetas detrás.
+  */
+
+  backdrop-filter:
+    blur(22px)
+    saturate(145%);
+
+  -webkit-backdrop-filter:
+    blur(22px)
+    saturate(145%);
+
+
+  box-shadow:
+
+    0 14px 40px
+    rgba(0, 0, 0, 0.055),
+
+    inset
+    0 1px 0
+    rgba(255, 255, 255, 0.8);
+
+
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+
+/* línea superior muy sutil */
+
+.navbar::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 1px;
+
+  background:
+
+    linear-gradient(
+      90deg,
+
+      transparent,
+
+      rgba(
+        255,
+        255,
+        255,
+        0.95
+      ),
+
+      transparent
+    );
+
+  pointer-events: none;
+}
+
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand {
+  flex-shrink: 0;
+
+  margin-right: 55px;
+
+
+  color: #111;
+
+
+  text-decoration: none;
+
+
+  font-size: 18px;
+
+  font-weight: 800;
+
+
+  letter-spacing: -0.05em;
+}
+
+
+
+/* =========================================================
+   NAV LINKS
+========================================================= */
+
+.nav-links {
+  display: flex;
+
+  align-items: center;
+
+
+  gap: 4px;
+
+
+  flex: 1;
+}
+
+
+.nav-links a {
+  position: relative;
+
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+
+  min-height: 46px;
+
+
+  padding:
+    0 16px;
+
+
+  color:
+    rgba(
+      20,
+      20,
+      20,
+      0.60
+    );
+
+
+  text-decoration: none;
+
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+
+  white-space: nowrap;
+
+
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.nav-links a:hover {
+  color: #111;
+
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.46
+    );
+
+
+  transform:
+    translateY(-1px);
+}
+
+
+
+/* línea inferior hover */
+
+.nav-links a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 16px;
+  right: 16px;
+
+  bottom: 5px;
+
+
+  height: 1px;
+
+
+  background: #111;
+
+
+  transform:
+    scaleX(0);
+
+
+  transform-origin:
+    center;
+
+
+  transition:
+    transform
+    0.3s
+    cubic-bezier(
+      .22,
+      1,
+      .36,
+      1
+    );
+}
+
+
+.nav-links a:hover::after {
+  transform:
+    scaleX(1);
+}
+
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.nav-actions {
+  display: flex;
+
+  align-items: center;
+
+
+  gap: 10px;
+
+
+  margin-left: 20px;
+}
+
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-box {
+  position: relative;
+
+
+  width: 210px;
+
+  height: 48px;
+
+
+  display: flex;
+
+  align-items: center;
+
+
+  padding:
+    0 16px;
+
+
+  /*
+    tampoco muy redondeado
+  */
+
+  border-radius: 0;
+
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.38
+    );
+
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.62
+    );
+
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.search-box:focus-within {
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.72
+    );
+
+
+  border-color:
+    rgba(
+      0,
+      0,
+      0,
+      0.10
+    );
+
+
+  box-shadow:
+    0 5px 15px
+    rgba(
+      0,
+      0,
+      0,
+      0.045
+    );
+}
+
+
+.search-box svg {
+  width: 17px;
+  height: 17px;
+
+
+  margin-right: 10px;
+
+
+  fill: none;
+
+  stroke:
+    rgba(
+      0,
+      0,
+      0,
+      0.48
+    );
+
+
+  stroke-width: 1.7;
+
+  stroke-linecap: round;
+}
+
+
+.search-box input {
+  width: 100%;
+
+
+  border: none;
+
+  outline: none;
+
+
+  background: transparent;
+
+
+  color: #111;
+
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  font-weight: 500;
+}
+
+
+.search-box input::placeholder {
+  color:
+    rgba(
+      0,
+      0,
+      0,
+      0.37
+    );
+}
+
+
+
+/* =========================================================
+   CONTACT BUTTON
+========================================================= */
+
+.contact-button {
+  position: relative;
+
+
+  min-width: 145px;
+
+  height: 48px;
+
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+
+  gap: 22px;
+
+
+  padding:
+    0 18px;
+
+
+  /*
+    CUADRADO / PUNTA
+  */
+
+  border-radius: 0;
+
+
+  overflow: hidden;
+
+  isolation: isolate;
+
+
+  background: #171717;
+
+
+  color: #fff;
+
+
+  text-decoration: none;
+
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+
+/* fill blanco */
+
+.contact-button::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+
+  background: #fff;
+
+
+  transform:
+    translateX(-101%);
+
+
+  transition:
+    transform
+    0.45s
+    cubic-bezier(
+      .22,
+      1,
+      .36,
+      1
+    );
+
+
+  z-index: -1;
+}
+
+
+.contact-button:hover {
+  color: #111;
+
+
+  transform:
+    translateY(-2px);
+
+
+  box-shadow:
+    0 10px 22px
+    rgba(
+      0,
+      0,
+      0,
+      0.12
+    );
+}
+
+
+.contact-button:hover::before {
+  transform:
+    translateX(0);
+}
+
+
+.contact-button svg {
+  width: 18px;
+  height: 18px;
+
+
+  fill: none;
+
+  stroke:
+    currentColor;
+
+
+  stroke-width: 1.6;
+
+  stroke-linecap: round;
+
+  stroke-linejoin: round;
+
+
+  transition:
+    transform
+    0.35s
+    cubic-bezier(
+      .22,
+      1,
+      .36,
+      1
+    );
+}
+
+
+.contact-button:hover svg {
+  transform:
+    translateX(4px);
+}
+
+
+
+/* =========================================================
+   HERO DEMO
+========================================================= */
+
+.hero {
+  position: relative;
+
+
+  min-height: 100vh;
+
+
+  padding:
+    180px 6vw 90px;
+
+
+  background:
+
+    linear-gradient(
+      180deg,
+      #f6f6f3,
+      #ebebe7
+    );
+
+
+  overflow: hidden;
+}
+
+
+
+/* =========================================================
+   HERO TEXT
+========================================================= */
+
+.hero-copy {
+  position: relative;
+
+  z-index: 2;
+
+
+  max-width: 900px;
+}
+
+
+.hero-copy > span {
+  display: block;
+
+
+  margin-bottom: 25px;
+
+
+  color:
+    rgba(
+      0,
+      0,
+      0,
+      0.42
+    );
+
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+
+.hero-copy h1 {
+  font-size:
+
+    clamp(
+      60px,
+      8vw,
+      130px
+    );
+
+
+  font-weight: 600;
+
+
+  line-height: 0.94;
+
+
+  letter-spacing:
+    -0.065em;
+}
+
+
+
+/* =========================================================
+   CARDS BEHIND NAVBAR
+========================================================= */
+
+.cards {
+  position: absolute;
+
+  top: 60px;
+
+  right: 5vw;
+
+
+  display: flex;
+
+  gap: 18px;
+
+
+  transform:
+    translateY(20px);
+}
+
+
+.card {
+  width: 230px;
+
+  height: 310px;
+
+
+  padding: 26px;
+
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.55
+    );
+
+
+  box-shadow:
+    0 20px 40px
+    rgba(
+      0,
+      0,
+      0,
+      0.05
+    );
+
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+
+  /*
+    sin esquinas redondas
+  */
+
+  border-radius: 0;
+}
+
+
+.card span {
+  color:
+    rgba(
+      0,
+      0,
+      0,
+      0.38
+    );
+
+
+  font-size: 12px;
+
+  font-weight: 700;
+}
+
+
+.card h2 {
+  font-size: 27px;
+
+  font-weight: 600;
+
+  letter-spacing:
+    -0.04em;
+}
+
+
+.card-1 {
+  background:
+    rgba(
+      224,
+      233,
+      227,
+      0.92
+    );
+}
+
+
+.card-2 {
+  background:
+    rgba(
+      224,
+      228,
+      238,
+      0.92
+    );
+}
+
+
+.card-3 {
+  background:
+    rgba(
+      239,
+      228,
+      217,
+      0.92
+    );
+}
+
+
+
+/* =========================================================
+   DEMO SECTIONS
+========================================================= */
+
+.demo-section {
+  min-height: 100vh;
+
+
+  display: grid;
+
+  place-items: center;
+
+
+  font-size:
+    clamp(
+      55px,
+      8vw,
+      120px
+    );
+
+
+  font-weight: 600;
+
+  letter-spacing:
+    -0.06em;
+
+
+  background:
+    #f7f7f5;
+}
+
+
+.demo-section.alt {
+  background:
+    #eaeae7;
+}
+
+
+.demo-section.dark {
+  background:
+    #111;
+
+  color:
+    #f5f5f5;
+}
+
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media
+(max-width: 1100px) {
+
+  .navbar {
+    width:
+      94vw;
+  }
+
+
+  .brand {
+    margin-right:
+      25px;
+  }
+
+
+  .nav-links a {
+    padding:
+      0 10px;
+
+    font-size:
+      13px;
+  }
+
+
+  .search-box {
+    width:
+      170px;
+  }
+
+}
+
+
+
+@media
+(max-width: 850px) {
+
+  .navbar {
+    width:
+      calc(100vw - 20px);
+
+
+    padding:
+      8px 10px;
+  }
+
+
+  .nav-links {
+    overflow-x:
+      auto;
+
+
+    scrollbar-width:
+      none;
+  }
+
+
+  .nav-links::-webkit-scrollbar {
+    display:
+      none;
+  }
+
+
+  .nav-links a {
+    flex-shrink:
+      0;
+  }
+
+
+  .search-box {
+    width:
+      48px;
+
+
+    justify-content:
+      center;
+
+
+    padding:
+      0;
+  }
+
+
+  .search-box svg {
+    margin:
+      0;
+  }
+
+
+  .search-box input {
+    display:
+      none;
+  }
+
+
+  .contact-button {
+    min-width:
+      48px;
+
+
+    width:
+      48px;
+
+
+    justify-content:
+      center;
+
+
+    padding:
+      0;
+  }
+
+
+  .contact-button {
+    font-size:
+      0;
+  }
+
+
+  .contact-button svg {
+    width:
+      19px;
+
+    height:
+      19px;
+  }
+
+}
+
+
+
+@media
+(max-width: 620px) {
+
+  .brand {
+    margin-right:
+      10px;
+  }
+
+
+  .navbar {
+    top:
+      12px;
+  }
+
+
+  .nav-links a {
+    font-size:
+      12px;
+
+
+    padding:
+      0 9px;
+  }
+
+
+  .cards {
+    top:
+      120px;
+
+    left:
+      20px;
+
+    right:
+      auto;
+
+
+    opacity:
+      0.55;
+  }
+
+}

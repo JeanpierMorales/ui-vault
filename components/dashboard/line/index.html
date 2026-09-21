@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Dashboard Charts Library</title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <main class="dashboard-library">
+
+    <!-- =====================================================
+         CHART 01
+         Signed over time
+    ====================================================== -->
+
+    <section class="component-section">
+
+      <div class="component-heading">
+        <span>01</span>
+        <div>
+          <h2>Signed over time</h2>
+          <p>Dual smooth line chart with striped area.</p>
+        </div>
+      </div>
+
+
+      <article class="chart-card chart-card--signed">
+
+        <header class="chart-header">
+
+          <h3>Signed over time</h3>
+
+          <button class="date-selector" type="button">
+            <svg
+              viewBox="0 0 24 24"
+              width="18"
+              height="18"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
+              <rect x="3" y="5" width="18" height="16" rx="2"></rect>
+              <path d="M16 3v4M8 3v4M3 10h18"></path>
+            </svg>
+
+            Jan - Jun
+          </button>
+
+        </header>
+
+
+        <div class="chart-container chart-container--large">
+
+          <canvas id="signedChart"></canvas>
+
+        </div>
+
+      </article>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CHART 02
+         Performance
+    ====================================================== -->
+
+    <section class="component-section">
+
+      <div class="component-heading">
+        <span>02</span>
+
+        <div>
+          <h2>Performance</h2>
+          <p>Minimal analytics area chart with filters.</p>
+        </div>
+      </div>
+
+
+      <article class="chart-card chart-card--performance">
+
+        <header class="performance-header">
+
+          <div>
+
+            <h3>Performance</h3>
+
+            <p>
+              600 calls
+              <span>·</span>
+              Agent T2: USA/California
+            </p>
+
+          </div>
+
+
+          <div class="filters">
+
+            <select>
+              <option>Daily</option>
+              <option>Weekly</option>
+              <option>Monthly</option>
+            </select>
+
+            <select>
+              <option>Call</option>
+              <option>Messages</option>
+              <option>Sales</option>
+            </select>
+
+            <select>
+              <option>Absolute</option>
+              <option>Relative</option>
+            </select>
+
+          </div>
+
+        </header>
+
+
+        <div class="chart-container chart-container--performance">
+
+          <canvas id="performanceChart"></canvas>
+
+        </div>
+
+      </article>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CHART 03
+         Revenue
+    ====================================================== -->
+
+    <section class="component-section">
+
+      <div class="component-heading">
+        <span>03</span>
+
+        <div>
+          <h2>Revenue</h2>
+          <p>Financial analytics chart with KPI indicators.</p>
+        </div>
+      </div>
+
+
+      <article class="chart-card chart-card--revenue">
+
+        <header class="revenue-header">
+
+          <div class="revenue-left">
+
+            <h3>Revenue</h3>
+
+
+            <div class="revenue-metrics">
+
+              <div class="metric">
+
+                <div class="metric-title">
+                  <span class="metric-dot metric-dot--primary"></span>
+                  Gross Volume
+                </div>
+
+                <div class="metric-value">
+
+                  <strong>$48,580</strong>
+
+                  <span class="metric-growth">
+                    ↑ +3.12%
+                    <small>last year</small>
+                  </span>
+
+                </div>
+
+              </div>
+
+
+              <div class="metric metric--divider">
+
+                <div class="metric-title">
+                  <span class="metric-dot metric-dot--secondary"></span>
+                  Net Volume
+                </div>
+
+                <div class="metric-value">
+
+                  <strong>$29,540</strong>
+
+                  <span class="metric-growth">
+                    ↑ +1.54%
+                    <small>last year</small>
+                  </span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="filters revenue-filters">
+
+            <select>
+              <option>This year</option>
+              <option>Last year</option>
+              <option>Last 12 months</option>
+            </select>
+
+            <select>
+              <option>Decline</option>
+              <option>Growth</option>
+              <option>Revenue</option>
+            </select>
+
+          </div>
+
+        </header>
+
+
+        <div class="chart-container chart-container--revenue">
+
+          <canvas id="revenueChart"></canvas>
+
+        </div>
+
+      </article>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CHART 04
+         Project Overview
+    ====================================================== -->
+
+    <section class="component-section">
+
+      <div class="component-heading">
+        <span>04</span>
+
+        <div>
+          <h2>Project Overview</h2>
+          <p>Compact glass dashboard widget.</p>
+        </div>
+      </div>
+
+
+      <div class="overview-stage">
+
+        <article class="chart-card chart-card--overview">
+
+          <header class="overview-header">
+
+            <h3>Project Overview</h3>
+
+
+            <div class="overview-kpis">
+
+              <div>
+                <span>Revenue</span>
+                <strong>$245K</strong>
+              </div>
+
+              <div>
+                <span>Velocity</span>
+                <strong>78%</strong>
+              </div>
+
+            </div>
+
+          </header>
+
+
+          <div class="chart-container chart-container--overview">
+
+            <canvas id="overviewChart"></canvas>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js">
+  </script>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

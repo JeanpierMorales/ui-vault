@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,59 +15,60 @@
     <!-- UI Vault assembles original documents as isolated, executable blocks. -->
     <div class="builder-shell">
       <header class="topbar builder-topbar">
-        <button class="brand" id="new-project" type="button" aria-label="Crear una página nueva">
+        <button class="brand" id="new-project" type="button" aria-label="Create a new page">
           <span class="brand-mark" aria-hidden="true">UV</span><span>UI Vault</span>
         </button>
         <label class="project-name" for="project-title">
-          <span>Proyecto</span>
-          <input id="project-title" type="text" value="Página sin título" maxlength="70" autocomplete="off" />
+          <span>Project</span>
+          <input id="project-title" type="text" value="Untitled page" maxlength="70" autocomplete="off" />
         </label>
         <div class="topbar-actions">
-          <button class="icon-button" id="undo-button" type="button" aria-label="Deshacer" title="Deshacer" disabled><iconify-icon aria-hidden="true" icon="ph:arrow-u-up-left"></iconify-icon></button>
-          <button class="icon-button" id="redo-button" type="button" aria-label="Rehacer" title="Rehacer" disabled><iconify-icon aria-hidden="true" icon="ph:arrow-u-up-right"></iconify-icon></button>
-          <button class="text-utility" id="open-preview" type="button">Ver publicación ↗</button>
-          <button class="vault-motion-button diagonal-fill" id="export-project" type="button"><span>Exportar proyecto</span></button>
-          <button class="icon-button" id="theme-toggle" type="button" aria-label="Cambiar a modo oscuro"><iconify-icon aria-hidden="true" icon="ph:moon-stars"></iconify-icon></button>
-          <button class="menu-button" id="menu-toggle" type="button" aria-label="Abrir biblioteca" aria-expanded="false" aria-controls="library-sidebar"><span></span><span></span></button>
+          <button class="icon-button" id="undo-button" type="button" aria-label="Undo" title="Undo" disabled><iconify-icon aria-hidden="true" icon="ph:arrow-u-up-left"></iconify-icon></button>
+          <button class="icon-button" id="redo-button" type="button" aria-label="Redo" title="Redo" disabled><iconify-icon aria-hidden="true" icon="ph:arrow-u-up-right"></iconify-icon></button>
+          <button class="text-utility" id="open-preview" type="button">View published page ↗</button>
+          <button class="vault-motion-button diagonal-fill" id="export-project" type="button"><span>Export project</span></button>
+          <button class="icon-button" id="theme-toggle" type="button" aria-label="Switch to dark mode"><iconify-icon aria-hidden="true" icon="ph:moon-stars"></iconify-icon></button>
+          <button class="menu-button" id="menu-toggle" type="button" aria-label="Open library" aria-expanded="false" aria-controls="library-sidebar"><span></span><span></span></button>
         </div>
       </header>
 
       <main class="builder-main">
-        <aside class="library-sidebar" id="library-sidebar" aria-label="Biblioteca de componentes">
-          <div class="library-heading"><span class="library-index">Biblioteca</span><span id="library-total">0 piezas</span></div>
+        <aside class="library-sidebar" id="library-sidebar" aria-label="Component library">
+          <div class="library-heading"><span class="library-index">Library</span><span id="library-total">0 pieces</span></div>
           <label class="search-field" for="component-search">
             <iconify-icon aria-hidden="true" icon="ph:magnifying-glass"></iconify-icon>
-            <input id="component-search" type="search" placeholder="Buscar en la biblioteca" autocomplete="off" />
+            <input id="component-search" type="search" placeholder="Search the library" autocomplete="off" />
           </label>
-          <nav id="category-nav" aria-label="Categorías disponibles"></nav>
-          <div class="sidebar-foot"><p>Las piezas cargan su HTML, CSS y JavaScript originales.</p><span>Arrastra o inserta para componer.</span></div>
+          <nav id="category-nav" aria-label="Available categories"></nav>
+          <div class="sidebar-foot"><p>Pieces load their original HTML, CSS, and JavaScript.</p><span>Drag or insert to compose.</span></div>
         </aside>
-        <section class="studio-center" aria-label="Constructor de página">
+        <section class="studio-center" aria-label="Page builder">
           <div class="canvas-zone">
             <div class="zone-head">
-              <div><span class="section-label">Lienzo</span><h1 id="canvas-title">Página sin título</h1></div>
-              <div class="device-switcher" role="group" aria-label="Cambiar dispositivo">
+              <div><span class="section-label">Canvas</span><h1 id="canvas-title">Untitled page</h1></div>
+              <div class="device-switcher" role="group" aria-label="Change device">
                 <button class="is-active" type="button" data-device="desktop" aria-pressed="true"><iconify-icon aria-hidden="true" icon="ph:desktop"></iconify-icon><span>Desktop</span></button>
                 <button type="button" data-device="tablet" aria-pressed="false"><iconify-icon aria-hidden="true" icon="ph:device-tablet"></iconify-icon><span>Tablet</span></button>
-                <button type="button" data-device="mobile" aria-pressed="false"><iconify-icon aria-hidden="true" icon="ph:device-mobile"></iconify-icon><span>Móvil</span></button>
+                <button type="button" data-device="mobile" aria-pressed="false"><iconify-icon aria-hidden="true" icon="ph:device-mobile"></iconify-icon><span>Mobile</span></button>
               </div>
             </div>
             <div class="canvas-scroll" id="canvas-scroll"><div class="page-canvas device-desktop" id="page-canvas" aria-live="polite"></div></div>
           </div>
           <section class="component-tray" aria-labelledby="tray-title">
-            <div class="tray-head"><div><span class="section-label">Piezas disponibles</span><h2 id="tray-title">Botones</h2></div><p id="tray-note">Selecciona una pieza para añadirla al lienzo.</p></div>
+            <div class="tray-head"><div><span class="section-label">Available pieces</span><h2 id="tray-title">Buttons</h2></div><p id="tray-note">Select a piece to add it to the canvas.</p></div>
             <div class="component-options" id="component-options"></div>
-            <div class="tray-empty" id="tray-empty" hidden><p>No hay piezas en esta búsqueda.</p><button id="clear-search" type="button">Limpiar búsqueda</button></div>
+            <div class="tray-empty" id="tray-empty" hidden><p>No pieces match this search.</p><button id="clear-search" type="button">Clear search</button></div>
           </section>
         </section>
-        <aside class="inspector" aria-label="Inspector de bloque">
-          <div class="inspector-head"><span class="section-label">Inspector</span><span id="selection-count">0 bloques</span></div>
+        <aside class="inspector" aria-label="Block inspector">
+          <div class="inspector-head"><span class="section-label">Inspector</span><span id="selection-count">0 blocks</span></div>
           <div id="inspector-body"></div>
-          <div class="export-note"><iconify-icon aria-hidden="true" icon="ph:export"></iconify-icon><p>“Exportar proyecto” descarga el plano. Usa el exportador incluido para crear una carpeta de preview autónoma.</p></div>
+          <div class="export-note"><iconify-icon aria-hidden="true" icon="ph:export"></iconify-icon><p>“Export project” downloads the plan. Use the included exporter to create a self-contained preview folder.</p></div>
         </aside>
       </main>
     </div>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <script type="module" src="./app/js/app.js"></script>
+    <script type="module" src="./app/js/localize.js"></script>
   </body>
 </html>

@@ -1,156 +1,132 @@
-const nav = document.getElementById("liquidNav");
-
-const navLinks = document.querySelectorAll(".nav-link");
-
-
-/* =========================================================
-   LIQUID LIGHT FOLLOW
-========================================================= */
-
-nav.addEventListener("mousemove", (event) => {
-
-  const rect = nav.getBoundingClientRect();
-
-  const x =
-    event.clientX -
-    rect.left;
-
-  const y =
-    event.clientY -
-    rect.top;
-
-  nav.style.setProperty(
-    "--mouse-x",
-    `${x}px`
-  );
-
-  nav.style.setProperty(
-    "--mouse-y",
-    `${y}px`
-  );
-
-});
-
+const navMenu = document.getElementById("navMenu");
+const navIndicator = document.getElementById("navActiveIndicator");
+const navLinks = [...document.querySelectorAll("[data-nav]")];
 
 /* =========================================================
-   VERY SUBTLE NAV TILT
+   MOVE INDICATOR
 ========================================================= */
+function moveIndicator(target, animate = true) {
+  if (!target || !navMenu || !navIndicator) return;
 
-nav.addEventListener("mousemove", (event) => {
+  const menuRect = navMenu.getBoundingClientRect();
+  const targetRect = target.getBoundingClientRect();
 
-  const rect =
-    nav.getBoundingClientRect();
+  const x = targetRect.left - menuRect.left + navMenu.scrollLeft;
 
-  const centerX =
-    rect.width / 2;
+  const width = targetRect.width;
 
-  const centerY =
-    rect.height / 2;
+  if (!animate) {
+    navIndicator.style.transition = "none";
+  }
 
-  const cursorX =
-    event.clientX -
-    rect.left;
+  navIndicator.style.width = `${width}px`;
+  navIndicator.style.transform = `translate(${x}px, -50%)`;
 
-  const cursorY =
-    event.clientY -
-    rect.top;
-
-  const rotateY =
-    ((cursorX - centerX) / centerX) * 0.6;
-
-  const rotateX =
-    -((cursorY - centerY) / centerY) * 0.8;
-
-  nav.style.transform = `
-    translateY(-2px)
-    perspective(900px)
-    rotateX(${rotateX}deg)
-    rotateY(${rotateY}deg)
-  `;
-
-});
-
-
-nav.addEventListener("mouseleave", () => {
-
-  nav.style.transform = `
-    translateY(0)
-    perspective(900px)
-    rotateX(0deg)
-    rotateY(0deg)
-  `;
-
-});
-
-
-/* =========================================================
-   ACTIVE MENU ITEM
-========================================================= */
-
-navLinks.forEach((link) => {
-
-  link.addEventListener("click", () => {
-
-    navLinks.forEach((item) => {
-      item.classList.remove("active");
+  if (!animate) {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        navIndicator.style.transition = "";
+      });
     });
+  }
+}
 
-    link.classList.add("active");
+/* =========================================================
+   SET ACTIVE LINK
+========================================================= */
+function setActiveLink(target) {
+  if (!target) return;
 
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
   });
 
-});
+  target.classList.add("active");
+  moveIndicator(target, true);
 
+  if (window.innerWidth <= 1024) {
+    target.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "center",
+    });
+  }
+}
 
 /* =========================================================
-   MAGNETIC INTERACTION
+   CLICK EVENTS
 ========================================================= */
+navLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const selector = link.getAttribute("href");
+    const section = document.querySelector(selector);
 
-const interactiveElements =
-  document.querySelectorAll(
-    ".nav-logo, .nav-contact"
-  );
+    if (!section) return;
 
+    event.preventDefault();
 
-interactiveElements.forEach((element) => {
+    setActiveLink(link);
 
-  element.addEventListener(
-    "mousemove",
-    (event) => {
-
-      const rect =
-        element.getBoundingClientRect();
-
-      const x =
-        event.clientX -
-        rect.left -
-        rect.width / 2;
-
-      const y =
-        event.clientY -
-        rect.top -
-        rect.height / 2;
-
-      element.style.transform = `
-        translate(
-          ${x * 0.08}px,
-          ${y * 0.08}px
-        )
-        scale(1.035)
-      `;
-
-    }
-  );
-
-
-  element.addEventListener(
-    "mouseleave",
-    () => {
-
-      element.style.transform =
-        "";
-
-    }
-  );
-
+    section.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  });
 });
+
+/* =========================================================
+   INITIAL POSITION
+========================================================= */
+window.addEventListener("load", () => {
+  const active = document.querySelector(".nav-link.active");
+  moveIndicator(active, false);
+});
+
+/* =========================================================
+   RESIZE
+========================================================= */
+let resizeTimer;
+
+window.addEventListener("resize", () => {
+  clearTimeout(resizeTimer);
+
+  resizeTimer = setTimeout(() => {
+    const active = document.querySelector(".nav-link.active");
+    moveIndicator(active, false);
+  }, 80);
+});
+
+/* =========================================================
+   SCROLL SPY
+========================================================= */
+const sections = navLinks
+  .map((link) => {
+    const selector = link.getAttribute("href");
+    return document.querySelector(selector);
+  })
+  .filter(Boolean);
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      const currentId = `#${entry.target.id}`;
+
+      const matchingLink = navLinks.find(
+        (link) => link.getAttribute("href") === currentId,
+      );
+
+      if (matchingLink && !matchingLink.classList.contains("active")) {
+        setActiveLink(matchingLink);
+      }
+    });
+  },
+  {
+    root: null,
+    rootMargin: "-40% 0px -48% 0px",
+    threshold: 0,
+  },
+);
+
+sections.forEach((section) => observer.observe(section));

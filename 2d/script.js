@@ -41,10 +41,10 @@ function syncPlayback() {
   start();
 
   playbackButton.setAttribute('aria-pressed', String(isPaused));
-  playbackLabel.textContent = isPaused ? 'Reproducir todos' : 'Pausar todos';
+  playbackLabel.textContent = isPaused ? 'Play all' : 'Pause all';
   playbackStatus.textContent = isPaused
-    ? 'Las nueve secuencias están pausadas.'
-    : 'Las nueve secuencias se están reproduciendo.';
+    ? 'All nine sequences are paused.'
+    : 'All nine sequences are playing.';
 }
 
 playbackButton.addEventListener('click', () => {

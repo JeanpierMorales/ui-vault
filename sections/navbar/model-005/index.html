@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Dashboard Navbar Demo</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- =====================================================
+       NAVBAR
+  ====================================================== -->
+
+    <nav class="dashboard-navbar">
+      <!-- BRAND -->
+      <a href="#dashboard" class="nav-brand">
+        <span class="brand-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3 19 7v10l-7 4-7-4V7l7-4Z" />
+            <path d="M12 8 16 10.3v4.4L12 17l-4-2.3v-4.4L12 8Z" />
+          </svg>
+        </span>
+
+        <span class="brand-text"> Company Logo </span>
+      </a>
+
+      <!-- CENTER NAV -->
+      <div class="nav-center">
+        <a href="#dashboard" class="nav-link active" data-nav> Dashboard </a>
+
+        <a href="#schedule" class="nav-link" data-nav> Schedule </a>
+
+        <a href="#reports" class="nav-link" data-nav> Reports </a>
+
+        <a href="#documents" class="nav-link" data-nav> Documents </a>
+
+        <a href="#messages" class="nav-link" data-nav> Messages </a>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="nav-right">
+        <form class="search-box" onsubmit="return false;">
+          <input type="text" placeholder="Search" aria-label="Search" />
+
+          <button type="submit" aria-label="Submit search">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="11" cy="11" r="6.5"></circle>
+              <path d="M16 16L21 21"></path>
+            </svg>
+          </button>
+        </form>
+
+        <a href="#profile" class="profile-link">
+          <span class="profile-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 12a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"></path>
+              <path d="M5 19.2c1.3-2.7 3.8-4.2 7-4.2s5.7 1.5 7 4.2"></path>
+            </svg>
+          </span>
+
+          <span class="profile-name"> Name </span>
+
+          <span class="profile-arrow">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M8 10l4 4 4-4"></path>
+            </svg>
+          </span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- =====================================================
+       DEMO SECTIONS
+  ====================================================== -->
+
+    <main>
+      <section id="dashboard" class="demo-section section-light">
+        <div class="section-content">
+          <span class="section-number">01</span>
+          <p class="section-label">Dashboard</p>
+
+          <h1>
+            Your workspace<br />
+            at a glance.
+          </h1>
+
+          <p class="section-description">
+            Overview of your activity, progress and latest updates.
+          </p>
+        </div>
+      </section>
+
+      <section id="schedule" class="demo-section section-gray">
+        <div class="section-content">
+          <span class="section-number">02</span>
+          <p class="section-label">Schedule</p>
+
+          <h2>
+            Plan what comes<br />
+            next.
+          </h2>
+
+          <p class="section-description">
+            Organize tasks, deadlines and upcoming activities.
+          </p>
+        </div>
+      </section>
+
+      <section id="reports" class="demo-section section-light">
+        <div class="section-content">
+          <span class="section-number">03</span>
+          <p class="section-label">Reports</p>
+
+          <h2>
+            Understand<br />
+            your results.
+          </h2>
+
+          <p class="section-description">
+            Review metrics, performance and detailed reports.
+          </p>
+        </div>
+      </section>
+
+      <section id="documents" class="demo-section section-gray">
+        <div class="section-content">
+          <span class="section-number">04</span>
+          <p class="section-label">Documents</p>
+
+          <h2>
+            Everything<br />
+            in one place.
+          </h2>
+
+          <p class="section-description">
+            Access, organize and manage your important documents.
+          </p>
+        </div>
+      </section>
+
+      <section id="messages" class="demo-section section-light">
+        <div class="section-content">
+          <span class="section-number">05</span>
+          <p class="section-label">Messages</p>
+
+          <h2>
+            Stay connected<br />
+            with your team.
+          </h2>
+
+          <p class="section-description">
+            Keep conversations and updates easy to follow.
+          </p>
+        </div>
+      </section>
+
+      <section id="profile" class="demo-section section-dark">
+        <div class="section-content">
+          <span class="section-number">06</span>
+          <p class="section-label">Profile</p>
+
+          <h2>
+            Manage your<br />
+            account.
+          </h2>
+
+          <p class="section-description">
+            Update your profile, preferences and account settings.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

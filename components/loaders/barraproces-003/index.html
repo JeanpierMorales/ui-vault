@@ -1,186 +1,620 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Progreso Vertical</title>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
+    <title>MIRA — Author Onboarding</title>
 
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <main class="page">
-    <section class="progress-layout">
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
-      <!-- PANEL IZQUIERDO -->
-      <section class="progress-card" aria-labelledby="progress-title">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-        <header class="progress-header">
-          <div>
-            <p class="eyebrow">Seguimiento del proceso</p>
-            <h1 id="progress-title">Estado de tu solicitud</h1>
-            <p class="header-description">
-              Revisa el avance de cada fase. Puedes ver el detalle del paso
-              actual y navegar entre etapas de forma clara.
+  <body>
+    <main class="onboarding">
+      <!-- =====================================================
+         LEFT VISUAL PANEL
+    ====================================================== -->
+
+      <section class="visual-panel">
+        <div class="visual-gradient"></div>
+        <div class="visual-grid"></div>
+
+        <div class="visual-shell">
+          <!-- BRAND -->
+          <div class="brand">
+            <div class="brand-symbol">M</div>
+
+            <span class="brand-name"> MIRA </span>
+          </div>
+
+          <!-- LEFT MESSAGE -->
+          <div class="visual-copy" id="visualCopy">
+            <span class="visual-step" id="visualStep"> 01 </span>
+
+            <h1 id="visualTitle">Let’s make MIRA work around you.</h1>
+
+            <p id="visualDescription">
+              A few quick questions will help us understand your books, your
+              workflow, and how you approach marketing.
             </p>
           </div>
 
-          <div class="progress-summary">
-            <span class="summary-label">Progreso total</span>
-            <strong id="progressPercent">20%</strong>
-          </div>
-        </header>
+          <!-- ABSTRACT VISUAL -->
+          <div class="visual-art" aria-hidden="true">
+            <div class="art-ring ring-one"></div>
+            <div class="art-ring ring-two"></div>
+            <div class="art-ring ring-three"></div>
 
-        <div class="progress-main">
-
-          <!-- TIMELINE -->
-          <div class="timeline-wrap">
-            <div class="timeline-line"></div>
-            <div class="timeline-line-fill" id="timelineFill"></div>
-
-            <div class="timeline-steps" id="timelineSteps">
-
-              <button class="timeline-step active" data-step="0" type="button">
-                <span class="step-marker">
-                  <span class="step-number">01</span>
-                  <span class="step-check">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M5 12.5L9.3 16.6L19 7.2"></path>
-                    </svg>
-                  </span>
-                </span>
-
-                <span class="step-copy">
-                  <span class="step-title">Recepción</span>
-                  <span class="step-subtitle">Tu solicitud fue registrada</span>
-                </span>
-              </button>
-
-              <button class="timeline-step" data-step="1" type="button">
-                <span class="step-marker">
-                  <span class="step-number">02</span>
-                  <span class="step-check">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M5 12.5L9.3 16.6L19 7.2"></path>
-                    </svg>
-                  </span>
-                </span>
-
-                <span class="step-copy">
-                  <span class="step-title">Validación</span>
-                  <span class="step-subtitle">Verificación de información</span>
-                </span>
-              </button>
-
-              <button class="timeline-step" data-step="2" type="button">
-                <span class="step-marker">
-                  <span class="step-number">03</span>
-                  <span class="step-check">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M5 12.5L9.3 16.6L19 7.2"></path>
-                    </svg>
-                  </span>
-                </span>
-
-                <span class="step-copy">
-                  <span class="step-title">Procesamiento</span>
-                  <span class="step-subtitle">Gestión operativa en curso</span>
-                </span>
-              </button>
-
-              <button class="timeline-step" data-step="3" type="button">
-                <span class="step-marker">
-                  <span class="step-number">04</span>
-                  <span class="step-check">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M5 12.5L9.3 16.6L19 7.2"></path>
-                    </svg>
-                  </span>
-                </span>
-
-                <span class="step-copy">
-                  <span class="step-title">Revisión final</span>
-                  <span class="step-subtitle">Control de calidad y confirmación</span>
-                </span>
-              </button>
-
-              <button class="timeline-step" data-step="4" type="button">
-                <span class="step-marker">
-                  <span class="step-number">05</span>
-                  <span class="step-check">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M5 12.5L9.3 16.6L19 7.2"></path>
-                    </svg>
-                  </span>
-                </span>
-
-                <span class="step-copy">
-                  <span class="step-title">Completado</span>
-                  <span class="step-subtitle">Proceso terminado correctamente</span>
-                </span>
-              </button>
-
+            <div class="art-center">
+              <div class="art-center-inner"></div>
             </div>
+
+            <span class="floating-point point-a"></span>
+            <span class="floating-point point-b"></span>
+            <span class="floating-point point-c"></span>
           </div>
 
-          <!-- PANEL DE DETALLE -->
-          <aside class="detail-panel">
+          <!-- FOOTER -->
+          <div class="visual-footer">
+            <span> Personalized author setup </span>
 
-            <div class="detail-top">
-              <div class="detail-index" id="detailIndex">01</div>
-
-              <div class="detail-state">
-                <span class="detail-state-label">Estado actual</span>
-                <strong id="detailStatus">En progreso</strong>
-              </div>
-            </div>
-
-            <div class="detail-content" id="detailContent">
-              <p class="detail-overline">PASO ACTUAL</p>
-              <h2 id="detailTitle">Recepción</h2>
-              <p id="detailDescription">
-                Hemos recibido tu solicitud y quedó registrada correctamente en el sistema.
-                Este es el punto inicial del proceso.
-              </p>
-
-              <ul class="detail-list" id="detailList">
-                <li>Registro inicial validado</li>
-                <li>Datos básicos almacenados</li>
-                <li>Inicio del flujo operativo</li>
-              </ul>
-            </div>
-
-            <div class="detail-footer">
-              <div class="detail-meta">
-                <span>Siguiente fase</span>
-                <strong id="nextPhase">Validación</strong>
-              </div>
-
-              <div class="detail-actions">
-                <button class="action-btn secondary" id="prevBtn" type="button">
-                  Anterior
-                </button>
-
-                <button class="action-btn primary" id="nextBtn" type="button">
-                  Continuar
-                </button>
-              </div>
-            </div>
-
-          </aside>
+            <span id="visualProgress"> 1 / 5 </span>
+          </div>
         </div>
       </section>
 
-    </section>
-  </main>
+      <!-- =====================================================
+         RIGHT FORM PANEL
+    ====================================================== -->
 
-  <script src="script.js"></script>
-</body>
+      <section class="form-panel">
+        <div class="form-shell">
+          <!-- =================================================
+             TOP PROGRESS
+        ================================================== -->
+
+          <header class="progress-header">
+            <div class="progress-meta">
+              <span id="stepCounter"> Step 1 of 5 </span>
+
+              <span id="progressPercentage"> 20% </span>
+            </div>
+
+            <div class="segmented-progress" aria-label="Onboarding progress">
+              <span class="segment active"></span>
+              <span class="segment"></span>
+              <span class="segment"></span>
+              <span class="segment"></span>
+              <span class="segment"></span>
+            </div>
+          </header>
+
+          <!-- =================================================
+             STEP CONTAINER
+        ================================================== -->
+
+          <div class="step-container" id="stepContainer">
+            <!-- =================================================
+               STEP 1
+          ================================================== -->
+
+            <section class="step-screen active" data-step="0">
+              <div class="step-heading">
+                <p class="step-kicker">Getting started</p>
+
+                <h2>How did you hear about MIRA?</h2>
+
+                <p>
+                  This helps us understand how authors are discovering the
+                  platform.
+                </p>
+              </div>
+
+              <div class="option-grid">
+                <button
+                  class="option-card single-option"
+                  type="button"
+                  data-value="tiktok"
+                >
+                  <span class="option-top">
+                    <span class="option-icon">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M14 5v8.2a4 4 0 1 1-3.1-3.9" />
+                        <path d="M14 5c1.2 2.3 3 3.5 5.2 3.7" />
+                      </svg>
+                    </span>
+
+                    <span class="option-check">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M5 12.5L9.2 16.5L19 7" />
+                      </svg>
+                    </span>
+                  </span>
+
+                  <span class="option-copy">
+                    <strong>TikTok</strong>
+                    <span> I discovered MIRA through TikTok. </span>
+                  </span>
+                </button>
+
+                <button
+                  class="option-card single-option"
+                  type="button"
+                  data-value="instagram"
+                >
+                  <span class="option-top">
+                    <span class="option-icon">
+                      <svg viewBox="0 0 24 24">
+                        <rect x="4" y="4" width="16" height="16" rx="5" />
+                        <circle cx="12" cy="12" r="3.2" />
+                        <circle cx="17.4" cy="6.7" r="0.8" />
+                      </svg>
+                    </span>
+
+                    <span class="option-check">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M5 12.5L9.2 16.5L19 7" />
+                      </svg>
+                    </span>
+                  </span>
+
+                  <span class="option-copy">
+                    <strong>Instagram</strong>
+                    <span> I came across MIRA on Instagram. </span>
+                  </span>
+                </button>
+
+                <button
+                  class="option-card single-option"
+                  type="button"
+                  data-value="recommendation"
+                >
+                  <span class="option-top">
+                    <span class="option-icon">
+                      <svg viewBox="0 0 24 24">
+                        <circle cx="9" cy="8" r="3" />
+                        <circle cx="17" cy="10" r="2.4" />
+                        <path d="M4 19c.5-3 2.4-5 5-5s4.5 2 5 5" />
+                        <path
+                          d="M14.5 16c.7-1.4 1.8-2.2 3.3-2.2 1.8 0 3.1 1.3 3.5 3.2"
+                        />
+                      </svg>
+                    </span>
+
+                    <span class="option-check">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M5 12.5L9.2 16.5L19 7" />
+                      </svg>
+                    </span>
+                  </span>
+
+                  <span class="option-copy">
+                    <strong>Recommendation</strong>
+                    <span> Another author or friend recommended MIRA. </span>
+                  </span>
+                </button>
+
+                <button
+                  class="option-card single-option"
+                  type="button"
+                  data-value="search"
+                >
+                  <span class="option-top">
+                    <span class="option-icon">
+                      <svg viewBox="0 0 24 24">
+                        <circle cx="10.5" cy="10.5" r="5.5" />
+                        <path d="M15 15L20 20" />
+                      </svg>
+                    </span>
+
+                    <span class="option-check">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M5 12.5L9.2 16.5L19 7" />
+                      </svg>
+                    </span>
+                  </span>
+
+                  <span class="option-copy">
+                    <strong>Search</strong>
+                    <span>
+                      I found MIRA while looking for author marketing tools.
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </section>
+
+            <!-- =================================================
+               STEP 2
+          ================================================== -->
+
+            <section class="step-screen" data-step="1">
+              <div class="step-heading">
+                <p class="step-kicker">Your books</p>
+
+                <h2>What kind of books do you write?</h2>
+
+                <p>Select all that apply. You can update this later.</p>
+              </div>
+
+              <div class="genre-grid">
+                <button
+                  class="genre-card multi-option"
+                  type="button"
+                  data-value="romance"
+                >
+                  <span>Romance</span>
+                  <span class="multi-check"></span>
+                </button>
+
+                <button
+                  class="genre-card multi-option"
+                  type="button"
+                  data-value="fantasy"
+                >
+                  <span>Fantasy</span>
+                  <span class="multi-check"></span>
+                </button>
+
+                <button
+                  class="genre-card multi-option"
+                  type="button"
+                  data-value="thriller-mystery"
+                >
+                  <span>Thriller & Mystery</span>
+                  <span class="multi-check"></span>
+                </button>
+
+                <button
+                  class="genre-card multi-option"
+                  type="button"
+                  data-value="science-fiction"
+                >
+                  <span>Science Fiction</span>
+                  <span class="multi-check"></span>
+                </button>
+
+                <button
+                  class="genre-card multi-option"
+                  type="button"
+                  data-value="young-adult"
+                >
+                  <span>Young Adult</span>
+                  <span class="multi-check"></span>
+                </button>
+
+                <button
+                  class="genre-card multi-option"
+                  type="button"
+                  data-value="non-fiction"
+                >
+                  <span>Non-fiction</span>
+                  <span class="multi-check"></span>
+                </button>
+
+                <button
+                  class="genre-card multi-option"
+                  type="button"
+                  data-value="self-help"
+                >
+                  <span>Self-help</span>
+                  <span class="multi-check"></span>
+                </button>
+
+                <button
+                  class="genre-card multi-option"
+                  type="button"
+                  data-value="historical-fiction"
+                >
+                  <span>Historical Fiction</span>
+                  <span class="multi-check"></span>
+                </button>
+
+                <button
+                  class="genre-card multi-option"
+                  type="button"
+                  data-value="children"
+                >
+                  <span>Children’s Books</span>
+                  <span class="multi-check"></span>
+                </button>
+
+                <button
+                  class="genre-card multi-option"
+                  type="button"
+                  data-value="other"
+                >
+                  <span>Other</span>
+                  <span class="multi-check"></span>
+                </button>
+              </div>
+            </section>
+
+            <!-- =================================================
+               STEP 3
+          ================================================== -->
+
+            <section class="step-screen" data-step="2">
+              <div class="step-heading">
+                <p class="step-kicker">Your author journey</p>
+
+                <h2>Where are you in your author journey?</h2>
+
+                <p>Your stage helps MIRA adapt your marketing workflow.</p>
+              </div>
+
+              <div class="journey-list">
+                <button
+                  class="journey-card journey-option"
+                  type="button"
+                  data-value="first-book"
+                >
+                  <span class="journey-number"> 01 </span>
+
+                  <span class="journey-copy">
+                    <strong> I’m writing my first book </strong>
+
+                    <span> I’m preparing for my first launch. </span>
+                  </span>
+
+                  <span class="journey-arrow"> → </span>
+                </button>
+
+                <button
+                  class="journey-card journey-option"
+                  type="button"
+                  data-value="one-published"
+                >
+                  <span class="journey-number"> 02 </span>
+
+                  <span class="journey-copy">
+                    <strong> I’ve published my first book </strong>
+
+                    <span> I want to improve its visibility and reach. </span>
+                  </span>
+
+                  <span class="journey-arrow"> → </span>
+                </button>
+
+                <button
+                  class="journey-card journey-option"
+                  type="button"
+                  data-value="multiple-books"
+                >
+                  <span class="journey-number"> 03 </span>
+
+                  <span class="journey-copy">
+                    <strong> I have multiple published books </strong>
+
+                    <span> I need a more consistent marketing system. </span>
+                  </span>
+
+                  <span class="journey-arrow"> → </span>
+                </button>
+
+                <button
+                  class="journey-card journey-option"
+                  type="button"
+                  data-value="professional-author"
+                >
+                  <span class="journey-number"> 04 </span>
+
+                  <span class="journey-copy">
+                    <strong> I write professionally </strong>
+
+                    <span>
+                      Publishing and book marketing are a major part of my work.
+                    </span>
+                  </span>
+
+                  <span class="journey-arrow"> → </span>
+                </button>
+              </div>
+            </section>
+
+            <!-- =================================================
+               STEP 4
+          ================================================== -->
+
+            <section class="step-screen" data-step="3">
+              <div class="step-heading">
+                <p class="step-kicker">Your marketing</p>
+
+                <h2>How do you currently promote your books?</h2>
+
+                <p>Select everything you currently use.</p>
+              </div>
+
+              <div class="marketing-grid">
+                <button
+                  class="marketing-card marketing-option"
+                  type="button"
+                  data-value="tiktok"
+                >
+                  <span>TikTok</span>
+                  <span class="multi-check"></span>
+                </button>
+
+                <button
+                  class="marketing-card marketing-option"
+                  type="button"
+                  data-value="instagram"
+                >
+                  <span>Instagram</span>
+                  <span class="multi-check"></span>
+                </button>
+
+                <button
+                  class="marketing-card marketing-option"
+                  type="button"
+                  data-value="facebook"
+                >
+                  <span>Facebook</span>
+                  <span class="multi-check"></span>
+                </button>
+
+                <button
+                  class="marketing-card marketing-option"
+                  type="button"
+                  data-value="email"
+                >
+                  <span>Email newsletter</span>
+                  <span class="multi-check"></span>
+                </button>
+
+                <button
+                  class="marketing-card marketing-option"
+                  type="button"
+                  data-value="paid-ads"
+                >
+                  <span>Paid advertising</span>
+                  <span class="multi-check"></span>
+                </button>
+
+                <button
+                  class="marketing-card marketing-option"
+                  type="button"
+                  data-value="book-influencers"
+                >
+                  <span>Book influencers</span>
+                  <span class="multi-check"></span>
+                </button>
+
+                <button
+                  class="marketing-card marketing-option wide-option"
+                  type="button"
+                  data-value="not-consistent"
+                >
+                  <span> I’m not marketing consistently yet </span>
+
+                  <span class="multi-check"></span>
+                </button>
+              </div>
+            </section>
+
+            <!-- =================================================
+               STEP 5
+          ================================================== -->
+
+            <section class="step-screen" data-step="4">
+              <div class="step-heading">
+                <p class="step-kicker">Your goals</p>
+
+                <h2>What would you like MIRA to help you with most?</h2>
+
+                <p>
+                  Choose the area where you need the most support right now.
+                </p>
+              </div>
+
+              <div class="goal-list">
+                <button
+                  class="goal-card goal-option"
+                  type="button"
+                  data-value="content-ideas"
+                >
+                  <span class="goal-number"> 01 </span>
+
+                  <span class="goal-copy">
+                    <strong> Coming up with content ideas </strong>
+
+                    <span> I struggle with knowing what to post. </span>
+                  </span>
+
+                  <span class="goal-arrow"> → </span>
+                </button>
+
+                <button
+                  class="goal-card goal-option"
+                  type="button"
+                  data-value="consistency"
+                >
+                  <span class="goal-number"> 02 </span>
+
+                  <span class="goal-copy">
+                    <strong> Posting consistently </strong>
+
+                    <span>
+                      I want to stay visible without constantly managing social
+                      media.
+                    </span>
+                  </span>
+
+                  <span class="goal-arrow"> → </span>
+                </button>
+
+                <button
+                  class="goal-card goal-option"
+                  type="button"
+                  data-value="campaigns"
+                >
+                  <span class="goal-number"> 03 </span>
+
+                  <span class="goal-copy">
+                    <strong> Organizing campaigns </strong>
+
+                    <span>
+                      I want a clearer system for launching and promoting my
+                      books.
+                    </span>
+                  </span>
+
+                  <span class="goal-arrow"> → </span>
+                </button>
+
+                <button
+                  class="goal-card goal-option"
+                  type="button"
+                  data-value="audience-growth"
+                >
+                  <span class="goal-number"> 04 </span>
+
+                  <span class="goal-copy">
+                    <strong> Growing my audience </strong>
+
+                    <span> I want more readers to discover my books. </span>
+                  </span>
+
+                  <span class="goal-arrow"> → </span>
+                </button>
+              </div>
+            </section>
+          </div>
+
+          <!-- =================================================
+             FOOTER NAVIGATION
+        ================================================== -->
+
+          <footer class="form-footer">
+            <button class="back-button" id="backButton" type="button">
+              <span class="back-arrow"> ← </span>
+
+              Back
+            </button>
+
+            <button
+              class="continue-button"
+              id="continueButton"
+              type="button"
+              disabled
+            >
+              <span id="continueText"> Continue </span>
+
+              <span class="continue-arrow"> → </span>
+            </button>
+          </footer>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
 </html>

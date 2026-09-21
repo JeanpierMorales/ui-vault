@@ -1,256 +1,500 @@
-const steps = document.querySelectorAll(".timeline-step");
-const timelineFill = document.getElementById("timelineFill");
+/* =========================================================
+   DOM
+========================================================= */
 
-const progressPercent = document.getElementById("progressPercent");
+const screens = document.querySelectorAll(".step-screen");
 
-const detailIndex = document.getElementById("detailIndex");
-const detailStatus = document.getElementById("detailStatus");
-const detailTitle = document.getElementById("detailTitle");
-const detailDescription = document.getElementById("detailDescription");
-const detailList = document.getElementById("detailList");
-const detailContent = document.getElementById("detailContent");
-const nextPhase = document.getElementById("nextPhase");
+const segments = document.querySelectorAll(".segment");
 
-const prevBtn = document.getElementById("prevBtn");
-const nextBtn = document.getElementById("nextBtn");
+const backButton = document.getElementById("backButton");
 
-const processData = [
-  {
-    index: "01",
-    title: "Recepción",
-    subtitle: "Tu solicitud fue registrada",
-    status: "En progreso",
-    description:
-      "Hemos recibido tu solicitud y quedó registrada correctamente en el sistema. Este es el punto inicial del proceso.",
-    bullets: [
-      "Registro inicial validado",
-      "Datos básicos almacenados",
-      "Inicio del flujo operativo"
-    ]
-  },
-  {
-    index: "02",
-    title: "Validación",
-    subtitle: "Verificación de información",
-    status: "En progreso",
-    description:
-      "En esta etapa se revisa la consistencia de la información ingresada y se confirman los datos necesarios para continuar.",
-    bullets: [
-      "Validación de datos clave",
-      "Revisión de consistencia",
-      "Confirmación para continuar"
-    ]
-  },
-  {
-    index: "03",
-    title: "Procesamiento",
-    subtitle: "Gestión operativa en curso",
-    status: "En progreso",
-    description:
-      "El proceso se encuentra siendo gestionado internamente. Aquí se ejecutan las acciones necesarias para avanzar al cierre.",
-    bullets: [
-      "Ejecución del flujo interno",
-      "Gestión operativa activa",
-      "Preparación de resultados"
-    ]
-  },
-  {
-    index: "04",
-    title: "Revisión final",
-    subtitle: "Control de calidad y confirmación",
-    status: "En progreso",
-    description:
-      "Antes de finalizar, se realiza una verificación final para asegurar que todo esté correcto y listo para entregarse.",
-    bullets: [
-      "Control de calidad",
-      "Revisión integral del resultado",
-      "Confirmación previa al cierre"
-    ]
-  },
-  {
-    index: "05",
-    title: "Completado",
-    subtitle: "Proceso terminado correctamente",
-    status: "Finalizado",
-    description:
-      "El flujo ha concluido de forma satisfactoria. Toda la información y las acciones asociadas al proceso fueron completadas.",
-    bullets: [
-      "Proceso cerrado",
-      "Resultado confirmado",
-      "Seguimiento finalizado"
-    ]
-  }
-];
+const continueButton = document.getElementById("continueButton");
+
+const continueText = document.getElementById("continueText");
+
+const stepCounter = document.getElementById("stepCounter");
+
+const progressPercentage = document.getElementById("progressPercentage");
+
+const visualCopy = document.getElementById("visualCopy");
+
+const visualStep = document.getElementById("visualStep");
+
+const visualTitle = document.getElementById("visualTitle");
+
+const visualDescription = document.getElementById("visualDescription");
+
+const visualProgress = document.getElementById("visualProgress");
+
+const stepContainer = document.getElementById("stepContainer");
+
+/* =========================================================
+   STATE
+========================================================= */
 
 let currentStep = 0;
-let isAnimating = false;
 
-/* -----------------------------
-   HELPERS
------------------------------ */
+let isTransitioning = false;
 
-function getProgressPercent(stepIndex) {
-  return Math.round(((stepIndex + 1) / processData.length) * 100);
-}
+const totalSteps = screens.length;
 
-function getFillHeight(stepIndex) {
-  if (steps.length <= 1) return 0;
-  return (stepIndex / (steps.length - 1)) * 100;
-}
+const answers = {
+  discoverySource: null,
 
-function animateValue(element, value) {
-  element.style.opacity = "0";
-  element.style.transform = "translateY(5px)";
+  bookGenres: [],
 
-  setTimeout(() => {
-    element.textContent = value;
-    element.style.opacity = "1";
-    element.style.transform = "translateY(0)";
-  }, 120);
-}
+  authorStage: null,
 
-function setListItems(items) {
-  detailList.innerHTML = items
-    .map(item => `<li>${item}</li>`)
-    .join("");
-}
+  marketingChannels: [],
 
-/* -----------------------------
-   UPDATE TIMELINE
------------------------------ */
+  primaryGoal: null,
+};
 
-function updateTimeline() {
-  steps.forEach((step, index) => {
-    step.classList.remove("completed", "active", "pending");
+/* =========================================================
+   LEFT PANEL CONTENT
+========================================================= */
 
-    if (index < currentStep) {
-      step.classList.add("completed");
-    } else if (index === currentStep) {
-      step.classList.add("active");
-    } else {
-      step.classList.add("pending");
-    }
+const visualContent = [
+  {
+    title: "Let’s make MIRA work around you.",
+
+    description:
+      "A few quick questions will help us understand your books, your workflow, and how you approach marketing.",
+  },
+
+  {
+    title: "Every book has a different audience.",
+
+    description:
+      "Knowing what you write helps MIRA build a more relevant content and campaign experience.",
+  },
+
+  {
+    title: "Your author journey shapes your marketing.",
+
+    description:
+      "Whether you're launching your first book or managing a growing catalog, your strategy should match where you are.",
+  },
+
+  {
+    title: "Marketing shouldn’t take over your writing life.",
+
+    description:
+      "Tell us how you promote your books today so MIRA can simplify what comes next.",
+  },
+
+  {
+    title: "Let’s focus on what matters most.",
+
+    description:
+      "MIRA is built to make book marketing easier, more consistent, and easier to manage.",
+  },
+];
+
+/* =========================================================
+   STEP 1
+   DISCOVERY SOURCE
+========================================================= */
+
+const discoveryOptions = screens[0].querySelectorAll(".single-option");
+
+discoveryOptions.forEach((option) => {
+  option.addEventListener("click", () => {
+    discoveryOptions.forEach((item) => item.classList.remove("selected"));
+
+    option.classList.add("selected");
+
+    answers.discoverySource = option.dataset.value;
+
+    updateContinueState();
   });
+});
 
-  const fillHeight = getFillHeight(currentStep);
-  timelineFill.style.height = `${fillHeight}%`;
-}
+/* =========================================================
+   STEP 2
+   BOOK GENRES
+========================================================= */
 
-/* -----------------------------
-   UPDATE DETAIL PANEL
------------------------------ */
+const genreOptions = screens[1].querySelectorAll(".multi-option");
 
-function updateDetailPanel(direction = "forward") {
-  const data = processData[currentStep];
+genreOptions.forEach((option) => {
+  option.addEventListener("click", () => {
+    const value = option.dataset.value;
 
-  const hideClass =
-    direction === "forward" ? "hide-forward" : "hide-back";
+    option.classList.toggle("selected");
 
-  const showClass =
-    direction === "forward" ? "show-forward" : "show-back";
-
-  detailContent.classList.remove(
-    "hide-forward",
-    "hide-back",
-    "show-forward",
-    "show-back"
-  );
-
-  detailContent.classList.add(hideClass);
-
-  setTimeout(() => {
-    detailIndex.textContent = data.index;
-    detailTitle.textContent = data.title;
-    detailDescription.textContent = data.description;
-    detailStatus.textContent = data.status;
-    setListItems(data.bullets);
-
-    if (currentStep < processData.length - 1) {
-      nextPhase.textContent = processData[currentStep + 1].title;
+    if (option.classList.contains("selected")) {
+      if (!answers.bookGenres.includes(value)) {
+        answers.bookGenres.push(value);
+      }
     } else {
-      nextPhase.textContent = "—";
+      answers.bookGenres = answers.bookGenres.filter((item) => item !== value);
     }
 
-    detailContent.classList.remove(hideClass);
-    void detailContent.offsetWidth;
-    detailContent.classList.add(showClass);
+    updateContinueState();
+  });
+});
 
-    setTimeout(() => {
-      detailContent.classList.remove(showClass);
-      isAnimating = false;
-    }, 460);
-  }, 200);
-}
+/* =========================================================
+   STEP 3
+   AUTHOR JOURNEY
+========================================================= */
 
-/* -----------------------------
-   UPDATE META
------------------------------ */
+const journeyOptions = screens[2].querySelectorAll(".journey-option");
 
-function updateMeta() {
-  animateValue(progressPercent, `${getProgressPercent(currentStep)}%`);
-  animateValue(detailStatus, processData[currentStep].status);
+journeyOptions.forEach((option) => {
+  option.addEventListener("click", () => {
+    journeyOptions.forEach((item) => item.classList.remove("selected"));
 
-  prevBtn.disabled = currentStep === 0;
+    option.classList.add("selected");
 
-  if (currentStep === processData.length - 1) {
-    nextBtn.textContent = "Finalizado";
-    nextBtn.disabled = true;
-  } else {
-    nextBtn.textContent = "Continuar";
-    nextBtn.disabled = false;
+    answers.authorStage = option.dataset.value;
+
+    updateContinueState();
+  });
+});
+
+/* =========================================================
+   STEP 4
+   MARKETING CHANNELS
+========================================================= */
+
+const marketingOptions = screens[3].querySelectorAll(".marketing-option");
+
+marketingOptions.forEach((option) => {
+  option.addEventListener("click", () => {
+    const value = option.dataset.value;
+
+    /*
+          If user selects:
+          "I'm not marketing consistently yet"
+
+          We clear the other channels because
+          conceptually it conflicts with selecting
+          active channels.
+        */
+
+    if (value === "not-consistent") {
+      const alreadySelected = option.classList.contains("selected");
+
+      marketingOptions.forEach((item) => item.classList.remove("selected"));
+
+      answers.marketingChannels = [];
+
+      if (!alreadySelected) {
+        option.classList.add("selected");
+
+        answers.marketingChannels = ["not-consistent"];
+      }
+
+      updateContinueState();
+
+      return;
+    }
+
+    /*
+          If another channel is selected,
+          remove "not-consistent".
+        */
+
+    marketingOptions.forEach((item) => {
+      if (item.dataset.value === "not-consistent") {
+        item.classList.remove("selected");
+      }
+    });
+
+    answers.marketingChannels = answers.marketingChannels.filter(
+      (item) => item !== "not-consistent",
+    );
+
+    option.classList.toggle("selected");
+
+    if (option.classList.contains("selected")) {
+      if (!answers.marketingChannels.includes(value)) {
+        answers.marketingChannels.push(value);
+      }
+    } else {
+      answers.marketingChannels = answers.marketingChannels.filter(
+        (item) => item !== value,
+      );
+    }
+
+    updateContinueState();
+  });
+});
+
+/* =========================================================
+   STEP 5
+   PRIMARY GOAL
+========================================================= */
+
+const goalOptions = screens[4].querySelectorAll(".goal-option");
+
+goalOptions.forEach((option) => {
+  option.addEventListener("click", () => {
+    goalOptions.forEach((item) => item.classList.remove("selected"));
+
+    option.classList.add("selected");
+
+    answers.primaryGoal = option.dataset.value;
+
+    updateContinueState();
+  });
+});
+
+/* =========================================================
+   VALIDATION
+========================================================= */
+
+function isCurrentStepValid() {
+  switch (currentStep) {
+    case 0:
+      return Boolean(answers.discoverySource);
+
+    case 1:
+      return answers.bookGenres.length > 0;
+
+    case 2:
+      return Boolean(answers.authorStage);
+
+    case 3:
+      return answers.marketingChannels.length > 0;
+
+    case 4:
+      return Boolean(answers.primaryGoal);
+
+    default:
+      return true;
   }
 }
 
-/* -----------------------------
-   MAIN UPDATE
------------------------------ */
+/* =========================================================
+   CONTINUE STATE
+========================================================= */
 
-function render(previousStep = currentStep) {
-  const direction = currentStep >= previousStep ? "forward" : "back";
-
-  updateTimeline();
-  updateDetailPanel(direction);
-  updateMeta();
+function updateContinueState() {
+  continueButton.disabled = !isCurrentStepValid();
 }
 
-/* -----------------------------
-   CONTROLS
------------------------------ */
+/* =========================================================
+   PROGRESS
+========================================================= */
 
-nextBtn.addEventListener("click", () => {
-  if (isAnimating) return;
-  if (currentStep >= processData.length - 1) return;
+function updateProgress() {
+  segments.forEach((segment, index) => {
+    segment.classList.remove("active", "completed");
 
-  isAnimating = true;
-  const previousStep = currentStep;
-  currentStep++;
-  render(previousStep);
-});
+    if (index < currentStep) {
+      segment.classList.add("completed");
+    }
 
-prevBtn.addEventListener("click", () => {
-  if (isAnimating) return;
-  if (currentStep <= 0) return;
-
-  isAnimating = true;
-  const previousStep = currentStep;
-  currentStep--;
-  render(previousStep);
-});
-
-steps.forEach((step, index) => {
-  step.addEventListener("click", () => {
-    if (isAnimating) return;
-    if (index === currentStep) return;
-
-    isAnimating = true;
-    const previousStep = currentStep;
-    currentStep = index;
-    render(previousStep);
+    if (index === currentStep) {
+      segment.classList.add("active");
+    }
   });
+
+  const percentage = Math.round(((currentStep + 1) / totalSteps) * 100);
+
+  stepCounter.textContent = `Step ${currentStep + 1} of ${totalSteps}`;
+
+  progressPercentage.textContent = `${percentage}%`;
+
+  visualProgress.textContent = `${currentStep + 1} / ${totalSteps}`;
+
+  visualStep.textContent = String(currentStep + 1).padStart(2, "0");
+}
+
+/* =========================================================
+   LEFT PANEL UPDATE
+========================================================= */
+
+function updateVisualPanel() {
+  const content = visualContent[currentStep];
+
+  visualCopy.classList.remove("is-entering");
+
+  visualCopy.classList.add("is-leaving");
+
+  setTimeout(() => {
+    visualTitle.textContent = content.title;
+
+    visualDescription.textContent = content.description;
+
+    visualCopy.classList.remove("is-leaving");
+
+    void visualCopy.offsetWidth;
+
+    visualCopy.classList.add("is-entering");
+  }, 210);
+}
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+function updateNavigation() {
+  backButton.disabled = currentStep === 0;
+
+  if (currentStep === totalSteps - 1) {
+    continueText.textContent = "Finish setup";
+  } else {
+    continueText.textContent = "Continue";
+  }
+
+  updateContinueState();
+}
+
+/* =========================================================
+   UPDATE ALL
+========================================================= */
+
+function updateUI() {
+  updateProgress();
+
+  updateVisualPanel();
+
+  updateNavigation();
+}
+
+/* =========================================================
+   CHANGE STEP
+========================================================= */
+
+function changeStep(nextStep) {
+  if (isTransitioning) return;
+
+  if (nextStep < 0 || nextStep >= totalSteps) return;
+
+  isTransitioning = true;
+
+  const previousStep = currentStep;
+
+  const oldScreen = screens[previousStep];
+
+  const newScreen = screens[nextStep];
+
+  const movingForward = nextStep > previousStep;
+
+  oldScreen.classList.remove("active");
+
+  oldScreen.classList.add(movingForward ? "exit-forward" : "exit-back");
+
+  setTimeout(() => {
+    oldScreen.classList.remove("exit-forward", "exit-back");
+
+    currentStep = nextStep;
+
+    newScreen.classList.add("active");
+
+    updateUI();
+
+    setTimeout(() => {
+      isTransitioning = false;
+    }, 430);
+  }, 230);
+}
+
+/* =========================================================
+   CONTINUE
+========================================================= */
+
+continueButton.addEventListener("click", () => {
+  if (!isCurrentStepValid()) return;
+
+  if (currentStep < totalSteps - 1) {
+    changeStep(currentStep + 1);
+
+    return;
+  }
+
+  completeOnboarding();
 });
 
-/* -----------------------------
-   INIT
------------------------------ */
+/* =========================================================
+   BACK
+========================================================= */
 
-render();
+backButton.addEventListener("click", () => {
+  if (currentStep > 0) {
+    changeStep(currentStep - 1);
+  }
+});
+
+/* =========================================================
+   COMPLETION
+========================================================= */
+
+function completeOnboarding() {
+  console.log("MIRA onboarding answers:", answers);
+
+  segments.forEach((segment) => {
+    segment.classList.remove("active");
+
+    segment.classList.add("completed");
+  });
+
+  progressPercentage.textContent = "100%";
+
+  stepCounter.textContent = "Setup complete";
+
+  visualProgress.textContent = "5 / 5";
+
+  visualStep.textContent = "✓";
+
+  visualTitle.textContent = "Your MIRA experience is ready.";
+
+  visualDescription.textContent =
+    "We’ll use your answers to make your content, campaigns, and marketing workflow more relevant from the start.";
+
+  stepContainer.innerHTML = `
+    <section class="completion-screen">
+
+      <div class="completion-symbol">
+
+        <svg viewBox="0 0 24 24">
+          <path d="M5 12.5L9.2 16.5L19 7" />
+        </svg>
+
+      </div>
+
+      <h2>
+        You’re ready to start with MIRA.
+      </h2>
+
+      <p>
+        Your setup is complete. MIRA can now tailor your
+        content creation, campaigns, and workflow around
+        the way you write and promote your books.
+      </p>
+
+    </section>
+  `;
+
+  backButton.style.display = "none";
+
+  continueButton.disabled = false;
+
+  continueText.textContent = "Enter MIRA";
+
+  const arrow = continueButton.querySelector(".continue-arrow");
+
+  if (arrow) {
+    arrow.textContent = "→";
+  }
+
+  continueButton.onclick = () => {
+    /*
+        Replace with your real destination.
+      */
+
+    console.log("Entering MIRA...");
+  };
+}
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+updateProgress();
+
+updateNavigation();
