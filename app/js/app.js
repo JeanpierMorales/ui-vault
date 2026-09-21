@@ -1,97 +1,227 @@
 import { components, categoryGroups, categoryLabel } from '../data/components.js';
 
-const STORAGE_KEY = 'ui-vault-page-builder-v2';
 const $ = (selector) => document.querySelector(selector);
-const labelFor = (value) => categoryLabel(value) || value.replaceAll('-', ' ').replace(/\b\w/g, (letter) => letter.toUpperCase());
-const uid = () => `block-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 7)}`;
-const defaultProject = () => ({ title: 'Página sin título', blocks: [] });
-const heightFor = (item) => ({ buttons: 300, cards: 420, 'book-cards': 420, typography: 520, icons: 500, 'models-3d': 560, 'scroll-experiences': 620, process: 540, pricing: 520, testimonials: 500 }[item.category] || 430);
-const elements = { title: $('#project-title'), canvasTitle: $('#canvas-title'), canvas: $('#page-canvas'), options: $('#component-options'), trayTitle: $('#tray-title'), trayNote: $('#tray-note'), trayEmpty: $('#tray-empty'), nav: $('#category-nav'), search: $('#component-search'), inspector: $('#inspector-body'), count: $('#selection-count'), libraryTotal: $('#library-total'), toast: $('#toast'), sidebar: $('#library-sidebar'), undo: $('#undo-button'), redo: $('#redo-button') };
+const elements = {
+  nav: $('#category-nav'),
+  search: $('#component-search'),
+  clearSearch: $('#clear-search'),
+  contentGroup: $('#content-group'),
+  contentTitle: $('#content-title'),
+  contentCount: $('#content-count'),
+  pieces: $('#pieces'),
+  piecesEmpty: $('#pieces-empty'),
+  libraryTotal: $('#library-total'),
+  sidebar: $('#library-sidebar'),
+  menuToggle: $('#menu-toggle'),
+  themeToggle: $('#theme-toggle'),
+};
 
-const sourceItem = (component) => ({ id: component.id, code: component.code, name: component.name, category: component.category, group: component.group, description: component.description, tags: component.tags || [], sourcePath: component.path, selector: null });
-const state = { project: loadProject(), items: components.map(sourceItem), activeCategory: 'buttons', query: '', selectedId: null, libraryPreviewId: null, device: 'desktop', history: [], historyIndex: -1 };
+const HEIGHTS = {
+  typography: 560, icons: 520, colors: 720,
+  buttons: 340, cards: 460, 'book-cards': 460, loaders: 220, forms: 640, dashboard: 420,
+  navbar: 140, features: 720, pricing: 720, process: 720, testimonials: 520, skeleton: 720,
+  'motion-2d': 900, 'motion-3d': 640, 'motion-effects': 720,
+};
 
-function loadProject() {
-  try {
-    const project = JSON.parse(localStorage.getItem(STORAGE_KEY));
-    if (!project || !Array.isArray(project.blocks)) return defaultProject();
-    return { ...project, blocks: project.blocks.map(normalizeBlock).filter(Boolean) };
-  } catch { return defaultProject(); }
+const state = {
+  activeCategory: null,
+  query: '',
+};
+
+const heightFor = (item) => HEIGHTS[item.category] || 460;
+const makeIcon = (icon) => {
+  const node = document.createElement('iconify-icon');
+  node.setAttribute('aria-hidden', 'true');
+  node.setAttribute('icon', icon);
+  return node;
+};
+
+function categoryCount(categoryId) {
+  return components.filter((item) => item.category === categoryId).length;
 }
-function normalizeBlock(block) {
-  if (block.sourcePath) return block;
-  const source = components.find(({ id }) => id === block.componentId);
-  return source ? { ...block, itemId: source.id, name: source.name, category: source.category, sourcePath: source.path, selector: null } : null;
-}
-function snapshot() { return JSON.stringify(state.project); }
-function saveProject({ history = true } = {}) { localStorage.setItem(STORAGE_KEY, snapshot()); if (history) { state.history = state.history.slice(0, state.historyIndex + 1); state.history.push(snapshot()); state.history = state.history.slice(-30); state.historyIndex = state.history.length - 1; } updateHistoryButtons(); }
-function updateHistoryButtons() { elements.undo.disabled = state.historyIndex <= 0; elements.redo.disabled = state.historyIndex >= state.history.length - 1; }
-function restoreHistory(index) { if (!state.history[index]) return; state.historyIndex = index; state.project = JSON.parse(state.history[index]); state.selectedId = state.project.blocks.some(({ id }) => id === state.selectedId) ? state.selectedId : null; localStorage.setItem(STORAGE_KEY, snapshot()); render(); }
-function toast(message) { elements.toast.textContent = message; elements.toast.classList.add('is-visible'); clearTimeout(toast.timer); toast.timer = setTimeout(() => elements.toast.classList.remove('is-visible'), 2200); }
-function makeIcon(icon) { const node = document.createElement('iconify-icon'); node.setAttribute('aria-hidden', 'true'); node.setAttribute('icon', icon); return node; }
-function itemFrameSource(item) { return item.selector ? `./app/isolate.html?source=${encodeURIComponent(`../${item.sourcePath.replace(/^\.\//, '')}`)}&selector=${encodeURIComponent(item.selector)}` : item.sourcePath; }
-function makePreview(item) { const frame = document.createElement('iframe'); frame.src = itemFrameSource(item); frame.title = `Vista previa real de ${item.name}`; frame.loading = 'lazy'; frame.setAttribute('allow', 'fullscreen'); return frame; }
 
-function selectorFor(element) {
-  const path = [];
-  for (let current = element; current && current.tagName !== 'BODY'; current = current.parentElement) {
-    const siblings = [...current.parentElement.children].filter((sibling) => sibling.tagName === current.tagName);
-    path.unshift(`${current.tagName.toLowerCase()}:nth-of-type(${siblings.indexOf(current) + 1})`);
+function activeGroups() {
+  return categoryGroups
+    .map((group) => ({ ...group, items: group.items.filter(([id]) => categoryCount(id) > 0) }))
+    .filter((group) => group.items.length);
+}
+
+function firstAvailableCategory() {
+  const groups = activeGroups();
+  return groups[0]?.items[0]?.[0] || null;
+}
+
+function categoryGroupLabel(categoryId) {
+  const group = categoryGroups.find((g) => g.items.some(([id]) => id === categoryId));
+  return group?.label || '';
+}
+
+function matchingPieces() {
+  const query = state.query.trim().toLowerCase();
+  if (query) {
+    return components.filter((item) =>
+      [item.code, item.name, item.description, item.category, ...(item.tags || [])]
+        .join(' ')
+        .toLowerCase()
+        .includes(query)
+    );
   }
-  return `body > ${path.join(' > ')}`;
-}
-function nameForAtomicElement(element, fallback, index) {
-  const ownName = element.dataset?.name || element.querySelector('[data-name]')?.dataset?.name;
-  const visibleName = element.querySelector('strong, h1, h2, h3, h4, [class*=title]')?.textContent?.trim();
-  return ownName ? ownName.replace(/\b\w/g, (letter) => letter.toUpperCase()) : visibleName || `${fallback} ${index + 1}`;
-}
-async function atomicItemsFor(component) {
-  if (!['buttons', 'cards', 'book-cards'].includes(component.category)) return [sourceItem(component)];
-  try {
-    const response = await fetch(component.path); if (!response.ok) throw new Error('No disponible');
-    const document = new DOMParser().parseFromString(await response.text(), 'text/html');
-    const candidates = [...document.querySelectorAll('article')].filter((element) => element.querySelector('button, a, input') || component.category !== 'buttons');
-    if (!candidates.length) return [sourceItem(component)];
-    return candidates.map((element, index) => ({
-      id: `${component.id}--${index + 1}`, code: component.code ? `${component.code}.${index + 1}` : undefined, name: nameForAtomicElement(element, component.name, index), category: component.category, group: component.group,
-      description: `${component.description} Variante individual ${index + 1}.`, tags: [...(component.tags || []), ...(element.dataset.category || '').split(' ').filter(Boolean), 'individual'], sourcePath: component.path, selector: selectorFor(element),
-    }));
-  } catch { return [sourceItem(component)]; }
-}
-async function hydrateAtomicItems() {
-  const collections = await Promise.all(components.map(atomicItemsFor));
-  state.items = collections.flat();
-  render();
+  if (state.activeCategory === 'all') return components;
+  return components.filter((item) => item.category === state.activeCategory);
 }
 
-function matchingItems() { const query = state.query.trim().toLowerCase(); return state.items.filter((item) => (state.activeCategory === 'all' || item.category === state.activeCategory) && (!query || [item.name, item.description, ...item.tags].join(' ').toLowerCase().includes(query))); }
-function selectedBlock() { return state.project.blocks.find(({ id }) => id === state.selectedId) || null; }
-function itemForBlock(block) { return state.items.find(({ id }) => id === block.itemId) || block; }
-function getGroups() { return categoryGroups.map((group) => ({ ...group, items: group.items.filter(([id]) => state.items.some((item) => item.category === id)) })).filter((group) => group.items.length); }
-function categoryCount(category) { return state.items.filter((item) => item.category === category).length; }
+function renderNav() {
+  elements.nav.replaceChildren();
+  const groups = activeGroups();
 
-function navButton(label, category, count) { const button = document.createElement('button'); button.type = 'button'; button.className = category === state.activeCategory ? 'is-active' : ''; button.append(document.createTextNode(label)); const badge = document.createElement('span'); badge.textContent = count; button.append(badge); button.addEventListener('click', () => { state.activeCategory = category; renderLibrary(); closeSidebar(); }); return button; }
-function renderNavigation() { elements.nav.replaceChildren(); const overview = navButton('Todo el archivo', 'all', state.items.length); overview.classList.add('overview'); elements.nav.append(overview); getGroups().forEach((group) => { const heading = document.createElement('p'); heading.className = 'side-label'; heading.textContent = group.label; elements.nav.append(heading); group.items.forEach(([id, name]) => elements.nav.append(navButton(name, id, categoryCount(id)))); }); }
-function renderLibrary() { const visible = matchingItems(); if (visible.length && !visible.some(({ id }) => id === state.libraryPreviewId)) state.libraryPreviewId = visible[0].id; const categoryName = state.query ? `Resultados para “${state.query}”` : state.activeCategory === 'all' ? 'Todo el archivo' : labelFor(state.activeCategory); elements.trayTitle.textContent = categoryName; elements.trayNote.textContent = `${visible.length} ${visible.length === 1 ? 'pieza disponible' : 'piezas disponibles'} · Inserta o arrastra al lienzo.`; elements.options.replaceChildren(...visible.map(renderOption)); elements.trayEmpty.hidden = visible.length !== 0; renderNavigation(); }
-function renderOption(item) { const option = document.createElement('article'); option.className = 'component-option'; option.draggable = true; const preview = document.createElement('div'); preview.className = 'option-preview'; if (item.id === state.libraryPreviewId) preview.append(makePreview(item)); else { const trigger = document.createElement('button'); trigger.type = 'button'; trigger.className = 'option-preview-trigger'; trigger.append(makeIcon('ph:eye'), document.createTextNode('Vista individual')); trigger.addEventListener('click', () => { state.libraryPreviewId = item.id; renderLibrary(); }); preview.append(trigger); } const footer = document.createElement('footer'); footer.className = 'option-footer'; const meta = document.createElement('div'); if (item.code) { const code = document.createElement('p'); code.className = 'option-code'; code.textContent = item.code; meta.append(code); } const category = document.createElement('p'); category.textContent = `${labelFor(item.category)} · individual`; const name = document.createElement('h3'); name.textContent = item.name; meta.append(category, name); const add = document.createElement('button'); add.type = 'button'; add.className = 'insert-button'; add.setAttribute('aria-label', `Añadir ${item.name}`); add.append(makeIcon('ph:plus')); add.addEventListener('click', () => addBlock(item.id)); footer.append(meta, add); option.append(preview, footer); option.addEventListener('dragstart', (event) => { event.dataTransfer.setData('text/item-id', item.id); event.dataTransfer.effectAllowed = 'copy'; option.classList.add('is-dragging'); }); option.addEventListener('dragend', () => option.classList.remove('is-dragging')); return option; }
-function addBlock(itemId, atIndex = state.project.blocks.length) { const item = state.items.find(({ id }) => id === itemId); if (!item) return; const block = { id: uid(), itemId: item.id, name: item.name, category: item.category, sourcePath: item.sourcePath, selector: item.selector, height: heightFor(item), background: 'paper' }; state.project.blocks.splice(atIndex, 0, block); state.selectedId = block.id; saveProject(); render(); toast(`${item.name} añadido al lienzo`); }
-function selectBlock(id) { state.selectedId = id; renderCanvas(); renderInspector(); }
-function removeBlock(id) { const block = state.project.blocks.find((item) => item.id === id); if (!block) return; state.project.blocks = state.project.blocks.filter((item) => item.id !== id); state.selectedId = null; saveProject(); render(); toast('Bloque eliminado'); }
-function moveBlock(id, direction) { const index = state.project.blocks.findIndex((item) => item.id === id); const next = index + direction; if (index < 0 || next < 0 || next >= state.project.blocks.length) return; [state.project.blocks[index], state.project.blocks[next]] = [state.project.blocks[next], state.project.blocks[index]]; saveProject(); render(); }
+  const overview = navButton('Toda la biblioteca', 'all', components.length);
+  overview.classList.add('overview');
+  elements.nav.append(overview);
 
-function allowDrop(event) { event.preventDefault(); event.dataTransfer.dropEffect = event.dataTransfer.types.includes('text/block-id') ? 'move' : 'copy'; }
-function dropOnCanvas(event) { event.preventDefault(); if (event.target.closest('.canvas-block')) return; const itemId = event.dataTransfer.getData('text/item-id'); if (itemId) addBlock(itemId); }
-function dropOnBlock(event, targetId) { event.preventDefault(); event.stopPropagation(); const itemId = event.dataTransfer.getData('text/item-id'); const targetIndex = state.project.blocks.findIndex(({ id }) => id === targetId); if (itemId) return addBlock(itemId, targetIndex); const sourceId = event.dataTransfer.getData('text/block-id'); if (!sourceId || sourceId === targetId) return; const sourceIndex = state.project.blocks.findIndex(({ id }) => id === sourceId); const [moved] = state.project.blocks.splice(sourceIndex, 1); state.project.blocks.splice(targetIndex, 0, moved); state.selectedId = sourceId; saveProject(); render(); }
-function renderBlock(block, index) { const item = itemForBlock(block); const node = document.createElement('article'); node.className = `canvas-block ${block.id === state.selectedId ? 'is-selected' : ''}`; node.draggable = true; node.style.setProperty('--block-height', `${block.height}px`); const bar = document.createElement('div'); bar.className = 'block-bar'; const order = document.createElement('span'); order.textContent = String(index + 1).padStart(2, '0'); const source = document.createElement('span'); source.className = 'block-source'; source.textContent = `${labelFor(item.category)} / ${item.name}`; const actions = document.createElement('div'); actions.className = 'block-actions'; [['ph:arrow-up', 'Subir bloque', () => moveBlock(block.id, -1)], ['ph:arrow-down', 'Bajar bloque', () => moveBlock(block.id, 1)], ['ph:trash', 'Eliminar bloque', () => removeBlock(block.id)]].forEach(([icon, title, handler]) => { const button = document.createElement('button'); button.type = 'button'; button.title = title; button.setAttribute('aria-label', title); button.append(makeIcon(icon)); button.addEventListener('click', (event) => { event.stopPropagation(); handler(); }); actions.append(button); }); bar.append(order, source, actions); const preview = document.createElement('div'); preview.className = `block-preview block-preview--${block.background}`; preview.append(makePreview(item)); node.append(bar, preview); node.addEventListener('click', () => selectBlock(block.id)); node.addEventListener('dragstart', (event) => { event.dataTransfer.setData('text/block-id', block.id); event.dataTransfer.effectAllowed = 'move'; node.classList.add('is-dragging'); }); node.addEventListener('dragend', () => { node.classList.remove('is-dragging'); document.querySelectorAll('.is-drop-target').forEach((item) => item.classList.remove('is-drop-target')); }); node.addEventListener('dragover', (event) => { allowDrop(event); node.classList.add('is-drop-target'); }); node.addEventListener('dragleave', () => node.classList.remove('is-drop-target')); node.addEventListener('drop', (event) => dropOnBlock(event, block.id)); return node; }
-function renderCanvas() { elements.canvas.className = `page-canvas device-${state.device}`; elements.canvas.replaceChildren(); if (!state.project.blocks.length) { const empty = document.createElement('div'); empty.className = 'canvas-empty'; empty.append(makeIcon('ph:cursor-click')); const title = document.createElement('h2'); title.textContent = 'Empieza con una pieza real'; const copy = document.createElement('p'); copy.textContent = 'Elige una variante de la biblioteca y añade solo esa pieza. Cada una queda aislada para conservar su comportamiento original.'; empty.append(title, copy); elements.canvas.append(empty); } else state.project.blocks.forEach((block, index) => elements.canvas.append(renderBlock(block, index))); elements.canvas.addEventListener('dragover', allowDrop); elements.canvas.addEventListener('drop', dropOnCanvas); }
+  groups.forEach((group) => {
+    const heading = document.createElement('p');
+    heading.className = 'side-label';
+    heading.textContent = group.label;
+    elements.nav.append(heading);
+    group.items.forEach(([id, name]) => elements.nav.append(navButton(name, id, categoryCount(id))));
+  });
+}
 
-function rangeControl(label, value, min, max, current, onInput, onCommit) { const wrap = document.createElement('label'); wrap.className = 'control-field'; const head = document.createElement('span'); const labelText = document.createElement('span'); labelText.textContent = label; const output = document.createElement('output'); output.textContent = value; head.append(labelText, output); const input = document.createElement('input'); input.type = 'range'; input.min = min; input.max = max; input.step = 10; input.value = current; input.addEventListener('input', () => { output.textContent = `${input.value}px`; onInput(input.value); }); input.addEventListener('change', onCommit); wrap.append(head, input); return wrap; }
-function selectControl(label, current, options, handler) { const wrap = document.createElement('label'); wrap.className = 'control-field'; const text = document.createElement('span'); text.textContent = label; const select = document.createElement('select'); options.forEach(([value, name]) => select.add(new Option(name, value, false, value === current))); select.addEventListener('change', () => handler(select.value)); wrap.append(text, select); return wrap; }
-function commandButton(label, icon, handler) { const button = document.createElement('button'); button.type = 'button'; button.append(makeIcon(icon), document.createTextNode(label)); button.addEventListener('click', handler); return button; }
-function updateBlock(id, changes, commit = true) { const block = state.project.blocks.find((item) => item.id === id); if (!block) return; Object.assign(block, changes); if (commit) saveProject(); renderCanvas(); if (commit) renderInspector(); }
-function renderInspector() { const block = selectedBlock(); elements.count.textContent = `${state.project.blocks.length} bloque${state.project.blocks.length === 1 ? '' : 's'}`; elements.inspector.replaceChildren(); if (!block) { const empty = document.createElement('div'); empty.className = 'inspector-empty'; empty.append(makeIcon('ph:sliders-horizontal')); const heading = document.createElement('h2'); heading.textContent = 'Selecciona un bloque'; const copy = document.createElement('p'); copy.textContent = 'Aquí ajustarás el espacio del bloque y su orden dentro de la página.'; empty.append(heading, copy); elements.inspector.append(empty); return; } const item = itemForBlock(block); const heading = document.createElement('div'); heading.className = 'selected-component'; const type = document.createElement('span'); type.textContent = `${labelFor(item.category)} / individual`; const name = document.createElement('h2'); name.textContent = item.name; const id = document.createElement('p'); id.textContent = item.code ? `${item.code} · ${item.id}` : item.id; heading.append(type, name, id); const controls = document.createElement('div'); controls.className = 'inspector-controls'; controls.append(rangeControl('Altura del lienzo', `${block.height}px`, 220, 860, block.height, (value) => updateBlock(block.id, { height: Number(value) }, false), () => updateBlock(block.id, {}, true))); controls.append(selectControl('Fondo del contenedor', block.background, [['paper', 'Papel'], ['ink', 'Tinta'], ['muted', 'Gris cálido']], (value) => updateBlock(block.id, { background: value }))); const commands = document.createElement('div'); commands.className = 'inspector-commands'; const duplicate = commandButton('Duplicar bloque', 'ph:copy', () => { const index = state.project.blocks.findIndex(({ id }) => id === block.id); const clone = { ...block, id: uid() }; state.project.blocks.splice(index + 1, 0, clone); state.selectedId = clone.id; saveProject(); render(); toast('Bloque duplicado'); }); const remove = commandButton('Eliminar', 'ph:trash', () => removeBlock(block.id)); remove.classList.add('danger'); commands.append(duplicate, remove); controls.append(commands); elements.inspector.append(heading, controls); }
-function render() { elements.title.value = state.project.title; elements.canvasTitle.textContent = state.project.title; elements.libraryTotal.textContent = `${state.items.length} piezas`; renderLibrary(); renderCanvas(); renderInspector(); }
-function closeSidebar() { elements.sidebar.classList.remove('is-open'); $('#menu-toggle').setAttribute('aria-expanded', 'false'); }
-function exportProject() { const payload = { format: 'ui-vault-project', version: 2, exportedAt: new Date().toISOString(), ...state.project }; const url = URL.createObjectURL(new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' })); const anchor = document.createElement('a'); anchor.href = url; anchor.download = `${state.project.title.trim().toLowerCase().replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '') || 'ui-vault-page'}.ui-vault.json`; anchor.click(); URL.revokeObjectURL(url); toast('Proyecto exportado. Ya puedes crear su carpeta preview.'); }
+function navButton(label, categoryId, count) {
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = categoryId === state.activeCategory && !state.query ? 'is-active' : '';
+  const text = document.createElement('span');
+  text.textContent = label;
+  const badge = document.createElement('span');
+  badge.className = 'nav-badge';
+  badge.textContent = count;
+  button.append(text, badge);
+  button.addEventListener('click', () => {
+    state.activeCategory = categoryId;
+    state.query = '';
+    elements.search.value = '';
+    render();
+    closeSidebar();
+  });
+  return button;
+}
 
-elements.title.addEventListener('input', () => { state.project.title = elements.title.value || 'Página sin título'; elements.canvasTitle.textContent = state.project.title; localStorage.setItem(STORAGE_KEY, snapshot()); }); elements.title.addEventListener('change', () => saveProject()); elements.search.addEventListener('input', () => { state.query = elements.search.value; renderLibrary(); }); $('#clear-search').addEventListener('click', () => { state.query = ''; elements.search.value = ''; renderLibrary(); }); $('#new-project').addEventListener('click', () => { if (!state.project.blocks.length || confirm('¿Crear una página nueva? Se conservará la página actual solo si antes la exportas.')) { state.project = defaultProject(); state.selectedId = null; saveProject(); render(); toast('Página nueva creada'); } }); $('#export-project').addEventListener('click', exportProject); $('#open-preview').addEventListener('click', () => { const payload = encodeURIComponent(btoa(unescape(encodeURIComponent(JSON.stringify(state.project))))); window.open(`./preview.html#${payload}`, '_blank', 'noopener'); }); $('#undo-button').addEventListener('click', () => restoreHistory(state.historyIndex - 1)); $('#redo-button').addEventListener('click', () => restoreHistory(state.historyIndex + 1)); document.querySelectorAll('[data-device]').forEach((button) => button.addEventListener('click', () => { state.device = button.dataset.device; document.querySelectorAll('[data-device]').forEach((item) => { const active = item === button; item.classList.toggle('is-active', active); item.setAttribute('aria-pressed', String(active)); }); renderCanvas(); })); $('#menu-toggle').addEventListener('click', () => { const open = elements.sidebar.classList.toggle('is-open'); $('#menu-toggle').setAttribute('aria-expanded', String(open)); }); $('#theme-toggle').addEventListener('click', () => { const dark = document.documentElement.dataset.theme !== 'dark'; document.documentElement.dataset.theme = dark ? 'dark' : 'light'; $('#theme-toggle').setAttribute('aria-label', dark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'); localStorage.setItem('ui-vault-theme', dark ? 'dark' : 'light'); }); document.addEventListener('keydown', (event) => { if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'z') { event.preventDefault(); restoreHistory(event.shiftKey ? state.historyIndex + 1 : state.historyIndex - 1); } if (event.key === 'Escape') closeSidebar(); }); if (localStorage.getItem('ui-vault-theme') === 'dark') document.documentElement.dataset.theme = 'dark'; state.history = [snapshot()]; state.historyIndex = 0; render(); hydrateAtomicItems();
+function renderPieces() {
+  const pieces = matchingPieces();
+  const query = state.query.trim();
+
+  if (query) {
+    elements.contentGroup.textContent = 'Búsqueda';
+    elements.contentTitle.textContent = `Resultados para "${query}"`;
+  } else if (state.activeCategory === 'all') {
+    elements.contentGroup.textContent = 'Biblioteca';
+    elements.contentTitle.textContent = 'Toda la biblioteca';
+  } else {
+    elements.contentGroup.textContent = categoryGroupLabel(state.activeCategory);
+    elements.contentTitle.textContent = categoryLabel(state.activeCategory);
+  }
+  elements.contentCount.textContent = `${pieces.length} ${pieces.length === 1 ? 'pieza' : 'piezas'}`;
+
+  elements.pieces.replaceChildren(...pieces.map(renderPieceCard));
+  const empty = pieces.length === 0;
+  elements.piecesEmpty.hidden = !empty;
+  elements.pieces.hidden = empty;
+}
+
+function renderPieceCard(item) {
+  const card = document.createElement('article');
+  card.className = 'piece-card';
+  card.style.setProperty('--piece-height', `${heightFor(item)}px`);
+
+  const header = document.createElement('header');
+  header.className = 'piece-head';
+
+  const meta = document.createElement('div');
+  meta.className = 'piece-meta';
+  const code = document.createElement('span');
+  code.className = 'piece-code';
+  code.textContent = item.code;
+  const cat = document.createElement('span');
+  cat.className = 'piece-category';
+  cat.textContent = categoryLabel(item.category);
+  meta.append(code, cat);
+
+  const name = document.createElement('h2');
+  name.className = 'piece-name';
+  name.textContent = item.name;
+
+  const openLink = document.createElement('a');
+  openLink.className = 'piece-open';
+  openLink.href = item.path;
+  openLink.target = '_blank';
+  openLink.rel = 'noopener';
+  openLink.setAttribute('aria-label', `Abrir ${item.name} en pestaña nueva`);
+  openLink.append(makeIcon('ph:arrow-square-out'));
+
+  const headText = document.createElement('div');
+  headText.className = 'piece-head-text';
+  headText.append(meta, name);
+  header.append(headText, openLink);
+
+  const frame = document.createElement('iframe');
+  frame.className = 'piece-frame';
+  frame.src = item.path;
+  frame.title = `Vista previa de ${item.name}`;
+  frame.loading = 'lazy';
+  frame.setAttribute('allow', 'fullscreen');
+
+  card.append(header, frame);
+  return card;
+}
+
+function render() {
+  renderNav();
+  renderPieces();
+}
+
+function closeSidebar() {
+  elements.sidebar.classList.remove('is-open');
+  elements.menuToggle.setAttribute('aria-expanded', 'false');
+}
+
+function initTheme() {
+  if (localStorage.getItem('ui-vault-theme') === 'dark') {
+    document.documentElement.dataset.theme = 'dark';
+  }
+}
+
+function bindEvents() {
+  elements.search.addEventListener('input', () => {
+    state.query = elements.search.value;
+    render();
+  });
+  elements.clearSearch.addEventListener('click', () => {
+    state.query = '';
+    elements.search.value = '';
+    render();
+  });
+  elements.menuToggle.addEventListener('click', () => {
+    const open = elements.sidebar.classList.toggle('is-open');
+    elements.menuToggle.setAttribute('aria-expanded', String(open));
+  });
+  elements.themeToggle.addEventListener('click', () => {
+    const dark = document.documentElement.dataset.theme !== 'dark';
+    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    elements.themeToggle.setAttribute('aria-label', dark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+    localStorage.setItem('ui-vault-theme', dark ? 'dark' : 'light');
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeSidebar();
+    if ((event.metaKey || event.ctrlKey) && event.key === 'k') {
+      event.preventDefault();
+      elements.search.focus();
+    }
+  });
+}
+
+initTheme();
+state.activeCategory = firstAvailableCategory();
+elements.libraryTotal.textContent = `${components.length} piezas`;
+bindEvents();
+render();

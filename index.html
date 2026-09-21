@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f4f1ea" />
-    <title>UI Vault — Page Builder</title>
+    <title>UI Vault</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Montserrat:wght@800&display=swap" rel="stylesheet" />
@@ -12,63 +12,46 @@
     <link rel="stylesheet" href="./app/css/app.css" />
   </head>
   <body>
-    <!-- UI Vault assembles original documents as isolated, executable blocks. -->
-    <div class="builder-shell">
-      <header class="topbar builder-topbar">
-        <button class="brand" id="new-project" type="button" aria-label="Create a new page">
+    <div class="vault-shell">
+      <header class="topbar">
+        <a class="brand" href="./index.html" aria-label="UI Vault">
           <span class="brand-mark" aria-hidden="true">UV</span><span>UI Vault</span>
-        </button>
-        <label class="project-name" for="project-title">
-          <span>Project</span>
-          <input id="project-title" type="text" value="Untitled page" maxlength="70" autocomplete="off" />
+        </a>
+        <label class="search-field" for="component-search">
+          <iconify-icon aria-hidden="true" icon="ph:magnifying-glass"></iconify-icon>
+          <input id="component-search" type="search" placeholder="Buscar pieza o código" autocomplete="off" />
         </label>
         <div class="topbar-actions">
-          <button class="icon-button" id="undo-button" type="button" aria-label="Undo" title="Undo" disabled><iconify-icon aria-hidden="true" icon="ph:arrow-u-up-left"></iconify-icon></button>
-          <button class="icon-button" id="redo-button" type="button" aria-label="Redo" title="Redo" disabled><iconify-icon aria-hidden="true" icon="ph:arrow-u-up-right"></iconify-icon></button>
-          <button class="text-utility" id="open-preview" type="button">View published page ↗</button>
-          <button class="vault-motion-button diagonal-fill" id="export-project" type="button"><span>Export project</span></button>
-          <button class="icon-button" id="theme-toggle" type="button" aria-label="Switch to dark mode"><iconify-icon aria-hidden="true" icon="ph:moon-stars"></iconify-icon></button>
-          <button class="menu-button" id="menu-toggle" type="button" aria-label="Open library" aria-expanded="false" aria-controls="library-sidebar"><span></span><span></span></button>
+          <span id="library-total" class="library-count">0 piezas</span>
+          <button class="icon-button" id="theme-toggle" type="button" aria-label="Cambiar tema"><iconify-icon aria-hidden="true" icon="ph:moon-stars"></iconify-icon></button>
+          <button class="menu-button" id="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="library-sidebar"><span></span><span></span></button>
         </div>
       </header>
 
-      <main class="builder-main">
-        <aside class="library-sidebar" id="library-sidebar" aria-label="Component library">
-          <div class="library-heading"><span class="library-index">Library</span><span id="library-total">0 pieces</span></div>
-          <label class="search-field" for="component-search">
-            <iconify-icon aria-hidden="true" icon="ph:magnifying-glass"></iconify-icon>
-            <input id="component-search" type="search" placeholder="Search the library" autocomplete="off" />
-          </label>
-          <nav id="category-nav" aria-label="Available categories"></nav>
-          <div class="sidebar-foot"><p>Pieces load their original HTML, CSS, and JavaScript.</p><span>Drag or insert to compose.</span></div>
+      <main class="vault-main">
+        <aside class="library-sidebar" id="library-sidebar" aria-label="Categorías">
+          <nav id="category-nav" aria-label="Categorías disponibles"></nav>
         </aside>
-        <section class="studio-center" aria-label="Page builder">
-          <div class="canvas-zone">
-            <div class="zone-head">
-              <div><span class="section-label">Canvas</span><h1 id="canvas-title">Untitled page</h1></div>
-              <div class="device-switcher" role="group" aria-label="Change device">
-                <button class="is-active" type="button" data-device="desktop" aria-pressed="true"><iconify-icon aria-hidden="true" icon="ph:desktop"></iconify-icon><span>Desktop</span></button>
-                <button type="button" data-device="tablet" aria-pressed="false"><iconify-icon aria-hidden="true" icon="ph:device-tablet"></iconify-icon><span>Tablet</span></button>
-                <button type="button" data-device="mobile" aria-pressed="false"><iconify-icon aria-hidden="true" icon="ph:device-mobile"></iconify-icon><span>Mobile</span></button>
-              </div>
+
+        <section class="content-area" aria-label="Vista de piezas">
+          <header class="content-head">
+            <div>
+              <span class="section-label" id="content-group">Foundations</span>
+              <h1 id="content-title">Typography</h1>
             </div>
-            <div class="canvas-scroll" id="canvas-scroll"><div class="page-canvas device-desktop" id="page-canvas" aria-live="polite"></div></div>
+            <p id="content-count" class="content-count">0 piezas</p>
+          </header>
+
+          <div class="pieces" id="pieces"></div>
+          <div class="pieces-empty" id="pieces-empty" hidden>
+            <iconify-icon aria-hidden="true" icon="ph:magnifying-glass-minus"></iconify-icon>
+            <p>No hay piezas que coincidan con la búsqueda.</p>
+            <button id="clear-search" type="button">Limpiar búsqueda</button>
           </div>
-          <section class="component-tray" aria-labelledby="tray-title">
-            <div class="tray-head"><div><span class="section-label">Available pieces</span><h2 id="tray-title">Buttons</h2></div><p id="tray-note">Select a piece to add it to the canvas.</p></div>
-            <div class="component-options" id="component-options"></div>
-            <div class="tray-empty" id="tray-empty" hidden><p>No pieces match this search.</p><button id="clear-search" type="button">Clear search</button></div>
-          </section>
         </section>
-        <aside class="inspector" aria-label="Block inspector">
-          <div class="inspector-head"><span class="section-label">Inspector</span><span id="selection-count">0 blocks</span></div>
-          <div id="inspector-body"></div>
-          <div class="export-note"><iconify-icon aria-hidden="true" icon="ph:export"></iconify-icon><p>“Export project” downloads the plan. Use the included exporter to create a self-contained preview folder.</p></div>
-        </aside>
       </main>
     </div>
-    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
     <script type="module" src="./app/js/app.js"></script>
-    <script type="module" src="./app/js/localize.js"></script>
   </body>
 </html>
