@@ -5,7 +5,7 @@
  * `code` is the SKU shown in the UI (e.g., BTN-001). Prefixes per category:
  *   Foundations: TYP (typography), ICN (icons), COL (colors)
  *   Components:  BTN, CRD, BOK, LDR, FRM, DSH
- *   Sections:    NAV, HER, FEA, HIW, PRO, WRK, WSP, ANL, TST, ABT, PRC, FAQ, BLG, CTA, CNT, FTR, SKL
+ *   Sections:    NAV, HER, FEA, HIW, PRO, WRK, WSP, ANL, TST, ABT, PRC, FAQ, BLG, CTA, CNT, FTR, TND, SKL
  *   Motion:      M2D, M3D, EFX
  * To add: keep the piece's files untouched and append one entry here.
  */
@@ -80,6 +80,10 @@ export const components = [
   { code: 'NAV-004', id: 'navbar-004', name: 'Navbar 004', category: 'navbar', group: 'Sections', path: './sections/navbar/model-004/index.html', description: 'Navbar (variante 004).', tags: ['navbar', 'navigation', 'header'], sources: { html: 'index.html', css: 'style.css' } },
   { code: 'NAV-005', id: 'navbar-005', name: 'Navbar 005', category: 'navbar', group: 'Sections', path: './sections/navbar/model-005/index.html', description: 'Navbar (variante 005).', tags: ['navbar', 'navigation', 'header'], sources: std },
   { code: 'NAV-006', id: 'navbar-006', name: 'Navbar 006', category: 'navbar', group: 'Sections', path: './sections/navbar/model-006/index.html', description: 'Navbar (variante 006).', tags: ['navbar', 'navigation', 'header'], sources: std },
+  { code: 'NAV-007', id: 'navbar-007', name: 'Navbar 007 · Folio & Grano', category: 'navbar', group: 'Sections', path: './sections/navbar/model-007/index.html', description: 'Navbar de librería-café en Miraflores con aviso del club de lectura.', tags: ['navbar', 'navigation', 'header', 'bookstore', 'cafe'], sources: stds },
+  { code: 'NAV-008', id: 'navbar-008', name: 'Navbar 008 · Cacaotal', category: 'navbar', group: 'Sections', path: './sections/navbar/model-008/index.html', description: 'Navbar de chocolate de origen de Tarapoto con tabletas por región.', tags: ['navbar', 'navigation', 'header', 'chocolate', 'shop'], sources: stds },
+  { code: 'NAV-009', id: 'navbar-009', name: 'Navbar 009 · Paralelo', category: 'navbar', group: 'Sections', path: './sections/navbar/model-009/index.html', description: 'Navbar de taller de arquitectura en Arequipa: casas y patios en sillar.', tags: ['navbar', 'navigation', 'header', 'architecture'], sources: stds },
+  { code: 'NAV-010', id: 'navbar-010', name: 'Navbar 010 · Wayra 2026', category: 'navbar', group: 'Sections', path: './sections/navbar/model-010/index.html', description: 'Navbar de festival de música en Urubamba, 14 y 15 de noviembre de 2026.', tags: ['navbar', 'navigation', 'header', 'festival', 'music'], sources: { html: 'index.html', css: 'styles.css' } },
 
   // FEATURES
   ...['001', '002', '003', '004'].map((n) => ({
@@ -113,6 +117,10 @@ export const components = [
   { code: 'TST-005', id: 'testimonial-005', name: 'Testimonial 005', category: 'testimonials', group: 'Sections', path: './sections/testimonials/model-005/index.html', description: 'Sección de testimoniales con tratamiento visual propio.', tags: ['testimonial', 'review', 'section', 'social-proof'], sources: stds },
   { code: 'TST-006', id: 'testimonial-006', name: 'Testimonial 006', category: 'testimonials', group: 'Sections', path: './sections/testimonials/model-006/index.html', description: 'Sección de testimoniales con tratamiento visual propio.', tags: ['testimonial', 'review', 'section', 'social-proof'], sources: stds },
   { code: 'TST-007', id: 'testimonial-007', name: 'Testimonial 007', category: 'testimonials', group: 'Sections', path: './sections/testimonials/model-007/index.html', description: 'Sección de testimoniales con tratamiento visual propio.', tags: ['testimonial', 'review', 'section', 'social-proof'], sources: stds },
+  { code: 'TST-008', id: 'testimonial-008', name: 'Testimonial 008 · Sillar Dental', category: 'testimonials', group: 'Sections', path: './sections/testimonials/model-008/index.html', description: 'Clínica dental en Arequipa: tres pacientes cuentan su tratamiento mes a mes.', tags: ['testimonials', 'health', 'timeline'], sources: stds },
+  { code: 'TST-009', id: 'testimonial-009', name: 'Testimonial 009 · Casa Quillu', category: 'testimonials', group: 'Sections', path: './sections/testimonials/model-009/index.html', description: 'Casa de huéspedes en Urubamba: cada reseña ligada al lugar del valle del que habla.', tags: ['testimonials', 'travel', 'map'], sources: stds },
+  { code: 'TST-010', id: 'testimonial-010', name: 'Testimonial 010 · Tubo', category: 'testimonials', group: 'Sections', path: './sections/testimonials/model-010/index.html', description: 'Escuela de surf en Máncora: audios de WhatsApp de alumnos, transcritos.', tags: ['testimonials', 'audio', 'surf'], sources: stds },
+  { code: 'TST-011', id: 'testimonial-011', name: 'Testimonial 011 · Comanda', category: 'testimonials', group: 'Sections', path: './sections/testimonials/model-011/index.html', description: 'Sistema para restaurantes: reseñas verificadas filtrables por puntaje y módulo.', tags: ['testimonials', 'saas', 'filter', 'reviews'], sources: { html: 'index.html', css: 'styles.css' } },
 
   // HERO
   { code: 'HER-001', id: 'hero-001', name: 'Hero 001 · KANZO', category: 'hero', group: 'Sections', path: './sections/hero/model-001/index.html', description: 'Hero de estudio digital: webs, software y experiencias inteligentes.', tags: ['hero', 'section', 'studio', 'kanzo'], sources: stds },
@@ -123,7 +131,7 @@ export const components = [
   { code: 'HER-006', id: 'hero-006', name: 'Hero 006 · TRVL', category: 'hero', group: 'Sections', path: './sections/hero/model-006/index.html', description: 'Hero de viajes de montaña.', tags: ['hero', 'section', 'travel', 'image'], sources: stds },
   { code: 'HER-007', id: 'hero-007', name: 'Hero 007 · Travel Slider', category: 'hero', group: 'Sections', path: './sections/hero/model-007/index.html', description: 'Hero de viajes con slider de destinos.', tags: ['hero', 'section', 'travel', 'slider'], sources: stds },
   { code: 'HER-008', id: 'hero-008', name: 'Hero 008 · Solace', category: 'hero', group: 'Sections', path: './sections/hero/model-008/index.html', description: 'Hero de muebles acústicos: la onda de ruido de la sala se aplana donde pasa el cursor. Syne + Work Sans, pistacho y burdeos.', tags: ['hero', 'section', 'waveform', 'interactive'], sources: stds },
-  { code: 'HER-009', id: 'hero-009', name: 'Hero 009 · Nordvik', category: 'hero', group: 'Sections', path: './sections/hero/model-009/index.html', description: 'Hero de ferris: tablero de salidas en vivo con cuenta regresiva y ruta que se dibuja. Archivo + IBM Plex Mono, naranja señal sobre azul hielo.', tags: ['hero', 'section', 'timetable', 'interactive'], sources: stds },
+  { code: 'HER-009', id: 'hero-009', name: 'Hero 009 · Nordvik', category: 'hero', group: 'Sections', path: './sections/hero/model-009/index.html', description: 'Hero de ferris: tablero de salidas en vivo con cuenta regresiva y ruta que se dibuja. Naranja señal sobre azul hielo.', tags: ['hero', 'section', 'timetable', 'interactive'], sources: stds },
   { code: 'HER-010', id: 'hero-010', name: 'Hero 010 · Marea', category: 'hero', group: 'Sections', path: './sections/hero/model-010/index.html', description: 'Hero de cevichería en Lima: pizarra de la pesca del día que se agota en hora de Lima. Cormorant + Manrope, cobalto y arena.', tags: ['hero', 'section', 'restaurant', 'interactive'], sources: stds },
 
   { code: 'HER-011', id: 'hero-011', name: 'Hero 011 · Ramp', category: 'hero', group: 'Sections', path: './sections/hero/model-011/index.html', description: 'Hero de software financiero para empresas modernas.', tags: ['hero', 'section', 'fintech', 'saas'], sources: stds },
@@ -132,6 +140,7 @@ export const components = [
   { code: 'HER-014', id: 'hero-014', name: 'Hero 014 · Ola Norte', category: 'hero', group: 'Sections', path: './sections/hero/model-014/index.html', description: 'Hero de casa de surf en Máncora: acordeón vertical de fotos y titular gigante. Hanken Grotesk, arena y sol.', tags: ['hero', 'section', 'travel', 'surf', 'accordion', 'photography', 'interactive'], sources: stds },
   { code: 'HER-015', id: 'hero-015', name: 'Hero 015 · Estudio Pampa', category: 'hero', group: 'Sections', path: './sections/hero/model-015/index.html', description: 'Hero de arquitectura en Arequipa: la imagen crece con el scroll hasta pantalla completa. Onest y terracota.', tags: ['hero', 'section', 'architecture', 'scroll', 'scroll-expand', 'photography', 'minimal'], sources: stds },
   { code: 'HER-016', id: 'hero-016', name: 'Hero 016 · Barro Lento', category: 'hero', group: 'Sections', path: './sections/hero/model-016/index.html', description: 'Hero de cerámica en Barranco: collage de fotos con profundidad y detalle que se expande. Geist, arcilla y óxido.', tags: ['hero', 'section', 'ceramics', 'collage', 'parallax', 'interactive'], sources: stds },
+  { code: 'HER-017', id: 'hero-017', name: 'Hero 017 · Havenly', category: 'hero', group: 'Sections', path: './sections/hero/model-0017/index.html', description: 'Hero de terapia y bienestar emocional en Lima.', tags: ['hero', 'section', 'wellness', 'therapy'], sources: stds },
 
   // FEATURES (extra)
   { code: 'FEA-005', id: 'features-005', name: 'Features 005 · KANZO', category: 'features', group: 'Sections', path: './sections/features/model-005/index.html', description: 'Features de estudio digital.', tags: ['features', 'section', 'studio', 'kanzo'], sources: stds },
@@ -145,6 +154,11 @@ export const components = [
 
   // WORK
   { code: 'WRK-001', id: 'work-001', name: 'Selected Work 001 · KANZO', category: 'work', group: 'Sections', path: './sections/work/model-001/index.html', description: 'Portafolio de trabajos seleccionados.', tags: ['work', 'portfolio', 'section', 'kanzo'], sources: stds },
+  { code: 'WRK-002', id: 'work-002', name: 'Work 002 · Taller Ladera', category: 'work', group: 'Sections', path: './sections/work/model-002/index.html', description: 'Arquitectura en Medellín: casas, escuelas y bibliotecas en pendiente.', tags: ['work', 'portfolio', 'architecture'], sources: stds },
+  { code: 'WRK-003', id: 'work-003', name: 'Work 003 · Casa Ámbar', category: 'work', group: 'Sections', path: './sections/work/model-003/index.html', description: 'Estudio de dirección y postproducción en CDMX: comerciales, videoclips y documental.', tags: ['work', 'portfolio', 'video'], sources: stds },
+  { code: 'WRK-004', id: 'work-004', name: 'Work 004 · Nudo', category: 'work', group: 'Sections', path: './sections/work/model-004/index.html', description: 'Diseño industrial en Buenos Aires: muebles, luminarias y packaging.', tags: ['work', 'portfolio', 'product-design'], sources: stds },
+  { code: 'WRK-005', id: 'work-005', name: 'Work 005 · Tomás Aravena', category: 'work', group: 'Sections', path: './sections/work/model-005/index.html', description: 'Fotógrafo en Valparaíso: series documentales de la costa, el desierto y la Patagonia.', tags: ['work', 'portfolio', 'photography'], sources: stds },
+  { code: 'WRK-006', id: 'work-006', name: 'Work 006 · Colmena', category: 'work', group: 'Sections', path: './sections/work/model-006/index.html', description: 'Estudio de marca en Bogotá: identidad, empaque y señalética.', tags: ['work', 'portfolio', 'branding'], sources: stds },
 
   // CONTENT WORKSPACE
   { code: 'WSP-001', id: 'workspace-001', name: 'Content Workflow · MIRA', category: 'workspace', group: 'Sections', path: './sections/Content Workspace/model-001/index.html', description: 'Flujo de contenido de MIRA.', tags: ['workspace', 'product', 'section', 'mira'], sources: stds },
@@ -156,6 +170,11 @@ export const components = [
 
   // ANALYTICS
   { code: 'ANL-001', id: 'analytics-001', name: 'Analytics 001 · MIRA', category: 'analytics', group: 'Sections', path: './sections/analitycs/model-001/index.html', description: 'Sección de analítica de producto.', tags: ['analytics', 'dashboard', 'section', 'mira'], sources: stds },
+  { code: 'ANL-002', id: 'analytics-002', name: 'Analytics 002 · Sillar Solar', category: 'analytics', group: 'Sections', path: './sections/analitycs/model-002/index.html', description: 'Cooperativa solar de Cayma: generación en vivo en kWh, soles ahorrados y CO₂ evitado.', tags: ['analytics', 'energy', 'live', 'chart'], sources: stds },
+  { code: 'ANL-003', id: 'analytics-003', name: 'Analytics 003 · Sobremesa', category: 'analytics', group: 'Sections', path: './sections/analitycs/model-003/index.html', description: 'Red de podcasts: retención minuto a minuto frente al promedio.', tags: ['analytics', 'podcast', 'retention', 'chart'], sources: stds },
+  { code: 'ANL-004', id: 'analytics-004', name: 'Analytics 004 · Rayo', category: 'analytics', group: 'Sections', path: './sections/analitycs/model-004/index.html', description: 'Courier en Lima: mapa de calor de minutos de entrega por distrito y hora.', tags: ['analytics', 'logistics', 'heatmap'], sources: stds },
+  { code: 'ANL-005', id: 'analytics-005', name: 'Analytics 005 · Cordillera Norte', category: 'analytics', group: 'Sections', path: './sections/analitycs/model-005/index.html', description: 'Cooperativa cafetalera de Jaén: precio a la finca frente al contrato C.', tags: ['analytics', 'coffee', 'prices', 'chart'], sources: stds },
+  { code: 'ANL-006', id: 'analytics-006', name: 'Analytics 006 · Caudal', category: 'analytics', group: 'Sections', path: './sections/analitycs/model-006/index.html', description: 'Agua por departamento en edificios de Lima: consumo por hora y aviso de fugas.', tags: ['analytics', 'water', 'live', 'alerts'], sources: { html: 'index.html' } },
 
   // ABOUT (extra)
   { code: 'ABT-001', id: 'about-001', name: 'About Us 001 · KANZO', category: 'about', group: 'Sections', path: './sections/aboutUs/model-001/index.html', description: 'Enfoque, principios y equipo del estudio.', tags: ['about', 'section', 'team', 'kanzo'], sources: { html: 'index.html', css: 'about.css', js: 'about.js' } },
@@ -171,14 +190,14 @@ export const components = [
   // CTA
   { code: 'CTA-001', id: 'cta-001', name: "CTA 001 · Let's Grow Together", category: 'cta', group: 'Sections', path: './sections/cta/model-001/index.html', description: 'Llamado a la acción de cierre.', tags: ['cta', 'section'], sources: { html: 'index.html', css: 'styles.css' } },
   { code: 'CTA-002', id: 'cta-002', name: 'CTA 002 · MIRA', category: 'cta', group: 'Sections', path: './sections/cta/model-002/index.html', description: 'Llamado a la acción de MIRA.', tags: ['cta', 'section', 'mira'], sources: { html: 'index.html', css: 'styles.css' } },
-  { code: 'CTA-003', id: 'cta-003', name: 'CTA 003 · KANZO', category: 'cta', group: 'Sections', path: './sections/cta/model-003/index.html', description: 'CTA de estudio: el titular cambia según el tipo de proyecto y arma un mensaje para WhatsApp o correo. Barlow Condensed + Manrope, rojo tomate.', tags: ['cta', 'section', 'form', 'whatsapp'], sources: stds },
+  { code: 'CTA-003', id: 'cta-003', name: 'CTA 003 · KANZO', category: 'cta', group: 'Sections', path: './sections/cta/model-003/index.html', description: 'CTA de estudio: el titular cambia según el proyecto y arma el mensaje para WhatsApp o correo. Rojo tomate.', tags: ['cta', 'section', 'form', 'whatsapp'], sources: stds },
 
   // ABOUT
-  { code: 'ABT-003', id: 'about-003', name: 'About Us 003 · BC Architecture', category: 'about', group: 'Sections', path: './sections/aboutUs/model-003/index.html', description: 'About de arquitectura: la foto se levanta sobre su plano, línea de tiempo en barra de escala y principios como especificación. Libre Baskerville + Figtree, concreto y musgo.', tags: ['about', 'section', 'timeline', 'architecture'], sources: stds },
+  { code: 'ABT-003', id: 'about-003', name: 'About Us 003 · BC Architecture', category: 'about', group: 'Sections', path: './sections/aboutUs/model-003/index.html', description: 'About de arquitectura: foto sobre su plano, línea de tiempo en barra de escala y principios como especificación.', tags: ['about', 'section', 'timeline', 'architecture'], sources: stds },
 
   // CONTACT
   { code: 'CNT-001', id: 'contact-001', name: 'Contact 001 · KANZO', category: 'contact', group: 'Sections', path: './sections/contact/model-001/index.html', description: 'Contacto del estudio.', tags: ['contact', 'section', 'form', 'kanzo'], sources: stds },
-  { code: 'CNT-002', id: 'contact-002', name: 'Contact 002 · POCO', category: 'contact', group: 'Sections', path: './sections/contact/model-002/index.html', description: 'Contacto de interiorismo: dibuja el cuarto a escala y redacta el brief que se envía por correo. Outfit, mostaza, carbón y lino.', tags: ['contact', 'section', 'form', 'interior'], sources: stds },
+  { code: 'CNT-002', id: 'contact-002', name: 'Contact 002 · POCO', category: 'contact', group: 'Sections', path: './sections/contact/model-002/index.html', description: 'Contacto de interiorismo: dibuja el cuarto a escala y redacta el brief que se envía por correo. Mostaza y lino.', tags: ['contact', 'section', 'form', 'interior'], sources: stds },
 
   // FOOTER
   { code: 'FTR-001', id: 'footer-001', name: 'Footer 001 · MIRA', category: 'footer', group: 'Sections', path: './sections/footer/model-001/index.html', description: 'Footer claro.', tags: ['footer', 'section', 'mira'], sources: { html: 'index.html', css: 'styles.css' } },
@@ -202,6 +221,11 @@ export const components = [
   // MOTION - Effects
   { code: 'EFX-001', id: 'effect-scroll-companion-001', name: '3D Scroll Storytelling', category: 'motion-effects', group: 'Motion', path: './motion/effects/scroll/scroll-companion/model-001/index.html', description: 'Experiencia narrativa con canvas 3D persistente al hacer scroll.', tags: ['3d', 'scroll', 'canvas', 'storytelling', 'animation'], sources: std },
   { code: 'EFX-002', id: 'effect-scroll-companion-002', name: 'Scroll Companion 002', category: 'motion-effects', group: 'Motion', path: './motion/effects/scroll/scroll-companion/model-002/index.html', description: 'Experiencia de scroll (variante 002).', tags: ['scroll', 'canvas', 'animation'], sources: std },
+  // TIENDA
+  { code: 'TND-001', id: 'tienda-001', name: 'Tienda 001 · Vincce', category: 'tienda', group: 'Sections', path: './sections/tienda/model-001/index.html', description: 'Tienda de ropa hecha en Perú, Miraflores: temporada, esenciales y sastrería.', tags: ['shop', 'ecommerce', 'fashion'], sources: stds },
+  { code: 'TND-002', id: 'tienda-002', name: 'Tienda 002 · MUEX', category: 'tienda', group: 'Sections', path: './sections/tienda/model-002/index.html', description: 'Tienda de sillas, sillones y sofás en Barranco.', tags: ['shop', 'ecommerce', 'furniture'], sources: stds },
+  { code: 'TND-003', id: 'tienda-003', name: 'Tienda 003 · Trigal', category: 'tienda', group: 'Sections', path: './sections/tienda/model-003/index.html', description: 'B2B de insumos de panificación: catálogo, fichas, recetas y pedidos con cotización.', tags: ['shop', 'b2b', 'catalog', 'bakery'], sources: { html: 'index.html', css: 'styles.css', js: 'app.js' } },
+  { code: 'TND-004', id: 'tienda-004', name: 'Tienda 004 · StandPe', category: 'tienda', group: 'Sections', path: './sections/tienda/model-004/index.html', description: 'Ropa de calle hecha en Lima: casacas, poleras y denim en tiradas cortas.', tags: ['shop', 'ecommerce', 'streetwear'], sources: stds },
 ];
 
 export const categoryGroups = [
@@ -244,6 +268,7 @@ export const categoryGroups = [
       ['cta', 'CTA'],
       ['contact', 'Contact'],
       ['footer', 'Footer'],
+      ['tienda', 'Tienda'],
       ['skeleton', 'Skeleton'],
     ],
   },
