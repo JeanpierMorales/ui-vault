@@ -1,0 +1,370 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #f3ece1;
+  --paper: #fffaf2;
+  --ink: #2b211b;
+  --ink-soft: #6f6157;
+  --line: rgba(74, 52, 36, 0.12);
+  --accent: #b5532e;       /* terracotta */
+  --star: #d98a1f;
+  --star-off: #e3d6c4;
+  --verified: #3f6b4a;
+
+  --espresso: #2a1f19;
+  --espresso-ink: #f6ecdf;
+  --espresso-soft: #c7b7a5;
+
+  --radius: 22px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "DM Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  background:
+    radial-gradient(90% 60% at 50% 0%, #faf4ea 0%, transparent 70%),
+    var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ======================================
+   PAGE
+====================================== */
+
+.page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 36px;
+  padding: 56px 16px;
+}
+
+.intro {
+  text-align: center;
+  max-width: 560px;
+}
+
+.intro__eyebrow {
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.intro__title {
+  margin: 0;
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(26px, 3.4vw, 38px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+.intro__title em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.reviews {
+  width: min(1120px, 100%);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  align-items: start; /* expanding one card doesn't stretch its neighbours */
+  gap: 20px;
+}
+
+/* ======================================
+   REVIEW CARD
+====================================== */
+
+.review {
+  position: relative;
+  margin: 0;
+  display: grid;
+  gap: 18px;
+  padding: 28px 28px 24px;
+  border-radius: var(--radius);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.8) inset,
+    0 18px 40px -28px rgba(74, 44, 20, 0.35);
+  transition:
+    transform 0.5s var(--ease),
+    box-shadow 0.5s var(--ease);
+}
+
+/* Oversized editorial quote mark */
+.review::before {
+  content: "\201C";
+  position: absolute;
+  top: 6px;
+  right: 22px;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 96px;
+  line-height: 1;
+  color: var(--accent);
+  opacity: 0.16;
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  .review:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.8) inset,
+      0 28px 50px -30px rgba(74, 44, 20, 0.45);
+  }
+}
+
+/* Stars */
+.review__stars {
+  display: flex;
+  gap: 3px;
+}
+
+.star {
+  width: 18px;
+  height: 18px;
+  fill: var(--star-off);
+}
+
+.star.is-on {
+  fill: var(--star);
+}
+
+/* Quote */
+.review__quote {
+  margin: 0;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 19px;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+  font-variation-settings: "opsz" 24;
+}
+
+.review__quote p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+/* ======================================
+   READ MORE (grid-template-rows 0fr → 1fr)
+====================================== */
+
+.review__more {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  visibility: hidden; /* hidden from AT + tab order while collapsed */
+  transition:
+    grid-template-rows 0.6s var(--ease),
+    opacity 0.4s var(--ease),
+    visibility 0s linear 0.6s;
+}
+
+.review__more-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.review__more-inner p {
+  padding-top: 12px;
+}
+
+.review.is-open .review__more {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    grid-template-rows 0.6s var(--ease),
+    opacity 0.5s var(--ease) 0.1s,
+    visibility 0s;
+}
+
+.review__toggle {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: -6px 0 0 -8px;
+  padding: 6px 8px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+  transition: text-decoration-color 0.3s var(--ease);
+}
+
+.review__toggle:hover {
+  text-decoration-color: currentColor;
+}
+
+.review__toggle svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.5s var(--ease);
+}
+
+.review__toggle[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+/* ======================================
+   AUTHOR
+====================================== */
+
+.review__author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.review__avatar {
+  flex: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #e6d8c6; /* shows while the photo loads */
+  box-shadow: 0 0 0 3px var(--paper), 0 0 0 4px var(--line);
+}
+
+.review__who {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.review__name {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.review__role {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px 3px 5px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--verified) 10%, transparent);
+  color: var(--verified);
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.badge svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+}
+
+.badge .tick {
+  fill: none;
+  stroke: var(--paper);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ======================================
+   FEATURED (espresso) VARIANT
+====================================== */
+
+.review--featured {
+  --paper: var(--espresso);
+  --line: rgba(246, 236, 223, 0.14);
+  --ink-soft: var(--espresso-soft);
+  --star-off: #54443a;
+  --verified: #a9d4b0;
+
+  color: var(--espresso-ink);
+  border-color: transparent;
+  box-shadow: 0 24px 50px -28px rgba(42, 31, 25, 0.7);
+}
+
+.review--featured::before {
+  color: #e9a27f;
+  opacity: 0.28;
+}
+
+.review--featured .badge .tick {
+  stroke: var(--espresso);
+}
+
+/* ======================================
+   FOCUS + REDUCED MOTION
+====================================== */
+
+.review__toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.review--featured .review__toggle:focus-visible {
+  outline-color: #f0b393;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .review,
+  .review__more,
+  .review.is-open .review__more,
+  .review__toggle svg {
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+  }
+
+  .review:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .review {
+    padding: 24px 20px 20px;
+  }
+
+  .review__quote {
+    font-size: 18px;
+  }
+}

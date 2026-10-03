@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KPI Stat Cards</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap"
+  />
+  <link rel="stylesheet" href="../_shared/tokens.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Shared gradient for the sparkline area fill -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="spark-fill" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-opacity=".10" />
+        <stop offset="1" stop-opacity="0" />
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <main class="dash">
+
+    <header class="dash__head">
+      <div>
+        <h1 class="dash__title">Overview</h1>
+        <p class="dash__sub">Northstar Analytics · all channels</p>
+      </div>
+
+      <!-- Period selector: one active button, sliding pill behind it -->
+      <div class="period" role="group" aria-label="Reporting period">
+        <span class="period__pill" aria-hidden="true"></span>
+        <button class="period__btn" type="button" data-period="7d" aria-pressed="false">7d</button>
+        <button class="period__btn" type="button" data-period="30d" aria-pressed="true">30d</button>
+        <button class="period__btn" type="button" data-period="90d" aria-pressed="false">90d</button>
+      </div>
+    </header>
+
+    <!-- Announces period changes to screen readers -->
+    <p class="sr-only" aria-live="polite" id="period-status"></p>
+
+    <section class="kpis" aria-label="Key metrics">
+
+      <article class="kpi" data-metric="revenue">
+        <div class="kpi__head">
+          <h2 class="kpi__label">Revenue</h2>
+          <p class="kpi__def">USD · net of refunds</p>
+        </div>
+        <p class="kpi__value" data-value>$0</p>
+        <p class="kpi__meta">
+          <span class="chip" data-chip></span>
+          <span class="kpi__compare" data-compare></span>
+        </p>
+        <svg class="spark" viewBox="0 0 200 56" aria-hidden="true">
+          <path class="spark__area" />
+          <path class="spark__line" pathLength="1" />
+          <circle class="spark__dot" r="3.5" />
+        </svg>
+      </article>
+
+      <article class="kpi" data-metric="users">
+        <div class="kpi__head">
+          <h2 class="kpi__label">Active users</h2>
+          <p class="kpi__def">unique</p>
+        </div>
+        <p class="kpi__value" data-value>0</p>
+        <p class="kpi__meta">
+          <span class="chip" data-chip></span>
+          <span class="kpi__compare" data-compare></span>
+        </p>
+        <svg class="spark" viewBox="0 0 200 56" aria-hidden="true">
+          <path class="spark__area" />
+          <path class="spark__line" pathLength="1" />
+          <circle class="spark__dot" r="3.5" />
+        </svg>
+      </article>
+
+      <article class="kpi" data-metric="conversion">
+        <div class="kpi__head">
+          <h2 class="kpi__label">Conversion</h2>
+          <p class="kpi__def">visit → order</p>
+        </div>
+        <p class="kpi__value" data-value>0%</p>
+        <p class="kpi__meta">
+          <span class="chip" data-chip></span>
+          <span class="kpi__compare" data-compare></span>
+        </p>
+        <svg class="spark" viewBox="0 0 200 56" aria-hidden="true">
+          <path class="spark__area" />
+          <path class="spark__line" pathLength="1" />
+          <circle class="spark__dot" r="3.5" />
+        </svg>
+      </article>
+
+      <article class="kpi" data-metric="churn">
+        <div class="kpi__head">
+          <h2 class="kpi__label">Churn</h2>
+          <p class="kpi__def">lower is better</p>
+        </div>
+        <p class="kpi__value" data-value>0%</p>
+        <p class="kpi__meta">
+          <span class="chip" data-chip></span>
+          <span class="kpi__compare" data-compare></span>
+        </p>
+        <svg class="spark" viewBox="0 0 200 56" aria-hidden="true">
+          <path class="spark__area" />
+          <path class="spark__line" pathLength="1" />
+          <circle class="spark__dot" r="3.5" />
+        </svg>
+      </article>
+
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

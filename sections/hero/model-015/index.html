@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estudio Pampa — Arquitectura en sillar, Arequipa</title>
+<meta name="description" content="Estudio Pampa diseña y construye casas de sillar en Arequipa, Perú.">
+<script>
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    document.documentElement.classList.add('is-scrub');
+  }
+</script>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#proyecto">Saltar al proyecto</a>
+
+<main class="page">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="stage" data-stage>
+
+      <header class="nav" data-nav>
+        <a class="brand" href="#" aria-label="Estudio Pampa, inicio">
+          <span class="brand__dot" aria-hidden="true"></span>Estudio Pampa
+        </a>
+        <nav class="nav__links" aria-label="Principal">
+          <a href="#proyecto">Proyectos</a>
+          <a href="#">Estudio</a>
+          <a href="#">El sillar</a>
+        </nav>
+        <a class="nav__cta" href="mailto:hola@estudiopampa.pe">Agenda una visita <span aria-hidden="true">→</span></a>
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu-movil" data-toggle>
+          <span class="nav__toggle-label">Menú</span>
+        </button>
+        <div class="nav__menu" id="menu-movil" hidden data-menu>
+          <a href="#proyecto">Proyectos</a>
+          <a href="#">Estudio</a>
+          <a href="#">El sillar</a>
+          <a href="mailto:hola@estudiopampa.pe">Agenda una visita →</a>
+        </div>
+      </header>
+
+      <h1 class="title" id="hero-title">
+        <span class="title__half title__half--l" data-half="l">Arquitectura</span>
+        <span class="title__half title__half--r" data-half="r">que respira</span>
+      </h1>
+
+      <p class="intro" data-intro>Casas de sillar en Arequipa. Muros de piedra volcánica blanca, patios y sombra.</p>
+
+      <div class="card-ghost" aria-hidden="true" data-ghost></div>
+
+      <figure class="media" id="proyecto" data-media>
+        <div class="media__frame" data-frame>
+          <img class="media__img media__img--a" data-img-a
+               src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=2200&q=80"
+               alt="Casa Sillar: volúmenes blancos de piedra con ventanas pequeñas, un pino y el camino de ingreso al atardecer"
+               width="2200" height="1467" fetchpriority="high">
+          <img class="media__img media__img--b" data-img-b
+               src="https://images.unsplash.com/photo-1708184292458-ca9d13e7d96f?auto=format&fit=crop&w=2200&q=80"
+               alt="Detalle del muro de sillar labrado con estrías verticales contra el cielo de Yanahuara"
+               width="2200" height="1467" loading="lazy">
+          <div class="media__scrim" aria-hidden="true"></div>
+        </div>
+
+        <figcaption class="caption" data-caption>
+          <p class="caption__meta">Yanahuara, Arequipa <span aria-hidden="true">·</span> 2025</p>
+          <h2 class="caption__name">Casa Sillar</h2>
+          <p class="caption__line">Muros de sillar de 40&nbsp;cm que guardan el sol de la tarde y lo devuelven de noche.</p>
+          <div class="caption__views" aria-hidden="true">
+            <span class="caption__view caption__view--a" data-view-a>01 — Patio de ingreso</span>
+            <span class="caption__view caption__view--b" data-view-b>02 — Muro labrado a mano</span>
+          </div>
+        </figcaption>
+
+        <div class="progress" aria-hidden="true"><span class="progress__fill" data-progress></span></div>
+      </figure>
+
+      <p class="hint" aria-hidden="true" data-hint><span class="hint__line"></span>Desliza</p>
+    </div>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

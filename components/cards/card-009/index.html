@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glass Credit Card</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <main class="stage">
+
+    <!-- Colourful shapes the glass blurs over -->
+    <div class="stage__orbs" aria-hidden="true">
+      <span class="orb orb--a"></span>
+      <span class="orb orb--b"></span>
+      <span class="orb orb--c"></span>
+    </div>
+
+    <section class="wallet" aria-labelledby="card-title">
+
+      <h1 id="card-title" class="sr-only">Lumen Platinum card</h1>
+
+      <!-- Card details for screen readers (the visual card is decorative inside the button) -->
+      <p id="card-desc" class="sr-only">
+        Card ending in 4821, cardholder Mara Castellanos, expires 08/29.
+      </p>
+
+      <div class="tilt">
+        <button
+          class="card"
+          type="button"
+          aria-pressed="false"
+          aria-label="Flip card to show the back"
+          aria-describedby="card-desc"
+        >
+          <span class="card__inner">
+
+            <!-- FRONT -->
+            <span class="card__face card__face--front" aria-hidden="true">
+              <span class="card__row">
+                <span class="card__bank">
+                  <svg class="card__bank-mark" viewBox="0 0 24 24">
+                    <path d="M12 2 21 7v10l-9 5-9-5V7l9-5Z" />
+                    <path d="m12 7 4.5 2.5v5L12 17l-4.5-2.5v-5L12 7Z" />
+                  </svg>
+                  Lumen
+                </span>
+                <span class="card__tier">Platinum</span>
+              </span>
+
+              <span class="card__row card__row--mid">
+                <!-- EMV chip -->
+                <svg class="card__chip" viewBox="0 0 46 34">
+                  <defs>
+                    <linearGradient id="chip-gold" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0" stop-color="#f7e3a3" />
+                      <stop offset=".5" stop-color="#d4a94f" />
+                      <stop offset="1" stop-color="#f3d58a" />
+                    </linearGradient>
+                  </defs>
+                  <rect x=".5" y=".5" width="45" height="33" rx="6" fill="url(#chip-gold)" />
+                  <path d="M15 .5v11M31 .5v11M15 22.5v11M31 22.5v11M.5 11.5h14.5M31 11.5h14.5M.5 22.5h14.5M31 22.5h14.5M15 11.5h16v11H15z"
+                        fill="none" stroke="#9c7a33" stroke-width="1" opacity=".7" />
+                </svg>
+
+                <!-- Contactless -->
+                <svg class="card__nfc" viewBox="0 0 24 24">
+                  <path d="M8.5 9.5a3.5 3.5 0 0 1 0 5" />
+                  <path d="M11.5 7a7 7 0 0 1 0 10" />
+                  <path d="M14.5 4.5a10.5 10.5 0 0 1 0 15" />
+                </svg>
+              </span>
+
+              <span class="card__number">
+                <span>••••</span><span>••••</span><span>••••</span><span>4821</span>
+              </span>
+
+              <span class="card__row card__row--bottom">
+                <span class="card__field">
+                  <span class="card__label">Card holder</span>
+                  <span class="card__value">Mara Castellanos</span>
+                </span>
+                <span class="card__field">
+                  <span class="card__label">Expires</span>
+                  <span class="card__value">08/29</span>
+                </span>
+                <!-- Fictional network mark -->
+                <span class="card__brand">
+                  <span class="card__brand-dot card__brand-dot--a"></span>
+                  <span class="card__brand-dot card__brand-dot--b"></span>
+                </span>
+              </span>
+
+              <span class="card__glare"></span>
+            </span>
+
+            <!-- BACK -->
+            <span class="card__face card__face--back" aria-hidden="true">
+              <span class="card__stripe"></span>
+
+              <span class="card__sign">
+                <span class="card__sign-strip">Mara Castellanos</span>
+                <span class="card__cvv">
+                  <span class="card__label">CVV</span>
+                  <span class="card__cvv-code">382</span>
+                </span>
+              </span>
+
+              <span class="card__back-foot">
+                <span class="card__fine">
+                  This card is property of Lumen Bank. If found, please return to any branch
+                  or call <span class="nowrap">+1 (800) 555-0142</span>.
+                </span>
+                <span class="card__holo"></span>
+              </span>
+
+              <span class="card__glare"></span>
+            </span>
+
+          </span>
+        </button>
+      </div>
+
+      <p class="hint">
+        <span class="hint__pointer">Move to tilt · click or press Enter to flip</span>
+        <span class="hint__touch">Tap the card to flip it</span>
+      </p>
+
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

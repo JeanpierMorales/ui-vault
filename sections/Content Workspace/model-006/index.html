@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>MIRA — Done For You</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <!-- ============================================
+       DEMO BEFORE
+  ============================================= -->
+
+    <section class="demo demo--light">Previous section</section>
+
+    <!-- ============================================
+       DONE FOR YOU
+  ============================================= -->
+
+    <section class="dfy-flow" id="dfyFlow">
+      <div class="dfy-flow__sticky">
+        <div class="dfy-flow__shell">
+          <!-- ======================================
+             HEADER
+        ======================================= -->
+
+          <header class="dfy-flow__header">
+            <span class="dfy-flow__label"> DONE FOR YOU </span>
+
+            <div>
+              <h2>
+                Your campaign moves.
+                <span>You stay focused on the book.</span>
+              </h2>
+            </div>
+
+            <p>Approve the direction. Let the execution keep moving.</p>
+          </header>
+
+          <!-- ======================================
+             STORY
+        ======================================= -->
+
+          <div class="dfy-flow__stage">
+            <!-- ====================================
+               CONTEXT TEXT
+          ===================================== -->
+
+            <div class="story-copy" id="storyCopy">
+              <div class="story-copy__state is-active" data-copy="0">
+                <span> YOUR BOOK </span>
+
+                <h3>It starts with the story.</h3>
+              </div>
+
+              <div class="story-copy__state" data-copy="1">
+                <span> CREATE </span>
+
+                <h3>Story moments become content.</h3>
+              </div>
+
+              <div class="story-copy__state" data-copy="2">
+                <span> SCHEDULE </span>
+
+                <h3>Content finds its rhythm.</h3>
+              </div>
+
+              <div class="story-copy__state" data-copy="3">
+                <span> PUBLISH </span>
+
+                <h3>The campaign goes live.</h3>
+              </div>
+
+              <div class="story-copy__state" data-copy="4">
+                <span> REVIEW </span>
+
+                <h3>What works shapes what follows.</h3>
+              </div>
+            </div>
+
+            <!-- ====================================
+               MAIN VISUAL AREA
+          ===================================== -->
+
+            <div class="visual-stage">
+              <!-- ==================================
+                 BOOK
+            =================================== -->
+
+              <div class="book-source" id="bookSource">
+                <figure class="book-source__image">
+                  <img
+                    src="https://images.pexels.com/photos/327882/pexels-photo-327882.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                    alt="Book on an editorial desk"
+                  />
+                </figure>
+
+                <div class="book-source__meta">
+                  <span> A VOW IN WINTER </span>
+
+                  <strong> Story source </strong>
+                </div>
+              </div>
+
+              <!-- ==================================
+                 CONTENT CREATION
+            =================================== -->
+
+              <div class="content-output" id="contentOutput">
+                <!-- visual -->
+
+                <article class="content-output__item output-image">
+                  <img
+                    src="https://images.pexels.com/photos/572897/pexels-photo-572897.jpeg?auto=compress&cs=tinysrgb&w=900"
+                    alt="Winter landscape"
+                  />
+
+                  <span> VISUAL </span>
+                </article>
+
+                <!-- quote -->
+
+                <article class="content-output__item output-quote">
+                  <span> HOOK </span>
+
+                  <blockquote>“She came back for one winter.”</blockquote>
+                </article>
+
+                <!-- caption -->
+
+                <article class="content-output__item output-caption">
+                  <span> CAPTION </span>
+
+                  <p>Some places remember you before you're ready to return.</p>
+                </article>
+              </div>
+
+              <!-- ==================================
+                 SCHEDULE
+            =================================== -->
+
+              <div class="schedule-field" id="scheduleField">
+                <div class="schedule-slot">
+                  <span class="schedule-slot__day"> MON </span>
+
+                  <div class="schedule-slot__target">
+                    <div class="schedule-mini schedule-mini--image">
+                      <img
+                        src="https://images.pexels.com/photos/572897/pexels-photo-572897.jpeg?auto=compress&cs=tinysrgb&w=400"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="schedule-slot">
+                  <span class="schedule-slot__day"> WED </span>
+
+                  <div class="schedule-slot__target">
+                    <div class="schedule-mini schedule-mini--quote">Aa</div>
+                  </div>
+                </div>
+
+                <div class="schedule-slot">
+                  <span class="schedule-slot__day"> FRI </span>
+
+                  <div class="schedule-slot__target">
+                    <div class="schedule-mini schedule-mini--caption">#</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ==================================
+                 PUBLISH THRESHOLD
+            =================================== -->
+
+              <div class="publish-field" id="publishField">
+                <div class="publish-labels">
+                  <span> PREPARED </span>
+
+                  <span> LIVE </span>
+                </div>
+
+                <div class="publish-threshold"></div>
+
+                <div class="publish-stream">
+                  <div class="stream-row stream-row--1">
+                    <span class="stream-name"> VISUAL </span>
+
+                    <div class="stream-line">
+                      <div class="stream-item"></div>
+                    </div>
+                  </div>
+
+                  <div class="stream-row stream-row--2">
+                    <span class="stream-name"> HOOK </span>
+
+                    <div class="stream-line">
+                      <div class="stream-item"></div>
+                    </div>
+                  </div>
+
+                  <div class="stream-row stream-row--3">
+                    <span class="stream-name"> CAPTION </span>
+
+                    <div class="stream-line">
+                      <div class="stream-item"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ==================================
+                 REVIEW
+            =================================== -->
+
+              <div class="review-field" id="reviewField">
+                <div class="review-field__header">
+                  <span> CAMPAIGN SIGNAL </span>
+
+                  <strong> What is gaining momentum? </strong>
+                </div>
+
+                <div class="review-metric">
+                  <span> Views </span>
+
+                  <div>
+                    <i data-width="87"></i>
+                  </div>
+                </div>
+
+                <div class="review-metric">
+                  <span> Saves </span>
+
+                  <div>
+                    <i data-width="53"></i>
+                  </div>
+                </div>
+
+                <div class="review-metric">
+                  <span> Engagement </span>
+
+                  <div>
+                    <i data-width="71"></i>
+                  </div>
+                </div>
+
+                <div class="review-result">
+                  <span> NEXT MOVE </span>
+
+                  <strong> More emotional scene hooks. </strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- ====================================
+               BOTTOM FLOW LANGUAGE
+          ===================================== -->
+
+            <div class="flow-language">
+              <span data-flow-label="0"> BOOK </span>
+
+              <span data-flow-label="1"> CREATE </span>
+
+              <span data-flow-label="2"> SCHEDULE </span>
+
+              <span data-flow-label="3"> PUBLISH </span>
+
+              <span data-flow-label="4"> REVIEW </span>
+            </div>
+
+            <!-- ====================================
+               FINAL
+          ===================================== -->
+
+            <div class="dfy-flow__final" id="dfyFinal">
+              <span> DONE FOR YOU </span>
+
+              <h3>
+                The work moves forward.
+                <em>You keep writing.</em>
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+       DEMO AFTER
+  ============================================= -->
+
+    <section class="demo demo--dark">Next section</section>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+    <script src="script.js"></script>
+  </body>
+</html>

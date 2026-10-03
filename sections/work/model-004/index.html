@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Nudo, estudio de diseño industrial en Barracas, Buenos Aires: muebles, luminarias, utensilios y packaging producidos con talleres locales.">
+  <title>Nudo · Proyectos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <section class="work" aria-labelledby="work-title">
+    <header class="work-head">
+      <h2 id="work-title">Objetos para usar todos los&nbsp;días</h2>
+      <p>Nudo es un estudio de diseño industrial en Barracas, Buenos Aires. Diseñamos muebles, luminarias y utensilios, y seguimos la producción en talleres de la ciudad.</p>
+    </header>
+
+    <div class="filters" role="group" aria-label="Filtrar proyectos por disciplina" data-filters>
+      <button type="button" class="chip" aria-pressed="true" data-filter="todo">Todo <span>8</span></button>
+      <button type="button" class="chip" aria-pressed="false" data-filter="mobiliario">Mobiliario <span>3</span></button>
+      <button type="button" class="chip" aria-pressed="false" data-filter="iluminacion">Iluminación <span>2</span></button>
+      <button type="button" class="chip" aria-pressed="false" data-filter="mesa">Mesa y cocina <span>2</span></button>
+      <button type="button" class="chip" aria-pressed="false" data-filter="packaging">Packaging <span>1</span></button>
+    </div>
+    <p class="status visually-hidden" aria-live="polite" data-status></p>
+
+    <ul class="grid" data-grid>
+      <li class="item" data-cat="iluminacion">
+        <a class="card" href="#lampara-brasa">
+          <figure class="shot"><img src="img/c1.webp" width="900" height="1200" alt="Lámpara de mesa con base de cerámica calada y pantalla de tela, encendida en un cuarto oscuro." loading="lazy" decoding="async"></figure>
+          <div class="meta"><h3>Lámpara Brasa</h3><p>Iluminación, 2025</p></div>
+          <p class="detail">Gres esmaltado torneado en Lanús, pantalla de lino.</p>
+        </a>
+      </li>
+      <li class="item item--wide" data-cat="mobiliario">
+        <a class="card" href="#silla-tacuari">
+          <figure class="shot"><img src="img/c2.webp" width="900" height="600" alt="Dos sillas de madera maciza con respaldo curvo, una delante de la otra, frente a un muro verde." loading="lazy" decoding="async"></figure>
+          <div class="meta"><h3>Silla Tacuarí</h3><p>Mobiliario, 2025</p></div>
+          <p class="detail">Roble con ensambles a caja y espiga, sin tornillos. Apilable de a cuatro.</p>
+        </a>
+      </li>
+      <li class="item" data-cat="iluminacion">
+        <a class="card" href="#lampara-yema">
+          <figure class="shot"><img src="img/c3.webp" width="900" height="1350" alt="Lámpara de escritorio amarilla con pantalla semiesférica junto a una planta." loading="lazy" decoding="async" style="--pos: 70% 50%"></figure>
+          <div class="meta"><h3>Lámpara Yema</h3><p>Iluminación, 2024</p></div>
+          <p class="detail">Chapa repujada y pintada al horno. Brazo de 36 cm que gira sin herramientas.</p>
+        </a>
+      </li>
+      <li class="item" data-cat="mobiliario">
+        <a class="card" href="#butaca-palermo">
+          <figure class="shot"><img src="img/c7.webp" width="900" height="1350" alt="Butaca de madera con respaldo de esterilla y almohadón de lino, junto a una ventana con cortina." loading="lazy" decoding="async"></figure>
+          <div class="meta"><h3>Butaca Palermo</h3><p>Mobiliario, 2024</p></div>
+          <p class="detail">Paraíso macizo y esterilla tejida a mano por una cooperativa de Tigre.</p>
+        </a>
+      </li>
+      <li class="item" data-cat="mesa">
+        <a class="card" href="#vasijas-delta">
+          <figure class="shot"><img src="img/c5.webp" width="900" height="1350" alt="Dos vasijas de cerámica blanca con textura de puntos sobre un fondo rosado." loading="lazy" decoding="async" style="--pos: 50% 75%"></figure>
+          <div class="meta"><h3>Vasijas Delta</h3><p>Mesa y cocina, 2023</p></div>
+          <p class="detail">Serie de seis piezas en gres, con relieve sacado de un molde de junco.</p>
+        </a>
+      </li>
+      <li class="item item--wide" data-cat="mesa">
+        <a class="card" href="#molinillo-parana">
+          <figure class="shot"><img src="img/c6.webp" width="900" height="1200" alt="Molinillo manual de café con granos tostados en la tolva, visto desde arriba." loading="lazy" decoding="async"></figure>
+          <div class="meta"><h3>Molinillo Paraná</h3><p>Mesa y cocina, 2023</p></div>
+          <p class="detail">Rediseño de un molino de 1950 para Tostadores del Sur: 14 piezas en vez de 31.</p>
+        </a>
+      </li>
+      <li class="item item--wide" data-cat="packaging">
+        <a class="card" href="#frascos-niebla">
+          <figure class="shot"><img src="img/c8.webp" width="900" height="756" alt="Seis frascos de vidrio transparente de distintas alturas alineados sobre fondo gris." loading="lazy" decoding="async"></figure>
+          <div class="meta"><h3>Frascos Niebla</h3><p>Packaging, 2022</p></div>
+          <p class="detail">Familia de envases para una perfumería de San Telmo, soplados en Berazategui.</p>
+        </a>
+      </li>
+      <li class="item item--wide" data-cat="mobiliario">
+        <a class="card" href="#banqueta-dock">
+          <figure class="shot"><img src="img/c9.webp" width="900" height="600" alt="Fila de banquetas altas de madera frente a la barra de un café con luz de tarde." loading="lazy" decoding="async"></figure>
+          <div class="meta"><h3>Banqueta Dock</h3><p>Mobiliario, 2022</p></div>
+          <p class="detail">Para los bares del Dock Sud: 120 unidades en eucalipto, patas unidas por un aro de hierro.</p>
+        </a>
+      </li>
+    </ul>
+
+    <footer class="work-foot">
+      <p>Estos son ocho de los 42 productos que tenemos en producción.</p>
+      <a class="cta" href="mailto:estudio@nudo.com.ar"><span>Presupuestar un producto</span><i aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></i></a>
+    </footer>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

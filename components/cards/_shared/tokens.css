@@ -1,0 +1,41 @@
+/* =========================================================
+   UI VAULT — shared card tokens
+   Link before a card's own stylesheet:
+     <link rel="stylesheet" href="../_shared/tokens.css">
+
+   The rule:
+   - Focus: every card uses the same ring (2px ink, 2px gap).
+     Use `outline: var(--vault-focus-outline)` +
+     `outline-offset: var(--vault-focus-offset)` by default; use
+     `box-shadow: var(--vault-focus)` only where an outline would be
+     clipped. To theme it, override --vault-focus-color /
+     --vault-focus-gap on :root in the card's stylesheet (they are
+     resolved on :root, so overriding them deeper has no effect).
+   - Radii come from the scale below; circles/pills may use 50%/999px.
+   - UI state changes (hover, press, toggle, swap, reveal) use ONLY
+     --d-fast / --d-base / --d-slow with --ease-out.
+     Longer bespoke motions (a card flip, a spinning vinyl, a looping
+     equaliser, a first-load count-up) may keep their own timing,
+     but they are the exception and should say so in a comment.
+========================================================= */
+
+:root {
+  /* Focus ring */
+  --vault-focus-color: #111;
+  --vault-focus-gap: #fff;
+  --vault-focus-offset: 2px;
+  --vault-focus-outline: 2px solid var(--vault-focus-color);
+  --vault-focus: 0 0 0 2px var(--vault-focus-gap), 0 0 0 4px var(--vault-focus-color);
+
+  /* Radius scale */
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 16px;
+  --r-xl: 24px;
+
+  /* Motion */
+  --d-fast: 150ms;
+  --d-base: 250ms;
+  --d-slow: 400ms;
+  --ease-out: cubic-bezier(.22, 1, .36, 1);
+}

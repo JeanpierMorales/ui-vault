@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bento Grid Cards</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <main class="page">
+    <section class="bento" aria-label="Atelier Nord studio overview">
+
+      <!-- FEATURE: large image tile -->
+      <article class="tile tile--feature" style="--i: 0">
+        <figure class="feature__media">
+          <img
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
+            alt="Modern two-storey house with timber cladding and floor-to-ceiling glass, lit from inside at dusk"
+            width="1200" height="800" loading="eager" decoding="async"
+          />
+        </figure>
+        <div class="feature__body">
+          <p class="eyebrow eyebrow--light">Featured project · 2026</p>
+          <h2 class="feature__title">Glasshouse Residence</h2>
+          <p class="feature__meta">Private home, Oslo fjord · 420 m²</p>
+        </div>
+        <span class="feature__tag">Passive house</span>
+      </article>
+
+      <!-- STAT: counting number -->
+      <article class="tile tile--stat" style="--i: 1">
+        <p class="eyebrow">Projects delivered</p>
+        <p class="stat__value"><span data-count="128">128</span></p>
+        <p class="stat__delta">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 11 8 6l5 5" /></svg>
+          18 this year
+        </p>
+      </article>
+
+      <!-- CHART: inline SVG bar chart -->
+      <article class="tile tile--chart" style="--i: 2">
+        <header class="chart__head">
+          <p class="eyebrow">Avg. energy use</p>
+          <p class="chart__value">−42<span>%</span></p>
+          <p class="chart__note">vs. regional building code</p>
+        </header>
+        <!-- Bars are real <rect>s; CSS grows them from the baseline.
+             preserveAspectRatio="none" lets the plot fill any tile size. -->
+        <svg class="chart" viewBox="0 0 140 120" preserveAspectRatio="none" role="img"
+             aria-label="Energy use per square metre over seven project generations, falling from 100 to 58">
+          <line class="chart__base" x1="0" y1="119.5" x2="140" y2="119.5" vector-effect="non-scaling-stroke" />
+          <rect class="bar" x="2"   y="19" width="14" height="100" rx="3" style="--b: 0" />
+          <rect class="bar" x="22"  y="28" width="14" height="91"  rx="3" style="--b: 1" />
+          <rect class="bar" x="42"  y="37" width="14" height="82"  rx="3" style="--b: 2" />
+          <rect class="bar" x="62"  y="45" width="14" height="74"  rx="3" style="--b: 3" />
+          <rect class="bar" x="82"  y="50" width="14" height="69"  rx="3" style="--b: 4" />
+          <rect class="bar" x="102" y="56" width="14" height="63"  rx="3" style="--b: 5" />
+          <rect class="bar bar--now" x="122" y="61" width="14" height="58" rx="3" style="--b: 6" />
+        </svg>
+        <p class="chart__axis" aria-hidden="true"><span>2019</span><span><b>58</b> kWh/m² · 2026</span></p>
+      </article>
+
+      <!-- AVATAR STACK -->
+      <article class="tile tile--team" style="--i: 3">
+        <p class="eyebrow">The studio</p>
+        <ul class="avatars" aria-label="Team members">
+          <li><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=160&h=160&q=80" alt="Ingrid Solberg" width="80" height="80" loading="lazy" /></li>
+          <li><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=160&h=160&q=80" alt="Marcus Reyes" width="80" height="80" loading="lazy" /></li>
+          <li><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&h=160&q=80" alt="Lena Park" width="80" height="80" loading="lazy" /></li>
+          <li><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&h=160&q=80" alt="Tomas Berg" width="80" height="80" loading="lazy" /></li>
+          <li class="avatars__more" aria-label="and 20 more">+20</li>
+        </ul>
+        <p class="team__text"><strong>24 architects</strong> &amp; engineers across Oslo and Copenhagen</p>
+      </article>
+
+      <!-- QUOTE -->
+      <article class="tile tile--quote" style="--i: 4">
+        <svg class="quote__mark" viewBox="0 0 32 24" aria-hidden="true"><path d="M0 24V13.6C0 5.9 4.3 1.3 12 0l1.3 3.4C8.8 4.7 6.9 7.4 6.7 11H13v13H0Zm18.7 0V13.6C18.7 5.9 23 1.3 30.7 0L32 3.4c-4.5 1.3-6.4 4-6.6 7.6h6.3v13H18.7Z" /></svg>
+        <blockquote class="quote__text">
+          <p>They treated the site like a collaborator. The house feels like it has always been part of the shoreline.</p>
+        </blockquote>
+        <p class="quote__by"><strong>Hanne Lie</strong> — Client, Glasshouse Residence</p>
+      </article>
+
+      <!-- CTA -->
+      <article class="tile tile--cta" style="--i: 5">
+        <p class="eyebrow eyebrow--light">Now booking Q1 2027</p>
+        <h2 class="cta__title">Start a project with us</h2>
+        <a class="cta__btn" href="#">
+          Book a call
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5" /></svg>
+        </a>
+      </article>
+
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

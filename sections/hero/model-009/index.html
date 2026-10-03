@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Nordvik runs year-round car and passenger ferries across the western Norwegian fjords.">
+  <title>Nordvik — Fjord ferries</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="hero">
+
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Nordvik, home">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="3" fill="currentColor"/>
+          <path d="M6 19.5c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2" fill="none" stroke="#FF5B1F" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M9 14.5h14l-2.2-4.5h-9.6z" fill="#E6F0F4"/>
+        </svg>
+        <span>Nordvik</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16M4 16h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span class="visually-hidden">Menu</span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="#routes">Routes</a></li>
+          <li><a href="#timetable">Timetable</a></li>
+          <li><a href="#cabins">Cabins</a></li>
+          <li><a href="#travel-info">Travel info</a></li>
+        </ul>
+        <a class="manage" href="#manage">Manage booking</a>
+      </nav>
+    </header>
+
+    <main class="stage">
+
+      <section class="copy" aria-labelledby="hero-title">
+        <h1 id="hero-title">The fjord<br>is the road.</h1>
+
+        <div class="copy-foot">
+          <p class="lede">
+            Nordvik ferries carry cars, bikes and foot passengers across Norway’s
+            western fjords, all year. Buy a deck ticket at the quay, or book a
+            car lane and a window cabin before you leave home.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#book">
+              Find a sailing
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4.5-4.5L15 10l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn btn-quiet" href="#routes">Routes and fares</a>
+          </div>
+
+          <p class="season">
+            <span>Winter timetable</span>
+            <span>1 Oct 2026 – 30 Apr 2027</span>
+          </p>
+        </div>
+      </section>
+
+      <div class="visual">
+        <figure class="frame">
+          <img
+            src="https://images.unsplash.com/photo-1601439678777-b2b3c56fa627?auto=format&fit=crop&w=2000&q=85"
+            alt="A small ferry cuts a long white wake down the Geirangerfjord, between steep wooded cliffs and the Seven Sisters waterfall."
+            width="2000" height="1500">
+          <figcaption>Geirangerfjord, Møre og Romsdal</figcaption>
+        </figure>
+
+        <section class="board" id="timetable" aria-labelledby="board-title">
+          <div class="board-head">
+            <h2 id="board-title">Next sailings</h2>
+            <p class="board-clock"><span class="visually-hidden">Local time </span><time id="clock">09:26</time></p>
+          </div>
+
+          <div class="selected" aria-live="polite">
+            <div class="countdown-row">
+              <p class="countdown-label">Departs in</p>
+              <p class="countdown" role="timer" aria-live="off"><span id="countdown">00:14:00</span></p>
+            </div>
+
+            <div class="route" aria-hidden="true">
+              <svg viewBox="0 0 320 36" preserveAspectRatio="none">
+                <path class="route-base" d="M0 18 C 90 2, 230 34, 320 18" pathLength="1"/>
+                <path class="route-line" id="route-line" d="M0 18 C 90 2, 230 34, 320 18" pathLength="1"/>
+              </svg>
+              <span class="port port-a"></span>
+              <span class="port port-b"></span>
+            </div>
+
+            <div class="ports">
+              <span id="sel-from">Geiranger</span>
+              <span id="sel-duration" class="duration">1 h 05 min</span>
+              <span id="sel-to">Hellesylt</span>
+            </div>
+            <p class="vessel"><span id="sel-vessel">MF Brattli</span> · <span id="sel-fjord">Geirangerfjord</span></p>
+          </div>
+
+          <ul class="sailings" id="sailings">
+            <li><button type="button" aria-pressed="true" data-i="0"><time>09:40</time><span class="leg">Geiranger – Hellesylt</span><span class="status is-boarding">Boarding</span></button></li>
+            <li><button type="button" aria-pressed="false" data-i="1"><time>10:05</time><span class="leg">Lavik – Oppedal</span><span class="status">On time</span></button></li>
+            <li><button type="button" aria-pressed="false" data-i="2"><time>10:40</time><span class="leg">Flåm – Gudvangen</span><span class="status">Car deck full</span></button></li>
+            <li><button type="button" aria-pressed="false" data-i="3"><time>11:30</time><span class="leg">Bergen – Balestrand</span><span class="status">Cabins open</span></button></li>
+          </ul>
+        </section>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

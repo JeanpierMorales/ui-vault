@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>MUEX — Sillas, sillones y sofás · Barranco</title>
+    <meta
+      name="description"
+      content="MUEX: sillas, sillones y sofás hechos en Lima. Showroom en Av. San Martín 214, Barranco. Envío gratis en Lima desde S/ 1,500."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js" defer></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip" href="#app">Saltar al contenido</a>
+
+    <main class="page">
+      <div class="store">
+        <p class="announce">
+          <span>Envío gratis en Lima desde S/ 1,500</span>
+          <span class="announce-hide">Showroom en Barranco, martes a domingo</span>
+          <span class="announce-hide">5 años de garantía en estructuras</span>
+        </p>
+
+        <header class="header">
+          <button type="button" class="icon-round menu-btn" id="menuBtn" aria-label="Abrir menú">
+            <i data-lucide="menu"></i>
+          </button>
+
+          <a href="#/" class="logo" aria-label="MUEX, inicio">muex</a>
+
+          <nav class="nav" aria-label="Principal">
+            <a href="#/tienda/sillas" data-nav="sillas">Sillas</a>
+            <a href="#/tienda/sillones" data-nav="sillones">Sillones</a>
+            <a href="#/tienda/sofas" data-nav="sofas">Sofás</a>
+            <a href="#/tienda/ofertas" data-nav="ofertas">Ofertas</a>
+            <a href="#/ayuda/showroom" data-nav="showroom">Showroom</a>
+          </nav>
+
+          <div class="header-actions">
+            <button type="button" class="icon-round" id="searchBtn" aria-label="Buscar">
+              <i data-lucide="search"></i>
+            </button>
+            <a href="#/favoritos" class="icon-round" id="favBtn" aria-label="Favoritos, 0">
+              <i data-lucide="heart"></i><span class="badge" id="favCount" hidden>0</span>
+            </a>
+            <button type="button" class="icon-round" id="cartBtn" aria-label="Bolsa, 0 productos">
+              <i data-lucide="shopping-bag"></i><span class="badge" id="cartCount" hidden>0</span>
+            </button>
+          </div>
+        </header>
+
+        <div id="app" tabindex="-1"></div>
+
+        <footer class="footer">
+          <div class="footer-top">
+            <div class="footer-brand">
+              <a href="#/" class="footer-logo">muex</a>
+              <p>Sillas, sillones y sofás hechos en talleres de Villa El Salvador y Lurín desde 2014.</p>
+              <div class="social">
+                <a href="#" aria-label="Instagram">ig</a>
+                <a href="#" aria-label="Pinterest">p</a>
+                <a href="#" aria-label="TikTok">tk</a>
+              </div>
+            </div>
+
+            <nav class="footer-col" aria-label="Tienda">
+              <p>Tienda</p>
+              <a href="#/tienda/sillas">Sillas</a>
+              <a href="#/tienda/sillones">Sillones</a>
+              <a href="#/tienda/sofas">Sofás</a>
+              <a href="#/tienda/ofertas">Ofertas</a>
+              <a href="#/favoritos">Favoritos</a>
+            </nav>
+
+            <nav class="footer-col" aria-label="Ayuda">
+              <p>Ayuda</p>
+              <a href="#/ayuda/envios">Envíos y armado</a>
+              <a href="#/ayuda/cambios">Cambios y devoluciones</a>
+              <a href="#/ayuda/garantia">Garantía</a>
+              <a href="#/ayuda/cuidados">Cuidado de telas</a>
+              <a href="#/ayuda/preguntas">Preguntas frecuentes</a>
+            </nav>
+
+            <div class="footer-col">
+              <p>Showroom</p>
+              <span>Av. San Martín 214, Barranco</span>
+              <span>Mar–Sáb 11:00–20:00 · Dom 11:00–17:00</span>
+              <a href="tel:+5114778210">(01) 477 8210</a>
+              <a href="mailto:hola@muex.pe">hola@muex.pe</a>
+            </div>
+          </div>
+
+          <form class="news-form" id="newsForm" novalidate>
+            <label for="newsEmail">Una carta al mes: piezas nuevas, reposiciones y ventas de muestras del showroom.</label>
+            <div class="news-row">
+              <input id="newsEmail" type="email" placeholder="tu@correo.com" autocomplete="email" required />
+              <button type="submit">Suscribirme</button>
+            </div>
+            <p class="news-msg" id="newsMsg" aria-live="polite"></p>
+          </form>
+
+          <div class="footer-bottom">
+            <span>© 2026 MUEX S.A.C. · RUC 20604417829</span>
+            <nav aria-label="Legal">
+              <a href="#/ayuda/terminos">Términos</a>
+              <a href="#/ayuda/privacidad">Privacidad</a>
+              <a href="#/ayuda/reclamaciones">Libro de reclamaciones</a>
+            </nav>
+          </div>
+        </footer>
+      </div>
+    </main>
+
+    <!-- Mobile menu -->
+    <dialog class="sheet sheet-left" id="menu" aria-label="Menú">
+      <div class="sheet-head">
+        <a href="#/" class="logo">muex</a>
+        <button type="button" class="icon-round" data-close aria-label="Cerrar menú"><i data-lucide="x"></i></button>
+      </div>
+      <nav class="menu-links" aria-label="Menú móvil">
+        <a href="#/tienda/todo">Toda la tienda</a>
+        <a href="#/tienda/sillas">Sillas</a>
+        <a href="#/tienda/sillones">Sillones</a>
+        <a href="#/tienda/sofas">Sofás</a>
+        <a href="#/tienda/ofertas">Ofertas</a>
+      </nav>
+      <nav class="menu-sub" aria-label="Ayuda">
+        <a href="#/favoritos">Favoritos</a>
+        <a href="#/bolsa">Bolsa</a>
+        <a href="#/ayuda/showroom">Showroom Barranco</a>
+        <a href="#/ayuda/envios">Envíos y armado</a>
+        <a href="#/ayuda/preguntas">Ayuda</a>
+      </nav>
+    </dialog>
+
+    <!-- Search -->
+    <dialog class="search" id="search" aria-label="Buscar">
+      <form class="search-bar" id="searchForm" role="search">
+        <i data-lucide="search"></i>
+        <input id="searchInput" type="search" placeholder="Busca sillas, sofás, cuero, roble…" autocomplete="off" aria-label="Buscar productos" />
+        <button type="button" class="icon-round" data-close aria-label="Cerrar búsqueda"><i data-lucide="x"></i></button>
+      </form>
+      <div class="search-body" id="searchBody"></div>
+    </dialog>
+
+    <!-- Quick view -->
+    <dialog class="quick" id="quick" aria-labelledby="qvName">
+      <button type="button" class="icon-round close" data-close aria-label="Cerrar"><i data-lucide="x"></i></button>
+      <div class="qv-media"><img id="qvImg" alt="" /></div>
+      <div class="qv-body">
+        <span class="tag" id="qvTag"></span>
+        <h2 id="qvName"></h2>
+        <p class="qv-price" id="qvPrice"></p>
+        <p class="qv-desc" id="qvDesc"></p>
+        <fieldset class="colors">
+          <legend>Color — <span id="qvColorName"></span></legend>
+          <div id="qvColors"></div>
+        </fieldset>
+        <div class="buy-row">
+          <div class="qty">
+            <button type="button" id="qvMinus" aria-label="Menos"><i data-lucide="minus"></i></button>
+            <output id="qvQty" aria-label="Cantidad">1</output>
+            <button type="button" id="qvPlus" aria-label="Más"><i data-lucide="plus"></i></button>
+          </div>
+          <button type="button" class="btn-dark" id="qvAdd">Agregar a la bolsa</button>
+          <button type="button" class="favorite big" id="qvFav" aria-pressed="false" aria-label="Guardar en favoritos">
+            <i data-lucide="heart"></i>
+          </button>
+        </div>
+        <a class="link" id="qvMore" href="#/">Ver ficha completa</a>
+      </div>
+    </dialog>
+
+    <!-- Mini bag -->
+    <dialog class="sheet" id="drawer" aria-labelledby="drawerTitle">
+      <div class="sheet-head">
+        <h2 id="drawerTitle">Bolsa</h2>
+        <button type="button" class="icon-round" data-close aria-label="Cerrar"><i data-lucide="x"></i></button>
+      </div>
+      <div class="sheet-body" id="drawerBody"></div>
+      <div class="sheet-foot" id="drawerFoot"></div>
+    </dialog>
+
+    <!-- Fit checker -->
+    <dialog class="modal" id="fit" aria-labelledby="fitTitle">
+      <button type="button" class="icon-round close" data-close aria-label="Cerrar"><i data-lucide="x"></i></button>
+      <h2 id="fitTitle">¿Entra en tu espacio?</h2>
+      <p class="muted" id="fitIntro"></p>
+      <form id="fitForm" class="fit-form" novalidate>
+        <label>Ancho del espacio <span><input type="number" id="fitSpace" inputmode="numeric" min="40" max="900" placeholder="220" /> cm</span></label>
+        <label>Ancho de la puerta más angosta <span><input type="number" id="fitDoor" inputmode="numeric" min="50" max="300" placeholder="80" /> cm</span></label>
+        <button type="submit" class="btn-dark">Comprobar</button>
+      </form>
+      <div class="fit-result" id="fitResult" aria-live="polite"></div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" popover="manual"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

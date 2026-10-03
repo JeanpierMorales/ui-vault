@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Casa Quillu, casa de huéspedes de cinco habitaciones en Urubamba, Valle Sagrado. Reseñas de huéspedes, cada una ligada al lugar del valle del que hablan.">
+  <title>Casa Quillu · El valle según los huéspedes</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<section class="cq" aria-labelledby="cq-title">
+  <div class="cq-panel" id="cq-panel" role="region" aria-roledescription="carrusel" aria-labelledby="cq-title">
+
+    <div class="cq-stage" aria-hidden="true">
+      <img class="is-on" src="img/casa.webp" alt="" width="1600" height="1067">
+      <img src="img/pumahuanca.webp" alt="" width="1600" height="2014" loading="lazy">
+      <img src="img/moray.webp" alt="" width="1600" height="900" loading="lazy">
+      <img src="img/rio.webp" alt="" width="1600" height="1067" loading="lazy">
+      <img src="img/ollantaytambo.webp" alt="" width="1600" height="1067" loading="lazy">
+    </div>
+
+    <header class="cq-head">
+      <p class="cq-label">Casa Quillu · Urubamba, Valle Sagrado</p>
+      <h2 id="cq-title">El valle, según quienes durmieron aquí.</h2>
+    </header>
+
+    <div class="cq-slides" id="cq-slides" aria-live="off">
+      <article class="cq-slide is-on" id="cq-s1" aria-roledescription="diapositiva" aria-label="1 de 5: La casa">
+        <p class="cq-chip"><span class="sr-only">Foto: </span>La casa, huerto y comedor · Urubamba</p>
+        <blockquote><p>Cumplimos cuarenta años de casados y nos pusieron la mesa en el huerto, con trucha de Pisac y un pisco sour que preparó el mismo Wilber. No sabíamos que se podía llorar tanto de gusto.</p></blockquote>
+        <p class="cq-who"><strong>Gloria y Ernesto</strong> Trujillo · habitación Killa, 3 noches, marzo 2026</p>
+      </article>
+      <article class="cq-slide" id="cq-s2" aria-roledescription="diapositiva" aria-label="2 de 5: Pumahuanca">
+        <p class="cq-chip"><span class="sr-only">Foto: </span>Urubamba y el nevado Pumahuanca · desde la terraza</p>
+        <blockquote><p>Doña Hilda nos despertó a las 5:40 con mate de muña para ver el sol entrar por el Pumahuanca. Mi esposo, que no madruga ni en Navidad, fue el primero en salir con la frazada puesta.</p></blockquote>
+        <p class="cq-who"><strong>Mariela y Jorge</strong> Santiago de Surco, Lima · habitación Q'ente, 3 noches</p>
+      </article>
+      <article class="cq-slide" id="cq-s3" aria-roledescription="diapositiva" aria-label="3 de 5: Moray">
+        <p class="cq-chip"><span class="sr-only">Foto: </span>Andenes circulares de Moray · 50 min en auto</p>
+        <blockquote><p>Llegamos con soroche. El caldo de gallina con kion que Wilber nos dejó a las nueve de la noche nos salvó la excursión a Moray, y él mismo nos consiguió el taxi.</p></blockquote>
+        <p class="cq-who"><strong>Facundo y Ana</strong> Buenos Aires · habitación Inti, 4 noches</p>
+      </article>
+      <article class="cq-slide" id="cq-s4" aria-roledescription="diapositiva" aria-label="4 de 5: Río Vilcanota">
+        <p class="cq-chip"><span class="sr-only">Foto: </span>Río Vilcanota · 5 min a pie</p>
+        <blockquote><p>Vine tres semanas a terminar la tesis. El wifi funciona de verdad en la mesa del patio y el río se escucha toda la noche. El capítulo cuatro se escribió aquí.</p></blockquote>
+        <p class="cq-who"><strong>Daniela Robles</strong> Ciudad de México · habitación Mayu, 21 noches</p>
+      </article>
+      <article class="cq-slide" id="cq-s5" aria-roledescription="diapositiva" aria-label="5 de 5: Ollantaytambo">
+        <p class="cq-chip"><span class="sr-only">Foto: </span>Ollantaytambo · 30 min en colectivo</p>
+        <blockquote><p>El tren de regreso se canceló por el paro. Hilda nos consiguió un colectivo a Ollantaytambo a las cuatro de la mañana y nos despidió con pan chuta y queso para el camino.</p></blockquote>
+        <p class="cq-who"><strong>Sebastián Ortiz</strong> Bogotá · habitación Inti, 2 noches</p>
+      </article>
+    </div>
+
+    <div class="cq-nav">
+      <div class="cq-thumbs" id="cq-thumbs" role="group" aria-label="Elegir lugar">
+        <button class="cq-thumb" type="button" aria-controls="cq-slides" aria-current="true" data-i="0">
+          <img src="img/casa.webp" alt="" width="1600" height="1067"><span><strong>La casa</strong> 0 km</span><i aria-hidden="true"></i>
+        </button>
+        <button class="cq-thumb" type="button" aria-controls="cq-slides" data-i="1">
+          <img src="img/pumahuanca.webp" alt="" width="1600" height="2014" loading="lazy"><span><strong>Pumahuanca</strong> Terraza</span><i aria-hidden="true"></i>
+        </button>
+        <button class="cq-thumb" type="button" aria-controls="cq-slides" data-i="2">
+          <img src="img/moray.webp" alt="" width="1600" height="900" loading="lazy"><span><strong>Moray</strong> 50 min</span><i aria-hidden="true"></i>
+        </button>
+        <button class="cq-thumb" type="button" aria-controls="cq-slides" data-i="3">
+          <img src="img/rio.webp" alt="" width="1600" height="1067" loading="lazy"><span><strong>Vilcanota</strong> 5 min</span><i aria-hidden="true"></i>
+        </button>
+        <button class="cq-thumb" type="button" aria-controls="cq-slides" data-i="4">
+          <img src="img/ollantaytambo.webp" alt="" width="1600" height="1067" loading="lazy"><span><strong>Ollantaytambo</strong> 30 min</span><i aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="cq-controls">
+        <button class="cq-round" id="cq-pause" type="button" aria-label="Pausar el carrusel">
+          <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 6h3v12H8zM13 6h3v12h-3z"/></svg>
+          <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.5 5.8v12.4L18 12z"/></svg>
+        </button>
+        <p class="cq-count" aria-hidden="true"><span id="cq-now">01</span> / 05</p>
+        <button class="cq-round" id="cq-prev" type="button" aria-label="Lugar anterior" aria-controls="cq-slides">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+        </button>
+        <button class="cq-round" id="cq-next" type="button" aria-label="Lugar siguiente" aria-controls="cq-slides">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="cq-foot">
+    <p class="cq-score"><strong>4,9</strong> de 5 en 312 reseñas de Google, 2021 a 2026</p>
+    <p class="cq-info">Cinco habitaciones a 2 870 m, a diez minutos a pie de la plaza de Urubamba. Desayuno incluido.</p>
+    <a class="cq-cta" href="#">Consultar fechas</a>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

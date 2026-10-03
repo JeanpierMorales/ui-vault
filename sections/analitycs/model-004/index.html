@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Rayo, courier del mismo día en Lima: mapa de calor de minutos de entrega por distrito y por hora.">
+  <title>Rayo, tiempos de entrega por distrito</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<main>
+  <section class="rayo" aria-labelledby="rayoTitle">
+    <div class="wrap">
+
+      <header class="head">
+        <p class="brand"><span class="brand-mark" aria-hidden="true"></span>Rayo <span>Courier del mismo día · Lima</span></p>
+        <div class="head-row">
+          <h2 id="rayoTitle">Cuánto tarda tu envío, distrito por distrito.</h2>
+          <p class="head-text">Hora por hora, en minutos promedio desde que el motorizado recoge en tu tienda hasta que toca la puerta. 38,420 envíos de agosto de 2026, desde el almacén de Surquillo.</p>
+        </div>
+      </header>
+
+      <div class="board">
+        <div class="board-main">
+          <div class="toolbar">
+            <div class="segmented" role="group" aria-label="Días de la semana">
+              <button type="button" class="seg" data-day="week" aria-pressed="true">Lunes a viernes</button>
+              <button type="button" class="seg" data-day="sat" aria-pressed="false">Sábado</button>
+            </div>
+            <ul class="scale" aria-label="Escala de minutos">
+              <li><span style="--c: var(--r1)"></span>&lt; 30</li>
+              <li><span style="--c: var(--r2)"></span>30</li>
+              <li><span style="--c: var(--r3)"></span>40</li>
+              <li><span style="--c: var(--r4)"></span>50</li>
+              <li><span style="--c: var(--r5)"></span>60</li>
+              <li><span style="--c: var(--r6)"></span>75+ min</li>
+            </ul>
+          </div>
+
+          <div class="heat-wrap">
+            <table class="heat" id="heat">
+              <caption class="sr-only" id="heatCaption">Minutos promedio de entrega por distrito y hora de recojo, lunes a viernes. Usa las flechas para moverte entre celdas.</caption>
+              <thead id="heatHead"></thead>
+              <tbody id="heatBody"></tbody>
+            </table>
+            <noscript><p class="noscript">Surco a las 18:00 es la ventana más lenta (82 min); Miraflores a las 15:00, la más rápida (24 min).</p></noscript>
+            <div class="tip" id="tip" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <aside class="detail" aria-labelledby="detailTitle">
+          <h3 id="detailTitle"><span id="dDistrict">Santiago de Surco</span>, <span id="dHour">18:00</span></h3>
+          <p class="detail-value"><strong id="dMin">82</strong> <span>min promedio</span></p>
+          <dl class="detail-list">
+            <div><dt>Envíos en la franja</dt><dd id="dCount">1,204</dd></div>
+            <div><dt>Llegan en menos de 90 min</dt><dd id="dOnTime">71 %</dd></div>
+          </dl>
+
+          <figure class="mini">
+            <figcaption id="miniCap">Surco, hora por hora</figcaption>
+            <svg class="mini-svg" id="mini" aria-hidden="true" focusable="false"></svg>
+          </figure>
+          <p class="best" id="best">Mejor hora para enviar a Surco: <strong>15:00</strong>, 34 min.</p>
+        </aside>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn" href="#rayoTitle">Cotizar un envío
+          <span class="btn-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false"><path d="M5 11 11 5M6 5h5v5" /></svg></span>
+        </a>
+        <p class="cta-note">Desde S/ 9 por paquete de hasta 5 kg. Recojo en tu tienda de lunes a sábado, 8:00 a 20:00.</p>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

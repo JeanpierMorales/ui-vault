@@ -1,0 +1,215 @@
+/* Cordillera Norte — cooperativa cafetalera de Jaén, Cajamarca
+   Geist (todo) + Geist Mono (ejes)
+   papel · piedra · tinta · neutro (bolsa de Nueva York) · cafeto (único acento: precio a la finca) */
+
+:root {
+  --papel: #F4F3F0;
+  --piedra: #EBEAE6;
+  --blanco: #FFFFFF;
+  --tinta: #111111;
+  --gris: #6B6A66;
+  --linea: #E3E1DC;
+  --neutro: #8F8D86;
+  --cafeto: #2E7D4F;
+  --cafeto-oscuro: #245F3D;
+
+  --sans: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "Geist Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --gutter: clamp(16px, 2.4vw, 36px);
+  --r-panel: clamp(22px, 2.4vw, 30px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--sans);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+h2, h3, p, dl, dd, ul, figure { margin: 0; }
+ul { padding: 0; list-style: none; }
+img { display: block; max-width: 100%; }
+
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+.cordillera { padding: clamp(16px, 2vw, 24px) 0 clamp(64px, 9vw, 128px); }
+.wrap { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 clamp(12px, 1.4vw, 20px); }
+
+/* ---------- Photo header ---------- */
+
+.head {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: var(--r-panel);
+  min-height: clamp(460px, 56vw, 660px);
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: clamp(20px, 3.4vw, 52px);
+  color: #fff;
+  background: #2A2622;
+}
+.head-img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; filter: saturate(0.8); }
+.head-shade { position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(12, 11, 10, 0.72) 0%, rgba(12, 11, 10, 0.35) 55%, rgba(12, 11, 10, 0.1) 100%), linear-gradient(0deg, rgba(12, 11, 10, 0.55) 0%, transparent 45%); }
+
+.brand {
+  align-self: flex-start;
+  display: inline-flex; flex-wrap: wrap; align-items: center; gap: 2px 10px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--tinta);
+  font-weight: 600; font-size: 0.95rem; letter-spacing: -0.02em;
+}
+.brand span { font-weight: 400; font-size: 0.85rem; color: var(--gris); letter-spacing: 0; }
+
+.head-copy { max-width: 760px; }
+.head h2 {
+  font-weight: 500;
+  font-size: clamp(2.5rem, 1.1rem + 4.8vw, 5.6rem);
+  line-height: 0.96;
+  letter-spacing: -0.052em;
+  text-wrap: balance;
+}
+.head-text { margin-top: 20px; max-width: 46ch; color: rgba(255, 255, 255, 0.82); font-size: clamp(1rem, 0.96rem + 0.2vw, 1.1rem); text-wrap: pretty; }
+
+/* ---------- Layout ---------- */
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+  gap: 14px;
+  margin-top: 14px;
+  align-items: stretch;
+}
+
+.panel {
+  background: var(--blanco);
+  border-radius: var(--r-panel);
+  padding: clamp(22px, 2.8vw, 38px);
+  min-width: 0;
+}
+.panel-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; align-items: baseline; }
+.panel-head h3 { font-weight: 500; font-size: 1.1rem; letter-spacing: -0.02em; }
+
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 0.85rem; color: var(--gris); }
+.legend li { display: flex; align-items: center; gap: 8px; }
+.key { width: 10px; height: 10px; border-radius: 3px; background: var(--cafeto); }
+.key--ny { background: var(--neutro); }
+
+.chart { position: relative; margin-top: 24px; height: clamp(280px, 28vw, 380px); }
+.chart-svg { display: block; width: 100%; height: 100%; overflow: visible; }
+
+.grid-line { stroke: var(--linea); stroke-width: 1; shape-rendering: crispEdges; }
+.axis-text { fill: var(--gris); font-family: var(--mono); font-size: 11px; }
+.bar-finca { fill: var(--cafeto); }
+.bar-ny { fill: var(--neutro); }
+.bar-label { fill: var(--tinta); font-family: var(--sans); font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+.group-hit { fill: transparent; cursor: pointer; outline: none; }
+.group-hit:focus-visible { stroke: var(--tinta); stroke-width: 1.5; }
+.group-band { fill: var(--papel); opacity: 0; transition: opacity 150ms ease; pointer-events: none; }
+.group-band.is-on { opacity: 1; }
+
+.tip {
+  position: absolute; left: 0; top: 0; pointer-events: none;
+  background: var(--tinta); color: #fff;
+  font-size: 0.82rem; line-height: 1.4;
+  padding: 8px 12px; border-radius: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translate(-50%, calc(-100% - 8px));
+  transition: opacity 150ms ease;
+  font-variant-numeric: tabular-nums;
+}
+.tip.is-visible { opacity: 1; }
+.tip strong { font-weight: 600; }
+
+.data { margin-top: 10px; font-size: 0.9rem; max-width: 100%; overflow-x: auto; }
+.data summary { display: inline-flex; align-items: center; min-height: 44px; cursor: pointer; font-weight: 500; border-radius: 8px; }
+.data summary:focus-visible { outline: 2px solid var(--tinta); outline-offset: 3px; }
+.data table { width: 100%; max-width: 480px; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.data th, .data td { text-align: right; padding: 6px 0 6px 12px; }
+.data th:first-child, .data td:first-child { text-align: left; padding-left: 0; }
+.data thead th { color: var(--gris); font-weight: 400; }
+
+/* ---------- Side ---------- */
+
+.side {
+  display: flex; flex-direction: column; gap: 24px;
+  background: var(--piedra);
+  border-radius: var(--r-panel);
+  padding: clamp(22px, 2.8vw, 38px);
+}
+
+.toggle { display: inline-flex; flex-wrap: wrap; align-self: flex-start; gap: 6px; }
+.tg {
+  appearance: none; border: 0; cursor: pointer;
+  min-height: 44px; padding: 0 20px; border-radius: 999px;
+  background: var(--blanco); color: var(--tinta);
+  font: 500 0.92rem/1 var(--sans);
+  transition: background-color 200ms ease, color 200ms ease;
+}
+.tg[aria-pressed="true"] { background: var(--tinta); color: #fff; }
+.tg:not([aria-pressed="true"]):hover { background: #F7F6F3; }
+.tg:focus-visible { outline: 2px solid var(--tinta); outline-offset: 2px; }
+.tg:active { transform: scale(0.98); }
+
+.premium { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+.premium-label { color: var(--gris); font-size: 0.9rem; }
+.premium-value {
+  font-weight: 500;
+  font-size: clamp(3.4rem, 2.4rem + 3vw, 5.6rem);
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+}
+.premium-value .cur { font-size: 0.34em; letter-spacing: -0.02em; color: var(--gris); vertical-align: 1.2em; }
+.premium-value .per { font-size: 0.3em; letter-spacing: 0; color: var(--gris); margin-left: 4px; }
+
+.side-text { color: var(--gris); max-width: 46ch; text-wrap: pretty; font-size: 0.95rem; }
+
+.facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: auto; }
+.facts dt { color: var(--gris); font-size: 0.8rem; line-height: 1.35; }
+.facts dd { margin-top: 6px; font-weight: 500; font-size: 1.5rem; letter-spacing: -0.04em; }
+
+.btn {
+  align-self: flex-start;
+  display: inline-flex; align-items: center; gap: 14px;
+  min-height: 52px; padding: 0 8px 0 24px;
+  border-radius: 999px;
+  background: var(--tinta); color: #fff;
+  font-weight: 500; text-decoration: none; white-space: nowrap;
+  transition: background-color 200ms ease, transform 150ms ease;
+}
+.btn-arrow { width: 38px; height: 38px; border-radius: 50%; background: #fff; display: grid; place-items: center; transition: transform 250ms var(--ease-out); }
+.btn-arrow svg { width: 14px; height: 14px; fill: none; stroke: var(--tinta); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.btn:hover { background: #2A2A28; }
+.btn:hover .btn-arrow { transform: rotate(45deg); }
+.btn:active { transform: scale(0.98); }
+.btn:focus-visible { outline: 2px solid var(--tinta); outline-offset: 3px; }
+
+@media (max-width: 960px) {
+  .layout { grid-template-columns: minmax(0, 1fr); }
+  .side { order: -1; }
+}
+
+@media (max-width: 420px) {
+  .facts { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .chart { height: 260px; }
+  .data th, .data td { font-size: 0.8rem; padding-left: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tg, .btn, .btn-arrow, .tip, .group-band { transition: none; }
+}

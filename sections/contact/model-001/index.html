@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KANZO — Contact</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<section class="contact" id="contact">
+
+  <div class="contact-bg">
+    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=90" alt="KANZO creative studio">
+
+    <div class="image-overlay"></div>
+
+    <div class="contact-copy">
+      <span>START A PROJECT</span>
+
+      <h1>
+        Let's build something
+        <em>meaningful.</em>
+      </h1>
+
+      <p>
+        Tell us what you're building, where you are now and where you want to go.
+        We'll help define the right digital direction.
+      </p>
+
+      <div class="contact-meta">
+        <div>
+          <small>EMAIL</small>
+          <a href="mailto:hello@kanzo.studio">hello@kanzo.studio</a>
+        </div>
+
+        <div>
+          <small>BASED IN</small>
+          <span>Lima, Peru · Working worldwide</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="availability">
+      <i></i>
+      <span>Available for selected projects</span>
+    </div>
+  </div>
+
+  <div class="form-card">
+
+    <div class="form-head">
+      <span>PROJECT INQUIRY</span>
+
+      <h2>Tell us about<br>your project.</h2>
+
+      <p>
+        A few details are enough to get started.
+      </p>
+    </div>
+
+    <form id="contactForm" novalidate>
+
+      <div class="field-row">
+
+        <div class="field">
+          <label for="name">Your name</label>
+
+          <div class="control">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm7 8a7 7 0 0 0-14 0"/>
+            </svg>
+
+            <input id="name" name="name" type="text" placeholder="Jeanpier Morales" required>
+          </div>
+
+          <small class="error">Please enter your name.</small>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+
+          <div class="control">
+            <svg viewBox="0 0 24 24">
+              <path d="M3 6h18v12H3zM3 7l9 6 9-6"/>
+            </svg>
+
+            <input id="email" name="email" type="email" placeholder="you@company.com" required>
+          </div>
+
+          <small class="error">Enter a valid email.</small>
+        </div>
+
+      </div>
+
+      <div class="field">
+        <label for="company">Company <span>Optional</span></label>
+
+        <div class="control">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 21V5h10v16M14 9h6v12M8 9h2M8 13h2M8 17h2M17 13h1M17 17h1"/>
+          </svg>
+
+          <input id="company" name="company" type="text" placeholder="Company or brand">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="service">What do you need?</label>
+
+        <div class="control select">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 7h16M4 12h16M4 17h10"/>
+          </svg>
+
+          <select id="service" name="service" required>
+            <option value="" selected disabled>Select a service</option>
+            <option>Web Design & Development</option>
+            <option>Digital Product</option>
+            <option>Software Development</option>
+            <option>Automation & AI</option>
+            <option>Growth & Optimization</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+
+        <small class="error">Select a service.</small>
+      </div>
+
+      <div class="field-row">
+
+        <div class="field">
+          <label for="budget">Budget</label>
+
+          <div class="control select">
+            <span class="currency">S/</span>
+
+            <select id="budget" name="budget" required>
+              <option value="" selected disabled>Approx. budget</option>
+              <option>S/ 500 – 1,500</option>
+              <option>S/ 1,500 – 3,000</option>
+              <option>S/ 3,000 – 6,000</option>
+              <option>S/ 6,000 – 10,000</option>
+              <option>S/ 10,000+</option>
+              <option>Let's discuss</option>
+            </select>
+          </div>
+
+          <small class="error">Select a budget.</small>
+        </div>
+
+        <div class="field">
+          <label for="timeline">Timeline</label>
+
+          <div class="control select">
+            <svg viewBox="0 0 24 24">
+              <path d="M5 3v3M19 3v3M4 8h16M4 5h16v16H4z"/>
+            </svg>
+
+            <select id="timeline" name="timeline" required>
+              <option value="" selected disabled>When?</option>
+              <option>ASAP</option>
+              <option>2–4 weeks</option>
+              <option>1–2 months</option>
+              <option>3+ months</option>
+              <option>Flexible</option>
+            </select>
+          </div>
+
+          <small class="error">Select a timeline.</small>
+        </div>
+
+      </div>
+
+      <div class="field">
+        <label for="message">Tell us about the project</label>
+
+        <div class="control textarea">
+          <textarea id="message" name="message" rows="4" placeholder="What are you building? What's the main goal?" required></textarea>
+          <span class="char-count">0 / 500</span>
+        </div>
+
+        <small class="error">Tell us a little about your project.</small>
+      </div>
+
+      <label class="consent">
+        <input type="checkbox" required>
+        <span>
+          I agree to be contacted regarding this project.
+        </span>
+      </label>
+
+      <button class="submit" type="submit">
+        <span>Send project inquiry</span>
+        <i>↗</i>
+      </button>
+
+      <div class="form-status" id="formStatus">
+        <span>✓</span>
+        <div>
+          <strong>Message received.</strong>
+          <p>We'll get back to you shortly.</p>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>

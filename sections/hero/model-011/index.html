@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="description" content="Financial software for modern businesses.">
+  <title>Ramp Hero</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="header">
+  <a href="#" class="brand" aria-label="Home">
+    <span>ramp</span>
+    <svg viewBox="0 0 30 18" aria-hidden="true">
+      <path d="M3 15C11 14.8 17 10.7 20.5 3.5M15 15h11V5"/>
+    </svg>
+  </a>
+
+  <nav class="nav" aria-label="Main navigation">
+    <a href="#" class="nav-link nav-dropdown">
+      Products
+      <svg viewBox="0 0 12 7"><path d="M1 1l5 5 5-5"/></svg>
+    </a>
+
+    <a href="#" class="nav-link nav-dropdown">
+      Solutions
+      <svg viewBox="0 0 12 7"><path d="M1 1l5 5 5-5"/></svg>
+    </a>
+
+    <a href="#" class="nav-link">Customers</a>
+
+    <a href="#" class="nav-link nav-dropdown">
+      Resources
+      <svg viewBox="0 0 12 7"><path d="M1 1l5 5 5-5"/></svg>
+    </a>
+
+    <a href="#" class="nav-link">Pricing</a>
+  </nav>
+
+  <a href="#" class="sign-in">Sign in</a>
+
+  <button class="menu-button" aria-label="Open menu">
+    <span></span>
+    <span></span>
+  </button>
+</header>
+
+
+<main>
+
+  <section class="hero">
+
+    <div class="hero-copy">
+
+      <h1 class="hero-title">
+        <span>Better than free</span>
+      </h1>
+
+      <p class="hero-description">
+        Smart corporate cards and accounts payable combined with
+        spend management software built to give you immediate time
+        and money savings at no cost.
+      </p>
+
+      <form class="hero-form">
+        <label for="email" class="sr-only">What's your work email?</label>
+
+        <input
+          id="email"
+          type="email"
+          placeholder="What's your work email?"
+          autocomplete="email"
+          required
+        >
+
+        <button type="submit">
+          Get started — for free
+        </button>
+      </form>
+
+      <p class="hero-note">
+        No personal credit checks or founder guarantee.
+      </p>
+
+    </div>
+
+
+    <div class="hero-visual" aria-hidden="true">
+
+      <div class="image-wrap">
+        <img
+          class="hero-image"
+          src="assets/hero-hand-card.webp"
+          alt=""
+        >
+      </div>
+
+      <div class="saving-badge">
+        <strong>3.5%</strong>
+        <span>average<br>savings¹</span>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Solo para comprobar que el hero continúa -->
+  <section class="next-section">
+    <span>Next section</span>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

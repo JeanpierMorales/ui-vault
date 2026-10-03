@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="description"
+    content="MIRA Blog — TikTok marketing, content strategy and practical insights for authors."
+  />
+
+  <title>MIRA — Blog & Articles</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="blog.css" />
+</head>
+
+<body>
+
+  <main class="blog-page">
+
+    <!-- ======================================================
+         TOP / BACK
+    ======================================================= -->
+
+    <div class="page-container top-navigation">
+      <a href="index.html" class="back-link">
+        <span class="back-arrow">←</span>
+        <span>Back to MIRA</span>
+      </a>
+    </div>
+
+
+    <!-- ======================================================
+         BLOG HEADER
+    ======================================================= -->
+
+    <header class="blog-header page-container">
+
+      <div class="blog-header__content">
+
+        <p class="eyebrow">
+          MIRA JOURNAL
+        </p>
+
+        <h1>
+          Blog &amp; articles
+        </h1>
+
+        <p class="blog-header__description">
+          Ideas, strategies and practical guidance to help authors
+          create better content, reach new readers and make marketing
+          feel less overwhelming.
+        </p>
+
+      </div>
+
+      <div class="blog-search">
+
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          class="search-icon"
+        >
+          <circle cx="11" cy="11" r="7"></circle>
+          <path d="M20 20L16.4 16.4"></path>
+        </svg>
+
+        <input
+          id="articleSearch"
+          type="search"
+          placeholder="Search articles"
+          aria-label="Search articles"
+        />
+
+      </div>
+
+    </header>
+
+
+    <!-- ======================================================
+         FILTERS
+    ======================================================= -->
+
+    <section class="page-container filters-section">
+
+      <div class="filters" id="filters">
+
+        <button
+          class="filter-button active"
+          data-category="all"
+        >
+          All
+        </button>
+
+        <button
+          class="filter-button"
+          data-category="marketing"
+        >
+          TikTok Marketing
+        </button>
+
+        <button
+          class="filter-button"
+          data-category="strategy"
+        >
+          Content Strategy
+        </button>
+
+        <button
+          class="filter-button"
+          data-category="booktok"
+        >
+          BookTok
+        </button>
+
+        <button
+          class="filter-button"
+          data-category="growth"
+        >
+          Author Growth
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================================
+         FEATURED ARTICLE
+    ======================================================= -->
+
+    <section
+      class="featured page-container"
+      data-category="marketing"
+      data-search="tiktok marketing authors stories discover content readers"
+    >
+
+      <a href="#" class="featured__image">
+
+        <img
+          src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=1400&auto=format&fit=crop&q=85"
+          alt="Books arranged on a table"
+        />
+
+      </a>
+
+
+      <div class="featured__content">
+
+        <div class="article-meta">
+          <span>Featured</span>
+          <span class="meta-line"></span>
+          <span>8 min read</span>
+        </div>
+
+        <h2>
+          TikTok marketing for authors:
+          where should you actually start?
+        </h2>
+
+        <p>
+          You don't need to become a full-time content creator
+          to market your book. Learn how to build a simple TikTok
+          strategy around your stories, your readers and the time
+          you actually have.
+        </p>
+
+        <div class="featured__footer">
+
+          <a href="#" class="read-button">
+            Read article
+
+            <svg viewBox="0 0 24 24">
+              <path d="M5 12H19"></path>
+              <path d="M14 7L19 12L14 17"></path>
+            </svg>
+          </a>
+
+          <span class="article-date">
+            September 18, 2026
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================================
+         LATEST ARTICLES
+    ======================================================= -->
+
+    <section class="articles-section">
+
+      <div class="page-container">
+
+        <div class="section-heading">
+
+          <div>
+
+            <div class="section-kicker">
+              <span class="section-dot"></span>
+              <span>Blog and articles</span>
+            </div>
+
+            <h2>
+              Latest insights and trends
+            </h2>
+
+          </div>
+
+          <p>
+            Practical ideas for creating content without
+            letting marketing take over your writing life.
+          </p>
+
+        </div>
+
+
+        <!-- ARTICLE GRID -->
+
+        <div class="articles-grid" id="articlesGrid">
+
+
+          <!-- ARTICLE 01 -->
+
+          <article
+            class="article-card"
+            data-category="strategy"
+            data-search="30 days content book strategy author content ideas"
+          >
+
+            <a href="#" class="article-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?w=900&auto=format&fit=crop&q=85"
+                alt="Writer working beside books"
+              />
+
+              <span class="image-number">
+                01
+              </span>
+
+            </a>
+
+            <div class="article-card__content">
+
+              <div class="article-card__meta">
+                <span>Content Strategy</span>
+                <span>7 min</span>
+              </div>
+
+              <h3>
+                How to turn your book into 30 days of content
+              </h3>
+
+              <p>
+                One story can generate far more content than you
+                think. Here's a practical system for turning your
+                book into weeks of useful posts.
+              </p>
+
+              <a href="#" class="article-link">
+                Read article
+                <span>↗</span>
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- ARTICLE 02 -->
+
+          <article
+            class="article-card"
+            data-category="booktok"
+            data-search="booktok authors post tiktok ideas readers"
+          >
+
+            <a href="#" class="article-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=900&auto=format&fit=crop&q=85"
+                alt="Open books in a library"
+              />
+
+              <span class="image-number">
+                02
+              </span>
+
+            </a>
+
+            <div class="article-card__content">
+
+              <div class="article-card__meta">
+                <span>BookTok</span>
+                <span>6 min</span>
+              </div>
+
+              <h3>
+                What should authors actually post on TikTok?
+              </h3>
+
+              <p>
+                Stop staring at a blank content calendar.
+                These repeatable content formats can help authors
+                connect with readers consistently.
+              </p>
+
+              <a href="#" class="article-link">
+                Read article
+                <span>↗</span>
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- ARTICLE 03 -->
+
+          <article
+            class="article-card"
+            data-category="growth"
+            data-search="readers audience growth author social media community"
+          >
+
+            <a href="#" class="article-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=900&auto=format&fit=crop&q=85"
+                alt="Laptop and notebook on desk"
+              />
+
+              <span class="image-number">
+                03
+              </span>
+
+            </a>
+
+            <div class="article-card__content">
+
+              <div class="article-card__meta">
+                <span>Author Growth</span>
+                <span>9 min</span>
+              </div>
+
+              <h3>
+                Build an audience without posting every day
+              </h3>
+
+              <p>
+                Consistency doesn't have to mean constant posting.
+                Build a sustainable rhythm that works around
+                your writing schedule.
+              </p>
+
+              <a href="#" class="article-link">
+                Read article
+                <span>↗</span>
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- ARTICLE 04 -->
+
+          <article
+            class="article-card"
+            data-category="marketing"
+            data-search="hooks tiktok videos authors attention book marketing"
+          >
+
+            <a href="#" class="article-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=900&auto=format&fit=crop&q=85"
+                alt="Books inside a bookstore"
+              />
+
+              <span class="image-number">
+                04
+              </span>
+
+            </a>
+
+            <div class="article-card__content">
+
+              <div class="article-card__meta">
+                <span>TikTok Marketing</span>
+                <span>5 min</span>
+              </div>
+
+              <h3>
+                7 TikTok hooks authors can adapt to any book
+              </h3>
+
+              <p>
+                Strong videos usually begin with a strong opening.
+                Learn seven hook structures you can adapt without
+                sounding generic.
+              </p>
+
+              <a href="#" class="article-link">
+                Read article
+                <span>↗</span>
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- ARTICLE 05 -->
+
+          <article
+            class="article-card"
+            data-category="strategy"
+            data-search="content pillars authors social media strategy planning"
+          >
+
+            <a href="#" class="article-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=900&auto=format&fit=crop&q=85"
+                alt="Person writing in notebook"
+              />
+
+              <span class="image-number">
+                05
+              </span>
+
+            </a>
+
+            <div class="article-card__content">
+
+              <div class="article-card__meta">
+                <span>Content Strategy</span>
+                <span>8 min</span>
+              </div>
+
+              <h3>
+                The content pillars every author should define
+              </h3>
+
+              <p>
+                A clear set of content pillars makes planning
+                easier and gives your audience a reason to keep
+                following your work.
+              </p>
+
+              <a href="#" class="article-link">
+                Read article
+                <span>↗</span>
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- ARTICLE 06 -->
+
+          <article
+            class="article-card"
+            data-category="booktok"
+            data-search="booktok trends authors tiktok publishing books"
+          >
+
+            <a href="#" class="article-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?w=900&auto=format&fit=crop&q=85"
+                alt="Person reading a book"
+              />
+
+              <span class="image-number">
+                06
+              </span>
+
+            </a>
+
+            <div class="article-card__content">
+
+              <div class="article-card__meta">
+                <span>BookTok</span>
+                <span>6 min</span>
+              </div>
+
+              <h3>
+                BookTok trends worth understanding — not copying
+              </h3>
+
+              <p>
+                Trends can create reach, but copying them blindly
+                rarely builds a recognizable author brand.
+                Here's how to use them intentionally.
+              </p>
+
+              <a href="#" class="article-link">
+                Read article
+                <span>↗</span>
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- ARTICLE 07 -->
+
+          <article
+            class="article-card hidden-article"
+            data-category="growth"
+            data-search="author brand identity readers personal brand writing"
+          >
+
+            <a href="#" class="article-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=900&auto=format&fit=crop&q=85"
+                alt="Library shelves"
+              />
+
+              <span class="image-number">
+                07
+              </span>
+
+            </a>
+
+            <div class="article-card__content">
+
+              <div class="article-card__meta">
+                <span>Author Growth</span>
+                <span>10 min</span>
+              </div>
+
+              <h3>
+                Your author brand is more than your book cover
+              </h3>
+
+              <p>
+                Learn how voice, visual identity and recurring
+                themes can make your work recognizable before
+                someone even sees your name.
+              </p>
+
+              <a href="#" class="article-link">
+                Read article
+                <span>↗</span>
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- ARTICLE 08 -->
+
+          <article
+            class="article-card hidden-article"
+            data-category="marketing"
+            data-search="mira simplify content planning tiktok authors workflow"
+          >
+
+            <a href="#" class="article-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1484417894907-623942c8ee29?w=900&auto=format&fit=crop&q=85"
+                alt="Creative workspace with laptop"
+              />
+
+              <span class="image-number">
+                08
+              </span>
+
+            </a>
+
+            <div class="article-card__content">
+
+              <div class="article-card__meta">
+                <span>MIRA</span>
+                <span>4 min</span>
+              </div>
+
+              <h3>
+                How MIRA simplifies content planning for authors
+              </h3>
+
+              <p>
+                From scattered ideas to an organized content
+                workflow: a look at how MIRA helps writers spend
+                less time planning marketing.
+              </p>
+
+              <a href="#" class="article-link">
+                Read article
+                <span>↗</span>
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- ARTICLE 09 -->
+
+          <article
+            class="article-card hidden-article"
+            data-category="strategy"
+            data-search="batch content creation authors workflow schedule"
+          >
+
+            <a href="#" class="article-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=900&auto=format&fit=crop&q=85"
+                alt="Notebook and planning workspace"
+              />
+
+              <span class="image-number">
+                09
+              </span>
+
+            </a>
+
+            <div class="article-card__content">
+
+              <div class="article-card__meta">
+                <span>Content Strategy</span>
+                <span>7 min</span>
+              </div>
+
+              <h3>
+                A simple batching system for busy authors
+              </h3>
+
+              <p>
+                Create several posts in one focused session
+                instead of switching between writing and marketing
+                every single day.
+              </p>
+
+              <a href="#" class="article-link">
+                Read article
+                <span>↗</span>
+              </a>
+
+            </div>
+
+          </article>
+
+        </div>
+
+
+        <!-- EMPTY STATE -->
+
+        <div class="empty-state" id="emptyState">
+
+          <h3>No articles found.</h3>
+
+          <p>
+            Try another search or choose a different category.
+          </p>
+
+        </div>
+
+
+        <!-- LOAD MORE -->
+
+        <div class="load-more-container">
+
+          <button
+            class="load-more"
+            id="loadMore"
+            type="button"
+          >
+            <span>Load more articles</span>
+
+            <svg viewBox="0 0 24 24">
+              <path d="M12 5V19"></path>
+              <path d="M7 14L12 19L17 14"></path>
+            </svg>
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================================
+         NEWSLETTER / CTA
+    ======================================================= -->
+
+    <section class="journal-cta">
+
+      <div class="page-container journal-cta__inner">
+
+        <div>
+
+          <p class="eyebrow">
+            MIRA FOR AUTHORS
+          </p>
+
+          <h2>
+            Spend more time writing.<br>
+            Less time figuring out what to post.
+          </h2>
+
+        </div>
+
+        <div class="journal-cta__right">
+
+          <p>
+            MIRA helps authors organize ideas, plan content and
+            turn their stories into posts designed to reach
+            the right readers.
+          </p>
+
+          <a href="index.html" class="cta-button">
+            Explore MIRA
+
+            <svg viewBox="0 0 24 24">
+              <path d="M5 12H19"></path>
+              <path d="M14 7L19 12L14 17"></path>
+            </svg>
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================================
+         SIMPLE FOOTER
+    ======================================================= -->
+
+    <footer class="blog-footer">
+
+      <div class="page-container blog-footer__inner">
+
+        <a href="index.html" class="footer-logo">
+          MIRA
+        </a>
+
+        <p>
+          TikTok marketing, made for authors.
+        </p>
+
+        <span>
+          © 2026 MIRA
+        </span>
+
+      </div>
+
+    </footer>
+
+  </main>
+
+
+  <script src="blog.js"></script>
+
+</body>
+</html>

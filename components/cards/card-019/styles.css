@@ -1,0 +1,440 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #eef0f6;
+  --surface: #ffffff;
+  --ink: #15161c;
+  --ink-soft: #545868;
+  --ink-faint: #858a9b;
+  --line: #e7e9f0;
+  --done: #15803d;
+  --done-soft: #e3f5e9;
+
+  --radius: 22px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Figtree", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  background:
+    radial-gradient(700px 360px at 12% 0%, rgba(106, 72, 245, 0.08), transparent 70%),
+    radial-gradient(700px 360px at 90% 100%, rgba(31, 111, 229, 0.07), transparent 70%),
+    var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ======================================
+   PAGE
+====================================== */
+
+.page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 20px 16px;
+}
+
+.courses {
+  width: min(1040px, 100%);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+/* ======================================
+   CARD
+====================================== */
+
+/* --c / --c-soft come from each card's inline style (category colour);
+   the completed state swaps the working accent to green. */
+.course {
+  --accent: var(--c);
+  --accent-soft: var(--c-soft);
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow:
+    0 1px 2px rgba(21, 22, 28, 0.04),
+    0 10px 30px -14px rgba(21, 22, 28, 0.16);
+  transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease), opacity 0.7s var(--ease);
+}
+
+.js .course {
+  opacity: 0;
+  transform: translateY(20px);
+  transition-delay: calc(var(--i) * 80ms);
+}
+
+.js .course.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (hover: hover) {
+  .js .course.is-in:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 1px 2px rgba(21, 22, 28, 0.04),
+      0 22px 40px -18px rgba(21, 22, 28, 0.28);
+    transition-delay: 0s;
+  }
+}
+
+/* ---------- Thumbnail ---------- */
+
+.course__thumb {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 16 / 8.2;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--accent-soft);
+}
+
+.course__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.9s var(--ease);
+}
+
+.course:hover .course__thumb img {
+  transform: scale(1.04);
+}
+
+.course__cat {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--c);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Completed badge: hidden until the card gets .is-complete */
+.course__badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px 5px 7px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--done);
+  box-shadow: 0 4px 12px rgba(21, 128, 61, 0.35);
+  opacity: 0;
+  transform: translateY(-6px) scale(0.9);
+  transition: opacity 0.4s var(--ease), transform 0.5s var(--ease);
+}
+
+.course__badge svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.course.is-complete .course__badge {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Body ---------- */
+
+.course__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 14px 8px 6px;
+}
+
+.course__title {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+  text-wrap: balance;
+}
+
+.course__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.course__meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.course__meta svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: var(--ink-faint);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.course__by {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.course__by img {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--line);
+}
+
+/* ---------- Progress (ring + bar) ---------- */
+
+.progress {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 14px;
+}
+
+.ring {
+  flex: none;
+  width: 54px;
+  height: 54px;
+  transform: rotate(-90deg); /* start the arc at 12 o'clock */
+}
+
+.ring circle {
+  fill: none;
+  stroke-width: 4.5;
+}
+
+.ring__track {
+  stroke: var(--accent-soft);
+}
+
+.ring__fill {
+  stroke: var(--accent);
+  stroke-linecap: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100; /* JS writes 100 − percent */
+  transition: stroke-dashoffset 1.2s var(--ease), stroke 0.4s var(--ease);
+}
+
+/* Percentage sits centred over the ring */
+.ring__pct {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.ring__pct small {
+  font-size: 9px;
+  font-weight: 700;
+  margin-left: 1px;
+  color: var(--ink-faint);
+}
+
+.is-complete .ring__pct {
+  font-size: 12px;
+}
+
+.progress__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.progress__label {
+  margin: 0 0 7px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.progress__label [data-lessons] {
+  font-weight: 700;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.bar {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  overflow: hidden;
+}
+
+.bar__fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+  transform: scaleX(0); /* JS sets the ratio */
+  transform-origin: left center;
+  transition: transform 1.2s var(--ease), background-color 0.4s var(--ease);
+}
+
+/* ---------- Completed state ---------- */
+
+.course.is-complete {
+  --accent: var(--done);
+  --accent-soft: var(--done-soft);
+}
+
+/* ---------- Button ---------- */
+
+.course__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 14px;
+  padding: 11px 16px;
+  border: 0;
+  border-radius: 12px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent);
+  cursor: pointer;
+  transition: transform 0.3s var(--ease), filter 0.3s var(--ease), background-color 0.4s var(--ease);
+}
+
+.course__btn svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.4s var(--ease);
+}
+
+.course__btn:hover {
+  filter: brightness(1.08);
+}
+
+.course__btn:hover svg {
+  transform: translateX(3px);
+}
+
+.course__btn:active {
+  transform: scale(0.97);
+}
+
+.course__btn:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Completed course: quieter outline button */
+.course.is-complete .course__btn {
+  color: var(--done);
+  background: var(--done-soft);
+}
+
+/* ======================================
+   RESPONSIVE
+====================================== */
+
+@media (max-width: 900px) {
+  .courses {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .courses {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 420px;
+  }
+}
+
+/* ======================================
+   REDUCED MOTION
+====================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .course,
+  .course__thumb img,
+  .course__badge,
+  .ring__fill,
+  .bar__fill,
+  .course__btn,
+  .course__btn svg {
+    transition: none !important;
+  }
+
+  .js .course,
+  .js .course.is-in:hover,
+  .course:hover .course__thumb img {
+    transform: none;
+  }
+
+  .js .course {
+    opacity: 1;
+  }
+}

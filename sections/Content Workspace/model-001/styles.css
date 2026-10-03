@@ -1,0 +1,1605 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f5f5f1;
+  color: #181816;
+
+  font-family:
+    "DM Sans",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+button {
+  font: inherit;
+}
+
+/* =========================================================
+   DEMO
+========================================================= */
+
+.demo-section {
+  min-height: 100vh;
+
+  display: grid;
+  place-items: center;
+
+  background: #eeeeea;
+
+  color: #92928c;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 0.15em;
+}
+
+.demo-dark {
+  background: #171715;
+  color: #ffffff;
+}
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.content-story {
+  position: relative;
+
+  /*
+    The section is longer than the viewport.
+    That gives us space to tell the story
+    without leaving the section.
+  */
+
+  height: 380vh;
+
+  background: #f7f7f3;
+}
+
+/* =========================================================
+   STICKY
+========================================================= */
+
+.content-sticky {
+  position: sticky;
+
+  top: 0;
+
+  height: 100vh;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+}
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.content-container {
+  width: min(1440px, calc(100% - 80px));
+
+  height: min(920px, calc(100vh - 50px));
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-rows:
+    auto
+    1fr;
+
+  padding: 25px 0;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.story-header {
+  display: grid;
+
+  grid-template-columns:
+    0.38fr
+    1.3fr
+    0.62fr;
+
+  gap: clamp(35px, 5vw, 80px);
+
+  align-items: start;
+
+  padding-bottom: 28px;
+
+  border-bottom: 1px solid #d8d8d2;
+}
+
+.section-label {
+  padding-top: 8px;
+
+  color: #85857f;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+}
+
+.story-header h1 {
+  max-width: 720px;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: clamp(38px, 4.3vw, 67px);
+
+  font-weight: 600;
+
+  line-height: 0.97;
+
+  letter-spacing: -0.06em;
+}
+
+.story-header h1 span {
+  display: block;
+
+  color: #999993;
+}
+
+.story-header > p {
+  max-width: 330px;
+
+  padding-top: 5px;
+
+  color: #6d6d68;
+
+  font-size: 14px;
+
+  line-height: 1.65;
+}
+
+/* =========================================================
+   MAIN LAYOUT
+========================================================= */
+
+.story-layout {
+  min-height: 0;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(600px, 1.38fr)
+    minmax(350px, 0.62fr);
+
+  gap: clamp(55px, 7vw, 110px);
+
+  align-items: center;
+
+  padding: 32px 0 5px;
+}
+
+/* =========================================================
+   VISUAL SHELL
+========================================================= */
+
+.visual-shell {
+  position: relative;
+
+  width: 100%;
+
+  height: min(570px, 58vh);
+
+  min-height: 430px;
+
+  overflow: hidden;
+
+  background: #e8e8e3;
+
+  /*
+    Perspective is important for
+    pointer depth movement.
+  */
+
+  perspective: 1300px;
+}
+
+/* =========================================================
+   STATES
+========================================================= */
+
+.visual-state {
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+  /*
+    Initial transition state
+  */
+
+  filter: blur(12px);
+
+  clip-path: inset(8% 0 8% 100%);
+
+  transform: scale(0.965) translateX(60px);
+
+  transition:
+    opacity 550ms ease,
+    filter 750ms ease,
+    clip-path 850ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 900ms cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 550ms;
+}
+
+.visual-state.active {
+  opacity: 1;
+
+  visibility: visible;
+
+  pointer-events: auto;
+
+  filter: blur(0);
+
+  clip-path: inset(0 0 0 0);
+
+  transform: scale(1) translateX(0);
+}
+
+.visual-state.leaving {
+  opacity: 0;
+
+  filter: blur(8px);
+
+  clip-path: inset(0 100% 0 0);
+
+  transform: scale(1.025) translateX(-40px);
+}
+
+/* =========================================================
+   PARALLAX ELEMENTS
+========================================================= */
+
+[data-depth] {
+  /*
+    JS changes these values.
+  */
+
+  --mouse-x: 0px;
+  --mouse-y: 0px;
+
+  translate: var(--mouse-x) var(--mouse-y);
+
+  transition: translate 180ms ease-out;
+}
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.media-layer {
+  position: absolute;
+
+  overflow: hidden;
+}
+
+.media-layer img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transform: scale(1.07);
+
+  transition: transform 5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.visual-state.active .media-layer img {
+  transform: scale(1);
+}
+
+.image-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(
+    180deg,
+    rgba(15, 15, 14, 0.02) 20%,
+    rgba(15, 15, 14, 0.58) 100%
+  );
+}
+
+/* =========================================================
+   BIG VISUAL NUMBER
+========================================================= */
+
+.visual-number {
+  position: absolute;
+
+  z-index: 3;
+
+  top: 20px;
+  right: 28px;
+
+  color: rgba(255, 255, 255, 0.88);
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: clamp(85px, 10vw, 155px);
+
+  font-weight: 600;
+
+  line-height: 1;
+
+  letter-spacing: -0.09em;
+
+  user-select: none;
+}
+
+.dark-number {
+  color: rgba(30, 30, 27, 0.1);
+}
+
+/* =========================================================
+   STATE 01
+========================================================= */
+
+.main-photo {
+  inset: 0;
+}
+
+.visual-caption {
+  position: absolute;
+
+  z-index: 4;
+
+  right: 40px;
+  bottom: 35px;
+  left: 40px;
+
+  color: #ffffff;
+}
+
+.visual-caption span {
+  display: block;
+
+  margin-bottom: 9px;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+
+  opacity: 0.7;
+}
+
+.visual-caption strong {
+  display: block;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: clamp(27px, 3vw, 43px);
+
+  font-weight: 500;
+
+  line-height: 1;
+
+  letter-spacing: -0.05em;
+}
+
+/* =========================================================
+   FLOATING WINDOW
+========================================================= */
+
+.floating-window {
+  position: absolute;
+
+  z-index: 8;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  border: 1px solid rgba(255, 255, 255, 0.55);
+
+  backdrop-filter: blur(18px);
+
+  box-shadow: 0 28px 80px rgba(18, 18, 16, 0.17);
+}
+
+.upload-window {
+  top: 45px;
+  left: 42px;
+
+  width: 355px;
+
+  padding: 25px;
+}
+
+/* =========================================================
+   WINDOW HEADER
+========================================================= */
+
+.window-header {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding-bottom: 18px;
+
+  border-bottom: 1px solid #dfdfda;
+}
+
+.window-title span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #94948e;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+}
+
+.window-title strong {
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+.window-action {
+  width: 29px;
+  height: 29px;
+
+  display: grid;
+
+  place-items: center;
+
+  border: 1px solid #d5d5cf;
+
+  font-size: 17px;
+}
+
+/* =========================================================
+   UPLOADS
+========================================================= */
+
+.upload-item {
+  display: grid;
+
+  grid-template-columns:
+    42px
+    1fr
+    24px;
+
+  gap: 12px;
+
+  align-items: center;
+
+  min-height: 68px;
+
+  border-bottom: 1px solid #e7e7e2;
+}
+
+.upload-thumbnail,
+.file-icon {
+  width: 38px;
+  height: 44px;
+
+  overflow: hidden;
+
+  display: grid;
+
+  place-items: center;
+
+  background: #e4e4de;
+
+  color: #575752;
+
+  font-size: 10px;
+}
+
+.upload-thumbnail img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.file-icon.dark {
+  background: #20201e;
+
+  color: #ffffff;
+}
+
+.upload-info strong {
+  display: block;
+
+  color: #292926;
+
+  font-size: 11px;
+
+  font-weight: 600;
+}
+
+.upload-info span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #9c9c96;
+
+  font-size: 9px;
+}
+
+.check {
+  width: 20px;
+  height: 20px;
+
+  display: grid;
+
+  place-items: center;
+
+  border: 1px solid #bdbdb7;
+
+  border-radius: 50%;
+
+  color: #3d3d39;
+
+  font-size: 8px;
+}
+
+/* =========================================================
+   UPLOAD FOOTER
+========================================================= */
+
+.upload-footer {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding-top: 19px;
+}
+
+.upload-footer > span {
+  color: #8d8d87;
+
+  font-size: 9px;
+}
+
+.upload-footer button {
+  padding: 10px 14px;
+
+  background: #1d1d1b;
+
+  border: 0;
+
+  color: #ffffff;
+
+  font-size: 10px;
+
+  cursor: pointer;
+}
+
+/* =========================================================
+   STATE 02
+========================================================= */
+
+.writing-photo {
+  inset: 0;
+}
+
+.scene-paper {
+  position: absolute;
+
+  z-index: 5;
+
+  top: 50%;
+  left: 8%;
+
+  width: 52%;
+
+  padding: 28px 32px;
+
+  background: rgba(252, 252, 249, 0.96);
+
+  box-shadow: 0 30px 80px rgba(15, 15, 14, 0.15);
+
+  transform: translateY(-50%);
+}
+
+/* =========================================================
+   PAPER
+========================================================= */
+
+.paper-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding-bottom: 18px;
+
+  border-bottom: 1px solid #dfdfda;
+
+  color: #8e8e88;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+}
+
+.paper-content {
+  position: relative;
+
+  padding: 40px 5px 35px;
+}
+
+.quote-mark {
+  position: absolute;
+
+  top: 20px;
+  left: 0;
+
+  color: #bdbdb7;
+
+  font-family: Georgia, serif;
+
+  font-size: 52px;
+}
+
+.paper-content p {
+  color: #282825;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(19px, 2.2vw, 30px);
+
+  line-height: 1.42;
+
+  letter-spacing: -0.025em;
+}
+
+.selection-line {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding-top: 17px;
+
+  border-top: 1px solid #dfdfda;
+}
+
+.selection-line span {
+  width: 30px;
+  height: 2px;
+
+  background: #1d1d1b;
+}
+
+.selection-line strong {
+  color: #757570;
+
+  font-size: 9px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   GENERATE PANEL
+========================================================= */
+
+.generate-panel {
+  position: absolute;
+
+  z-index: 7;
+
+  right: 5%;
+  bottom: 7%;
+
+  width: 340px;
+
+  padding: 23px;
+
+  background: rgba(27, 27, 25, 0.96);
+
+  color: #ffffff;
+
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.22);
+}
+
+.generate-label {
+  display: block;
+
+  padding-bottom: 17px;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.generate-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.generate-grid button {
+  min-height: 70px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 14px;
+
+  background: transparent;
+
+  border: 0;
+
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+
+  color: white;
+
+  cursor: pointer;
+
+  transition: background 220ms ease;
+}
+
+.generate-grid button:nth-child(2n) {
+  border-right: 0;
+}
+
+.generate-grid button:nth-last-child(-n + 2) {
+  border-bottom: 0;
+}
+
+.generate-grid button:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.generate-grid span {
+  font-size: 11px;
+}
+
+.generate-grid strong {
+  font-weight: 400;
+}
+
+/* =========================================================
+   STATE 03
+========================================================= */
+
+.booketeer-background {
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(135deg, #e9e8e2, #d9d8d1);
+}
+
+/* =========================================================
+   BOOK
+========================================================= */
+
+.book-object {
+  position: absolute;
+
+  z-index: 4;
+
+  top: 50%;
+  left: 7%;
+
+  width: 31%;
+  height: 72%;
+
+  overflow: hidden;
+
+  box-shadow: 0 30px 60px rgba(20, 20, 18, 0.18);
+
+  transform: translateY(-50%) rotate(-3deg);
+}
+
+.book-object img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.book-shade {
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.6));
+}
+
+.book-copy {
+  position: absolute;
+
+  right: 25px;
+  bottom: 27px;
+  left: 25px;
+
+  color: #ffffff;
+}
+
+.book-copy span {
+  display: block;
+
+  margin-bottom: 10px;
+
+  font-size: 8px;
+
+  letter-spacing: 0.15em;
+
+  opacity: 0.7;
+}
+
+.book-copy strong {
+  font-family: Georgia, serif;
+
+  font-size: clamp(25px, 2.5vw, 38px);
+
+  font-weight: 400;
+
+  line-height: 1;
+}
+
+/* =========================================================
+   CONNECTION
+========================================================= */
+
+.connection {
+  position: absolute;
+
+  z-index: 3;
+
+  top: 50%;
+  left: 36%;
+
+  width: 15%;
+
+  display: flex;
+
+  align-items: center;
+
+  transform: translateY(-50%);
+}
+
+.connection > span {
+  width: 100%;
+  height: 1px;
+
+  background: #aaa9a3;
+}
+
+.connection > div {
+  width: 34px;
+  height: 34px;
+
+  flex: 0 0 auto;
+
+  display: grid;
+
+  place-items: center;
+
+  background: #f7f7f3;
+
+  border: 1px solid #aaa9a3;
+
+  border-radius: 50%;
+
+  font-size: 13px;
+}
+
+/* =========================================================
+   INDEX WINDOW
+========================================================= */
+
+.index-window {
+  position: absolute;
+
+  z-index: 5;
+
+  top: 50%;
+  right: 5%;
+
+  width: 49%;
+
+  padding: 27px;
+
+  background: #ffffff;
+
+  border: 1px solid #d5d5cf;
+
+  box-shadow: 0 28px 70px rgba(20, 20, 18, 0.1);
+
+  transform: translateY(-50%);
+}
+
+/* =========================================================
+   INDEX HEADER
+========================================================= */
+
+.index-header {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding-bottom: 21px;
+
+  border-bottom: 1px solid #e3e3de;
+}
+
+.index-header span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #90908a;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+}
+
+.index-header h3 {
+  font-size: 17px;
+
+  font-weight: 600;
+}
+
+.ready-icon {
+  width: 30px;
+  height: 30px;
+
+  display: grid;
+
+  place-items: center;
+
+  background: #1d1d1b;
+
+  border-radius: 50%;
+
+  color: #ffffff;
+
+  font-size: 10px;
+}
+
+/* =========================================================
+   METRICS
+========================================================= */
+
+.index-metrics {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  border-bottom: 1px solid #e3e3de;
+}
+
+.index-metrics > div {
+  padding: 20px 10px 20px 0;
+}
+
+.index-metrics strong {
+  display: block;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: clamp(22px, 2vw, 30px);
+
+  font-weight: 600;
+
+  letter-spacing: -0.04em;
+}
+
+.index-metrics span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #92928c;
+
+  font-size: 9px;
+}
+
+/* =========================================================
+   SCENES
+========================================================= */
+
+.index-scenes button {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    30px
+    1fr
+    20px;
+
+  gap: 10px;
+
+  align-items: center;
+
+  min-height: 65px;
+
+  padding: 0;
+
+  background: transparent;
+
+  border: 0;
+
+  border-bottom: 1px solid #e7e7e2;
+
+  color: #242421;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  transition:
+    padding 250ms ease,
+    background 250ms ease;
+}
+
+.index-scenes button:hover {
+  padding: 0 8px;
+
+  background: #f6f6f2;
+}
+
+.scene-index {
+  color: #9c9c96;
+
+  font-size: 9px;
+}
+
+.index-scenes button div strong {
+  display: block;
+
+  font-size: 10px;
+
+  font-weight: 600;
+}
+
+.index-scenes button div span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #969690;
+
+  font-size: 8px;
+}
+
+/* =========================================================
+   RIGHT NAVIGATION
+========================================================= */
+
+.story-navigation {
+  width: 100%;
+
+  border-top: 1px solid #d4d4ce;
+}
+
+/* =========================================================
+   STEP
+========================================================= */
+
+.story-step {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    80px
+    minmax(0, 1fr)
+    30px;
+
+  gap: 17px;
+
+  align-items: start;
+
+  padding: 25px 0;
+
+  background: transparent;
+
+  border: 0;
+
+  border-bottom: 1px solid #d4d4ce;
+
+  color: #1d1d1b;
+
+  cursor: pointer;
+
+  text-align: left;
+}
+
+/* =========================================================
+   BIG STEP NUMBER
+========================================================= */
+
+.step-number {
+  color: #b0b0aa;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: clamp(33px, 3vw, 48px);
+
+  font-weight: 500;
+
+  line-height: 0.9;
+
+  letter-spacing: -0.06em;
+
+  transition:
+    color 350ms ease,
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.step-overline {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #92928c;
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+}
+
+.step-content h2 {
+  font-family: "Manrope", sans-serif;
+
+  font-size: clamp(20px, 2vw, 27px);
+
+  font-weight: 600;
+
+  line-height: 1.1;
+
+  letter-spacing: -0.04em;
+}
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.step-description {
+  display: grid;
+
+  grid-template-rows: 0fr;
+
+  opacity: 0;
+
+  transition:
+    grid-template-rows 550ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 300ms ease;
+}
+
+.step-description p {
+  max-width: 300px;
+
+  overflow: hidden;
+
+  padding-top: 0;
+
+  color: #6f6f6a;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+
+  transition: padding 550ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* =========================================================
+   ARROW
+========================================================= */
+
+.step-arrow {
+  padding-top: 7px;
+
+  color: #a4a49e;
+
+  font-size: 17px;
+
+  transition:
+    transform 450ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 300ms ease;
+}
+
+/* =========================================================
+   ACTIVE STEP
+========================================================= */
+
+.story-step.active .step-number {
+  color: #1d1d1b;
+
+  transform: translateX(5px);
+}
+
+.story-step.active .step-description {
+  grid-template-rows: 1fr;
+
+  opacity: 1;
+}
+
+.story-step.active .step-description p {
+  padding-top: 13px;
+}
+
+.story-step.active .step-arrow {
+  color: #1d1d1b;
+
+  transform: translateX(5px);
+}
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+@media (hover: hover) and (pointer: fine) {
+  .story-step:hover .step-number {
+    color: #1d1d1b;
+
+    transform: translateX(5px);
+  }
+
+  .story-step:hover .step-arrow {
+    color: #1d1d1b;
+
+    transform: translateX(5px);
+  }
+}
+
+/* =========================================================
+   SCROLL STATUS
+========================================================= */
+
+.scroll-status {
+  margin-top: 20px;
+}
+
+.scroll-status > span {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: #999993;
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+}
+
+.scroll-track {
+  width: 100%;
+  height: 2px;
+
+  overflow: hidden;
+
+  background: #deded8;
+}
+
+.scroll-fill {
+  display: block;
+
+  width: 0%;
+  height: 100%;
+
+  background: #1d1d1b;
+
+  transform-origin: left;
+
+  transition: width 80ms linear;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1150px) {
+  .content-container {
+    width: min(1200px, calc(100% - 50px));
+  }
+
+  .story-header {
+    grid-template-columns:
+      130px
+      1fr;
+  }
+
+  .story-header > p {
+    display: none;
+  }
+
+  .story-layout {
+    grid-template-columns:
+      minmax(500px, 1.15fr)
+      minmax(320px, 0.65fr);
+
+    gap: 45px;
+  }
+
+  .story-step {
+    grid-template-columns:
+      60px
+      1fr
+      25px;
+  }
+
+  .step-number {
+    font-size: 36px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 850px) {
+  /*
+    On mobile the long sticky scroll is removed.
+    Content remains fully accessible.
+  */
+
+  .content-story {
+    height: auto;
+
+    padding: 80px 0;
+  }
+
+  .content-sticky {
+    position: relative;
+
+    height: auto;
+
+    overflow: visible;
+  }
+
+  .content-container {
+    width: min(700px, calc(100% - 36px));
+
+    height: auto;
+
+    display: block;
+
+    padding: 0;
+  }
+
+  .story-header {
+    display: block;
+
+    padding-bottom: 45px;
+  }
+
+  .section-label {
+    display: block;
+
+    margin-bottom: 23px;
+  }
+
+  .story-header h1 {
+    font-size: clamp(40px, 11vw, 62px);
+  }
+
+  .story-layout {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 40px;
+
+    padding: 0;
+  }
+
+  .visual-shell {
+    height: 560px;
+
+    min-height: 0;
+  }
+
+  .story-navigation {
+    width: 100%;
+  }
+
+  .story-step {
+    grid-template-columns:
+      65px
+      1fr
+      25px;
+  }
+
+  .scroll-status {
+    display: none;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 580px) {
+  .content-story {
+    padding: 65px 0;
+  }
+
+  .visual-shell {
+    height: 510px;
+  }
+
+  /* 01 */
+
+  .upload-window {
+    top: 25px;
+    right: 20px;
+    left: 20px;
+
+    width: auto;
+
+    padding: 20px;
+  }
+
+  .visual-caption {
+    right: 25px;
+    bottom: 25px;
+    left: 25px;
+  }
+
+  .visual-number {
+    top: auto;
+    right: 20px;
+    bottom: 20px;
+
+    font-size: 100px;
+  }
+
+  /* 02 */
+
+  .scene-paper {
+    top: 45px;
+    right: 20px;
+    left: 20px;
+
+    width: auto;
+
+    padding: 24px;
+
+    transform: none;
+  }
+
+  .generate-panel {
+    right: 20px;
+    bottom: 25px;
+    left: 55px;
+
+    width: auto;
+  }
+
+  /* 03 */
+
+  .book-object {
+    top: 30px;
+    left: 25px;
+
+    width: 155px;
+    height: 220px;
+
+    transform: rotate(-3deg);
+  }
+
+  .connection {
+    display: none;
+  }
+
+  .index-window {
+    top: auto;
+    right: 20px;
+    bottom: 25px;
+    left: 55px;
+
+    width: auto;
+
+    padding: 21px;
+
+    transform: none;
+  }
+
+  .index-metrics strong {
+    font-size: 21px;
+  }
+
+  .story-step {
+    grid-template-columns:
+      55px
+      1fr
+      20px;
+
+    padding: 23px 0;
+  }
+
+  .step-number {
+    font-size: 32px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+
+    transition-duration: 0.01ms !important;
+  }
+
+  [data-depth] {
+    translate: 0 0 !important;
+  }
+}

@@ -1,0 +1,474 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #0b0c18;
+  --ink: #f5f6ff;
+  --ink-soft: rgba(245, 246, 255, 0.66);
+  --glass: rgba(255, 255, 255, 0.1);
+  --glass-edge: rgba(255, 255, 255, 0.28);
+  --focus: #9fe8ff;
+
+  --radius: 5.2cqw; /* card corner, scales with the card */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Space Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ======================================
+   STAGE + BACKGROUND ORBS
+====================================== */
+
+.stage {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 48px 16px;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(120% 80% at 50% 0%, #1a1c3a 0%, transparent 60%),
+    var(--bg);
+}
+
+.stage__orbs {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Orbs sit around the card centre so the glass has colour to blur */
+.orb {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  filter: blur(4px);
+  will-change: transform;
+}
+
+.orb--a {
+  width: min(250px, 58vw);
+  aspect-ratio: 1;
+  margin: calc(min(250px, 58vw) * -0.95) 0 0 calc(min(250px, 58vw) * -1.05);
+  background: radial-gradient(circle at 30% 30%, #ff9ec4, #ff3d7f 55%, #b3125a);
+  animation: drift-a 16s var(--ease) infinite alternate;
+}
+
+.orb--b {
+  width: min(210px, 48vw);
+  aspect-ratio: 1;
+  margin: calc(min(210px, 48vw) * -0.42) 0 0 calc(min(210px, 48vw) * 0.2);
+  background: radial-gradient(circle at 35% 30%, #9ff3ff, #2fb7f0 55%, #1a4fd6);
+  animation: drift-b 18s var(--ease) infinite alternate;
+}
+
+.orb--c {
+  width: min(130px, 30vw);
+  aspect-ratio: 1;
+  margin: calc(min(130px, 30vw) * -1.6) 0 0 calc(min(130px, 30vw) * 0.9);
+  background: radial-gradient(circle at 35% 30%, #ffe7a3, #ffb238 60%, #e8741a);
+  animation: drift-c 14s var(--ease) infinite alternate;
+}
+
+@keyframes drift-a {
+  to { transform: translate(28px, 22px) scale(1.06); }
+}
+
+@keyframes drift-b {
+  to { transform: translate(-30px, -18px) scale(0.94); }
+}
+
+@keyframes drift-c {
+  to { transform: translate(-18px, 26px); }
+}
+
+/* ======================================
+   WALLET / TILT WRAPPER
+====================================== */
+
+.wallet {
+  width: min(420px, 100%);
+  display: grid;
+  justify-items: center;
+  gap: 28px;
+}
+
+.tilt {
+  width: 100%;
+  container-type: inline-size; /* lets card internals scale with cqw units */
+  perspective: 1100px;
+}
+
+/* ======================================
+   CARD (button)
+====================================== */
+
+.card {
+  /* Tilt + glare values written by script.js */
+  --rx: 0deg;
+  --ry: 0deg;
+  --gx: 50%;
+  --gy: 50%;
+  --glare: 0;
+
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.586; /* ISO/IEC 7810 ID-1 */
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius);
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rx)) rotateY(var(--ry));
+  -webkit-tap-highlight-color: transparent;
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 8px;
+}
+
+.card__inner {
+  position: absolute;
+  inset: 0;
+  display: block;
+  transform-style: preserve-3d;
+  transition: transform 0.9s var(--ease);
+}
+
+.card[aria-pressed="true"] .card__inner {
+  transform: rotateY(180deg);
+}
+
+/* Shared glass face */
+.card__face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.04) 60%),
+    linear-gradient(0deg, rgba(12, 12, 32, 0.22), rgba(12, 12, 32, 0.22)),
+    var(--glass);
+  border: 1px solid var(--glass-edge);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 30px 60px -20px rgba(0, 0, 0, 0.55),
+    0 12px 24px -12px rgba(0, 0, 0, 0.4);
+  -webkit-backdrop-filter: blur(22px) saturate(170%);
+  backdrop-filter: blur(22px) saturate(170%);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.card__face--front {
+  justify-content: space-between;
+  padding: 6.5cqw 7cqw 6cqw;
+}
+
+.card__face--back {
+  transform: rotateY(180deg);
+  padding: 7cqw 0 6cqw;
+  gap: 5cqw;
+}
+
+/* Specular highlight that follows the pointer */
+.card__glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    radial-gradient(
+      circle at var(--gx) var(--gy),
+      rgba(255, 255, 255, 0.42) 0%,
+      rgba(255, 255, 255, 0.12) 22%,
+      transparent 52%
+    );
+  opacity: var(--glare);
+}
+
+/* ======================================
+   FRONT CONTENT
+====================================== */
+
+.card__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card__bank {
+  display: inline-flex;
+  align-items: center;
+  gap: 2cqw;
+  font-size: 5cqw;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.card__bank-mark {
+  width: 6.4cqw;
+  height: 6.4cqw;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linejoin: round;
+}
+
+.card__tier {
+  font-size: max(8.5px, 2.9cqw);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.card__row--mid {
+  justify-content: flex-start;
+  gap: 4cqw;
+}
+
+.card__chip {
+  width: 12cqw;
+  height: auto;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.25));
+}
+
+.card__nfc {
+  width: 7cqw;
+  height: 7cqw;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  opacity: 0.85;
+}
+
+.card__number {
+  display: flex;
+  justify-content: space-between;
+  font-size: 6cqw;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.card__row--bottom {
+  align-items: flex-end;
+  gap: 5cqw;
+}
+
+.card__field {
+  display: grid;
+  gap: 0.8cqw;
+  min-width: 0;
+}
+
+.card__field:first-child {
+  flex: 1;
+}
+
+.card__label {
+  font-size: max(8px, 2.5cqw);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.card__value {
+  font-size: 3.9cqw;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Two overlapping circles: a fictional network mark */
+.card__brand {
+  position: relative;
+  display: block;
+  width: 13cqw;
+  height: 8.4cqw;
+  flex: none;
+}
+
+.card__brand-dot {
+  position: absolute;
+  top: 0;
+  width: 8.4cqw;
+  height: 8.4cqw;
+  border-radius: 50%;
+}
+
+.card__brand-dot--a {
+  left: 0;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.card__brand-dot--b {
+  right: 0;
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* ======================================
+   BACK CONTENT
+====================================== */
+
+.card__stripe {
+  display: block;
+  height: 17cqw;
+  background: linear-gradient(180deg, #16161f, #07070c);
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.card__sign {
+  display: flex;
+  align-items: stretch;
+  gap: 3cqw;
+  padding: 0 7cqw;
+}
+
+.card__sign-strip {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 0 3cqw;
+  height: 10cqw;
+  border-radius: 1.6cqw;
+  background:
+    repeating-linear-gradient(-45deg, rgba(20, 20, 40, 0.06) 0 4px, transparent 4px 8px),
+    rgba(255, 255, 255, 0.88);
+  color: #2a2a45;
+  font-size: 3.6cqw;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.card__cvv {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 0.6cqw;
+  min-width: 14cqw;
+  padding: 0 2.5cqw;
+  border-radius: 1.6cqw;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.card__cvv-code {
+  font-size: 4.4cqw;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  font-variant-numeric: tabular-nums;
+}
+
+.card__back-foot {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 5cqw;
+  margin-top: auto;
+  padding: 0 7cqw;
+}
+
+.card__fine {
+  font-size: max(8px, 2.5cqw);
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 62cqw;
+}
+
+/* Iridescent hologram sticker */
+.card__holo {
+  display: block;
+  flex: none;
+  width: 13cqw;
+  height: 9cqw;
+  border-radius: 1.4cqw;
+  background:
+    conic-gradient(from calc(var(--ry) * 6), #ff9ec4, #ffe7a3, #9ff3ff, #b69cff, #ff9ec4);
+  opacity: 0.85;
+}
+
+/* ======================================
+   HINT
+====================================== */
+
+.hint {
+  margin: 0;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+.hint__touch {
+  display: none;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .hint__pointer { display: none; }
+  .hint__touch { display: inline; }
+}
+
+/* ======================================
+   REDUCED MOTION
+====================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .orb {
+    animation: none;
+  }
+
+  .card__inner {
+    transition-duration: 0.01ms;
+  }
+}
+
+.nowrap {
+  white-space: nowrap;
+}

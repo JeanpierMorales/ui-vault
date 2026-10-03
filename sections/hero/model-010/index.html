@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Marea, a lunch-only cevichería counter in Barranco, Lima. The catch of the day, served from noon until the fish runs out.">
+  <title>Marea, cevichería in Barranco</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div class="marea">
+
+  <header class="nav">
+    <a class="brand" href="#" aria-label="Marea, home">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <path d="M3 19c3.2 0 3.2-3 6.4-3s3.2 3 6.4 3 3.2-3 6.4-3 3.2 3 6.4 3" />
+        <path d="M3 25c3.2 0 3.2-3 6.4-3s3.2 3 6.4 3 3.2-3 6.4-3 3.2 3 6.4 3" />
+        <path class="brand-leaf" d="M16 13C12 11 11 7 13 3c4 2 5 6 3 10Z" />
+      </svg>
+      <span class="brand-word">Marea</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="#">Menu</a>
+      <a href="#">The counter</a>
+      <a href="#">Find us</a>
+    </nav>
+
+    <p class="nav-status" id="navStatus">
+      <span class="status-dot" aria-hidden="true"></span>
+      <span id="navStatusText">Lunch only, 12:00 to 16:00</span>
+    </p>
+
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks">
+      <span class="sr-only">Open menu</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path class="t1" d="M4 8h16" />
+        <path class="t2" d="M4 16h16" />
+      </svg>
+    </button>
+  </header>
+
+  <main class="hero">
+
+    <section class="copy" aria-labelledby="heroTitle">
+      <div class="copy-main">
+        <h1 id="heroTitle">
+          Caught at dawn,
+          <em>gone by four.
+            <svg class="tide" viewBox="0 0 400 18" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <path pathLength="1" d="M2 11c22 0 22-7 44-7s22 7 44 7 22-7 44-7 22 7 44 7 22-7 44-7 22 7 44 7 22-7 44-7 22 7 44 7 22-7 42-7" />
+            </svg>
+          </em>
+        </h1>
+
+        <p class="lede">
+          Twelve stools at a marble counter on Bajada de Baños. Whatever the Chorrillos boats land at dawn becomes
+          <span lang="es">ceviche clásico</span>, <span lang="es">tiradito</span> and <span lang="es">leche de tigre</span>,
+          and the kitchen closes when the fish runs out.
+        </p>
+
+        <div class="actions">
+          <a class="btn-primary" href="#">
+            Save a stool
+            <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M4 10h11M11 5.5 15.5 10 11 14.5" /></svg>
+          </a>
+          <a class="btn-quiet" href="#">Read the full menu</a>
+        </div>
+      </div>
+
+      <figure class="dock">
+        <img
+          src="https://images.unsplash.com/photo-1563557908-b7787229f123?auto=format&fit=crop&w=800&q=85"
+          alt="Corvina and bonito laid on crushed ice in a steel tray"
+          width="800" height="533" loading="lazy">
+        <figcaption>
+          <strong>This morning's boxes</strong>
+          <span>Bajada de Baños 108, Barranco</span>
+          <span>Tuesday to Sunday, 12:00 to 16:00</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="stage" aria-label="Today's catch at the counter">
+      <figure class="photo">
+        <img
+          src="https://images.unsplash.com/photo-1531968455001-5c5272a41129?auto=format&fit=crop&w=2000&q=85"
+          alt="The Costa Verde cliffs of Lima at sunset, with the Pacific breaking below"
+          width="2000" height="1282">
+      </figure>
+
+      <div class="board" id="board">
+        <div class="board-head">
+          <h2>Today's catch</h2>
+          <p class="clock">
+            <time id="clock" datetime="13:00">13:00</time>
+            <span>Lima</span>
+          </p>
+        </div>
+
+        <p class="board-status" id="boardStatus" aria-live="polite">Counter open. Kitchen closes at 16:00.</p>
+
+        <ul class="catch" id="catch">
+          <li data-last="12:45" data-out="13:15">
+            <span class="dish" lang="es">Conchas negras</span>
+            <span class="note">Black clams, raw, from Tumbes</span>
+            <span class="state">Fresh</span>
+          </li>
+          <li data-last="13:50" data-out="14:20">
+            <span class="dish" lang="es">Tiradito de lenguado</span>
+            <span class="note">Flounder, ají amarillo cream</span>
+            <span class="state">Fresh</span>
+          </li>
+          <li data-last="14:30" data-out="15:05">
+            <span class="dish" lang="es">Pulpo al olivo</span>
+            <span class="note">Octopus, botija olive sauce</span>
+            <span class="state">Fresh</span>
+          </li>
+          <li data-last="15:10" data-out="15:40">
+            <span class="dish" lang="es">Ceviche clásico</span>
+            <span class="note">Corvina, lime, ají limo, camote</span>
+            <span class="state">Fresh</span>
+          </li>
+          <li data-last="15:40" data-out="16:00">
+            <span class="dish" lang="es">Leche de tigre</span>
+            <span class="note">The curing broth, in a glass</span>
+            <span class="state">Fresh</span>
+          </li>
+        </ul>
+
+        <div class="scrub">
+          <div class="scrub-top">
+            <label for="scrub">Scrub through a lunch service</label>
+            <button type="button" class="now" id="nowBtn" hidden>Back to now</button>
+          </div>
+          <input type="range" id="scrub" min="690" max="990" step="5" value="780" aria-valuetext="13:00">
+          <div class="scrub-scale" aria-hidden="true">
+            <span>12:00</span><span>14:00</span><span>16:00</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

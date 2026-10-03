@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recipe Card</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif&display=swap"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <main class="page">
+    <article class="recipe" aria-labelledby="recipe-title">
+
+      <!-- PHOTO + SAVE -->
+      <figure class="recipe__media">
+        <img
+          src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=900&q=80"
+          alt="Bowl of seared salmon cubes with boiled egg, sweet corn, cucumber, cherry tomatoes, red cabbage and lettuce"
+          width="900" height="900" decoding="async"
+        />
+        <button class="save" type="button" aria-pressed="false">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 3.5h10a.5.5 0 0 1 .5.5v12.6a.3.3 0 0 1-.5.2L10 13.3l-5 3.5a.3.3 0 0 1-.5-.2V4a.5.5 0 0 1 .5-.5Z" /></svg>
+          <span class="save__text">Save</span>
+          <span class="sr-only">recipe</span>
+        </button>
+        <figcaption class="recipe__credit">Weeknight · High protein</figcaption>
+      </figure>
+
+      <!-- CONTENT -->
+      <div class="recipe__body">
+        <p class="recipe__eyebrow">Bowls &amp; salads</p>
+        <h1 class="recipe__title" id="recipe-title">Seared Salmon Power Bowl</h1>
+
+        <p class="rating">
+          <span class="rating__stars" role="img" aria-label="Rated 4.8 out of 5">
+            <svg viewBox="0 0 100 20" aria-hidden="true">
+              <defs>
+                <!-- 96% filled: stars are clipped by a gradient stop -->
+                <linearGradient id="star-fill">
+                  <stop offset=".96" stop-color="#e0a526" />
+                  <stop offset=".96" stop-color="#e6ddd0" />
+                </linearGradient>
+                <path id="star" d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9Z" />
+              </defs>
+              <g fill="url(#star-fill)">
+                <use href="#star" x="0" /><use href="#star" x="20" /><use href="#star" x="40" /><use href="#star" x="60" /><use href="#star" x="80" />
+              </g>
+            </svg>
+          </span>
+          <b>4.8</b>
+          <span class="rating__count">(1,284 reviews)</span>
+        </p>
+
+        <ul class="chips" aria-label="Recipe details">
+          <li class="chip">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8.5" r="5.8" /><path d="M8 5.5v3.2l2 1.2M6.5 1.5h3" /></svg>
+            25 min
+          </li>
+          <li class="chip">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6" cy="5.5" r="2.5" /><path d="M1.8 13.5c.4-2.4 2-3.8 4.2-3.8s3.8 1.4 4.2 3.8M11 3.2a2.4 2.4 0 0 1 0 4.6M12.4 9.9c1 .6 1.6 1.8 1.8 3.6" /></svg>
+            <span><span data-servings-chip>2</span> servings</span>
+          </li>
+          <li class="chip">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5c.6 2.6 4.3 4.2 4.3 8a4.3 4.3 0 0 1-8.6 0c0-1.8.9-3 1.9-3.9.2 1.2.8 2 1.6 2.3C7 5.8 7.3 3.4 8 1.5Z" /></svg>
+            540 kcal
+          </li>
+        </ul>
+
+        <section class="ingredients" aria-labelledby="ing-title">
+          <header class="ingredients__head">
+            <div>
+              <h2 class="ingredients__title" id="ing-title">Ingredients</h2>
+              <p class="ingredients__count" aria-live="polite"><b data-checked>0</b> of <span data-total>8</span> gathered</p>
+            </div>
+
+            <!-- Servings stepper -->
+            <div class="stepper" role="group" aria-label="Servings">
+              <button class="stepper__btn" type="button" data-step="-1" aria-label="Fewer servings">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8h9" /></svg>
+              </button>
+              <output class="stepper__value" aria-live="polite" aria-atomic="true">
+                <span data-servings>2</span><span class="sr-only"> servings</span>
+              </output>
+              <button class="stepper__btn" type="button" data-step="1" aria-label="More servings">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8h9M8 3.5v9" /></svg>
+              </button>
+            </div>
+          </header>
+
+          <!-- Quantities are for 2 servings; JS rescales from data-qty -->
+          <ul class="ing-list">
+            <li><label class="ing"><input type="checkbox" /><span class="ing__box" aria-hidden="true"></span><span class="ing__text"><b class="ing__qty" data-qty="300" data-unit="g">300 g</b> salmon fillet</span></label></li>
+            <li><label class="ing"><input type="checkbox" /><span class="ing__box" aria-hidden="true"></span><span class="ing__text"><b class="ing__qty" data-qty="80" data-unit="g">80 g</b> mixed greens</span></label></li>
+            <li><label class="ing"><input type="checkbox" /><span class="ing__box" aria-hidden="true"></span><span class="ing__text"><b class="ing__qty" data-qty="2" data-unit="" data-noun="egg|eggs">2</b> <span class="ing__noun">eggs</span></span></label></li>
+            <li><label class="ing"><input type="checkbox" /><span class="ing__box" aria-hidden="true"></span><span class="ing__text"><b class="ing__qty" data-qty="0.75" data-unit="cup">¾ cup</b> sweet corn</span></label></li>
+            <li><label class="ing"><input type="checkbox" /><span class="ing__box" aria-hidden="true"></span><span class="ing__text"><b class="ing__qty" data-qty="1" data-unit="" data-noun="cucumber|cucumbers">1</b> <span class="ing__noun">cucumber</span></span></label></li>
+            <li><label class="ing"><input type="checkbox" /><span class="ing__box" aria-hidden="true"></span><span class="ing__text"><b class="ing__qty" data-qty="150" data-unit="g">150 g</b> cherry tomatoes</span></label></li>
+            <li><label class="ing"><input type="checkbox" /><span class="ing__box" aria-hidden="true"></span><span class="ing__text"><b class="ing__qty" data-qty="1" data-unit="cup">1 cup</b> red cabbage</span></label></li>
+            <li><label class="ing"><input type="checkbox" /><span class="ing__box" aria-hidden="true"></span><span class="ing__text"><b class="ing__qty" data-qty="3" data-unit="tbsp">3 tbsp</b> sesame dressing</span></label></li>
+          </ul>
+        </section>
+      </div>
+
+    </article>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

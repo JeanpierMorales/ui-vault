@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Wayra, festival de música en Urubamba, Valle Sagrado. 14 y 15 de noviembre de 2026, tres escenarios y dos noches.">
+  <title>Wayra 2026, festival de música en Urubamba</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<header class="dock" id="dock">
+  <div class="island" id="island">
+    <a class="brand" href="#contenido" aria-label="Wayra 2026, inicio">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <path d="M3 11c5-4 10 4 15 0s8-3 11-1" />
+        <path d="M3 17c5-4 10 4 15 0s8-3 11-1" />
+        <path d="M3 23c5-4 10 4 15 0s8-3 11-1" />
+      </svg>
+      <span class="brand-word">Wayra</span>
+      <span class="brand-year">2026</span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Principal">
+      <span class="indicator" id="indicator" aria-hidden="true"></span>
+      <ul class="nav-list" id="navList">
+        <li><a href="#cartel" data-spy="cartel">Cartel</a></li>
+        <li><a href="#escenarios" data-spy="escenarios">Escenarios</a></li>
+        <li><a href="#llegar" data-spy="llegar">Cómo llegar</a></li>
+        <li><a href="#entradas" data-spy="entradas">Entradas</a></li>
+      </ul>
+    </nav>
+
+    <p class="countdown" id="countdown" aria-label="Tiempo para el festival">
+      <span id="cdDays">47</span><small>d</small>
+      <span id="cdHours">06</span><small>h</small>
+    </p>
+
+    <a class="tickets" href="#entradas">Comprar entradas</a>
+
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="sheet">
+      <span class="menu-current" id="menuCurrent">Menú</span>
+      <span class="menu-dots" aria-hidden="true"><i></i><i></i></span>
+    </button>
+  </div>
+
+  <div class="sheet" id="sheet" hidden>
+    <ul>
+      <li><a href="#cartel" data-spy="cartel">Cartel</a></li>
+      <li><a href="#escenarios" data-spy="escenarios">Escenarios</a></li>
+      <li><a href="#llegar" data-spy="llegar">Cómo llegar</a></li>
+      <li><a href="#entradas" data-spy="entradas">Entradas</a></li>
+    </ul>
+    <a class="tickets tickets--sheet" href="#entradas">Comprar entradas, desde S/ 180</a>
+  </div>
+</header>
+
+<main id="contenido" tabindex="-1">
+  <section class="hero" aria-labelledby="heroTitle">
+    <div class="hero-text">
+      <p class="hero-date">14 y 15 de noviembre · Urubamba, Cusco</p>
+      <h1 id="heroTitle">Dos noches de música en el Valle Sagrado</h1>
+      <p class="hero-lede">Tres escenarios junto al río Vilcanota, 26 artistas y buses de regreso a Cusco cada hora hasta las 5:00.</p>
+    </div>
+    <figure class="hero-photo">
+      <img src="img/publico.webp" width="800" height="1200" alt="Público con los brazos en alto frente a un escenario iluminado de noche">
+    </figure>
+  </section>
+
+  <section class="block" id="cartel" aria-labelledby="cartelTitle">
+    <h2 id="cartelTitle">Cartel</h2>
+    <div class="nights">
+      <div>
+        <h3>Sábado 14</h3>
+        <ul class="acts">
+          <li class="act-big">Kuntur Dub</li>
+          <li class="act-big">La Chola Tropical</li>
+          <li>Sara Qhapaq Trío</li>
+          <li>Marea Negra Sound System</li>
+          <li>Pampa Rave</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Domingo 15</h3>
+        <ul class="acts">
+          <li class="act-big">Los Hermanos Mayta</li>
+          <li class="act-big">Ñusta Beats</li>
+          <li>Coro de Chinchero</li>
+          <li>Qolla Noise</li>
+          <li>Tuna Eléctrica de Calca</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="block block--alt" id="escenarios" aria-labelledby="escTitle">
+    <h2 id="escTitle">Escenarios</h2>
+    <ul class="stages">
+      <li><h3>Vilcanota</h3><p>El principal, frente al río. Abre a las 17:00 con el sol todavía sobre el nevado Chicón.</p></li>
+      <li><h3>Maizal</h3><p>Carpa de 800 personas para electrónica. Suena hasta las 4:30.</p></li>
+      <li><h3>Patio</h3><p>Acústico y coros, en el patio de una casa hacienda del siglo XVIII. Aforo de 250.</p></li>
+    </ul>
+  </section>
+
+  <section class="block" id="llegar" aria-labelledby="llegarTitle">
+    <h2 id="llegarTitle">Cómo llegar</h2>
+    <p class="prose">Desde Cusco, los buses del festival salen de la avenida Grau cada 30 minutos entre las 14:00 y las 20:00; el viaje dura 1 h 20 min y cuesta S/ 25 ida y vuelta. Urubamba está a 2 870 m: llega un día antes si vienes desde la costa y toma agua durante toda la tarde.</p>
+  </section>
+
+  <section class="block block--alt" id="entradas" aria-labelledby="entradasTitle">
+    <h2 id="entradasTitle">Entradas</h2>
+    <ul class="tiers">
+      <li><h3>Una noche</h3><p class="tier-price">S/ 180</p><p>Sábado o domingo, escenarios Vilcanota y Maizal.</p></li>
+      <li><h3>Dos noches</h3><p class="tier-price">S/ 310</p><p>Las dos fechas y acceso al Patio por orden de llegada.</p></li>
+      <li><h3>Dos noches con bus</h3><p class="tier-price">S/ 350</p><p>Incluye los cuatro trayectos desde Cusco con asiento reservado.</p></li>
+    </ul>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

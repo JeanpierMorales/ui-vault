@@ -1,5 +1,46 @@
 const cards = document.querySelectorAll(".profile-card");
 
+// Tilt solo con ratón y sin preferencia de movimiento reducido
+const canTilt = window.matchMedia(
+  "(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)"
+);
+
+/* =========================================
+   CLIPBOARD (con fallback para iframes)
+========================================= */
+
+async function copyText(text) {
+  try {
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch {
+    // El iframe del vault puede bloquear la API: fallback clásico
+    const field = document.createElement("textarea");
+    field.value = text;
+    field.setAttribute("readonly", "");
+    field.style.position = "fixed";
+    field.style.opacity = "0";
+    document.body.appendChild(field);
+    field.select();
+
+    let ok = false;
+    try {
+      ok = document.execCommand("copy");
+    } catch {
+      ok = false;
+    }
+
+    field.remove();
+    return ok;
+  }
+}
+
+function restartAnimation(element, className) {
+  element.classList.remove(className);
+  void element.offsetWidth;
+  element.classList.add(className);
+}
+
 cards.forEach((card) => {
 
   const surface =
@@ -8,33 +49,34 @@ cards.forEach((card) => {
   const saveButton =
     card.querySelector(".profile-card__save");
 
+  const shareButton =
+    card.querySelector(".profile-card__share");
+
+  const toast =
+    card.querySelector(".profile-card__toast");
+
+  const name =
+    card.querySelector(".profile-card__identity h2").textContent.trim();
+
   /* =========================================
      SUBTLE 3D CURSOR INTERACTION
   ========================================= */
 
   card.addEventListener("pointermove", (event) => {
 
-    if (window.matchMedia("(pointer: coarse)").matches) {
+    if (!canTilt.matches || event.pointerType !== "mouse") {
       return;
     }
 
     const rect =
       card.getBoundingClientRect();
 
-    const x =
-      event.clientX -
-      rect.left;
-
-    const y =
-      event.clientY -
-      rect.top;
-
     const percentX =
-      x /
+      (event.clientX - rect.left) /
       rect.width;
 
     const percentY =
-      y /
+      (event.clientY - rect.top) /
       rect.height;
 
     /*
@@ -47,10 +89,12 @@ cards.forEach((card) => {
     const rotateX =
       (0.5 - percentY) * 3.2;
 
+    card.classList.add("is-tilting");
+
     card.style.transform = `
       rotateX(${rotateX}deg)
       rotateY(${rotateY}deg)
-      translateY(-4px)
+      translateY(-6px)
     `;
 
     surface.style.setProperty(
@@ -72,23 +116,22 @@ cards.forEach((card) => {
 
   card.addEventListener("pointerleave", () => {
 
-    card.style.transform = `
-      rotateX(0deg)
-      rotateY(0deg)
-      translateY(0)
-    `;
+    card.classList.remove("is-tilting");
+    card.style.transform = "";
 
   });
 
 
   /* =========================================
-     SAVE
+     SAVE (toggle con aria-pressed)
   ========================================= */
 
   saveButton.addEventListener("click", () => {
 
     const saved =
-      saveButton.classList.toggle("is-saved");
+      saveButton.getAttribute("aria-pressed") !== "true";
+
+    saveButton.setAttribute("aria-pressed", String(saved));
 
     saveButton.setAttribute(
       "aria-label",
@@ -97,6 +140,59 @@ cards.forEach((card) => {
         : "Guardar perfil"
     );
 
+    if (saved) {
+      restartAnimation(saveButton, "is-popping");
+    }
+
+  });
+
+  saveButton.addEventListener("animationend", () => {
+    saveButton.classList.remove("is-popping");
+  });
+
+
+  /* =========================================
+     SHARE
+     Hoja nativa si existe; si no, copia el
+     enlace y muestra un toast breve.
+  ========================================= */
+
+  let toastTimer;
+
+  function showToast(message) {
+    clearTimeout(toastTimer);
+
+    toast.textContent = message;
+    toast.classList.add("is-visible");
+
+    toastTimer = setTimeout(() => {
+      toast.classList.remove("is-visible");
+    }, 1800);
+  }
+
+  shareButton.addEventListener("click", async () => {
+
+    restartAnimation(shareButton, "is-shared");
+
+    const url = `${location.href.split("#")[0]}#${name.toLowerCase().replace(/\s+/g, "-")}`;
+
+    if (navigator.share && window.matchMedia("(pointer: coarse)").matches) {
+      try {
+        await navigator.share({ title: name, url });
+        return;
+      } catch {
+        // Cancelado o bloqueado: seguimos con copiar
+      }
+    }
+
+    const copied = await copyText(url);
+
+    showToast(copied ? "Link copied" : "Couldn’t copy link");
+
+  });
+
+  shareButton.addEventListener("animationend", () => {
+    shareButton.classList.remove("is-shared");
   });
 
 });

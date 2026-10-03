@@ -1,0 +1,510 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --page-bg: #eceee9;
+  --card: #ffffff;
+  --ink: #16201b;
+  --muted: #66706a;
+  --line: #e4e7e2;
+  --brand: #1f4d3a;
+  --brand-soft: #e3eee8;
+  --drop: #c2410c;
+  --heart: #e11d48;
+
+  --radius: 20px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--page-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ======================================
+   PAGE
+====================================== */
+
+.listings {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: clamp(20px, 5vh, 56px) clamp(16px, 4vw, 48px);
+}
+
+.listings__grid {
+  width: 100%;
+  max-width: 1040px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 2vw, 22px);
+}
+
+/* ======================================
+   CARD
+====================================== */
+
+.listing {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow:
+    0 1px 2px rgba(22, 32, 27, 0.06),
+    0 8px 24px -12px rgba(22, 32, 27, 0.18);
+  transition:
+    transform 450ms var(--ease),
+    box-shadow 450ms var(--ease);
+}
+
+@media (hover: hover) {
+  .listing:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      0 1px 2px rgba(22, 32, 27, 0.06),
+      0 26px 50px -20px rgba(22, 32, 27, 0.35);
+  }
+}
+
+/* ======================================
+   MEDIA / CAROUSEL
+   The track is a flex row moved with translateX.
+   While dragging, script.js sets --drag (px) and
+   removes the transition so it follows the finger.
+====================================== */
+
+.listing__media {
+  position: relative;
+  margin: 8px 8px 0;
+  border-radius: calc(var(--radius) - 6px);
+  overflow: hidden;
+  background: #cfd6d1; /* visible while photos load */
+}
+
+.listing__viewport {
+  aspect-ratio: 16 / 11;
+  overflow: hidden;
+  touch-action: pan-y; /* vertical page scroll stays native */
+  cursor: grab;
+}
+
+.listing__viewport:active {
+  cursor: grabbing;
+}
+
+.listing__track {
+  --index: 0;
+  --drag: 0px;
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  height: 100%;
+  transform: translateX(calc(var(--index) * -100% + var(--drag)));
+  transition: transform 520ms var(--ease);
+}
+
+.listing__track.is-dragging {
+  transition: none;
+}
+
+.listing__slide {
+  flex: 0 0 100%;
+  height: 100%;
+}
+
+.listing__slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* ---------- Badge ---------- */
+
+.listing__badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--brand);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 2px 10px -4px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}
+
+.listing__badge--new {
+  color: #fff;
+  background: var(--brand);
+}
+
+.listing__badge--drop {
+  color: #fff;
+  background: var(--drop);
+}
+
+/* ---------- Favourite ---------- */
+
+.listing__fav {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 2px 10px -4px rgba(0, 0, 0, 0.3);
+  transition: transform 300ms var(--ease);
+}
+
+.listing__fav svg {
+  width: 20px;
+  height: 20px;
+  fill: transparent;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linejoin: round;
+  transition:
+    fill 200ms var(--ease),
+    stroke 200ms var(--ease);
+}
+
+.listing__fav:hover {
+  transform: scale(1.08);
+}
+
+.listing__fav:active {
+  transform: scale(0.92);
+}
+
+.listing__fav[aria-pressed="true"] svg {
+  fill: var(--heart);
+  stroke: var(--heart);
+}
+
+/* Short "pop" when saving */
+.listing__fav.is-popping svg {
+  animation: pop 450ms var(--ease);
+}
+
+@keyframes pop {
+  30% { transform: scale(1.35); }
+  60% { transform: scale(0.92); }
+}
+
+/* ---------- Arrows ---------- */
+
+.listing__arrow {
+  position: absolute;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  margin-top: -18px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 4px 14px -6px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition:
+    opacity 300ms var(--ease),
+    transform 300ms var(--ease);
+}
+
+.listing__arrow svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.listing__arrow--prev {
+  left: 10px;
+  transform: translateX(-6px);
+}
+
+.listing__arrow--next {
+  right: 10px;
+  transform: translateX(6px);
+}
+
+/* Arrows appear on hover (mouse) or when keyboard focus is inside */
+.listing__media:hover .listing__arrow,
+.listing__media:focus-within .listing__arrow {
+  opacity: 1;
+  transform: none;
+}
+
+.listing__arrow:disabled {
+  opacity: 0 !important;
+  pointer-events: none;
+}
+
+.listing__arrow:active {
+  transform: scale(0.92);
+}
+
+/* Touch screens swipe instead */
+@media (hover: none) {
+  .listing__arrow {
+    display: none;
+  }
+}
+
+/* ---------- Dots ---------- */
+
+.listing__dots {
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  display: flex;
+  gap: 2px;
+  padding: 2px 4px;
+  border-radius: 999px;
+  background: rgba(22, 32, 27, 0.32);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transform: translateX(-50%);
+}
+
+/* 20px hit area around a 6px dot */
+.listing__dot {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.listing__dot::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.6);
+  transition:
+    width 350ms var(--ease),
+    background-color 350ms var(--ease);
+}
+
+.listing__dot[aria-current="true"]::before {
+  width: 14px;
+  background: #fff;
+}
+
+/* ======================================
+   BODY
+====================================== */
+
+.listing__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 16px 18px 18px;
+}
+
+.listing__price {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  margin: 0;
+}
+
+.listing__price strong {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.listing__kind {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.listing__was {
+  margin-left: auto;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--drop);
+}
+
+.listing__address {
+  margin: 6px 0 0;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.listing__address a {
+  color: inherit;
+  text-decoration: none;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+  transition: background-size 350ms var(--ease);
+}
+
+.listing__address a:hover {
+  background-size: 100% 1px;
+}
+
+.listing__address span {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.listing__facts {
+  list-style: none;
+  display: flex;
+  gap: 6px;
+  margin: 14px 0 0;
+  padding: 12px 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.listing__facts li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+  font-size: 13px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.listing__facts b {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.listing__facts svg {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: var(--brand);
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.listing__meta {
+  margin: 12px 0 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+/* ======================================
+   FOCUS
+====================================== */
+
+.listing__fav:focus-visible,
+.listing__arrow:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px var(--brand);
+}
+
+.listing__dot:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: -2px;
+  border-radius: 999px;
+}
+
+.listing__address a:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ======================================
+   RESPONSIVE
+====================================== */
+
+@media (max-width: 900px) {
+  .listings__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .listings__grid {
+    grid-template-columns: minmax(0, 380px);
+    justify-content: center;
+  }
+}
+
+/* ======================================
+   REDUCED MOTION
+====================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .listing,
+  .listing__track,
+  .listing__fav,
+  .listing__arrow,
+  .listing__dot::before,
+  .listing__address a {
+    transition: none;
+  }
+
+  .listing:hover {
+    transform: none;
+  }
+
+  .listing__fav.is-popping svg {
+    animation: none;
+  }
+}

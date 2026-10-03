@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sobremesa, red de podcasts de Lima: curva de retención minuto a minuto de un episodio frente al promedio de la plataforma.">
+  <title>Sobremesa, retención por minuto</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<main>
+  <section class="sobremesa" aria-labelledby="smTitle">
+    <div class="wrap">
+
+      <div class="intro">
+        <header class="lead">
+          <p class="brand">Sobremesa <span>Podcasts desde Lima</span></p>
+          <h2 id="smTitle">7 de cada 10 se quedan hasta el final.</h2>
+          <p class="lead-text">Así se ve, minuto a minuto, el episodio 112 frente al promedio de los podcasts de entrevista en la plataforma. Arrastra sobre la curva para ver dónde se queda la gente y dónde se va.</p>
+          <a class="btn" href="#smTitle">Postular mi podcast
+            <span class="btn-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false"><path d="M5 11 11 5M6 5h5v5" /></svg></span>
+          </a>
+        </header>
+
+        <figure class="photo">
+          <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=900&q=78"
+               srcset="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=600&q=78 600w, https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=1100&q=78 1100w"
+               sizes="(max-width: 900px) 100vw, 38vw"
+               width="900" height="900"
+               alt="Micrófono de estudio sobre un brazo articulado, listo para grabar">
+          <figcaption class="chip">Ep. 112 · La última bodega de Barrios Altos</figcaption>
+        </figure>
+      </div>
+
+      <dl class="stats">
+        <div>
+          <dt>reproducciones únicas en 30 días</dt>
+          <dd>48,210</dd>
+        </div>
+        <div>
+          <dt>de escucha promedio, de 58 que dura</dt>
+          <dd>41<span> min</span></dd>
+        </div>
+        <div>
+          <dt>en la pausa publicitaria, la única caída brusca</dt>
+          <dd>−4<span> pts</span></dd>
+        </div>
+      </dl>
+
+      <figure class="panel">
+        <figcaption class="panel-head">
+          <div>
+            <h3>Oyentes que siguen escuchando, minuto a minuto</h3>
+            <p class="panel-sub">Publicado el 9 de septiembre · 58:20</p>
+          </div>
+          <ul class="legend" aria-label="Leyenda">
+            <li><span class="key key--ep" aria-hidden="true"></span>Episodio 112</li>
+            <li><span class="key key--avg" aria-hidden="true"></span>Promedio de entrevistas</li>
+          </ul>
+        </figcaption>
+
+        <div class="readout" aria-hidden="true">
+          <p class="readout-time"><span id="roTime">35:00</span> <span class="readout-chapter" id="roChapter">Pausa publicitaria</span></p>
+          <p class="readout-values">
+            <span class="ro ro--ep"><strong id="roEp">76 %</strong> siguen en el 112</span>
+            <span class="ro ro--avg"><strong id="roAvg">41 %</strong> en el promedio</span>
+          </p>
+        </div>
+
+        <div class="chart" id="chart">
+          <svg class="chart-svg" id="svg" aria-hidden="true" focusable="false"></svg>
+          <div class="scrub" id="scrub" tabindex="0" role="slider"
+               aria-label="Minuto del episodio"
+               aria-valuemin="0" aria-valuemax="3500" aria-valuenow="2100"
+               aria-valuetext="Minuto 35:00, pausa publicitaria. 76 % sigue escuchando el episodio 112; 41 % en el promedio."></div>
+        </div>
+        <p class="hint">Flechas: 30 segundos · Re Pág / Av Pág: 5 minutos</p>
+
+        <details class="data">
+          <summary>Ver los datos en tabla</summary>
+          <table>
+            <caption class="sr-only">Retención por minuto, episodio 112 frente al promedio</caption>
+            <thead><tr><th scope="col">Minuto</th><th scope="col">Capítulo</th><th scope="col">Episodio 112</th><th scope="col">Promedio</th></tr></thead>
+            <tbody id="table"></tbody>
+          </table>
+        </details>
+      </figure>
+
+    </div>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

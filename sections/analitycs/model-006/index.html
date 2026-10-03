@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Caudal, medición de agua por departamento para edificios de Lima: consumo en vivo hora por hora y aviso de fugas nocturnas.">
+  <title>Caudal, agua por departamento</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<main>
+  <section class="caudal" aria-labelledby="cdTitle">
+    <div class="wrap">
+
+      <div class="copy">
+        <p class="brand">
+          <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M16 3c5 7 9 11.5 9 16.5a9 9 0 0 1-18 0C7 14.5 11 10 16 3Z" /><path class="wave" d="M10.5 20c2 1.6 3.6 1.6 5.5 0s3.5-1.6 5.5 0" /></svg>
+          <span>Caudal</span>
+        </p>
+        <h2 id="cdTitle">Tu edificio, litro a litro, sin esperar el recibo.</h2>
+        <p class="copy-text">Un medidor ultrasónico por departamento y un panel que la junta de propietarios entiende a la primera. Si algo gotea de madrugada, te enteras antes que Sedapal.</p>
+
+        <ul class="points">
+          <li><strong>Mide</strong> cada departamento cada 10 segundos, sin romper paredes.</li>
+          <li><strong>Avisa</strong> por WhatsApp cuando hay flujo continuo entre la 1:00 y las 5:00.</li>
+          <li><strong>Reparte</strong> el recibo común por consumo real, no por metraje.</li>
+        </ul>
+
+        <p class="proof"><strong>−23 %</strong> de consumo en los primeros seis meses, promedio de 148 edificios en Lima.</p>
+
+        <a class="btn" href="#cdTitle">Pedir una visita técnica</a>
+      </div>
+
+      <div class="app" role="region" aria-label="Vista previa del panel de Caudal">
+        <div class="app-bar">
+          <div>
+            <p class="app-building">Edificio Los Sauces</p>
+            <p class="app-address">Jr. Colina 214, Barranco · 24 departamentos</p>
+          </div>
+          <p class="app-live"><span class="live-dot" aria-hidden="true"></span><span id="clock">En vivo</span></p>
+        </div>
+
+        <div class="app-body">
+          <div class="dial-wrap">
+            <svg class="dial" id="dial" viewBox="0 0 320 320" role="group" aria-label="Consumo del edificio por hora, hoy. Usa las flechas para recorrer las horas." focusable="false"></svg>
+            <div class="dial-center" aria-hidden="true">
+              <p class="dc-label" id="dcLabel">Hoy</p>
+              <p class="dc-value"><span id="dcValue">0</span> <span class="dc-unit">L</span></p>
+              <p class="dc-sub" id="dcSub">0 L/min ahora</p>
+            </div>
+            <ul class="dial-legend" aria-label="Leyenda">
+              <li><span class="k k--use" aria-hidden="true"></span>Consumo por hora</li>
+              <li><span class="k k--leak" aria-hidden="true"></span>Flujo nocturno sospechoso</li>
+            </ul>
+          </div>
+
+          <div class="units">
+            <p class="units-title">Departamentos que más consumieron ayer</p>
+            <ol class="unit-list">
+              <li class="unit unit--alert">
+                <div class="unit-row"><span class="unit-id"><span class="sr-only">Departamento </span>502</span><span class="bar" aria-hidden="true"><span style="--w: 100%"></span></span><span class="unit-l">612 L</span></div>
+                <p class="unit-status">
+                  <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 1.5 15 14H1L8 1.5Z" /><path class="mark" d="M8 6v3.6M8 11.6v.2" /></svg>
+                  Posible fuga
+                </p>
+                <p class="unit-note">Anoche hubo flujo continuo de 2:10 a 5:40, unos 1.1 L/min. Suele ser el flotador del inodoro.</p>
+                <button type="button" class="notify" id="notify" aria-live="polite">Avisar al 502</button>
+              </li>
+              <li class="unit"><div class="unit-row"><span class="unit-id"><span class="sr-only">Departamento </span>301</span><span class="bar" aria-hidden="true"><span style="--w: 90%"></span></span><span class="unit-l">548 L</span></div></li>
+              <li class="unit"><div class="unit-row"><span class="unit-id"><span class="sr-only">Departamento </span>704</span><span class="bar" aria-hidden="true"><span style="--w: 81%"></span></span><span class="unit-l">497 L</span></div></li>
+              <li class="unit"><div class="unit-row"><span class="unit-id"><span class="sr-only">Departamento </span>203</span><span class="bar" aria-hidden="true"><span style="--w: 58%"></span></span><span class="unit-l">352 L</span></div></li>
+              <li class="unit"><div class="unit-row"><span class="unit-id"><span class="sr-only">Departamento </span>601</span><span class="bar" aria-hidden="true"><span style="--w: 46%"></span></span><span class="unit-l">284 L</span></div></li>
+            </ol>
+            <p class="units-foot">Promedio del edificio: 410 L por departamento al día.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

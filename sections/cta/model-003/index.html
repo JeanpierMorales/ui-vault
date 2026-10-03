@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="KANZO Digital Studio — tell us what you want to build and send it straight to the studio.">
+  <title>KANZO — Start a Project</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <section class="kz-cta" id="start" aria-labelledby="kz-cta-title" data-whatsapp="51900000000" data-email="hello@kanzo.studio">
+
+    <header class="kz-top">
+      <a class="kz-brand" href="#" aria-label="KANZO home">
+        <span class="kz-brand__mark" aria-hidden="true"></span>
+        <span>KANZO</span>
+      </a>
+      <p class="kz-slots">
+        <span class="kz-slots__dot" aria-hidden="true"></span>
+        Two project slots open for November
+      </p>
+    </header>
+
+    <h2 class="kz-title" id="kz-cta-title">
+      <span class="kz-title__fixed">Let’s build</span>
+      <span class="kz-sr" data-title-sr>it.</span>
+      <span class="kz-swap" aria-hidden="true">
+        <span class="kz-swap__word is-on" data-word="default">it.</span>
+        <span class="kz-swap__word" data-word="website">your website.</span>
+        <span class="kz-swap__word" data-word="software">your software.</span>
+        <span class="kz-swap__word" data-word="ai">your AI product.</span>
+        <span class="kz-swap__word" data-word="unsure">the right thing.</span>
+      </span>
+    </h2>
+
+    <div class="kz-body">
+      <form class="kz-form" id="kz-form" novalidate>
+        <p class="kz-lede">
+          Three quick answers and your first message writes itself. It goes to the two people
+          who will actually build it, not to a sales inbox.
+        </p>
+
+        <fieldset class="kz-group" aria-describedby="kz-type-error">
+          <legend>What are we building?</legend>
+          <div class="kz-chips">
+            <label class="kz-chip"><input type="radio" name="type" value="website"><span>Website</span></label>
+            <label class="kz-chip"><input type="radio" name="type" value="software"><span>Software</span></label>
+            <label class="kz-chip"><input type="radio" name="type" value="ai"><span>AI product</span></label>
+            <label class="kz-chip"><input type="radio" name="type" value="unsure"><span>Not sure yet</span></label>
+          </div>
+          <p class="kz-error" id="kz-type-error" role="alert" hidden>
+            Pick one first. “Not sure yet” is a perfectly good answer.
+          </p>
+        </fieldset>
+
+        <fieldset class="kz-group">
+          <legend>Budget <span class="kz-legend-note">in USD</span></legend>
+          <div class="kz-chips">
+            <label class="kz-chip"><input type="radio" name="budget" value="Under $5k"><span>Under $5k</span></label>
+            <label class="kz-chip"><input type="radio" name="budget" value="$5k–15k"><span>$5k–15k</span></label>
+            <label class="kz-chip"><input type="radio" name="budget" value="$15k–40k"><span>$15k–40k</span></label>
+            <label class="kz-chip"><input type="radio" name="budget" value="$40k+"><span>$40k+</span></label>
+            <label class="kz-chip"><input type="radio" name="budget" value="Still working it out"><span>Still working it out</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="kz-group">
+          <legend>When</legend>
+          <div class="kz-chips">
+            <label class="kz-chip"><input type="radio" name="when" value="as soon as possible"><span>As soon as possible</span></label>
+            <label class="kz-chip"><input type="radio" name="when" value="in the next 1–3 months"><span>Next 1–3 months</span></label>
+            <label class="kz-chip"><input type="radio" name="when" value="later this year, just exploring for now"><span>Just exploring</span></label>
+          </div>
+        </fieldset>
+
+        <div class="kz-group kz-field">
+          <label for="kz-about">One line about it <span class="kz-legend-note">optional</span></label>
+          <input id="kz-about" name="about" type="text" maxlength="160" autocomplete="off"
+                 placeholder="Online booking for our three clinics">
+        </div>
+      </form>
+
+      <aside class="kz-note" aria-labelledby="kz-note-title">
+        <h3 class="kz-note__title" id="kz-note-title">Your message</h3>
+        <p class="kz-note__text" id="kz-note-text" aria-live="polite"></p>
+
+        <div class="kz-actions">
+          <a class="kz-send" id="kz-send-wa" href="#" target="_blank" rel="noopener" form="kz-form">
+            <span>Send on WhatsApp</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="kz-mail" id="kz-send-mail" href="#">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            <span>Email it instead</span>
+          </a>
+        </div>
+
+        <p class="kz-note__meta">We reply within one working day, Lima time (GMT−5).</p>
+      </aside>
+    </div>
+
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

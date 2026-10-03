@@ -279,6 +279,38 @@ button { font: inherit; }
 .combo-16 .sample-title { font-family: "Montserrat"; font-weight: 800; }
 .combo-16 .sample-body, .combo-16 .sample-kicker { font-family: "DM Sans"; }
 
+.combo-17 .sample-title { font-family: "Geist"; font-weight: 700; letter-spacing: -.06em; }
+.combo-17 .sample-body { font-family: "Geist"; }
+.combo-17 .sample-kicker { font-family: "Geist Mono"; }
+
+.combo-18 .sample-title { font-family: "DM Serif Display"; font-weight: 400; letter-spacing: -.035em; }
+.combo-18 .sample-body, .combo-18 .sample-kicker { font-family: "Plus Jakarta Sans"; }
+
+.combo-19 .sample-title { font-family: "Fraunces"; font-weight: 600; letter-spacing: -.045em; font-variation-settings: 'SOFT' 100, 'WONK' 1; }
+.combo-19 .sample-body, .combo-19 .sample-kicker { font-family: "Inter"; }
+
+.combo-20 .sample-title { font-family: "Instrument Serif"; font-weight: 400; letter-spacing: -.03em; }
+.combo-20 .sample-body, .combo-20 .sample-kicker { font-family: "Instrument Sans"; }
+
+.combo-21 .sample-title { font-family: "Bricolage Grotesque"; font-weight: 800; letter-spacing: -.05em; }
+.combo-21 .sample-body, .combo-21 .sample-kicker { font-family: "Hanken Grotesk"; }
+
+.combo-22 .sample-title { font-family: "Unbounded"; font-weight: 700; font-size: clamp(34px, 4vw, 60px); line-height: 1; letter-spacing: -.04em; }
+.combo-22 .sample-body, .combo-22 .sample-kicker { font-family: "Onest"; }
+
+.combo-23 .sample-title { font-family: "EB Garamond"; font-weight: 500; letter-spacing: -.035em; }
+.combo-23 .sample-body, .combo-23 .sample-kicker { font-family: "Karla"; }
+
+.combo-24 .sample-title { font-family: "Zilla Slab"; font-weight: 700; letter-spacing: -.035em; }
+.combo-24 .sample-body, .combo-24 .sample-kicker { font-family: "Outfit"; }
+
+.combo-25 .sample-title { font-family: "Cinzel"; font-weight: 700; font-size: clamp(32px, 3.8vw, 56px); line-height: 1.04; letter-spacing: -.01em; }
+.combo-25 .sample-body, .combo-25 .sample-kicker { font-family: "Crimson Pro"; }
+
+.combo-26 .sample-title { font-family: "Big Shoulders Display"; font-weight: 900; text-transform: uppercase; letter-spacing: -.01em; }
+.combo-26 .sample-body, .combo-26 .sample-kicker { font-family: "Sora"; }
+
+
 .footer {
   padding: 36px 0 64px;
   display: flex;

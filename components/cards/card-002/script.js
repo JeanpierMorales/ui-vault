@@ -1,379 +1,224 @@
 const carousel = document.getElementById("productCarousel");
-const track = document.getElementById("productTrack");
+const track = carousel.querySelector(".product-track");
 
 const prevButton = document.getElementById("carouselPrev");
 const nextButton = document.getElementById("carouselNext");
+const thumb = document.getElementById("carouselThumb");
 
-const originalCards = [...track.children];
-
-const CARD_GAP =
-  parseFloat(
-    getComputedStyle(track).gap
-  ) || 22;
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 /*
 |--------------------------------------------------------------------------
-| DUPLICATE ITEMS
+| HELPERS
 |--------------------------------------------------------------------------
 |
-| Duplicamos el contenido una vez hacia delante
-| y una vez hacia atrás.
+| El carrusel usa scroll nativo con scroll-snap. Aquí solo
+| calculamos cuánto avanzar y el estado de las flechas.
 |
 */
 
-originalCards.forEach((card) => {
-  const clone = card.cloneNode(true);
-  clone.setAttribute("aria-hidden", "true");
-  track.appendChild(clone);
-});
+function scrollBehavior() {
+  return reducedMotion.matches ? "auto" : "smooth";
+}
 
-[...originalCards]
-  .reverse()
-  .forEach((card) => {
-    const clone = card.cloneNode(true);
-    clone.setAttribute("aria-hidden", "true");
-    track.insertBefore(clone, track.firstChild);
+// Distancia de un paso = ancho de card + gap
+function stepSize() {
+  const card = track.querySelector(".product-card");
+  const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+
+  return card ? card.getBoundingClientRect().width + gap : 300;
+}
+
+function maxScroll() {
+  return carousel.scrollWidth - carousel.clientWidth;
+}
+
+function go(direction) {
+  carousel.scrollBy({
+    left: direction * stepSize(),
+    behavior: scrollBehavior()
   });
-
-/*
-|--------------------------------------------------------------------------
-| DIMENSIONS
-|--------------------------------------------------------------------------
-*/
-
-let cardWidth = 0;
-let groupWidth = 0;
-let position = 0;
-
-function calculateDimensions() {
-  const firstCard = track.querySelector(".product-card");
-
-  if (!firstCard) return;
-
-  cardWidth =
-    firstCard.getBoundingClientRect().width +
-    CARD_GAP;
-
-  groupWidth =
-    cardWidth *
-    originalCards.length;
 }
 
 /*
 |--------------------------------------------------------------------------
-| INITIAL POSITION
+| ARROWS + PROGRESS
 |--------------------------------------------------------------------------
-|
-| Empezamos directamente sobre el grupo original.
-|
 */
 
-function setInitialPosition() {
-  calculateDimensions();
+let ticking = false;
 
-  position = -groupWidth;
+function updateUI() {
+  ticking = false;
 
-  track.style.transition = "none";
+  const max = maxScroll();
+  const left = carousel.scrollLeft;
 
-  track.style.transform =
-    `translate3d(${position}px, 0, 0)`;
+  // 2px de tolerancia por redondeos subpíxel
+  prevButton.disabled = left <= 2;
+  nextButton.disabled = left >= max - 2;
+
+  const visible = carousel.clientWidth / carousel.scrollWidth;
+  const progress = max > 0 ? left / max : 0;
+
+  // El thumb ocupa "visible" del riel y se desplaza con translateX
+  const railWidth = thumb.parentElement.clientWidth;
+  const thumbWidth = railWidth * visible;
+
+  thumb.style.transform =
+    `translateX(${progress * (railWidth - thumbWidth)}px) scaleX(${visible})`;
 }
 
-setInitialPosition();
+function requestUpdate() {
+  if (ticking) return;
+  ticking = true;
+  requestAnimationFrame(updateUI);
+}
+
+carousel.addEventListener("scroll", requestUpdate, { passive: true });
+window.addEventListener("resize", requestUpdate);
+
+prevButton.addEventListener("click", () => go(-1));
+nextButton.addEventListener("click", () => go(1));
 
 /*
 |--------------------------------------------------------------------------
-| INFINITE LOOP
+| KEYBOARD
 |--------------------------------------------------------------------------
-|
-| Cuando entramos demasiado en uno de los clones,
-| saltamos silenciosamente al grupo equivalente.
-|
 */
 
-function normalizeLoop() {
+carousel.addEventListener("keydown", (event) => {
+  // Solo cuando el foco está en el propio carrusel,
+  // no en un enlace o swatch interior
+  if (event.target !== carousel) return;
 
-  if (position <= -groupWidth * 2) {
+  const actions = {
+    ArrowRight: () => go(1),
+    ArrowLeft: () => go(-1),
+    Home: () => carousel.scrollTo({ left: 0, behavior: scrollBehavior() }),
+    End: () => carousel.scrollTo({ left: maxScroll(), behavior: scrollBehavior() })
+  };
 
-    position += groupWidth;
+  const action = actions[event.key];
 
-    track.style.transition = "none";
-
-    track.style.transform =
-      `translate3d(${position}px, 0, 0)`;
-
+  if (action) {
+    event.preventDefault();
+    action();
   }
-
-  else if (position >= 0) {
-
-    position -= groupWidth;
-
-    track.style.transition = "none";
-
-    track.style.transform =
-      `translate3d(${position}px, 0, 0)`;
-
-  }
-}
-
-/*
-|--------------------------------------------------------------------------
-| SMOOTH MOVEMENT
-|--------------------------------------------------------------------------
-*/
-
-function moveCarousel(distance) {
-
-  position += distance;
-
-  track.style.transition =
-    "transform 720ms cubic-bezier(.2, .75, .2, 1)";
-
-  track.style.transform =
-    `translate3d(${position}px, 0, 0)`;
-
-}
-
-/*
-|--------------------------------------------------------------------------
-| BUTTONS
-|--------------------------------------------------------------------------
-*/
-
-nextButton.addEventListener("click", () => {
-  moveCarousel(-cardWidth);
-});
-
-prevButton.addEventListener("click", () => {
-  moveCarousel(cardWidth);
 });
 
 /*
 |--------------------------------------------------------------------------
-| TRANSITION END
+| MOUSE DRAG
 |--------------------------------------------------------------------------
+|
+| Touch y trackpad ya funcionan de forma nativa. Para ratón
+| añadimos arrastre; al soltar, el snap vuelve a encajar.
+|
 */
-
-track.addEventListener("transitionend", () => {
-  normalizeLoop();
-});
-
-/*
-|--------------------------------------------------------------------------
-| DRAG
-|--------------------------------------------------------------------------
-*/
-
-let isDragging = false;
 
 let dragStartX = 0;
-let dragStartPosition = 0;
-
-let previousX = 0;
-let previousTime = 0;
-
-let velocity = 0;
-
+let dragStartScroll = 0;
+let isPointerDown = false;
 let hasMoved = false;
 
 carousel.addEventListener("pointerdown", (event) => {
+  if (event.pointerType !== "mouse" || event.button !== 0) return;
+  if (event.target.closest("button")) return;
 
-  isDragging = true;
-
+  isPointerDown = true;
   hasMoved = false;
 
   dragStartX = event.clientX;
-
-  previousX = event.clientX;
-
-  previousTime = performance.now();
-
-  dragStartPosition = position;
-
-  velocity = 0;
-
-  carousel.classList.add("is-dragging");
-
-  carousel.setPointerCapture(event.pointerId);
-
-  track.style.transition = "none";
+  dragStartScroll = carousel.scrollLeft;
 });
 
-carousel.addEventListener("pointermove", (event) => {
+window.addEventListener("pointermove", (event) => {
+  if (!isPointerDown) return;
 
-  if (!isDragging) return;
+  const deltaX = event.clientX - dragStartX;
 
-  const currentX = event.clientX;
-
-  const currentTime = performance.now();
-
-  const deltaX =
-    currentX -
-    dragStartX;
-
-  if (Math.abs(deltaX) > 4) {
+  if (!hasMoved && Math.abs(deltaX) > 5) {
     hasMoved = true;
+    carousel.classList.add("is-dragging");
   }
 
-  position =
-    dragStartPosition +
-    deltaX;
-
-  track.style.transform =
-    `translate3d(${position}px, 0, 0)`;
-
-  const frameDistance =
-    currentX -
-    previousX;
-
-  const frameTime =
-    currentTime -
-    previousTime;
-
-  if (frameTime > 0) {
-
-    velocity =
-      frameDistance /
-      frameTime;
-
+  if (hasMoved) {
+    carousel.scrollLeft = dragStartScroll - deltaX;
   }
-
-  previousX = currentX;
-
-  previousTime = currentTime;
-
-  normalizeLoop();
 });
 
-function finishDrag() {
+function endDrag() {
+  if (!isPointerDown) return;
 
-  if (!isDragging) return;
+  isPointerDown = false;
 
-  isDragging = false;
+  if (!hasMoved) return;
+
+  // Encajamos en la card más cercana antes de reactivar el snap
+  const step = stepSize();
+  const target = Math.round(carousel.scrollLeft / step) * step;
 
   carousel.classList.remove("is-dragging");
-
-  /*
-  |--------------------------------------------------------------------------
-  | LIGHT INERTIA
-  |--------------------------------------------------------------------------
-  */
-
-  const inertiaDistance =
-    velocity *
-    160;
-
-  position += inertiaDistance;
-
-  track.style.transition =
-    "transform 650ms cubic-bezier(.18, .75, .25, 1)";
-
-  track.style.transform =
-    `translate3d(${position}px, 0, 0)`;
+  carousel.scrollTo({ left: target, behavior: scrollBehavior() });
 }
 
-carousel.addEventListener("pointerup", finishDrag);
+window.addEventListener("pointerup", endDrag);
+window.addEventListener("pointercancel", endDrag);
 
-carousel.addEventListener(
-  "pointercancel",
-  finishDrag
-);
-
-carousel.addEventListener(
-  "pointerleave",
-  () => {
-
-    if (isDragging) {
-      finishDrag();
-    }
-
-  }
-);
-
-/*
-|--------------------------------------------------------------------------
-| PREVENT LINK CLICK WHILE DRAGGING
-|--------------------------------------------------------------------------
-*/
-
+// Un arrastre no debe navegar al soltar sobre un enlace
 carousel.addEventListener(
   "click",
   (event) => {
-
     if (hasMoved) {
-
       event.preventDefault();
-
       event.stopPropagation();
-
+      hasMoved = false;
     }
-
   },
   true
 );
 
-/*
-|--------------------------------------------------------------------------
-| MOUSE WHEEL
-|--------------------------------------------------------------------------
-|
-| Trackpads pueden desplazar el carrusel horizontalmente.
-|
-*/
-
-carousel.addEventListener(
-  "wheel",
-  (event) => {
-
-    const horizontalMovement =
-      Math.abs(event.deltaX) >
-      Math.abs(event.deltaY);
-
-    if (!horizontalMovement) return;
-
-    event.preventDefault();
-
-    position -= event.deltaX;
-
-    track.style.transition = "none";
-
-    track.style.transform =
-      `translate3d(${position}px, 0, 0)`;
-
-    normalizeLoop();
-
-  },
-  {
-    passive: false
-  }
-);
-
-/*
-|--------------------------------------------------------------------------
-| RESIZE
-|--------------------------------------------------------------------------
-*/
-
-window.addEventListener("resize", () => {
-
-  const previousGroupWidth =
-    groupWidth;
-
-  calculateDimensions();
-
-  if (!previousGroupWidth) return;
-
-  const relativePosition =
-    position /
-    previousGroupWidth;
-
-  position =
-    relativePosition *
-    groupWidth;
-
-  track.style.transition = "none";
-
-  track.style.transform =
-    `translate3d(${position}px, 0, 0)`;
-
+// Demo: los enlaces "#" no deben saltar al inicio de la página
+track.querySelectorAll(".product-card__link").forEach((link) => {
+  link.addEventListener("click", (event) => event.preventDefault());
 });
+
+/*
+|--------------------------------------------------------------------------
+| COLOR SWATCHES
+|--------------------------------------------------------------------------
+|
+| Cada swatch actualiza el nombre de la variante y tiñe la
+| foto. El primer swatch es la foto original (sin tinte).
+|
+*/
+
+track.querySelectorAll(".product-card").forEach((card) => {
+  const swatches = [...card.querySelectorAll(".product-color")];
+  const variant = card.querySelector(".product-card__variant");
+  const tint = card.querySelector(".product-card__tint");
+
+  swatches.forEach((swatch, index) => {
+    swatch.addEventListener("click", () => {
+      swatches.forEach((item) => {
+        item.setAttribute("aria-pressed", String(item === swatch));
+      });
+
+      if (variant) variant.textContent = swatch.dataset.variant;
+
+      if (tint) {
+        if (index > 0) {
+          tint.style.setProperty(
+            "--tint",
+            getComputedStyle(swatch).getPropertyValue("--swatch").trim()
+          );
+        }
+
+        tint.classList.toggle("is-visible", index > 0);
+      }
+    });
+  });
+});
+
+updateUI();

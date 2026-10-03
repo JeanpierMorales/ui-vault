@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="MIRA organizes content, schedules campaigns and keeps publishing moving."
+  >
+
+  <title>MIRA — Publishing Flow</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<main>
+
+  <!-- =====================================================
+       DEMO / PREVIOUS SECTION
+       Remove when integrating.
+  ====================================================== -->
+
+  <section class="demo demo--light">
+    <span>Previous section</span>
+  </section>
+
+
+  <!-- =====================================================
+       MIRA — PUBLISHING FLOW
+  ====================================================== -->
+
+  <section
+    class="mira-flow"
+    id="miraFlow"
+  >
+
+    <div class="flow-sticky">
+
+      <div class="flow-container">
+
+
+        <!-- =================================================
+             HEADER
+        ================================================== -->
+
+        <header class="flow-header">
+
+          <div class="flow-eyebrow">
+            ORGANIZE & PUBLISH
+          </div>
+
+
+          <div class="flow-title">
+
+            <h1>
+              One place for everything
+              <span>your campaign needs.</span>
+            </h1>
+
+          </div>
+
+
+          <p class="flow-intro">
+            MIRA turns separate pieces of content into
+            a structured publishing flow across your accounts.
+          </p>
+
+        </header>
+
+
+
+        <!-- =================================================
+             INTERACTIVE STAGE
+        ================================================== -->
+
+        <div
+          class="flow-stage"
+          id="flowStage"
+        >
+
+
+          <!-- =================================================
+               AMBIENT GEOMETRY
+          ================================================== -->
+
+          <div
+            class="ambient-grid"
+            aria-hidden="true"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+
+
+          <div
+            class="ambient-circle ambient-circle--one"
+            aria-hidden="true"
+          ></div>
+
+          <div
+            class="ambient-circle ambient-circle--two"
+            aria-hidden="true"
+          ></div>
+
+
+
+          <!-- =================================================
+               INTRO COPY
+          ================================================== -->
+
+          <div
+            class="intro-copy"
+            id="introCopy"
+          >
+
+            <span class="micro-label">
+              BEFORE THE CAMPAIGN
+            </span>
+
+            <h2>
+              Content starts
+              <em>everywhere.</em>
+            </h2>
+
+            <p>
+              A scene. A visual. A caption.
+              A finished video. MIRA brings
+              them into the same workflow.
+            </p>
+
+          </div>
+
+
+
+          <!-- =================================================
+               SCATTERED ASSETS
+          ================================================== -->
+
+          <!-- VIDEO -->
+
+          <article
+            class="asset asset--video magnetic"
+            id="assetVideo"
+            data-strength="11"
+          >
+
+            <img
+              src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=900&q=85"
+              alt="Books"
+            >
+
+            <div class="asset-overlay"></div>
+
+
+            <div class="asset-meta">
+
+              <span>
+                VIDEO
+              </span>
+
+              <strong>
+                Winter teaser
+              </strong>
+
+            </div>
+
+
+            <div class="asset-play">
+              <span>▶</span>
+            </div>
+
+          </article>
+
+
+
+          <!-- IMAGE -->
+
+          <article
+            class="asset asset--image magnetic"
+            id="assetImage"
+            data-strength="8"
+          >
+
+            <img
+              src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=800&q=85"
+              alt="Book"
+            >
+
+            <div class="asset-overlay"></div>
+
+
+            <div class="asset-meta">
+
+              <span>
+                VISUAL
+              </span>
+
+              <strong>
+                Cover detail
+              </strong>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- SCENE -->
+
+          <article
+            class="asset asset--scene magnetic"
+            id="assetScene"
+            data-strength="9"
+          >
+
+            <span class="asset-type">
+              SCENE
+            </span>
+
+            <blockquote>
+              “She had promised herself
+              she would never come back.”
+            </blockquote>
+
+            <div class="scene-footer">
+
+              <span>
+                A Vow in Winter
+              </span>
+
+              <span>
+                Ch. 14
+              </span>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- CAPTION -->
+
+          <article
+            class="asset asset--caption magnetic"
+            id="assetCaption"
+            data-strength="7"
+          >
+
+            <span class="asset-type">
+              CAPTION
+            </span>
+
+            <p>
+              Some promises survive even
+              the longest winters.
+            </p>
+
+            <span class="caption-line"></span>
+
+          </article>
+
+
+
+          <!-- =================================================
+               CONTEXTUAL COPY
+          ================================================== -->
+
+          <div
+            class="context-copy"
+            id="contextCopy"
+          >
+
+            <!-- CONTENT -->
+
+            <div
+              class="context-state context-state--content"
+              data-context="content"
+            >
+
+              <span class="context-index">
+                CONTENT
+              </span>
+
+              <h2>
+                Bring the campaign
+                into focus.
+              </h2>
+
+              <p>
+                Select the pieces that belong together.
+                MIRA turns separate assets into one campaign.
+              </p>
+
+            </div>
+
+
+            <!-- SCHEDULE -->
+
+            <div
+              class="context-state"
+              data-context="schedule"
+            >
+
+              <span class="context-index">
+                SCHEDULE
+              </span>
+
+              <h2>
+                Give every post
+                its moment.
+              </h2>
+
+              <p>
+                Set the publishing rhythm and distribute
+                your content across the week.
+              </p>
+
+            </div>
+
+
+            <!-- ACCOUNTS -->
+
+            <div
+              class="context-state"
+              data-context="accounts"
+            >
+
+              <span class="context-index">
+                ACCOUNTS
+              </span>
+
+              <h2>
+                Send it where
+                it belongs.
+              </h2>
+
+              <p>
+                Connect each piece of content to
+                the right TikTok account.
+              </p>
+
+            </div>
+
+
+            <!-- PUBLISH -->
+
+            <div
+              class="context-state"
+              data-context="publish"
+            >
+
+              <span class="context-index">
+                READY
+              </span>
+
+              <h2>
+                Your campaign
+                keeps moving.
+              </h2>
+
+              <p>
+                Once approved, MIRA keeps the
+                publishing flow on schedule.
+              </p>
+
+            </div>
+
+          </div>
+
+
+
+          <!-- =================================================
+               PUBLISHING RAIL
+          ================================================== -->
+
+          <div
+            class="rail-system"
+            id="railSystem"
+          >
+
+
+            <!-- =============================================
+                 CURRENT ACTION
+            ============================================== -->
+
+            <div class="rail-action">
+
+              <div
+                class="rail-action-visual"
+                id="railActionVisual"
+              >
+
+                <!-- CONTENT VISUAL -->
+
+                <div
+                  class="action-scene action-scene--content active"
+                  data-action="content"
+                >
+
+                  <div class="mini-stack">
+
+                    <div class="mini-card mini-card--back">
+                      Aa
+                    </div>
+
+                    <div class="mini-card mini-card--middle">
+                      ▶
+                    </div>
+
+                    <div class="mini-card mini-card--front">
+
+                      <img
+                        src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=200&q=80"
+                        alt=""
+                      >
+
+                    </div>
+
+                  </div>
+
+
+                  <div class="action-copy">
+
+                    <span>
+                      BUILDING CAMPAIGN
+                    </span>
+
+                    <strong>
+                      3 pieces selected
+                    </strong>
+
+                  </div>
+
+                </div>
+
+
+
+                <!-- SCHEDULE VISUAL -->
+
+                <div
+                  class="action-scene action-scene--schedule"
+                  data-action="schedule"
+                >
+
+                  <div class="days-preview">
+
+                    <div>
+                      <span>MON</span>
+                      <strong>18:30</strong>
+                    </div>
+
+                    <div>
+                      <span>WED</span>
+                      <strong>19:15</strong>
+                    </div>
+
+                    <div>
+                      <span>FRI</span>
+                      <strong>18:45</strong>
+                    </div>
+
+                  </div>
+
+
+                  <div class="action-copy">
+
+                    <span>
+                      SETTING THE RHYTHM
+                    </span>
+
+                    <strong>
+                      3 posts scheduled
+                    </strong>
+
+                  </div>
+
+                </div>
+
+
+
+                <!-- ACCOUNTS VISUAL -->
+
+                <div
+                  class="action-scene action-scene--accounts"
+                  data-action="accounts"
+                >
+
+                  <div class="account-preview">
+
+                    <span class="account-avatar">
+                      AV
+                    </span>
+
+                    <span class="account-avatar">
+                      AW
+                    </span>
+
+                    <span class="account-avatar">
+                      BR
+                    </span>
+
+                  </div>
+
+
+                  <div class="action-copy">
+
+                    <span>
+                      ROUTING CONTENT
+                    </span>
+
+                    <strong>
+                      3 accounts connected
+                    </strong>
+
+                  </div>
+
+                </div>
+
+
+
+                <!-- PUBLISH VISUAL -->
+
+                <div
+                  class="action-scene action-scene--publish"
+                  data-action="publish"
+                >
+
+                  <div class="ready-symbol">
+                    <span>✓</span>
+                  </div>
+
+
+                  <div class="action-copy">
+
+                    <span>
+                      CAMPAIGN READY
+                    </span>
+
+                    <strong>
+                      Publishing on schedule
+                    </strong>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+
+            <!-- =============================================
+                 RAIL
+            ============================================== -->
+
+            <div class="rail">
+
+
+              <!-- BASE -->
+
+              <div class="rail-base"></div>
+
+
+              <!-- ACTIVE LINE -->
+
+              <div
+                class="rail-progress"
+                id="railProgress"
+              ></div>
+
+
+
+              <!-- ===========================================
+                   NODE — CONTENT
+              ============================================ -->
+
+              <div
+                class="rail-node rail-node--content active"
+                data-node="content"
+              >
+
+                <span class="node-dot"></span>
+
+                <div class="node-label">
+
+                  <strong>
+                    CONTENT
+                  </strong>
+
+                  <span>
+                    Select what belongs together
+                  </span>
+
+                </div>
+
+              </div>
+
+
+
+              <!-- ===========================================
+                   NODE — SCHEDULE
+              ============================================ -->
+
+              <div
+                class="rail-node rail-node--schedule"
+                data-node="schedule"
+              >
+
+                <span class="node-dot"></span>
+
+                <div class="node-label">
+
+                  <strong>
+                    SCHEDULE
+                  </strong>
+
+                  <span>
+                    Set the publishing rhythm
+                  </span>
+
+                </div>
+
+              </div>
+
+
+
+              <!-- ===========================================
+                   NODE — ACCOUNTS
+              ============================================ -->
+
+              <div
+                class="rail-node rail-node--accounts"
+                data-node="accounts"
+              >
+
+                <span class="node-dot"></span>
+
+                <div class="node-label">
+
+                  <strong>
+                    ACCOUNTS
+                  </strong>
+
+                  <span>
+                    Choose where it goes
+                  </span>
+
+                </div>
+
+              </div>
+
+
+
+              <!-- ===========================================
+                   NODE — PUBLISH
+              ============================================ -->
+
+              <div
+                class="rail-node rail-node--publish"
+                data-node="publish"
+              >
+
+                <span class="node-dot"></span>
+
+                <div class="node-label">
+
+                  <strong>
+                    PUBLISH
+                  </strong>
+
+                  <span>
+                    Keep the campaign moving
+                  </span>
+
+                </div>
+
+              </div>
+
+
+
+              <!-- ===========================================
+                   MOVING ORB
+              ============================================ -->
+
+              <div
+                class="rail-orb"
+                id="railOrb"
+              >
+
+                <div class="orb-core"></div>
+
+              </div>
+
+            </div>
+
+
+
+            <!-- =============================================
+                 SCHEDULE GEOMETRY
+            ============================================== -->
+
+            <div
+              class="schedule-geometry"
+              id="scheduleGeometry"
+            >
+
+              <span class="schedule-stem stem-one"></span>
+              <span class="schedule-stem stem-two"></span>
+              <span class="schedule-stem stem-three"></span>
+
+
+              <div class="schedule-day schedule-day--one">
+
+                <strong>MON</strong>
+                <span>18:30</span>
+
+              </div>
+
+
+              <div class="schedule-day schedule-day--two">
+
+                <strong>WED</strong>
+                <span>19:15</span>
+
+              </div>
+
+
+              <div class="schedule-day schedule-day--three">
+
+                <strong>FRI</strong>
+                <span>18:45</span>
+
+              </div>
+
+            </div>
+
+
+
+            <!-- =============================================
+                 ACCOUNT BRANCHES
+            ============================================== -->
+
+            <div
+              class="account-geometry"
+              id="accountGeometry"
+            >
+
+              <span class="branch branch--one"></span>
+              <span class="branch branch--two"></span>
+              <span class="branch branch--three"></span>
+
+
+              <div class="branch-account branch-account--one">
+
+                <span class="branch-avatar">
+                  AV
+                </span>
+
+                <div>
+                  <strong>
+                    @avowinwinter
+                  </strong>
+
+                  <span>
+                    Book account
+                  </span>
+                </div>
+
+              </div>
+
+
+              <div class="branch-account branch-account--two">
+
+                <span class="branch-avatar">
+                  AW
+                </span>
+
+                <div>
+                  <strong>
+                    @authorwrites
+                  </strong>
+
+                  <span>
+                    Author account
+                  </span>
+                </div>
+
+              </div>
+
+
+              <div class="branch-account branch-account--three">
+
+                <span class="branch-avatar">
+                  BR
+                </span>
+
+                <div>
+                  <strong>
+                    @bookrecs
+                  </strong>
+
+                  <span>
+                    Reader account
+                  </span>
+                </div>
+
+              </div>
+
+            </div>
+
+
+          </div>
+
+
+
+          <!-- =================================================
+               FINAL PUBLISHING MOMENT
+          ================================================== -->
+
+          <div
+            class="final-state"
+            id="finalState"
+          >
+
+            <div class="final-signal">
+
+              <span class="final-ring final-ring--1"></span>
+              <span class="final-ring final-ring--2"></span>
+              <span class="final-ring final-ring--3"></span>
+
+              <span class="final-core">
+                ✓
+              </span>
+
+            </div>
+
+
+            <div class="final-copy">
+
+              <span>
+                CAMPAIGN IN MOTION
+              </span>
+
+              <h2>
+                Scheduled once.
+                <em>Moving forward.</em>
+              </h2>
+
+            </div>
+
+
+            <div class="final-status">
+
+              <span>
+                ORGANIZED
+              </span>
+
+              <span class="status-line"></span>
+
+              <span>
+                SCHEDULED
+              </span>
+
+              <span class="status-line"></span>
+
+              <span>
+                PUBLISHED
+              </span>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       DEMO / NEXT SECTION
+  ====================================================== -->
+
+  <section class="demo demo--dark">
+    <span>Next section</span>
+  </section>
+
+</main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>

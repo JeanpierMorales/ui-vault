@@ -12,44 +12,87 @@
     <link rel="stylesheet" href="./app/css/app.css" />
   </head>
   <body>
-    <div class="vault-shell">
+    <div class="vault-shell" id="vault-shell">
       <header class="topbar">
+        <button class="icon-button rail-toggle" id="rail-toggle" type="button" aria-label="Ocultar biblioteca" aria-controls="library-sidebar" aria-expanded="true">
+          <iconify-icon aria-hidden="true" icon="ph:sidebar-simple"></iconify-icon>
+        </button>
         <a class="brand" href="./index.html" aria-label="UI Vault">
-          <span class="brand-mark" aria-hidden="true">UV</span><span>UI Vault</span>
+          <span class="brand-mark" aria-hidden="true">UV</span><span class="brand-name">UI Vault</span>
         </a>
         <label class="search-field" for="component-search">
           <iconify-icon aria-hidden="true" icon="ph:magnifying-glass"></iconify-icon>
-          <input id="component-search" type="search" placeholder="Buscar pieza o código" autocomplete="off" />
+          <input id="component-search" type="search" placeholder="Buscar pieza, código o etiqueta" autocomplete="off" />
+          <kbd class="kbd">⌘K</kbd>
         </label>
         <div class="topbar-actions">
           <span id="library-total" class="library-count">0 piezas</span>
           <button class="icon-button" id="theme-toggle" type="button" aria-label="Cambiar tema"><iconify-icon aria-hidden="true" icon="ph:moon-stars"></iconify-icon></button>
-          <button class="menu-button" id="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="library-sidebar"><span></span><span></span></button>
         </div>
       </header>
 
       <main class="vault-main">
-        <aside class="library-sidebar" id="library-sidebar" aria-label="Categorías">
-          <nav id="category-nav" aria-label="Categorías disponibles"></nav>
-        </aside>
-
-        <section class="content-area" aria-label="Vista de piezas">
-          <header class="content-head">
-            <div>
-              <span class="section-label" id="content-group">Foundations</span>
-              <h1 id="content-title">Typography</h1>
-            </div>
-            <p id="content-count" class="content-count">0 piezas</p>
-          </header>
-
-          <div class="pieces" id="pieces"></div>
-          <div class="pieces-empty" id="pieces-empty" hidden>
-            <iconify-icon aria-hidden="true" icon="ph:magnifying-glass-minus"></iconify-icon>
-            <p>No hay piezas que coincidan con la búsqueda.</p>
+        <aside class="library-sidebar" id="library-sidebar" aria-label="Biblioteca">
+          <nav id="library-tree" aria-label="Piezas de la biblioteca"></nav>
+          <div class="tree-empty" id="tree-empty" hidden>
+            <p>Nada coincide con la búsqueda.</p>
             <button id="clear-search" type="button">Limpiar búsqueda</button>
           </div>
+        </aside>
+        <div class="sidebar-scrim" id="sidebar-scrim" hidden></div>
+
+        <section class="stage" aria-label="Vista de la pieza">
+          <header class="stage-head">
+            <div class="stage-title">
+              <p class="stage-crumb"><span id="stage-group"></span><iconify-icon aria-hidden="true" icon="ph:caret-right"></iconify-icon><span id="stage-category"></span></p>
+              <h1><span class="piece-code" id="stage-code"></span><span id="stage-name"></span></h1>
+              <p class="stage-desc" id="stage-desc"></p>
+            </div>
+            <div class="stage-tools" role="toolbar" aria-label="Herramientas de vista">
+              <div class="segmented" role="group" aria-label="Dispositivo">
+                <button type="button" data-device="desktop" aria-pressed="true" aria-label="Escritorio" title="Escritorio (1)"><iconify-icon aria-hidden="true" icon="ph:desktop"></iconify-icon></button>
+                <button type="button" data-device="tablet" aria-pressed="false" aria-label="Tablet" title="Tablet (2)"><iconify-icon aria-hidden="true" icon="ph:device-tablet"></iconify-icon></button>
+                <button type="button" data-device="mobile" aria-pressed="false" aria-label="Móvil" title="Móvil (3)"><iconify-icon aria-hidden="true" icon="ph:device-mobile"></iconify-icon></button>
+              </div>
+              <button class="icon-button" id="backdrop-toggle" type="button" aria-label="Cambiar fondo del escenario" title="Fondo del escenario (B)"><iconify-icon aria-hidden="true" icon="ph:circle-half"></iconify-icon></button>
+              <button class="icon-button" id="favorite-toggle" type="button" aria-pressed="false" aria-label="Marcar como favorito" title="Favorito (S)"><iconify-icon aria-hidden="true" icon="ph:star"></iconify-icon></button>
+              <button class="icon-button" id="reload-piece" type="button" aria-label="Reiniciar pieza" title="Reiniciar (R)"><iconify-icon aria-hidden="true" icon="ph:arrow-clockwise"></iconify-icon></button>
+              <button class="icon-button" id="copy-link" type="button" aria-label="Copiar enlace a esta pieza" title="Copiar enlace"><iconify-icon aria-hidden="true" icon="ph:link-simple"></iconify-icon></button>
+              <a class="icon-button" id="open-piece" href="#" target="_blank" rel="noopener" aria-label="Abrir en pestaña nueva" title="Abrir en pestaña nueva"><iconify-icon aria-hidden="true" icon="ph:arrow-square-out"></iconify-icon></a>
+              <button class="icon-button" id="focus-toggle" type="button" aria-label="Pantalla completa" title="Pantalla completa (F)"><iconify-icon aria-hidden="true" icon="ph:corners-out"></iconify-icon></button>
+            </div>
+          </header>
+
+          <div class="stage-canvas" id="stage-canvas" data-device="desktop" data-backdrop="paper">
+            <div class="device-frame" id="device-frame">
+              <iframe class="piece-frame is-current" title="Vista de la pieza" allow="fullscreen"></iframe>
+              <iframe class="piece-frame" title="Vista de la pieza" allow="fullscreen" aria-hidden="true" tabindex="-1"></iframe>
+              <div class="frame-loading" id="frame-loading" hidden><span></span></div>
+            </div>
+          </div>
+
+          <footer class="stage-foot">
+            <button class="step-button" id="prev-piece" type="button" aria-label="Pieza anterior">
+              <iconify-icon aria-hidden="true" icon="ph:arrow-left"></iconify-icon>
+              <span class="step-text"><small>Anterior</small><span id="prev-name"></span></span>
+            </button>
+            <p class="stage-position" id="stage-position" aria-live="polite"></p>
+            <button class="step-button is-next" id="next-piece" type="button" aria-label="Pieza siguiente">
+              <span class="step-text"><small>Siguiente</small><span id="next-name"></span></span>
+              <iconify-icon aria-hidden="true" icon="ph:arrow-right"></iconify-icon>
+            </button>
+          </footer>
         </section>
       </main>
+
+      <div class="focus-hud" id="focus-hud" aria-hidden="true">
+        <button type="button" data-hud="prev" aria-label="Anterior"><iconify-icon aria-hidden="true" icon="ph:arrow-left"></iconify-icon></button>
+        <span class="hud-label"><span class="piece-code" id="hud-code"></span><span id="hud-name"></span><span class="hud-count" id="hud-count"></span></span>
+        <button type="button" data-hud="next" aria-label="Siguiente"><iconify-icon aria-hidden="true" icon="ph:arrow-right"></iconify-icon></button>
+        <button type="button" data-hud="exit" aria-label="Salir de pantalla completa"><iconify-icon aria-hidden="true" icon="ph:corners-in"></iconify-icon></button>
+      </div>
+
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
     </div>
 
     <script type="module" src="./app/js/app.js"></script>

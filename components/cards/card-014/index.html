@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team Flip Cards</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&display=swap"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Social icon sprite: each card references these with <use> -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-linkedin" viewBox="0 0 24 24">
+      <path d="M6.5 8.8H3.6V20h2.9V8.8ZM5 4a1.7 1.7 0 1 0 0 3.4A1.7 1.7 0 0 0 5 4Zm15.4 9.3c0-3-1.6-4.7-4.1-4.7-1.9 0-2.8 1-3.3 1.8V8.8H10V20h2.9v-5.6c0-1.5.3-2.9 2.1-2.9 1.8 0 1.9 1.7 1.9 3V20h2.9v-6.7Z" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-x" viewBox="0 0 24 24">
+      <path d="M17.8 3h3.1l-6.8 7.8L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8L17.8 3Zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5Z" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-dribbble" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="1.7">
+        <circle cx="12" cy="12" r="9"/>
+        <path d="M8.2 3.9c3.3 4.3 5.9 10.2 7.2 16.3M3.2 10.4c4.6.4 10.3-.4 14.6-4.3M5.6 18.4c2.8-3.6 7-5.4 14.9-4.1"/>
+      </g>
+    </symbol>
+    <symbol id="i-github" viewBox="0 0 24 24">
+      <path d="M12 2.5a9.5 9.5 0 0 0-3 18.5c.5.1.6-.2.6-.5v-1.7c-2.6.6-3.2-1.2-3.2-1.2-.4-1.1-1-1.4-1-1.4-.9-.6 0-.6 0-.6 1 .1 1.5 1 1.5 1 .8 1.5 2.3 1 2.8.8.1-.6.4-1 .6-1.2-2.1-.2-4.3-1-4.3-4.7 0-1 .4-1.9 1-2.6-.1-.2-.4-1.2.1-2.5 0 0 .8-.3 2.6 1a9 9 0 0 1 4.8 0c1.8-1.3 2.6-1 2.6-1 .5 1.3.2 2.3.1 2.5.6.7 1 1.6 1 2.6 0 3.7-2.2 4.5-4.3 4.7.3.3.6.9.6 1.8v2.6c0 .3.2.6.7.5A9.5 9.5 0 0 0 12 2.5Z" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round">
+        <rect x="3" y="5" width="18" height="14" rx="2.5"/>
+        <path d="m4 7 8 6 8-6"/>
+      </g>
+    </symbol>
+    <!-- Two curved arrows: the "flip" affordance -->
+    <symbol id="i-flip" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 12a8 8 0 0 1 13.7-5.6L20 8.7"/>
+        <path d="M20 4v4.7h-4.7"/>
+        <path d="M20 12a8 8 0 0 1-13.7 5.6L4 15.3"/>
+        <path d="M4 20v-4.7h4.7"/>
+      </g>
+    </symbol>
+  </svg>
+
+  <main class="team">
+
+    <ul class="team__grid" role="list" aria-label="Our team">
+
+      <!-- MEMBER 1 -->
+      <li class="member">
+        <!-- Real toggle button; it sits outside the rotating layer so it never flips away -->
+        <button class="member__toggle" type="button" aria-pressed="false" aria-label="Show bio for Amara Okafor">
+          <svg aria-hidden="true"><use href="#i-flip"/></svg>
+        </button>
+
+        <div class="member__inner">
+          <div class="member__face member__face--front">
+            <img
+              class="member__photo"
+              src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=900&q=80"
+              alt="Portrait of Amara Okafor, smiling, against a terracotta wall"
+              width="600" height="800" loading="lazy" decoding="async"
+            />
+            <span class="member__tag">Lisbon</span>
+            <div class="member__caption">
+              <h2 class="member__name">Amara Okafor</h2>
+              <p class="member__role">Head of Design</p>
+            </div>
+          </div>
+
+          <div class="member__face member__face--back">
+            <p class="member__eyebrow">Design team · since 2019</p>
+            <h3 class="member__back-name">Amara Okafor</h3>
+            <p class="member__bio">
+              Leads a team of nine product designers. Previously shaped checkout flows at a European fintech used by 4M people.
+            </p>
+            <ul class="member__skills" role="list" aria-label="Skills">
+              <li>Design systems</li>
+              <li>Prototyping</li>
+              <li>Research</li>
+            </ul>
+            <blockquote class="member__quote">“Good design is mostly good listening.”</blockquote>
+            <ul class="member__social" role="list" aria-label="Amara Okafor online">
+              <li><a href="#" aria-label="Amara Okafor on LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a></li>
+              <li><a href="#" aria-label="Amara Okafor on Dribbble"><svg aria-hidden="true"><use href="#i-dribbble"/></svg></a></li>
+              <li><a href="#" aria-label="Email Amara Okafor"><svg aria-hidden="true"><use href="#i-mail"/></svg></a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
+
+      <!-- MEMBER 2 -->
+      <li class="member">
+        <button class="member__toggle" type="button" aria-pressed="false" aria-label="Show bio for Daniel Moreau">
+          <svg aria-hidden="true"><use href="#i-flip"/></svg>
+        </button>
+
+        <div class="member__inner">
+          <div class="member__face member__face--front">
+            <img
+              class="member__photo"
+              src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80"
+              alt="Portrait of Daniel Moreau in a grey sweater and collared shirt"
+              width="600" height="800" loading="lazy" decoding="async"
+            />
+            <span class="member__tag">Montréal</span>
+            <div class="member__caption">
+              <h2 class="member__name">Daniel Moreau</h2>
+              <p class="member__role">Staff Engineer</p>
+            </div>
+          </div>
+
+          <div class="member__face member__face--back">
+            <p class="member__eyebrow">Engineering · since 2020</p>
+            <h3 class="member__back-name">Daniel Moreau</h3>
+            <p class="member__bio">
+              Owns our realtime sync engine and on-call tooling. Maintains two open-source libraries with 12k stars between them.
+            </p>
+            <ul class="member__skills" role="list" aria-label="Skills">
+              <li>TypeScript</li>
+              <li>Rust</li>
+              <li>Distributed systems</li>
+            </ul>
+            <blockquote class="member__quote">“Delete code before you optimise it.”</blockquote>
+            <ul class="member__social" role="list" aria-label="Daniel Moreau online">
+              <li><a href="#" aria-label="Daniel Moreau on GitHub"><svg aria-hidden="true"><use href="#i-github"/></svg></a></li>
+              <li><a href="#" aria-label="Daniel Moreau on LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a></li>
+              <li><a href="#" aria-label="Daniel Moreau on X"><svg aria-hidden="true"><use href="#i-x"/></svg></a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
+
+      <!-- MEMBER 3 -->
+      <li class="member">
+        <button class="member__toggle" type="button" aria-pressed="false" aria-label="Show bio for Freya Lindqvist">
+          <svg aria-hidden="true"><use href="#i-flip"/></svg>
+        </button>
+
+        <div class="member__inner">
+          <div class="member__face member__face--front">
+            <img
+              class="member__photo"
+              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=900&q=80"
+              alt="Portrait of Freya Lindqvist with auburn hair by a lake"
+              width="600" height="800" loading="lazy" decoding="async"
+            />
+            <span class="member__tag">Stockholm</span>
+            <div class="member__caption">
+              <h2 class="member__name">Freya Lindqvist</h2>
+              <p class="member__role">Product Manager</p>
+            </div>
+          </div>
+
+          <div class="member__face member__face--back">
+            <p class="member__eyebrow">Product · since 2022</p>
+            <h3 class="member__back-name">Freya Lindqvist</h3>
+            <p class="member__bio">
+              Runs discovery for our collaboration suite. Turns messy customer interviews into roadmaps the whole company can rally behind.
+            </p>
+            <ul class="member__skills" role="list" aria-label="Skills">
+              <li>Discovery</li>
+              <li>Analytics</li>
+              <li>Roadmapping</li>
+            </ul>
+            <blockquote class="member__quote">“Fall in love with the problem, not the feature.”</blockquote>
+            <ul class="member__social" role="list" aria-label="Freya Lindqvist online">
+              <li><a href="#" aria-label="Freya Lindqvist on LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a></li>
+              <li><a href="#" aria-label="Freya Lindqvist on X"><svg aria-hidden="true"><use href="#i-x"/></svg></a></li>
+              <li><a href="#" aria-label="Email Freya Lindqvist"><svg aria-hidden="true"><use href="#i-mail"/></svg></a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

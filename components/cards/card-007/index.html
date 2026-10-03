@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Article Cards</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <main class="blog-page">
+
+    <section class="blog-grid" aria-label="Latest articles">
+
+      <!-- FEATURED CARD (wide variant) -->
+      <article class="post-card post-card--featured">
+        <div class="post-card__media">
+          <img
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
+            alt="Minimal office corridor with a dark kitchen and glass-walled rooms"
+            loading="lazy"
+            decoding="async"
+          />
+          <span class="post-card__badge">Featured</span>
+        </div>
+
+        <div class="post-card__body">
+          <div class="post-card__meta">
+            <span class="post-card__chip post-card__chip--terracotta">Design</span>
+            <span class="post-card__read">8 min read</span>
+          </div>
+
+          <h2 class="post-card__title">
+            <a href="#">
+              <span class="post-card__title-text">Designing calm interfaces: how whitespace quietly drives conversion</span>
+            </a>
+          </h2>
+
+          <p class="post-card__excerpt">
+            We studied forty high-performing SaaS landing pages and found a pattern: the best ones say less, leave more room and guide the eye with rhythm instead of colour. Here is the framework we now use on every project.
+          </p>
+
+          <footer class="post-card__author">
+            <img
+              class="post-card__avatar"
+              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80"
+              alt=""
+              loading="lazy"
+            />
+            <div>
+              <span class="post-card__name">Chloe Harrison</span>
+              <time class="post-card__date" datetime="2026-09-18">Sep 18, 2026</time>
+            </div>
+          </footer>
+        </div>
+      </article>
+
+      <!-- CARD 2 -->
+      <article class="post-card">
+        <div class="post-card__media">
+          <img
+            src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80"
+            alt="Laptop on a desk showing lines of code next to a coffee cup"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <div class="post-card__body">
+          <div class="post-card__meta">
+            <span class="post-card__chip post-card__chip--sage">Engineering</span>
+            <span class="post-card__read">5 min read</span>
+          </div>
+
+          <h2 class="post-card__title">
+            <a href="#">
+              <span class="post-card__title-text">Shipping faster with native view transitions</span>
+            </a>
+          </h2>
+
+          <p class="post-card__excerpt">
+            The View Transitions API finally lets static sites feel like apps. We rebuilt our marketing site with it and cut page weight by 62% without losing a single animation.
+          </p>
+
+          <footer class="post-card__author">
+            <img
+              class="post-card__avatar"
+              src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80"
+              alt=""
+              loading="lazy"
+            />
+            <div>
+              <span class="post-card__name">Ethan Walker</span>
+              <time class="post-card__date" datetime="2026-09-11">Sep 11, 2026</time>
+            </div>
+          </footer>
+        </div>
+      </article>
+
+      <!-- CARD 3 -->
+      <article class="post-card">
+        <div class="post-card__media">
+          <img
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80"
+            alt="Small team collaborating around a table with laptops and notebooks"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <div class="post-card__body">
+          <div class="post-card__meta">
+            <span class="post-card__chip post-card__chip--ink">Business</span>
+            <span class="post-card__read">6 min read</span>
+          </div>
+
+          <h2 class="post-card__title">
+            <a href="#">
+              <span class="post-card__title-text">What we learned pricing our first productized service</span>
+            </a>
+          </h2>
+
+          <p class="post-card__excerpt">
+            Fixed scope, fixed price, fixed timeline. Three rules that doubled our close rate, the mistakes we made along the way, and the exact onboarding email we send to every new client.
+          </p>
+
+          <footer class="post-card__author">
+            <img
+              class="post-card__avatar"
+              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=120&q=80"
+              alt=""
+              loading="lazy"
+            />
+            <div>
+              <span class="post-card__name">Maya Lindqvist</span>
+              <time class="post-card__date" datetime="2026-09-04">Sep 4, 2026</time>
+            </div>
+          </footer>
+        </div>
+      </article>
+
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

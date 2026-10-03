@@ -1,0 +1,705 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --page-bg: #110e1c;
+  --paper: #fbf7ef;
+  --paper-2: #f3ede1;
+  --ink: #17131f;
+  --muted: #6d6678;
+  --line: rgba(23, 19, 31, 0.12);
+
+  --coral: #ff5a36;
+  --violet: #6b4dff;
+  --teal: #19c3b3;
+
+  --radius: 22px;
+  --notch: 14px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(520px 320px at 20% 20%, rgba(107, 77, 255, 0.22), transparent 70%),
+    radial-gradient(520px 320px at 85% 85%, rgba(255, 90, 54, 0.14), transparent 70%),
+    var(--page-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ======================================
+   PAGE
+====================================== */
+
+.stage {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: clamp(20px, 5vh, 56px) clamp(16px, 4vw, 48px);
+  overflow: hidden; /* the torn stub flies off-canvas */
+}
+
+/* ======================================
+   TICKET LAYOUT
+   Two separate pieces (main + stub) so the stub can
+   really tear away. Each piece cuts its own half of
+   the notches with a two-layer radial-gradient mask.
+====================================== */
+
+.ticket {
+  position: relative;
+  width: 100%;
+  max-width: 820px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.45));
+}
+
+.ticket__main,
+.ticket__stub {
+  position: relative;
+  background: var(--paper);
+}
+
+.ticket__main {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 20px;
+  border-radius: var(--radius) 0 0 var(--radius);
+  /* notches on the right corners */
+  -webkit-mask:
+    radial-gradient(circle var(--notch) at 100% 0, #0000 98%, #000) top / 100% 51% no-repeat,
+    radial-gradient(circle var(--notch) at 100% 100%, #0000 98%, #000) bottom / 100% 51% no-repeat;
+  mask:
+    radial-gradient(circle var(--notch) at 100% 0, #0000 98%, #000) top / 100% 51% no-repeat,
+    radial-gradient(circle var(--notch) at 100% 100%, #0000 98%, #000) bottom / 100% 51% no-repeat;
+}
+
+.ticket__stub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 22px 22px 20px;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: var(--paper-2);
+  grid-area: 1 / 2;
+  /* notches on the left corners */
+  -webkit-mask:
+    radial-gradient(circle var(--notch) at 0 0, #0000 98%, #000) top / 100% 51% no-repeat,
+    radial-gradient(circle var(--notch) at 0 100%, #0000 98%, #000) bottom / 100% 51% no-repeat;
+  mask:
+    radial-gradient(circle var(--notch) at 0 0, #0000 98%, #000) top / 100% 51% no-repeat,
+    radial-gradient(circle var(--notch) at 0 100%, #0000 98%, #000) bottom / 100% 51% no-repeat;
+  transform-origin: 0 100%;
+}
+
+/* Perforation: a column of dots between the notches */
+.ticket__stub::before {
+  content: "";
+  position: absolute;
+  top: calc(var(--notch) + 8px);
+  bottom: calc(var(--notch) + 8px);
+  left: -1px;
+  width: 2px;
+  background: radial-gradient(circle, rgba(23, 19, 31, 0.28) 1px, transparent 1.4px) 0 0 / 2px 9px repeat-y;
+}
+
+/* ======================================
+   POSTER BLOCK
+====================================== */
+
+.ticket__poster {
+  position: relative;
+  overflow: hidden;
+  padding: 20px 22px 22px;
+  border-radius: 14px;
+  color: #fff;
+  background:
+    radial-gradient(220px 160px at 88% 20%, rgba(25, 195, 179, 0.85), transparent 70%),
+    radial-gradient(260px 180px at 58% 120%, rgba(255, 90, 54, 0.9), transparent 70%),
+    radial-gradient(300px 200px at 0% 0%, rgba(107, 77, 255, 1), transparent 75%),
+    #24124d;
+}
+
+/* Fine diagonal lines give the poster a printed feel */
+.ticket__poster::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px 7px);
+  pointer-events: none;
+}
+
+.ticket__kicker {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.ticket__title {
+  margin: 10px 0 0;
+  font-family: "Unbounded", "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: clamp(28px, 4.4vw, 42px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.ticket__support {
+  margin: 8px 0 0;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.ticket__type {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 1;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+/* ======================================
+   INFO ROW
+====================================== */
+
+.ticket__info {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px;
+  padding: 0 4px;
+}
+
+.ticket__date {
+  display: grid;
+  justify-items: center;
+  width: 68px;
+  padding: 8px 0 9px;
+  border-radius: 14px;
+  background: var(--ink);
+  color: var(--paper);
+  line-height: 1;
+}
+
+.ticket__dow,
+.ticket__month {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.ticket__dow {
+  color: var(--coral);
+}
+
+.ticket__day {
+  margin: 4px 0 3px;
+  font-family: "Unbounded", sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.ticket__venue p {
+  margin: 0;
+}
+
+.ticket__place {
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.ticket__address,
+.ticket__time {
+  font-size: 13.5px;
+  color: var(--muted);
+}
+
+.ticket__address {
+  margin-top: 2px !important;
+}
+
+.ticket__time {
+  margin-top: 6px !important;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.ticket__seat {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 0;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.ticket__seat div {
+  padding: 8px 12px;
+  text-align: center;
+}
+
+.ticket__seat div + div {
+  border-left: 1px solid var(--line);
+}
+
+.ticket__seat dt {
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.ticket__seat dd {
+  margin: 3px 0 0;
+  font-family: "Unbounded", sans-serif;
+  font-weight: 500;
+  font-size: 17px;
+}
+
+/* ======================================
+   ACTIONS
+====================================== */
+
+.ticket__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 4px 0;
+  border-top: 1px dashed var(--line);
+}
+
+.ticket__holder {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--muted);
+}
+
+.ticket__holder strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 12px;
+  font: inherit;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition:
+    transform 240ms var(--ease),
+    background-color 240ms var(--ease),
+    color 240ms var(--ease),
+    box-shadow 240ms var(--ease);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.btn--ghost {
+  color: var(--ink);
+  background: transparent;
+  box-shadow: inset 0 0 0 1.5px var(--ink);
+}
+
+.btn--ghost:hover {
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.btn--ghost.is-done {
+  color: #0b6b62;
+  box-shadow: inset 0 0 0 1.5px #0b6b62;
+  background: rgba(25, 195, 179, 0.12);
+}
+
+.btn--primary {
+  width: 100%;
+  color: #fff;
+  background: var(--ink);
+}
+
+.btn--primary:hover {
+  background: var(--coral);
+  color: var(--ink);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--violet);
+  outline-offset: 3px;
+}
+
+/* ======================================
+   STUB CONTENT
+====================================== */
+
+.ticket__admit {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.ticket__qr {
+  display: block;
+  width: 132px;
+  height: 132px;
+  padding: 8px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 0 0 1px var(--line);
+  color: var(--ink);
+  shape-rendering: crispEdges;
+}
+
+.ticket__code {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ======================================
+   TEAR-OFF
+   1. .is-tugging: a quick shake of the stub
+   2. .is-torn: stub drops away; main piece squares
+      off its right edge and gets the stamp.
+====================================== */
+
+.ticket.is-tugging .ticket__stub {
+  animation: tug 360ms var(--ease);
+}
+
+@keyframes tug {
+  30% { transform: rotate(-2deg) translateX(3px); }
+  65% { transform: rotate(1.4deg) translateX(1px); }
+}
+
+.ticket.is-torn .ticket__stub {
+  animation: tear 900ms var(--ease) forwards;
+  pointer-events: none;
+}
+
+@keyframes tear {
+  0% {
+    transform: none;
+    opacity: 1;
+  }
+  35% {
+    transform: translate(26px, -10px) rotate(7deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(90px, 240px) rotate(24deg);
+    opacity: 0;
+  }
+}
+
+/* Stub keeps its grid column but stays invisible once torn */
+.ticket.is-gone .ticket__stub {
+  visibility: hidden;
+}
+
+.ticket__used {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.stamp {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  padding: 12px 22px;
+  border: 3px solid var(--coral);
+  border-radius: 14px;
+  color: var(--coral);
+  background: rgba(251, 247, 239, 0.9);
+  font-family: "Unbounded", sans-serif;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: rotate(-10deg) scale(1.6);
+  transition:
+    opacity 300ms var(--ease),
+    transform 500ms var(--ease);
+}
+
+.stamp__top {
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 0.06em;
+}
+
+.stamp__time {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+}
+
+.ticket.is-torn .stamp {
+  opacity: 1;
+  transform: rotate(-10deg) scale(1);
+  transition-delay: 380ms;
+}
+
+.ticket.is-torn .ticket__poster,
+.ticket.is-torn .ticket__info,
+.ticket.is-torn .ticket__actions {
+  opacity: 0.55;
+  filter: grayscale(0.7);
+  transition:
+    opacity 500ms var(--ease) 300ms,
+    filter 500ms var(--ease) 300ms;
+}
+
+.btn--reset {
+  /* Occupies the stub's grid cell once the stub is gone */
+  grid-area: 1 / 2;
+  align-self: center;
+  justify-self: center;
+  color: var(--paper);
+  background: rgba(251, 247, 239, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(251, 247, 239, 0.24);
+  animation: fade-in 500ms var(--ease) 500ms both;
+}
+
+.btn--reset:hover {
+  background: rgba(251, 247, 239, 0.16);
+}
+
+.btn--reset:focus-visible {
+  outline-color: var(--paper);
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+}
+
+/* ======================================
+   RESPONSIVE
+====================================== */
+
+/* Medium: move the seat grid under the venue */
+@media (max-width: 860px) {
+  .ticket__info {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .ticket__seat {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Narrow: stack vertically, the stub tears off the bottom */
+@media (max-width: 620px) {
+  .ticket {
+    max-width: 380px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ticket__main {
+    padding: 14px;
+    border-radius: var(--radius) var(--radius) 0 0;
+    -webkit-mask:
+      radial-gradient(circle var(--notch) at 0 100%, #0000 98%, #000) left / 51% 100% no-repeat,
+      radial-gradient(circle var(--notch) at 100% 100%, #0000 98%, #000) right / 51% 100% no-repeat;
+    mask:
+      radial-gradient(circle var(--notch) at 0 100%, #0000 98%, #000) left / 51% 100% no-repeat,
+      radial-gradient(circle var(--notch) at 100% 100%, #0000 98%, #000) right / 51% 100% no-repeat;
+  }
+
+  .ticket__poster {
+    padding: 18px;
+  }
+
+  .ticket__type {
+    top: 14px;
+    right: 14px;
+  }
+
+  .ticket__kicker {
+    padding-right: 96px; /* clear of the GA Floor chip */
+  }
+
+  .ticket__stub {
+    grid-area: 2 / 1;
+    display: grid;
+    grid-template-columns: 112px minmax(0, 1fr);
+    grid-template-rows: auto auto 1fr;
+    column-gap: 16px;
+    row-gap: 6px;
+    align-items: start;
+    justify-items: start;
+    padding: 18px;
+    border-radius: 0 0 var(--radius) var(--radius);
+    transform-origin: 100% 0;
+    -webkit-mask:
+      radial-gradient(circle var(--notch) at 0 0, #0000 98%, #000) left / 51% 100% no-repeat,
+      radial-gradient(circle var(--notch) at 100% 0, #0000 98%, #000) right / 51% 100% no-repeat;
+    mask:
+      radial-gradient(circle var(--notch) at 0 0, #0000 98%, #000) left / 51% 100% no-repeat,
+      radial-gradient(circle var(--notch) at 100% 0, #0000 98%, #000) right / 51% 100% no-repeat;
+  }
+
+  .ticket__stub::before {
+    top: -1px;
+    bottom: auto;
+    left: calc(var(--notch) + 8px);
+    right: calc(var(--notch) + 8px);
+    width: auto;
+    height: 2px;
+    background: radial-gradient(circle, rgba(23, 19, 31, 0.28) 1px, transparent 1.4px) 0 0 / 9px 2px repeat-x;
+  }
+
+  /* QR on the left, text + button on the right */
+  .ticket__qr {
+    grid-column: 1;
+    grid-row: 1 / 4;
+    width: 112px;
+    height: 112px;
+  }
+
+  .ticket__admit,
+  .ticket__code,
+  .ticket__stub .btn--primary {
+    grid-column: 2;
+  }
+
+  .ticket__stub .btn--primary {
+    align-self: end;
+  }
+
+  .ticket__actions {
+    flex-wrap: wrap;
+  }
+
+  @keyframes tear {
+    0% {
+      transform: none;
+      opacity: 1;
+    }
+    35% {
+      transform: translate(8px, 14px) rotate(-5deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-40px, 260px) rotate(-18deg);
+      opacity: 0;
+    }
+  }
+
+  .btn--reset {
+    grid-area: 2 / 1;
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 380px) {
+  .ticket__seat div {
+    padding: 8px 6px;
+  }
+
+  .ticket__info {
+    gap: 14px;
+  }
+}
+
+/* ======================================
+   REDUCED MOTION
+====================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .ticket.is-tugging .ticket__stub {
+    animation: none;
+  }
+
+  .ticket.is-torn .ticket__stub {
+    animation: fade-out 200ms linear forwards;
+  }
+
+  @keyframes fade-out {
+    to { opacity: 0; }
+  }
+
+  .stamp {
+    transform: rotate(-10deg);
+    transition: opacity 200ms linear;
+  }
+
+  .ticket.is-torn .stamp {
+    transition-delay: 0ms;
+  }
+
+  .btn,
+  .btn--reset {
+    transition: none;
+    animation: none;
+  }
+}

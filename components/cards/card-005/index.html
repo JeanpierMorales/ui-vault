@@ -4,63 +4,145 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Premium ID Card</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" />
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
   <main class="scene">
 
-    <section class="id-badge" id="idBadge">
+    <section class="id-badge" id="idBadge" aria-label="ID card — John David">
 
-      <!-- HANGER -->
-      <div class="id-badge__hanger">
-        <div class="id-badge__hanger-head"></div>
+      <!-- Todo lo que cuelga (cinta + clip + card) gira
+           junto desde el punto de anclaje superior -->
+      <div class="id-badge__swing" id="badgeSwing">
 
-        <div class="id-badge__strap">
-          <div class="id-badge__strap-shadow"></div>
-          <span class="id-badge__strap-logo">(one)</span>
+        <!-- LANYARD -->
+        <div class="id-badge__lanyard" aria-hidden="true">
+          <div class="id-badge__strap">
+            <span class="id-badge__strap-logo">(one)</span>
+          </div>
+
+          <div class="id-badge__clip">
+            <span class="id-badge__clip-ring"></span>
+            <span class="id-badge__clip-body"></span>
+            <span class="id-badge__clip-tab"></span>
+          </div>
         </div>
 
-        <div class="id-badge__dock"></div>
+        <!-- CARD -->
+        <div class="id-card" id="idCard">
+          <div class="id-card__flipper">
+
+            <!-- FRONT -->
+            <article class="id-card__face id-card__face--front">
+
+              <div class="id-card__noise" aria-hidden="true"></div>
+              <div class="id-card__shine" aria-hidden="true"></div>
+              <span class="id-card__slot" aria-hidden="true"></span>
+
+              <header class="id-card__header">
+                <span class="id-card__label">Employee ID</span>
+                <span class="id-card__label id-card__status">Active</span>
+              </header>
+
+              <div class="id-card__body">
+
+                <div class="id-card__photo-wrap">
+                  <img
+                    class="id-card__photo"
+                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=90"
+                    alt="Portrait of John David"
+                    draggable="false"
+                  />
+                </div>
+
+                <div class="id-card__info">
+                  <h1 class="id-card__name">John David</h1>
+                  <p class="id-card__age">38 yr · People team</p>
+
+                  <dl class="id-card__meta">
+                    <div>
+                      <dt>Role</dt>
+                      <dd>HR</dd>
+                    </div>
+                    <div>
+                      <dt>Branch</dt>
+                      <dd>Texas</dd>
+                    </div>
+                    <div>
+                      <dt>ID no</dt>
+                      <dd>32544585</dd>
+                    </div>
+                  </dl>
+                </div>
+
+              </div>
+
+              <footer class="id-card__footer">
+                <div class="id-card__footer-left">
+                  <span class="id-card__barcode" aria-hidden="true"></span>
+                  <p class="id-card__email">info@onepage.com</p>
+                </div>
+
+                <p class="id-card__brand">one(page)</p>
+              </footer>
+
+            </article>
+
+            <!-- BACK -->
+            <div class="id-card__face id-card__face--back" aria-hidden="true">
+
+              <div class="id-card__noise" aria-hidden="true"></div>
+              <span class="id-card__slot" aria-hidden="true"></span>
+
+              <div class="id-card__back-body">
+
+                <svg class="id-card__qr" id="idQr" viewBox="0 0 25 25" shape-rendering="crispEdges" role="img" aria-label="QR code"></svg>
+
+                <div class="id-card__back-text">
+                  <p class="id-card__label">If found, please return to</p>
+                  <p class="id-card__address">
+                    one(page) HQ<br />
+                    1200 Congress Ave, Austin, Texas
+                  </p>
+                  <p class="id-card__email">info@onepage.com</p>
+                </div>
+
+              </div>
+
+              <div class="id-card__signature">
+                <svg viewBox="0 0 160 40" aria-hidden="true">
+                  <path d="M4 28c10-14 18-20 22-16s-8 18-2 18 16-22 22-20-6 16 0 16 12-12 18-12-2 10 4 10 14-8 22-12 10 2 16 0 20-8 30-8" />
+                </svg>
+                <span>Authorized signature</span>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
       </div>
 
-      <!-- CARD -->
-      <article class="id-card">
+      <!-- PROFILE CONTROLS -->
+      <div class="id-badge__controls">
+        <button class="id-badge__button" id="flipButton" type="button" aria-pressed="false" aria-controls="idCard">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 12a8 8 0 0 1 13.66-5.66L20 8.5" />
+            <path d="M20 4v4.5h-4.5" />
+            <path d="M20 12a8 8 0 0 1-13.66 5.66L4 15.5" />
+            <path d="M4 20v-4.5h4.5" />
+          </svg>
+          <span>Show back</span>
+        </button>
 
-        <div class="id-card__shine"></div>
-        <div class="id-card__noise"></div>
-
-        <div class="id-card__top">
-
-          <div class="id-card__photo-wrap">
-            <img
-              class="id-card__photo"
-              src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=90"
-              alt="John David"
-              draggable="false"
-            />
-          </div>
-
-          <div class="id-card__main-info">
-            <h2 class="id-card__name">John David / 38 yr</h2>
-          </div>
-
-          <div class="id-card__meta">
-            <p><span>Role:</span> HR</p>
-            <p><span>Branch:</span> Texas</p>
-            <p><span>ID no:</span> 32544585</p>
-          </div>
-
-        </div>
-
-        <div class="id-card__divider"></div>
-
-        <div class="id-card__bottom">
-          <p class="id-card__email">info@onepage.com</p>
-          <h1 class="id-card__brand">one(page)</h1>
-        </div>
-
-      </article>
+        <p class="id-badge__hint">Drag the card to swing it</p>
+      </div>
 
     </section>
 

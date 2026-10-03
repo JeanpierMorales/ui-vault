@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BC — Architecture · About the practice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main>
+    <section class="about" aria-labelledby="about-title">
+
+      <div class="masthead">
+        <a class="brand" href="#about-title">BC <span aria-hidden="true">—</span> Architecture</a>
+        <p class="place">Rua do Rosário 212, Porto</p>
+      </div>
+
+      <div class="intro">
+        <h2 id="about-title" class="display">We build for the people who will <em>inherit</em> the building.</h2>
+        <div class="intro-copy">
+          <p>BC is a practice of eleven architects working from one long room in Porto. Since 1998 we have finished nineteen buildings, most of them in cast&#8209;in&#8209;place concrete, and every one of them is still in use.</p>
+          <p>We place daylight first and the programme second. The programme will change several times over a building’s life; the path of the sun across the site will not.</p>
+        </div>
+      </div>
+
+      <figure class="reveal" id="reveal" style="--pos:58">
+        <div class="reveal-stage">
+          <svg class="plan" viewBox="0 0 1600 800" preserveAspectRatio="xMidYMid slice" role="img" aria-labelledby="plan-title">
+            <title id="plan-title">Ground-floor plan of the Matosinhos market arcade: a gallery of nine transverse arches between two rows of piers.</title>
+            <defs>
+              <pattern id="hatch" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                <line x1="0" y1="0" x2="0" y2="14" class="hatch-line" />
+              </pattern>
+              <pattern id="paper" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M40 0H0V40" class="paper-line" />
+              </pattern>
+            </defs>
+            <rect width="1600" height="800" class="paper" />
+            <rect width="1600" height="800" fill="url(#paper)" />
+
+            <g class="grid">
+              <line x1="200" y1="140" x2="200" y2="660" /><line x1="350" y1="140" x2="350" y2="660" />
+              <line x1="500" y1="140" x2="500" y2="660" /><line x1="650" y1="140" x2="650" y2="660" />
+              <line x1="800" y1="140" x2="800" y2="660" /><line x1="950" y1="140" x2="950" y2="660" />
+              <line x1="1100" y1="140" x2="1100" y2="660" /><line x1="1250" y1="140" x2="1250" y2="660" />
+              <line x1="1400" y1="140" x2="1400" y2="660" />
+            </g>
+
+            <g class="bubbles">
+              <circle cx="200" cy="100" r="34" /><text x="200" y="100">A</text>
+              <circle cx="350" cy="100" r="34" /><text x="350" y="100">B</text>
+              <circle cx="500" cy="100" r="34" /><text x="500" y="100">C</text>
+              <circle cx="650" cy="100" r="34" /><text x="650" y="100">D</text>
+              <circle cx="800" cy="100" r="34" /><text x="800" y="100">E</text>
+              <circle cx="950" cy="100" r="34" /><text x="950" y="100">F</text>
+              <circle cx="1100" cy="100" r="34" /><text x="1100" y="100">G</text>
+              <circle cx="1250" cy="100" r="34" /><text x="1250" y="100">H</text>
+              <circle cx="1400" cy="100" r="34" /><text x="1400" y="100">J</text>
+            </g>
+
+            <!-- cut walls, poured concrete -->
+            <g class="cut">
+              <path d="M120 200H1480V236H1180V224H1120V236H480V224H420V236H120Z" />
+              <path d="M120 564H1480V600H120Z" />
+              <path d="M120 236H156V330H120Z" /><path d="M120 470H156V564H120Z" />
+              <path d="M1444 236H1480V330H1444Z" /><path d="M1444 470H1480V564H1444Z" />
+            </g>
+
+            <!-- piers -->
+            <g class="piers">
+              <rect x="182" y="282" width="36" height="36" /><rect x="332" y="282" width="36" height="36" />
+              <rect x="482" y="282" width="36" height="36" /><rect x="632" y="282" width="36" height="36" />
+              <rect x="782" y="282" width="36" height="36" /><rect x="932" y="282" width="36" height="36" />
+              <rect x="1082" y="282" width="36" height="36" /><rect x="1232" y="282" width="36" height="36" />
+              <rect x="1382" y="282" width="36" height="36" />
+              <rect x="182" y="482" width="36" height="36" /><rect x="332" y="482" width="36" height="36" />
+              <rect x="482" y="482" width="36" height="36" /><rect x="632" y="482" width="36" height="36" />
+              <rect x="782" y="482" width="36" height="36" /><rect x="932" y="482" width="36" height="36" />
+              <rect x="1082" y="482" width="36" height="36" /><rect x="1232" y="482" width="36" height="36" />
+              <rect x="1382" y="482" width="36" height="36" />
+            </g>
+
+            <!-- arches overhead -->
+            <g class="overhead">
+              <path d="M200 318V482M350 318V482M500 318V482M650 318V482M800 318V482M950 318V482M1100 318V482M1250 318V482M1400 318V482" />
+              <path d="M218 300H332M368 300H482M518 300H632M668 300H782M818 300H932M968 300H1082M1118 300H1232M1268 300H1382" />
+              <path d="M218 500H332M368 500H482M518 500H632M668 500H782M818 500H932M968 500H1082M1118 500H1232M1268 500H1382" />
+            </g>
+
+            <!-- door swings in the north wall -->
+            <g class="swing">
+              <path d="M420 236V296" /><path d="M420 296A60 60 0 0 0 480 236" />
+              <path d="M1120 236V296" /><path d="M1120 296A60 60 0 0 0 1180 236" />
+            </g>
+
+            <!-- dimension string -->
+            <g class="dim">
+              <path d="M200 700H1400" />
+              <path d="M190 710L210 690M340 710L360 690M490 710L510 690M640 710L660 690M790 710L810 690M940 710L960 690M1090 710L1110 690M1240 710L1260 690M1390 710L1410 690" />
+              <text x="800" y="660">8 × 4.20 = 33.60</text>
+            </g>
+
+            <!-- north point -->
+            <g class="north" transform="translate(1520 700)">
+              <circle r="34" />
+              <path d="M0 -26L12 18L0 8L-12 18Z" />
+            </g>
+
+            <text class="room" x="800" y="408">Gallery</text>
+          </svg>
+
+          <img class="photo" src="https://images.unsplash.com/photo-1524230572899-a752b3835840?auto=format&fit=crop&w=1800&q=85" alt="The arcade of the Matosinhos fish market: white plastered arches receding in a long, evenly lit gallery." width="1800" height="1200" />
+
+          <span class="seam" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6" /></svg>
+          </span>
+
+          <label class="reveal-control">
+            <span class="sr-only">Compare the photograph with the plan drawing</span>
+            <input type="range" min="0" max="100" step="1" value="58" aria-valuetext="58 percent of the plan shown" />
+          </label>
+        </div>
+
+        <figcaption>
+          <span><strong>Matosinhos fish market arcade</strong>, 2004. Photograph and ground-floor plan, 1:200.</span>
+          <span class="hint">Move across the image to lift the photograph off the drawing.</span>
+        </figcaption>
+      </figure>
+
+      <div class="record" aria-labelledby="record-title">
+        <div class="record-head">
+          <h3 id="record-title" class="title"><span class="nowrap">Twenty-eight</span> years, drawn to scale.</h3>
+          <p>Five of the nineteen, placed on the same bar we put under every drawing. Choose one to see how it has aged.</p>
+        </div>
+
+        <div class="scale">
+          <div class="bar" aria-hidden="true">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="ends" aria-hidden="true"><span>1998</span><span>2012</span><span>2026</span></div>
+
+          <ol class="projects">
+            <li style="--x:0"><button type="button" aria-pressed="false" data-i="0"><span class="yr">1998</span><span class="nm">Casa Ribeira</span></button></li>
+            <li style="--x:21.43"><button type="button" aria-pressed="true" data-i="1"><span class="yr">2004</span><span class="nm">Matosinhos arcade</span></button></li>
+            <li style="--x:46.43"><button type="button" aria-pressed="false" data-i="2"><span class="yr">2011</span><span class="nm">Lordelo housing</span></button></li>
+            <li style="--x:67.86"><button type="button" aria-pressed="false" data-i="3"><span class="yr">2017</span><span class="nm">Geology annex</span></button></li>
+            <li style="--x:89.29"><button type="button" aria-pressed="false" data-i="4"><span class="yr">2023</span><span class="nm">Braga archive</span></button></li>
+          </ol>
+        </div>
+
+        <article class="sheet" aria-live="polite">
+          <div class="sheet-media">
+            <img id="sheet-img" src="https://images.unsplash.com/photo-1524230572899-a752b3835840?auto=format&fit=crop&w=1800&q=85" alt="The Matosinhos arcade, looking down the gallery." width="1800" height="1200" loading="lazy" />
+          </div>
+          <div class="sheet-text">
+            <h4 id="sheet-name">Matosinhos fish market arcade</h4>
+            <p id="sheet-note">A covered route from the harbour to the auction hall. The fishmongers asked for shade and a floor they could hose down; we gave them nine arches and a floor that falls four centimetres to the drains.</p>
+            <dl>
+              <div><dt>Completed</dt><dd id="sheet-year">2004</dd></div>
+              <div><dt>Structure</dt><dd id="sheet-structure">Lime-plastered brick arches on concrete piers</dd></div>
+              <div><dt>Last visited</dt><dd id="sheet-visit">Winter 2024, repainted once</dd></div>
+            </dl>
+          </div>
+        </article>
+      </div>
+
+      <div class="spec" aria-labelledby="spec-title">
+        <div class="spec-head">
+          <h3 id="spec-title" class="title">How we work, <em>written as a specification.</em></h3>
+          <p class="spec-ref">Office standard, revision 7. Issued March 2026. Binding on every project we sign.</p>
+        </div>
+
+        <ol class="clauses">
+          <li>
+            <span class="no">1.1</span>
+            <h4>Daylight is placed before rooms.</h4>
+            <p>We model a year of sun across the site before a single wall is drawn. Rooms are then fitted to the light, not the other way round.</p>
+          </li>
+          <li>
+            <span class="no">1.2</span>
+            <h4>Structure is poured once and left exposed.</h4>
+            <p>No cladding over concrete that can carry its own finish. The board marks from the formwork are the finish, and the budget saved goes into the windows.</p>
+          </li>
+          <li>
+            <span class="no">1.3</span>
+            <h4>Every building ships with a fifty-year manual.</h4>
+            <p>Handed over with the keys and written for the caretaker, not the client: what to clean, what to seal, and what never to paint.</p>
+          </li>
+          <li>
+            <span class="no">1.4</span>
+            <h4>We return in the fifth winter.</h4>
+            <p>Each finished building is visited when it has been cold and wet for a while. What we got wrong, we repair at our own cost.</p>
+          </li>
+          <li>
+            <span class="no">1.5</span>
+            <h4>No more than four projects on the boards.</h4>
+            <p>A practice of eleven can know four buildings well. When a fifth arrives, it waits, or we recommend someone we trust.</p>
+          </li>
+        </ol>
+      </div>
+
+      <div class="note">
+        <blockquote>
+          <p>A building is a promise made to strangers. Most of them have not been born yet, so we try to keep it simply.</p>
+        </blockquote>
+        <div class="note-foot">
+          <p class="sig"><span class="sig-name">Beatriz Carvalho</span>Founding partner. Opened the studio in 1998 with one drawing board and a commission for her uncle’s house on the Douro.</p>
+          <a class="write" href="mailto:studio@bc-arquitectura.pt">
+            Write to the studio
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+          </a>
+        </div>
+      </div>
+
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

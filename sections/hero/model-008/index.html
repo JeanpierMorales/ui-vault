@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Solace makes acoustic wall panels, ceiling baffles and upholstered booths in pressed wool felt.">
+  <title>Solace — Acoustic felt and furniture</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page">
+    <header class="nav">
+      <a class="brand" href="#" aria-label="Solace, home">
+        <svg class="brand-mark" viewBox="0 0 28 20" aria-hidden="true">
+          <path d="M1 4c3-3 5 3 8 0s5-3 8 0 5 3 10 0" />
+          <path d="M1 10c3-1.5 5 1.5 8 0s5-1.5 8 0 5 1.5 10 0" />
+          <path d="M1 16h26" />
+        </svg>
+        <span>Solace</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Primary">
+        <a href="#panels">Wall panels</a>
+        <a href="#baffles">Ceiling baffles</a>
+        <a href="#booths">Booths</a>
+        <a href="#projects">Projects</a>
+      </nav>
+
+      <a class="nav-quiet" href="#swatches">Request swatches</a>
+
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path class="l1" d="M4 9h16" /><path class="l2" d="M4 15h16" /></svg>
+      </button>
+    </header>
+
+    <main class="hero" id="top">
+      <h1 class="headline">Quiet is a material.</h1>
+      <div class="hero-copy">
+        <p class="lede">
+          Solace makes wall panels, ceiling baffles and upholstered booths in pressed wool felt,
+          cut to the measurements of your room in our Porto workshop. Meetings stop echoing.
+          Open floors stop carrying every phone call.
+        </p>
+        <div class="actions">
+          <a class="btn-primary" href="#survey">
+            Book a room survey
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5 15.5 10 11 14.5" /></svg>
+          </a>
+          <a class="btn-quiet" href="#swatches">Order felt swatches</a>
+        </div>
+      </div>
+
+      <figure class="hero-frame">
+        <img
+          class="hero-img"
+          src="https://images.unsplash.com/photo-1497366858526-0766cadbe8fa?auto=format&fit=crop&w=2000&q=85"
+          alt="A meeting room at dusk: long table, rose upholstered chairs, concrete ceiling and a wall of windows onto trees"
+          width="2000" height="1333">
+        <figcaption class="swatch">
+          <span class="swatch-chip" aria-hidden="true"></span>
+          <span class="swatch-text">
+            <strong>Pistachio felt, 12&nbsp;mm</strong>
+            <span>Pressed wool, dyed in Porto. One of fourteen colours.</span>
+          </span>
+        </figcaption>
+      </figure>
+    </main>
+
+    <section class="hush" aria-labelledby="hushTitle">
+      <div class="hush-copy">
+        <h2 id="hushTitle"><span class="on-fine">Run your cursor along the line.</span><span class="on-coarse">Drag a finger along the line.</span></h2>
+        <p>That flat stretch is what a felt panel does to the echo in a room.</p>
+      </div>
+      <canvas class="hush-wave" id="hushWave" aria-hidden="true"></canvas>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

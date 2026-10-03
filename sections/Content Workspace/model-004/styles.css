@@ -1,0 +1,1448 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f5f4ef;
+  color: #171715;
+
+  font-family:
+    "DM Sans",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+blockquote,
+figure {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+
+/* =========================================================
+   DEMO
+========================================================= */
+
+.demo-section {
+  min-height: 100vh;
+
+  display: grid;
+  place-items: center;
+
+  background: #ecebe5;
+  color: #979790;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+}
+
+.demo-section--dark {
+  background: #171715;
+  color: #696963;
+}
+
+
+/* =========================================================
+   BOOKETEER
+========================================================= */
+
+.booketeer {
+  --bg: #f5f4ef;
+  --surface: #fbfaf6;
+
+  --ink: #171715;
+  --ink-soft: #4d4d48;
+
+  --muted: #85857d;
+  --muted-light: #aaa9a1;
+
+  --line: #d7d6cf;
+  --line-dark: #b9b8b0;
+
+  position: relative;
+
+  height: 460vh;
+
+  background: var(--bg);
+  color: var(--ink);
+}
+
+
+/* =========================================================
+   STICKY
+========================================================= */
+
+.booketeer__sticky {
+  position: sticky;
+
+  top: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   MAIN SHELL
+========================================================= */
+
+.booketeer__shell {
+  width:
+    min(
+      1500px,
+      calc(100% - 80px)
+    );
+
+  height: 100%;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-rows:
+    auto
+    1fr;
+
+  padding:
+    28px
+    0
+    24px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.booketeer__header {
+  display: grid;
+
+  grid-template-columns:
+    170px
+    minmax(500px, 1fr)
+    310px;
+
+  gap:
+    clamp(38px, 5vw, 85px);
+
+  align-items: start;
+
+  padding-bottom: 27px;
+
+  border-bottom:
+    1px solid var(--line);
+}
+
+
+.booketeer__overline {
+  padding-top: 8px;
+
+  color: var(--muted);
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+}
+
+
+.booketeer__headline h2 {
+  max-width: 800px;
+
+  font-family:
+    "Manrope",
+    sans-serif;
+
+  font-size:
+    clamp(42px, 4.5vw, 69px);
+
+  font-weight: 600;
+
+  line-height: 0.95;
+
+  letter-spacing: -0.066em;
+}
+
+
+.booketeer__headline h2 span {
+  display: block;
+
+  color: #979790;
+}
+
+
+.booketeer__header-copy p {
+  max-width: 305px;
+
+  padding-top: 6px;
+
+  color: #686862;
+
+  font-size: 13px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   STAGE
+========================================================= */
+
+.booketeer__stage {
+  position: relative;
+
+  min-height: 0;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(270px, 0.66fr)
+    minmax(650px, 1.6fr);
+
+  gap:
+    clamp(45px, 6vw, 100px);
+
+  padding:
+    28px
+    0
+    35px;
+}
+
+
+/* =========================================================
+   LEFT COPY
+========================================================= */
+
+.booketeer__copy {
+  position: relative;
+
+  height: 100%;
+}
+
+
+.booketeer__copy-state {
+  position: absolute;
+
+  top: 50%;
+  left: 0;
+
+  width:
+    min(
+      380px,
+      100%
+    );
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transform:
+    translateY(-43%);
+
+  filter: blur(7px);
+}
+
+
+.booketeer__copy-state.is-visible {
+  opacity: 1;
+
+  visibility: visible;
+
+  transform:
+    translateY(-50%);
+
+  filter: blur(0);
+}
+
+
+.copy-label {
+  display: block;
+
+  margin-bottom: 15px;
+
+  color: var(--muted);
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 0.17em;
+}
+
+
+.booketeer__copy-state h3 {
+  max-width: 370px;
+
+  font-family:
+    "Manrope",
+    sans-serif;
+
+  font-size:
+    clamp(34px, 3.4vw, 53px);
+
+  font-weight: 500;
+
+  line-height: 0.98;
+
+  letter-spacing: -0.06em;
+}
+
+
+.booketeer__copy-state p {
+  max-width: 305px;
+
+  margin-top: 20px;
+
+  color: #72726b;
+
+  font-size: 12px;
+
+  line-height: 1.68;
+}
+
+
+/* =========================================================
+   WORKSPACE
+========================================================= */
+
+.booketeer__workspace {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  min-height: 500px;
+
+  overflow: hidden;
+
+  background: #eae9e3;
+}
+
+
+/* =========================================================
+   PHOTO
+========================================================= */
+
+.booketeer__photo {
+  position: absolute;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  background: #deddd6;
+}
+
+
+.booketeer__photo img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  transform: scale(1.025);
+}
+
+
+.booketeer__photo-shade {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(10, 10, 10, 0.015) 30%,
+      rgba(10, 10, 10, 0.22) 100%
+    );
+}
+
+
+.booketeer__photo figcaption {
+  position: absolute;
+
+  right: 28px;
+  bottom: 25px;
+  left: 28px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  color: rgba(255, 255, 255, 0.91);
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+}
+
+
+.booketeer__photo figcaption span:last-child {
+  color: rgba(255, 255, 255, 0.58);
+
+  font-weight: 500;
+
+  letter-spacing: normal;
+}
+
+
+/* =========================================================
+   DOCUMENT
+========================================================= */
+
+.booketeer__document {
+  position: absolute;
+
+  z-index: 3;
+
+  top: 50%;
+  left: 50%;
+
+  width:
+    min(
+      620px,
+      72%
+    );
+
+  padding:
+    30px
+    38px
+    27px;
+
+  background: var(--surface);
+
+  box-shadow:
+    0 28px 75px
+    rgba(24, 24, 21, 0.09);
+
+  opacity: 0;
+
+  transform:
+    translate(-50%, -46%)
+    scale(0.97);
+}
+
+
+.document__header {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 30px;
+
+  padding-bottom: 18px;
+
+  border-bottom:
+    1px solid var(--line);
+}
+
+
+.document__header div span,
+.document__header div strong {
+  display: block;
+}
+
+
+.document__header div span {
+  margin-bottom: 4px;
+
+  color: var(--muted);
+
+  font-size: 7px;
+  font-weight: 700;
+
+  letter-spacing: 0.15em;
+}
+
+
+.document__header div strong {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+
+.document__page {
+  color: var(--muted);
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 10px;
+}
+
+
+.document__body {
+  padding:
+    25px
+    0
+    19px;
+}
+
+
+.document__body p {
+  position: relative;
+
+  z-index: 1;
+
+  max-width: 510px;
+
+  margin-bottom: 16px;
+
+  color: #464640;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(15px, 1.22vw, 19px);
+
+  line-height: 1.52;
+
+  letter-spacing: -0.015em;
+}
+
+
+.document__selected::before {
+  content: "";
+
+  position: absolute;
+
+  z-index: -1;
+
+  top: -4px;
+  right: -8px;
+  bottom: -4px;
+  left: -8px;
+
+  background: #e8e5d8;
+
+  transform:
+    scaleX(0);
+
+  transform-origin:
+    left center;
+
+  transition:
+    transform
+    700ms
+    cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+.document__selected.is-selected::before {
+  transform:
+    scaleX(1);
+}
+
+
+.document__footer {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding-top: 16px;
+
+  border-top:
+    1px solid var(--line);
+
+  color: var(--muted);
+
+  font-size: 7px;
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+}
+
+
+/* =========================================================
+   ANALYSIS
+========================================================= */
+
+.booketeer__analysis {
+  position: absolute;
+
+  z-index: 5;
+
+  inset:
+    10%
+    7%;
+
+  display: grid;
+
+  grid-template-rows:
+    auto
+    1fr;
+
+  background: var(--surface);
+
+  box-shadow:
+    0 28px 75px
+    rgba(24, 24, 21, 0.08);
+
+  opacity: 0;
+
+  transform:
+    translateY(25px);
+}
+
+
+.analysis__header {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 25px;
+
+  padding:
+    20px
+    25px;
+
+  border-bottom:
+    1px solid var(--line);
+}
+
+
+.analysis__header span {
+  color: var(--muted);
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+}
+
+
+.analysis__header strong {
+  color: #55554f;
+
+  font-size: 9px;
+  font-weight: 500;
+}
+
+
+.analysis__content {
+  display: grid;
+
+  grid-template-columns:
+    1.25fr
+    0.75fr;
+}
+
+
+.analysis__primary {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding:
+    clamp(
+      35px,
+      5vw,
+      68px
+    );
+
+  border-right:
+    1px solid var(--line);
+}
+
+
+.analysis__label {
+  display: block;
+
+  margin-bottom: 22px;
+
+  color: var(--muted);
+
+  font-size: 7px;
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+}
+
+
+.analysis__primary blockquote {
+  max-width: 440px;
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(25px, 2.4vw, 41px);
+
+  line-height: 1.13;
+
+  letter-spacing: -0.04em;
+}
+
+
+.analysis__attributes {
+  display: grid;
+
+  grid-template-rows:
+    repeat(4, 1fr);
+}
+
+
+.analysis__attribute {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding:
+    16px
+    28px;
+
+  border-bottom:
+    1px solid var(--line);
+
+  opacity: 0;
+
+  transform:
+    translateX(10px);
+}
+
+
+.analysis__attribute:last-child {
+  border-bottom: 0;
+}
+
+
+.analysis__attribute span {
+  margin-bottom: 5px;
+
+  color: var(--muted);
+
+  font-size: 7px;
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+}
+
+
+.analysis__attribute strong {
+  color: #30302c;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   LIBRARY
+========================================================= */
+
+.booketeer__library {
+  position: absolute;
+
+  z-index: 7;
+
+  inset:
+    8%
+    6%;
+
+  background: #f9f8f3;
+
+  box-shadow:
+    0 30px 80px
+    rgba(23, 23, 20, 0.08);
+
+  opacity: 0;
+
+  transform:
+    translateY(25px);
+}
+
+
+.library__header {
+  min-height: 110px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 30px;
+
+  padding:
+    25px
+    31px;
+
+  border-bottom:
+    1px solid var(--line);
+}
+
+
+.library__header > div:first-child > span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: var(--muted);
+
+  font-size: 7px;
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+}
+
+
+.library__header h4 {
+  font-family:
+    "Manrope",
+    sans-serif;
+
+  font-size:
+    clamp(20px, 2vw, 29px);
+
+  font-weight: 500;
+
+  letter-spacing: -0.045em;
+}
+
+
+.library__count {
+  display: flex;
+
+  align-items: baseline;
+
+  gap: 7px;
+}
+
+
+.library__count strong {
+  font-family:
+    "Manrope",
+    sans-serif;
+
+  font-size: 35px;
+  font-weight: 500;
+
+  letter-spacing: -0.06em;
+}
+
+
+.library__count span {
+  color: var(--muted);
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   LIBRARY ROWS
+========================================================= */
+
+.library__scene {
+  position: relative;
+
+  min-height: 82px;
+
+  display: grid;
+
+  grid-template-columns:
+    52px
+    minmax(160px, 1.25fr)
+    minmax(130px, 0.9fr)
+    28px;
+
+  gap: 18px;
+
+  align-items: center;
+
+  padding:
+    0
+    30px;
+
+  border-bottom:
+    1px solid var(--line);
+
+  opacity: 0;
+
+  transform:
+    translateY(10px);
+}
+
+
+.library__scene--active {
+  background: #efeee7;
+}
+
+
+.library__scene--active::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  left: 0;
+
+  width: 2px;
+
+  background: var(--ink);
+}
+
+
+.scene__marker {
+  color: var(--muted-light);
+
+  font-family:
+    "Manrope",
+    sans-serif;
+
+  font-size: 11px;
+  font-weight: 500;
+}
+
+
+.scene__main span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: var(--muted);
+
+  font-size: 7px;
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+}
+
+
+.scene__main strong {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+
+.scene__detail {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+
+  color: #777770;
+
+  font-size: 9px;
+}
+
+
+.scene__arrow {
+  color: #83837c;
+
+  font-size: 16px;
+}
+
+
+.library__footer {
+  height: 58px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding:
+    0
+    30px;
+
+  color: var(--muted);
+
+  font-size: 8px;
+}
+
+
+.library__footer strong {
+  color: var(--ink);
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   SCAN LINE
+========================================================= */
+
+.booketeer__scan {
+  position: absolute;
+
+  z-index: 6;
+
+  top: 0;
+  right: 0;
+  left: 0;
+
+  height: 1px;
+
+  background: var(--ink);
+
+  opacity: 0;
+
+  box-shadow:
+    0
+    0
+    20px
+    rgba(20, 20, 18, 0.15);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.booketeer__progress {
+  position: absolute;
+
+  z-index: 20;
+
+  right: 0;
+  bottom: 5px;
+  left: 0;
+
+  display: grid;
+
+  grid-template-columns:
+    auto
+    1fr
+    auto;
+
+  align-items: center;
+
+  gap: 16px;
+
+  pointer-events: none;
+}
+
+
+.booketeer__progress > span {
+  color: var(--muted);
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+
+  white-space: nowrap;
+}
+
+
+.booketeer__progress-current {
+  color: var(--ink) !important;
+}
+
+
+.booketeer__progress-line {
+  height: 1px;
+
+  overflow: hidden;
+
+  background: var(--line);
+}
+
+
+.booketeer__progress-line span {
+  display: block;
+
+  width: 0%;
+  height: 100%;
+
+  background: var(--ink);
+}
+
+
+/* =========================================================
+   1200
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .booketeer__shell {
+    width:
+      calc(100% - 50px);
+  }
+
+
+  .booketeer__header {
+    grid-template-columns:
+      120px
+      1fr;
+  }
+
+
+  .booketeer__header-copy {
+    display: none;
+  }
+
+
+  .booketeer__stage {
+    grid-template-columns:
+      minmax(240px, 0.58fr)
+      minmax(520px, 1.4fr);
+
+    gap: 45px;
+  }
+
+
+  .booketeer__document {
+    width: 76%;
+  }
+
+
+  .analysis__primary {
+    padding:
+      35px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .booketeer {
+    height: auto;
+
+    padding:
+      80px
+      0;
+  }
+
+
+  .booketeer__sticky {
+    position: relative;
+
+    height: auto;
+
+    overflow: visible;
+  }
+
+
+  .booketeer__shell {
+    width:
+      calc(100% - 36px);
+
+    height: auto;
+
+    display: block;
+
+    padding: 0;
+  }
+
+
+  .booketeer__header {
+    display: block;
+
+    padding-bottom: 42px;
+  }
+
+
+  .booketeer__overline {
+    margin-bottom: 20px;
+  }
+
+
+  .booketeer__headline h2 {
+    font-size:
+      clamp(
+        40px,
+        10vw,
+        62px
+      );
+  }
+
+
+  .booketeer__header-copy {
+    display: block;
+
+    margin-top: 24px;
+  }
+
+
+  .booketeer__stage {
+    display: block;
+
+    padding-top: 45px;
+  }
+
+
+  .booketeer__copy {
+    height: auto;
+
+    margin-bottom: 35px;
+  }
+
+
+  .booketeer__copy-state {
+    display: none;
+  }
+
+
+  .booketeer__copy-state:first-child {
+    position: relative;
+
+    top: auto;
+    left: auto;
+
+    display: block;
+
+    width: 100%;
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: none;
+
+    filter: none;
+  }
+
+
+  .booketeer__workspace {
+    height: auto;
+
+    min-height: 0;
+
+    overflow: visible;
+
+    background: transparent;
+  }
+
+
+  .booketeer__photo,
+  .booketeer__document,
+  .booketeer__analysis,
+  .booketeer__library {
+    position: relative;
+
+    inset: auto;
+
+    width: 100%;
+
+    opacity: 1 !important;
+
+    transform: none !important;
+  }
+
+
+  .booketeer__photo {
+    height: 470px;
+  }
+
+
+  .booketeer__document {
+    margin-top: 18px;
+  }
+
+
+  .document__selected::before {
+    transform:
+      scaleX(1);
+  }
+
+
+  .booketeer__analysis {
+    margin-top: 18px;
+  }
+
+
+  .analysis__attribute {
+    opacity: 1;
+
+    transform: none;
+  }
+
+
+  .booketeer__library {
+    margin-top: 18px;
+  }
+
+
+  .library__scene {
+    opacity: 1;
+
+    transform: none;
+  }
+
+
+  .booketeer__scan,
+  .booketeer__progress {
+    display: none;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 580px) {
+
+  .booketeer {
+    padding:
+      65px
+      0;
+  }
+
+
+  .booketeer__headline h2 {
+    font-size:
+      clamp(
+        39px,
+        12vw,
+        52px
+      );
+  }
+
+
+  .booketeer__photo {
+    height: 350px;
+  }
+
+
+  .booketeer__document {
+    padding:
+      24px
+      21px;
+  }
+
+
+  .analysis__content {
+    display: block;
+  }
+
+
+  .analysis__primary {
+    padding:
+      30px
+      24px;
+
+    border-right: 0;
+
+    border-bottom:
+      1px solid var(--line);
+  }
+
+
+  .analysis__attributes {
+    grid-template-columns:
+      1fr
+      1fr;
+
+    grid-template-rows:
+      auto;
+  }
+
+
+  .analysis__attribute {
+    min-height: 92px;
+
+    border-right:
+      1px solid var(--line);
+  }
+
+
+  .library__header {
+    align-items: flex-end;
+  }
+
+
+  .library__scene {
+    grid-template-columns:
+      35px
+      1fr
+      24px;
+
+    gap: 10px;
+
+    padding:
+      0
+      17px;
+  }
+
+
+  .scene__detail {
+    display: none;
+  }
+
+
+  .library__footer {
+    padding:
+      0
+      17px;
+  }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration:
+      0.01ms !important;
+
+    transition-duration:
+      0.01ms !important;
+  }
+
+}

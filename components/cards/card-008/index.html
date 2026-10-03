@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing Plans</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <main class="pricing-page">
+
+    <!-- BILLING TOGGLE — native radios = arrow-key navigation for free -->
+    <fieldset class="billing" id="billing">
+      <legend class="visually-hidden">Billing period</legend>
+
+      <input class="visually-hidden" type="radio" name="billing" id="billing-monthly" value="monthly" checked />
+      <label class="billing__option" for="billing-monthly">Monthly</label>
+
+      <input class="visually-hidden" type="radio" name="billing" id="billing-yearly" value="yearly" />
+      <label class="billing__option" for="billing-yearly">
+        Yearly
+        <span class="billing__save">−20%</span>
+      </label>
+
+      <span class="billing__thumb" aria-hidden="true"></span>
+    </fieldset>
+
+    <section class="plans" aria-label="Pricing plans">
+
+      <!-- STARTER -->
+      <article class="plan" aria-labelledby="plan-starter">
+        <header class="plan__head">
+          <h2 class="plan__name" id="plan-starter">Starter</h2>
+          <p class="plan__tagline">For freelancers launching their first site.</p>
+        </header>
+
+        <div class="plan__price" data-monthly="19" data-yearly="15">
+          <span class="plan__currency" aria-hidden="true">$</span>
+          <span class="plan__amount" aria-hidden="true"></span>
+          <span class="plan__period" aria-hidden="true">/mo</span>
+          <span class="visually-hidden plan__sr"></span>
+        </div>
+        <p class="plan__note" data-monthly="Billed monthly" data-yearly="Billed $180 yearly">Billed monthly</p>
+
+        <a class="plan__cta plan__cta--ghost" href="#">Start free trial</a>
+
+        <ul class="plan__features">
+          <li>1 website, 10k visits/mo</li>
+          <li>Custom domain &amp; SSL</li>
+          <li>Basic analytics</li>
+          <li>Email support</li>
+        </ul>
+      </article>
+
+      <!-- PRO (featured) -->
+      <article class="plan plan--featured" aria-labelledby="plan-pro">
+        <span class="plan__badge">Most popular</span>
+
+        <header class="plan__head">
+          <h2 class="plan__name" id="plan-pro">Pro</h2>
+          <p class="plan__tagline">For growing studios that ship every week.</p>
+        </header>
+
+        <div class="plan__price" data-monthly="49" data-yearly="39">
+          <span class="plan__currency" aria-hidden="true">$</span>
+          <span class="plan__amount" aria-hidden="true"></span>
+          <span class="plan__period" aria-hidden="true">/mo</span>
+          <span class="visually-hidden plan__sr"></span>
+        </div>
+        <p class="plan__note" data-monthly="Billed monthly" data-yearly="Billed $468 yearly">Billed monthly</p>
+
+        <a class="plan__cta plan__cta--solid" href="#">Get Pro</a>
+
+        <ul class="plan__features">
+          <li>10 websites, 250k visits/mo</li>
+          <li>Advanced analytics &amp; A/B tests</li>
+          <li>Form handling &amp; CRM sync</li>
+          <li>Priority chat support</li>
+        </ul>
+      </article>
+
+      <!-- TEAM -->
+      <article class="plan" aria-labelledby="plan-team">
+        <header class="plan__head">
+          <h2 class="plan__name" id="plan-team">Team</h2>
+          <p class="plan__tagline">For agencies managing many clients.</p>
+        </header>
+
+        <div class="plan__price" data-monthly="99" data-yearly="79">
+          <span class="plan__currency" aria-hidden="true">$</span>
+          <span class="plan__amount" aria-hidden="true"></span>
+          <span class="plan__period" aria-hidden="true">/mo</span>
+          <span class="visually-hidden plan__sr"></span>
+        </div>
+        <p class="plan__note" data-monthly="Billed monthly" data-yearly="Billed $948 yearly">Billed monthly</p>
+
+        <a class="plan__cta plan__cta--ghost" href="#">Contact sales</a>
+
+        <ul class="plan__features">
+          <li>Unlimited websites</li>
+          <li>5 seats, roles &amp; permissions</li>
+          <li>Client billing &amp; white-label</li>
+          <li>Dedicated success manager</li>
+        </ul>
+      </article>
+
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

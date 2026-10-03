@@ -1,0 +1,656 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+  --accent has no default of its own: it is always a colour taken
+  from the current cover (script.js sets it per track). The value
+  below is track 1's, so the first paint already matches the art.
+  The shell is neutral graphite so only the album tints the player.
+  Radii, durations, easing and focus come from ../_shared/tokens.css.
+*/
+
+/* Registered so the page glow can transition between track colours */
+@property --accent {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ff4d6a;
+}
+
+:root {
+  --accent: #ff4d6a;
+
+  --page-bg: #0b0b0b;
+  --card-bg: #151515;
+  --card-line: rgba(255, 255, 255, 0.07);
+
+  --text: #f3f3f1;
+  --muted: #9e9e9b;
+  --faint: rgba(255, 255, 255, 0.12);
+
+  --vault-focus-color: var(--text);
+  --vault-focus-gap: var(--card-bg);
+
+  --art: 124px;
+
+  transition: --accent var(--d-slow) var(--ease-out);
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--page-bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ======================================
+   PAGE
+====================================== */
+
+.mp-page {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+  isolation: isolate;
+}
+
+/* Soft glow tinted by the current track */
+.mp-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(520px 360px at 50% 46%,
+      color-mix(in srgb, var(--accent) 22%, transparent),
+      transparent 70%);
+  pointer-events: none;
+}
+
+/* ======================================
+   CARD
+====================================== */
+
+.player {
+  container-type: inline-size;
+  width: min(480px, 100%);
+  padding: 22px;
+  border-radius: var(--r-xl);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0) 40%),
+    var(--card-bg);
+  border: 1px solid var(--card-line);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.05) inset,
+    0 30px 80px -20px rgba(0, 0, 0, 0.7),
+    0 12px 30px -12px color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+.player__top {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ======================================
+   ART + VINYL
+====================================== */
+
+.player__media {
+  position: relative;
+  /* Reserve room for the disc peeking out on the right */
+  width: calc(var(--art) * 1.42);
+  height: var(--art);
+}
+
+.player__art {
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: 1;
+  width: var(--art);
+  height: var(--art);
+  overflow: hidden;
+  border-radius: var(--r-lg);
+  background: #262626;
+  box-shadow:
+    0 14px 30px -10px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+}
+
+.player__art-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.06);
+  transition:
+    opacity var(--d-slow) var(--ease-out),
+    transform var(--d-slow) var(--ease-out);
+  user-select: none;
+}
+
+.player__art-img.is-current {
+  opacity: 1;
+  transform: none;
+}
+
+/* The wrapper slides; the inner disc spins */
+.player__vinyl {
+  position: absolute;
+  top: 4%;
+  left: 0;
+  width: calc(var(--art) * 0.92);
+  height: calc(var(--art) * 0.92);
+  border-radius: 50%;
+  transform: translateX(14%);
+  transition: transform var(--d-slow) var(--ease-out);
+}
+
+.player.is-playing .player__vinyl {
+  transform: translateX(44%);
+}
+
+/* Static light sheen that doesn't rotate with the grooves */
+.player__vinyl::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.08), transparent 55%);
+  pointer-events: none;
+}
+
+.player__disc {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, transparent 0 60%, rgba(255, 255, 255, 0.05) 61% 62%, transparent 63%),
+    repeating-radial-gradient(circle at 50% 50%, #1a1a1a 0 1.5px, #2a2a2a 1.5px 3px);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+    0 10px 24px -8px rgba(0, 0, 0, 0.8);
+  animation: spin 5s linear infinite; /* bespoke loop, exempt from the duration tokens */
+  animation-play-state: paused;
+}
+
+.player.is-playing .player__disc {
+  animation-play-state: running;
+}
+
+/* Printed light streaks spin with the grooves, so rotation is visible */
+.player__disc::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    transparent 0 18%, rgba(255, 255, 255, 0.14) 24%, transparent 30% 68%,
+    rgba(255, 255, 255, 0.14) 74%, transparent 80%);
+}
+
+.player__vinyl-label {
+  position: relative;
+  width: 36%;
+  height: 36%;
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.player__vinyl-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity var(--d-fast) var(--ease-out);
+}
+
+/* Spindle hole */
+.player__vinyl-label::after {
+  content: "";
+  position: absolute;
+  inset: 44%;
+  border-radius: 50%;
+  background: var(--card-bg);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ======================================
+   INFO
+====================================== */
+
+.player__info {
+  min-width: 0;
+}
+
+.player__status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.player.is-playing .player__status {
+  color: var(--accent);
+}
+
+/* Equalizer bars: scaled from the bottom, only animated while playing */
+.eq {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 12px;
+}
+
+.eq span {
+  width: 3px;
+  height: 100%;
+  border-radius: var(--r-sm);
+  background: currentColor;
+  transform-origin: bottom;
+  transform: scaleY(0.25);
+  transition: transform var(--d-base) var(--ease-out);
+}
+
+.player.is-playing .eq span {
+  animation: eq 0.9s ease-in-out infinite alternate; /* bespoke loop */
+}
+
+.player.is-playing .eq span:nth-child(2) { animation-duration: 0.7s; animation-delay: -0.3s; }
+.player.is-playing .eq span:nth-child(3) { animation-duration: 1.05s; animation-delay: -0.5s; }
+.player.is-playing .eq span:nth-child(4) { animation-duration: 0.8s; animation-delay: -0.15s; }
+
+@keyframes eq {
+  0% { transform: scaleY(0.2); }
+  50% { transform: scaleY(1); }
+  100% { transform: scaleY(0.45); }
+}
+
+.player__meta {
+  transition:
+    opacity var(--d-fast) var(--ease-out),
+    transform var(--d-fast) var(--ease-out);
+}
+
+/* Short fade while the track text is swapped */
+.player__meta.is-swapping {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+.player__title {
+  margin: 0;
+  overflow: hidden;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.player__artist {
+  margin: 4px 0 0;
+  overflow: hidden;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.player__queue {
+  margin: 12px 0 0;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.56);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ======================================
+   BUTTONS
+====================================== */
+
+.icon-btn {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition:
+    background-color var(--d-fast) var(--ease-out),
+    transform var(--d-fast) var(--ease-out);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.icon-btn:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.icon-btn:active {
+  transform: scale(0.92);
+}
+
+.icon-btn svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+button:focus-visible,
+.scrub:focus-visible {
+  outline: var(--vault-focus-outline);
+  outline-offset: var(--vault-focus-offset);
+}
+
+.player__like {
+  align-self: start;
+  margin: -6px -8px 0 0;
+  color: var(--muted);
+}
+
+.player__like svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linejoin: round;
+  transition:
+    fill var(--d-fast) var(--ease-out),
+    transform var(--d-base) var(--ease-out);
+}
+
+.player__like[aria-pressed="true"] {
+  color: var(--accent);
+}
+
+.player__like[aria-pressed="true"] svg {
+  fill: currentColor;
+}
+
+/* Small pop when liking */
+.player__like.is-popping svg {
+  animation: pop var(--d-slow) var(--ease-out);
+}
+
+@keyframes pop {
+  40% { transform: scale(1.28); }
+  100% { transform: scale(1); }
+}
+
+/* ======================================
+   PROGRESS
+====================================== */
+
+/* Clip sideways so the translated thumb layer never widens the page */
+.player__progress {
+  margin: 22px -10px 0;
+  padding: 0 10px;
+  overflow-x: clip;
+}
+
+.scrub {
+  --p: 0;
+  position: relative;
+  height: 20px;
+  border-radius: var(--r-md);
+  cursor: pointer;
+  touch-action: none;
+}
+
+.scrub__rail {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 4px;
+  margin-top: -2px;
+  overflow: hidden;
+  border-radius: var(--r-sm);
+  background: var(--faint);
+  transition: transform var(--d-fast) var(--ease-out);
+}
+
+.scrub__fill {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 70%, #fff), #fff);
+  transform-origin: left;
+  transform: scaleX(var(--p));
+}
+
+/* Full-width layer translated by --p so the thumb only uses transform */
+.scrub__thumb-track {
+  position: absolute;
+  inset: 0;
+  transform: translateX(calc(var(--p) * 100%));
+  pointer-events: none;
+}
+
+.scrub__thumb {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  transform: scale(0.6);
+  opacity: 0;
+  transition:
+    transform var(--d-fast) var(--ease-out),
+    opacity var(--d-fast) var(--ease-out);
+}
+
+.scrub:hover .scrub__thumb,
+.scrub:focus-visible .scrub__thumb,
+.scrub.is-dragging .scrub__thumb {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.scrub:hover .scrub__rail,
+.scrub.is-dragging .scrub__rail {
+  transform: scaleY(1.5);
+}
+
+.player__times {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ======================================
+   CONTROLS
+====================================== */
+
+.player__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 12px;
+}
+
+.player__controls .icon-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+.player__play {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  color: #0b0b0b;
+  cursor: pointer;
+  box-shadow: 0 10px 30px -8px color-mix(in srgb, var(--accent) 60%, transparent);
+  transition: transform var(--d-fast) var(--ease-out);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.player__play:hover {
+  transform: scale(1.04);
+}
+
+.player__play:active {
+  transform: scale(0.94);
+}
+
+/*
+  Play ⇄ pause morph: two halves of a triangle become two bars
+  by transitioning matching 4-point clip-path polygons.
+*/
+.play-icon {
+  position: relative;
+  width: 18px;
+  height: 20px;
+  transform: translateX(2px);
+  transition: transform var(--d-base) var(--ease-out);
+}
+
+.play-icon::before,
+.play-icon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: currentColor;
+  transition: clip-path var(--d-base) var(--ease-out);
+}
+
+.play-icon::before {
+  clip-path: polygon(0 0, 50% 25%, 50% 75%, 0 100%);
+}
+
+.play-icon::after {
+  clip-path: polygon(50% 25%, 100% 50%, 100% 50%, 50% 75%);
+}
+
+.player.is-playing .play-icon {
+  transform: none;
+}
+
+.player.is-playing .play-icon::before {
+  clip-path: polygon(0 0, 34% 0, 34% 100%, 0 100%);
+}
+
+.player.is-playing .play-icon::after {
+  clip-path: polygon(66% 0, 100% 0, 100% 100%, 66% 100%);
+}
+
+/* ======================================
+   NARROW CARD: stacked layout
+====================================== */
+
+@container (max-width: 399px) {
+  .player__top {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    text-align: center;
+    gap: 18px;
+    --art: clamp(132px, 52cqi, 176px);
+  }
+
+  .player__media {
+    /* Centre the art; the disc peeks symmetrically into the reserved side */
+    margin-left: calc(var(--art) * 0.42);
+  }
+
+  .player__status {
+    justify-content: center;
+  }
+
+  .player__like {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: -8px -8px 0 0;
+  }
+
+  .player__info {
+    width: 100%;
+    padding: 0 8px;
+  }
+}
+
+/* The container query can't style the container itself */
+@media (max-width: 480px) {
+  .player {
+    padding: 20px;
+  }
+}
+
+/* ======================================
+   REDUCED MOTION
+====================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    transition: none;
+  }
+
+  .player__disc,
+  .player.is-playing .player__disc {
+    animation: none;
+  }
+
+  .player.is-playing .eq span {
+    animation: none;
+  }
+
+  /* Static "level" pattern instead of bouncing bars */
+  .player.is-playing .eq span:nth-child(1) { transform: scaleY(0.55); }
+  .player.is-playing .eq span:nth-child(2) { transform: scaleY(0.9); }
+  .player.is-playing .eq span:nth-child(3) { transform: scaleY(0.4); }
+  .player.is-playing .eq span:nth-child(4) { transform: scaleY(0.7); }
+
+  .player__art-img,
+  .player__vinyl,
+  .player__meta,
+  .play-icon,
+  .play-icon::before,
+  .play-icon::after {
+    transition-duration: 0.01s;
+  }
+}

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Travel Slider</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<section class="travel-slider" id="travelSlider">
+
+  <div class="backgrounds">
+    <div class="background active" style="background-image:url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=2200&q=90')"></div>
+    <div class="background" style="background-image:url('https://images.unsplash.com/photo-1492571350019-22de08371fd3?auto=format&fit=crop&w=2200&q=90')"></div>
+    <div class="background" style="background-image:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=2200&q=90')"></div>
+    <div class="background" style="background-image:url('https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=2200&q=90')"></div>
+  </div>
+
+  <div class="slider-overlay"></div>
+  <div class="slider-vignette"></div>
+
+  <header class="slider-header">
+    <a class="brand" href="#">
+      <span class="brand-mark">✦</span>
+      <span>Foxico</span>
+    </a>
+
+    <nav class="nav">
+      <a href="#">Home</a>
+      <a href="#">Destinations</a>
+      <a href="#">Blog</a>
+      <a href="#">Contact</a>
+    </nav>
+
+    <div class="user">
+      <span class="avatar">J</span>
+      <span>Hello, Johnny!</span>
+    </div>
+  </header>
+
+  <aside class="progress-rail">
+    <div class="progress-line"></div>
+
+    <div class="progress-points">
+      <button class="progress-point active" data-index="0"></button>
+      <button class="progress-point" data-index="1"></button>
+      <button class="progress-point" data-index="2"></button>
+      <button class="progress-point" data-index="3"></button>
+    </div>
+
+    <span class="progress-index">01</span>
+  </aside>
+
+  <div class="slider-content">
+
+    <div class="copy-area">
+
+      <div class="copy-window">
+
+        <article class="copy-slide active">
+          <span class="eyebrow">Indonesia</span>
+          <h1>BALI</h1>
+          <p>
+            Discover tropical coastlines, sacred temples and quiet landscapes
+            shaped by one of Southeast Asia's most distinctive cultures.
+          </p>
+          <a href="#" class="explore-btn">
+            <span>Explore</span>
+            <span class="arrow">→</span>
+          </a>
+        </article>
+
+        <article class="copy-slide">
+          <span class="eyebrow">Japan</span>
+          <h1>KYOTO</h1>
+          <p>
+            Walk through historic streets, peaceful gardens and centuries-old
+            temples surrounded by the timeless character of Kyoto.
+          </p>
+          <a href="#" class="explore-btn">
+            <span>Explore</span>
+            <span class="arrow">→</span>
+          </a>
+        </article>
+
+        <article class="copy-slide">
+          <span class="eyebrow">Switzerland</span>
+          <h1>ALPS</h1>
+          <p>
+            Experience dramatic mountain landscapes, alpine villages and
+            crystalline lakes beneath some of Europe's most iconic peaks.
+          </p>
+          <a href="#" class="explore-btn">
+            <span>Explore</span>
+            <span class="arrow">→</span>
+          </a>
+        </article>
+
+        <article class="copy-slide">
+          <span class="eyebrow">Thailand</span>
+          <h1>PHUKET</h1>
+          <p>
+            Explore turquoise bays, tropical islands and vibrant coastal
+            landscapes surrounded by warm waters and dramatic limestone cliffs.
+          </p>
+          <a href="#" class="explore-btn">
+            <span>Explore</span>
+            <span class="arrow">→</span>
+          </a>
+        </article>
+
+      </div>
+
+    </div>
+
+    <div class="cards-area">
+
+      <div class="cards-track">
+
+        <article class="destination-card active" data-index="0">
+          <div class="card-label">Bali</div>
+          <button class="bookmark">⌑</button>
+          <img
+            src="https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&w=800&q=90"
+            alt="Bali"
+          >
+          <div class="card-gradient"></div>
+          <div class="card-info">
+            <span>Indonesia</span>
+            <strong>Bali</strong>
+          </div>
+        </article>
+
+        <article class="destination-card" data-index="1">
+          <div class="card-label">Kyoto</div>
+          <button class="bookmark">⌑</button>
+          <img
+            src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=800&q=90"
+            alt="Kyoto"
+          >
+          <div class="card-gradient"></div>
+          <div class="card-info">
+            <span>Japan</span>
+            <strong>Kyoto</strong>
+          </div>
+        </article>
+
+        <article class="destination-card" data-index="2">
+          <div class="card-label">Alps</div>
+          <button class="bookmark">⌑</button>
+          <img
+            src="https://images.unsplash.com/photo-1531210483974-4f8c1f33fd35?auto=format&fit=crop&w=800&q=90"
+            alt="Swiss Alps"
+          >
+          <div class="card-gradient"></div>
+          <div class="card-info">
+            <span>Switzerland</span>
+            <strong>Alps</strong>
+          </div>
+        </article>
+
+        <article class="destination-card" data-index="3">
+          <div class="card-label">Phuket</div>
+          <button class="bookmark">⌑</button>
+          <img
+            src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=800&q=90"
+            alt="Phuket"
+          >
+          <div class="card-gradient"></div>
+          <div class="card-info">
+            <span>Thailand</span>
+            <strong>Phuket</strong>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="slider-controls">
+        <button class="slider-arrow prev" aria-label="Anterior">←</button>
+        <button class="slider-arrow next" aria-label="Siguiente">→</button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="scroll-hint">
+    <span>Explore</span>
+    <div class="scroll-line"></div>
+  </div>
+
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

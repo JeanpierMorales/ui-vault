@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="MIRA organizes your content, schedules it across your accounts, and keeps your campaign moving."
+  >
+
+  <title>MIRA — Organize & Publish</title>
+
+  <!-- =====================================================
+       FONTS
+  ====================================================== -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <main>
+
+    <!-- =====================================================
+         DEMO — PREVIOUS SECTION
+         Delete this when integrating into MIRA.
+    ====================================================== -->
+
+    <section class="demo-section demo-light">
+      <span>Previous section</span>
+    </section>
+
+
+    <!-- =====================================================
+         MIRA — ORGANIZE & PUBLISH
+    ====================================================== -->
+
+    <section
+      class="publish-story"
+      id="publishStory"
+    >
+
+      <div class="publish-sticky">
+
+        <div class="publish-container">
+
+
+          <!-- =================================================
+               HEADER
+          ================================================== -->
+
+          <header class="publish-header">
+
+            <span class="publish-label">
+              ORGANIZE & PUBLISH
+            </span>
+
+
+            <div class="publish-heading">
+
+              <h1>
+                From scattered ideas
+                <span>to a publishing rhythm.</span>
+              </h1>
+
+            </div>
+
+
+            <p class="publish-intro">
+              MIRA brings your content, accounts, and schedule
+              together — then keeps everything moving.
+            </p>
+
+          </header>
+
+
+
+          <!-- =================================================
+               MAIN STAGE
+          ================================================== -->
+
+          <div
+            class="publish-stage"
+            id="publishStage"
+          >
+
+
+            <!-- =================================================
+                 BACKGROUND GRID
+            ================================================== -->
+
+            <div
+              class="stage-grid"
+              aria-hidden="true"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
+
+
+            <!-- =================================================
+                 PHASE COPY — 01
+                 SCATTERED
+            ================================================== -->
+
+            <div
+              class="phase-copy phase-scattered"
+              id="phaseScattered"
+            >
+
+              <span class="phase-kicker">
+                YOUR CONTENT
+              </span>
+
+              <h2>
+                Everything you want
+                to publish.
+              </h2>
+
+              <p>
+                Videos, scenes, images, captions,
+                and ideas can all start in different places.
+              </p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SCATTERED OBJECTS
+            ================================================== -->
+
+
+            <!-- VIDEO -->
+
+            <article
+              class="content-piece piece-video magnetic"
+              id="pieceVideo"
+              data-magnetic="10"
+            >
+
+              <img
+                src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=800&q=85"
+                alt="Books used as visual content"
+              >
+
+              <div class="piece-shade"></div>
+
+              <div class="piece-copy">
+                <span>VIDEO</span>
+                <strong>Book teaser</strong>
+              </div>
+
+              <div class="play-mark">
+                ▶
+              </div>
+
+            </article>
+
+
+
+            <!-- IMAGE -->
+
+            <article
+              class="content-piece piece-image magnetic"
+              id="pieceImage"
+              data-magnetic="8"
+            >
+
+              <img
+                src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=800&q=85"
+                alt="Open book"
+              >
+
+              <div class="piece-shade"></div>
+
+              <div class="piece-copy">
+                <span>IMAGE</span>
+                <strong>Story visual</strong>
+              </div>
+
+            </article>
+
+
+
+            <!-- SCENE -->
+
+            <article
+              class="content-piece piece-scene magnetic"
+              id="pieceScene"
+              data-magnetic="7"
+            >
+
+              <span class="text-type">
+                SCENE
+              </span>
+
+              <p>
+                “She knew coming back
+                would change everything.”
+              </p>
+
+              <span class="scene-book">
+                A Vow in Winter
+              </span>
+
+            </article>
+
+
+
+            <!-- CAPTION -->
+
+            <article
+              class="content-piece piece-caption magnetic"
+              id="pieceCaption"
+              data-magnetic="9"
+            >
+
+              <span class="text-type">
+                CAPTION
+              </span>
+
+              <p>
+                Some promises survive
+                even the longest winters.
+              </p>
+
+            </article>
+
+
+
+            <!-- HASHTAGS -->
+
+            <article
+              class="content-piece piece-hashtags magnetic"
+              id="pieceHashtags"
+              data-magnetic="6"
+            >
+
+              <span class="text-type">
+                DISCOVERY
+              </span>
+
+              <p>
+                #romance
+                <br>
+                #booktok
+                <br>
+                #secondchance
+              </p>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 CENTRAL ORGANIZATION FIELD
+            ================================================== -->
+
+            <div
+              class="organization-field"
+              id="organizationField"
+            >
+
+              <span class="field-line field-line-1"></span>
+              <span class="field-line field-line-2"></span>
+              <span class="field-line field-line-3"></span>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ORGANIZED COPY
+            ================================================== -->
+
+            <div
+              class="phase-copy phase-organized"
+              id="phaseOrganized"
+            >
+
+              <span class="phase-kicker">
+                ORGANIZED
+              </span>
+
+              <h2>
+                Everything finds
+                its place.
+              </h2>
+
+              <p>
+                Choose what to publish,
+                where it goes, and when
+                it should appear.
+              </p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SCHEDULE
+            ================================================== -->
+
+            <div
+              class="schedule"
+              id="schedule"
+            >
+
+              <div class="schedule-heading">
+
+                <span>
+                  PUBLISHING SCHEDULE
+                </span>
+
+                <strong>
+                  This week
+                </strong>
+
+              </div>
+
+
+              <!-- TIMELINE -->
+
+              <div class="timeline">
+
+                <span class="timeline-base"></span>
+
+                <span
+                  class="timeline-progress"
+                  id="timelineProgress"
+                ></span>
+
+
+
+                <!-- MONDAY -->
+
+                <div class="day day-mon">
+
+                  <span class="day-name">
+                    MON
+                  </span>
+
+                  <span class="day-node"></span>
+
+                  <span class="day-time">
+                    6:30 PM
+                  </span>
+
+                </div>
+
+
+
+                <!-- WEDNESDAY -->
+
+                <div class="day day-wed">
+
+                  <span class="day-name">
+                    WED
+                  </span>
+
+                  <span class="day-node"></span>
+
+                  <span class="day-time">
+                    7:15 PM
+                  </span>
+
+                </div>
+
+
+
+                <!-- FRIDAY -->
+
+                <div class="day day-fri">
+
+                  <span class="day-name">
+                    FRI
+                  </span>
+
+                  <span class="day-node"></span>
+
+                  <span class="day-time">
+                    6:45 PM
+                  </span>
+
+                </div>
+
+
+
+                <!-- SUNDAY -->
+
+                <div class="day day-sun">
+
+                  <span class="day-name">
+                    SUN
+                  </span>
+
+                  <span class="day-node"></span>
+
+                  <span class="day-time">
+                    8:00 PM
+                  </span>
+
+                </div>
+
+              </div>
+
+
+
+              <!-- SCHEDULE ITEMS -->
+
+              <div
+                class="scheduled-item scheduled-one"
+                id="scheduledOne"
+              >
+
+                <div class="scheduled-thumb">
+
+                  <img
+                    src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=300&q=80"
+                    alt=""
+                  >
+
+                </div>
+
+                <div>
+                  <span>MONDAY</span>
+                  <strong>Book teaser</strong>
+                </div>
+
+              </div>
+
+
+
+              <div
+                class="scheduled-item scheduled-two"
+                id="scheduledTwo"
+              >
+
+                <div class="scheduled-thumb">
+
+                  <img
+                    src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=300&q=80"
+                    alt=""
+                  >
+
+                </div>
+
+                <div>
+                  <span>WEDNESDAY</span>
+                  <strong>Story visual</strong>
+                </div>
+
+              </div>
+
+
+
+              <div
+                class="scheduled-item scheduled-three"
+                id="scheduledThree"
+              >
+
+                <div class="scheduled-text-thumb">
+                  Aa
+                </div>
+
+                <div>
+                  <span>FRIDAY</span>
+                  <strong>Scene hook</strong>
+                </div>
+
+              </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 PUBLISHING COPY
+            ================================================== -->
+
+            <div
+              class="publishing-copy"
+              id="publishingCopy"
+            >
+
+              <span class="phase-kicker">
+                PUBLISHING
+              </span>
+
+              <h2>
+                Your campaign
+                keeps moving.
+              </h2>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 PUBLISH SIGNAL
+            ================================================== -->
+
+            <div
+              class="publish-signal"
+              id="publishSignal"
+            >
+
+              <div class="signal-ring ring-one"></div>
+              <div class="signal-ring ring-two"></div>
+              <div class="signal-ring ring-three"></div>
+
+              <div class="signal-core">
+                <span>✓</span>
+              </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 FINAL WORDS
+            ================================================== -->
+
+            <div
+              class="final-words"
+              id="finalWords"
+            >
+
+              <span>ORGANIZED</span>
+
+              <span>SCHEDULED</span>
+
+              <span>PUBLISHED</span>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SCROLL INDICATOR
+            ================================================== -->
+
+            <div
+              class="stage-progress"
+              id="stageProgress"
+            >
+
+              <span class="stage-progress-label">
+                KEEP SCROLLING
+              </span>
+
+              <div class="stage-progress-track">
+
+                <span
+                  class="stage-progress-fill"
+                  id="stageProgressFill"
+                ></span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         DEMO — NEXT SECTION
+         Delete this when integrating into MIRA.
+    ====================================================== -->
+
+    <section class="demo-section demo-dark">
+      <span>Next section</span>
+    </section>
+
+  </main>
+
+
+
+  <!-- =====================================================
+       GSAP
+  ====================================================== -->
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"
+  ></script>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"
+  ></script>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

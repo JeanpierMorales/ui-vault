@@ -1,0 +1,1147 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f4f3ee;
+  color: #181816;
+
+  font-family:
+    "DM Sans",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p,
+figure,
+blockquote {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+
+/* =========================================================
+   DEMO
+========================================================= */
+
+.demo {
+  min-height: 100vh;
+
+  display: grid;
+  place-items: center;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+}
+
+.demo--light {
+  background: #ebeae4;
+  color: #94948e;
+}
+
+.demo--dark {
+  background: #111110;
+  color: #686862;
+}
+
+
+/* =========================================================
+   DFY
+========================================================= */
+
+.dfy {
+  --bg: #f5f4ef;
+  --ink: #181816;
+
+  --muted: #83837d;
+  --line: #d4d3cc;
+
+  position: relative;
+
+  height: 560vh;
+
+  background: var(--bg);
+  color: var(--ink);
+}
+
+
+/* =========================================================
+   STICKY
+========================================================= */
+
+.dfy__sticky {
+  position: sticky;
+
+  top: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   SHELL
+========================================================= */
+
+.dfy__shell {
+  width:
+    min(
+      1500px,
+      calc(100% - 80px)
+    );
+
+  height: 100%;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-rows:
+    auto
+    1fr;
+
+  padding:
+    28px
+    0
+    24px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.dfy__header {
+  display: grid;
+
+  grid-template-columns:
+    165px
+    minmax(500px, 1fr)
+    290px;
+
+  gap:
+    clamp(35px, 5vw, 80px);
+
+  align-items: start;
+
+  padding-bottom: 28px;
+}
+
+
+.dfy__label {
+  padding-top: 8px;
+
+  color: var(--muted);
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+}
+
+
+.dfy__header h2 {
+  max-width: 800px;
+
+  font-family:
+    "Manrope",
+    sans-serif;
+
+  font-size:
+    clamp(42px, 4.5vw, 69px);
+
+  font-weight: 600;
+
+  line-height: 0.95;
+
+  letter-spacing: -0.065em;
+}
+
+
+.dfy__header h2 span {
+  display: block;
+
+  color: #96968f;
+}
+
+
+.dfy__header p {
+  max-width: 280px;
+
+  padding-top: 7px;
+
+  color: #696963;
+
+  font-size: 13px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   STAGE
+========================================================= */
+
+.dfy__stage {
+  position: relative;
+
+  min-height: 0;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   AUTHOR IMAGE
+========================================================= */
+
+.author-world {
+  position: absolute;
+
+  z-index: 2;
+
+  top: 4%;
+  right: 0;
+  bottom: 4%;
+  left: 0;
+
+  overflow: hidden;
+
+  background: #dddcd5;
+}
+
+
+.author-world img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center 45%;
+}
+
+
+.author-world__shade {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(15, 15, 13, 0.1),
+      rgba(15, 15, 13, 0.02)
+    );
+}
+
+
+.author-world figcaption {
+  position: absolute;
+
+  left: 28px;
+  bottom: 25px;
+
+  color: rgba(255, 255, 255, 0.85);
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+}
+
+
+/* =========================================================
+   MEANWHILE
+========================================================= */
+
+.meanwhile {
+  position: absolute;
+
+  z-index: 20;
+
+  top: 12%;
+  left: 52%;
+
+  opacity: 0;
+
+  font-family:
+    "Manrope",
+    sans-serif;
+
+  font-size:
+    clamp(45px, 6vw, 90px);
+
+  font-weight: 500;
+
+  letter-spacing: -0.07em;
+
+  transform:
+    translateY(30px);
+
+  filter: blur(8px);
+}
+
+
+/* =========================================================
+   OPERATIONS
+========================================================= */
+
+.operations {
+  position: absolute;
+
+  z-index: 15;
+
+  top: 25%;
+  right: 3%;
+  bottom: 7%;
+
+  width: 43%;
+
+  opacity: 0;
+}
+
+
+/* =========================================================
+   OPERATION STATES
+========================================================= */
+
+.operation {
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transform:
+    translateY(28px);
+
+  filter: blur(7px);
+}
+
+
+.operation.is-active {
+  opacity: 1;
+
+  visibility: visible;
+
+  transform:
+    translateY(0);
+
+  filter: blur(0);
+}
+
+
+/* =========================================================
+   OPERATION HEADING
+========================================================= */
+
+.operation__heading {
+  margin-bottom: 40px;
+}
+
+
+.operation__heading > span {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: var(--muted);
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 0.17em;
+}
+
+
+.operation__heading h3 {
+  max-width: 480px;
+
+  font-family:
+    "Manrope",
+    sans-serif;
+
+  font-size:
+    clamp(31px, 3.1vw, 49px);
+
+  font-weight: 500;
+
+  line-height: 0.98;
+
+  letter-spacing: -0.055em;
+}
+
+
+/* =========================================================
+   PREPARE
+========================================================= */
+
+.prepare-visual {
+  display: grid;
+
+  grid-template-columns:
+    1.25fr
+    0.75fr;
+
+  min-height: 300px;
+
+  background: #fbfaf6;
+}
+
+
+.prepare-page {
+  padding: 34px;
+
+  border-right:
+    1px solid var(--line);
+}
+
+
+.prepare-page > span {
+  display: block;
+
+  margin-bottom: 27px;
+
+  color: var(--muted);
+
+  font-size: 7px;
+  font-weight: 700;
+
+  letter-spacing: 0.15em;
+}
+
+
+.prepare-page p {
+  max-width: 320px;
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(20px, 2vw, 30px);
+
+  line-height: 1.28;
+
+  letter-spacing: -0.03em;
+}
+
+
+.prepare-page i {
+  display: block;
+
+  height: 1px;
+
+  margin-top: 17px;
+
+  background: #deddd7;
+}
+
+
+.prepare-page i:nth-of-type(1) {
+  width: 92%;
+}
+
+.prepare-page i:nth-of-type(2) {
+  width: 77%;
+}
+
+.prepare-page i:nth-of-type(3) {
+  width: 85%;
+}
+
+
+.prepare-index {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding: 30px;
+}
+
+
+.prepare-index span {
+  margin-bottom: 5px;
+
+  color: var(--muted);
+
+  font-size: 7px;
+  font-weight: 700;
+
+  letter-spacing: 0.13em;
+}
+
+
+.prepare-index strong {
+  margin-bottom: 27px;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   CREATE
+========================================================= */
+
+.create-visual {
+  display: grid;
+
+  grid-template-columns:
+    1.15fr
+    0.85fr;
+
+  grid-template-rows:
+    1fr
+    1fr;
+
+  gap: 12px;
+
+  height: 320px;
+}
+
+
+.create-piece {
+  overflow: hidden;
+
+  background: #fbfaf6;
+}
+
+
+.create-piece--image {
+  grid-row:
+    1 / 3;
+}
+
+
+.create-piece--image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+.create-piece--quote,
+.create-piece--caption {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding:
+    25px;
+}
+
+
+.create-piece span {
+  display: block;
+
+  margin-bottom: 13px;
+
+  color: var(--muted);
+
+  font-size: 7px;
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+}
+
+
+.create-piece--quote blockquote {
+  font-family:
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(17px, 1.5vw, 23px);
+
+  line-height: 1.3;
+}
+
+
+.create-piece--caption p {
+  max-width: 220px;
+
+  font-size: 12px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   SCHEDULE
+========================================================= */
+
+.schedule-visual {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 18px;
+
+  min-height: 310px;
+}
+
+
+.schedule-column {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: flex-end;
+
+  gap: 15px;
+}
+
+
+.schedule-day {
+  color: #686862;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+}
+
+
+.schedule-content {
+  height: 220px;
+
+  display: grid;
+  place-items: center;
+
+  overflow: hidden;
+
+  background: #eeede7;
+}
+
+
+.schedule-content img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+.schedule-content--text {
+  background: #1a1a18;
+
+  color: white;
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 30px;
+}
+
+
+.schedule-content--video {
+  background: #dddcd5;
+
+  font-size: 16px;
+}
+
+
+/* =========================================================
+   PUBLISH
+========================================================= */
+
+.publish-visual {
+  position: relative;
+
+  height: 310px;
+
+  padding-top: 55px;
+}
+
+
+.publish-boundary {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  left: 58%;
+
+  width: 1px;
+
+  background: #b7b7b0;
+}
+
+
+.publish-boundary span {
+  position: absolute;
+
+  left: 0;
+
+  color: var(--muted);
+
+  font-size: 7px;
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+
+  white-space: nowrap;
+}
+
+
+.publish-boundary span:first-child {
+  top: -2px;
+
+  transform:
+    translateX(calc(-100% - 15px));
+}
+
+
+.publish-boundary span:last-child {
+  top: -2px;
+
+  transform:
+    translateX(15px);
+}
+
+
+.publish-track {
+  position: relative;
+
+  height: 58px;
+
+  border-bottom:
+    1px solid var(--line);
+}
+
+
+.publish-item {
+  position: absolute;
+
+  top: 50%;
+  left: 8%;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  transform:
+    translateY(-50%);
+}
+
+
+/* =========================================================
+   REVIEW
+========================================================= */
+
+.review-visual {
+  padding-top: 20px;
+}
+
+
+.review-row {
+  display: grid;
+
+  grid-template-columns:
+    90px
+    1fr;
+
+  gap: 20px;
+
+  align-items: center;
+
+  margin-bottom: 30px;
+}
+
+
+.review-row > span {
+  color: #60605a;
+
+  font-size: 11px;
+}
+
+
+.review-row > div {
+  height: 2px;
+
+  background: #dddcd6;
+}
+
+
+.review-row i {
+  display: block;
+
+  width: 0%;
+  height: 100%;
+
+  background: #191917;
+}
+
+
+.review-note {
+  margin-top: 60px;
+
+  color: var(--muted);
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(18px, 1.8vw, 27px);
+}
+
+
+/* =========================================================
+   FINAL
+========================================================= */
+
+.dfy-final {
+  position: absolute;
+
+  z-index: 40;
+
+  top: 50%;
+  left: 50%;
+
+  width:
+    min(
+      850px,
+      82%
+    );
+
+  opacity: 0;
+
+  text-align: center;
+
+  transform:
+    translate(-50%, -42%);
+
+  filter: blur(10px);
+}
+
+
+.dfy-final > span {
+  display: block;
+
+  margin-bottom: 18px;
+
+  color: var(--muted);
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+}
+
+
+.dfy-final h3 {
+  font-family:
+    "Manrope",
+    sans-serif;
+
+  font-size:
+    clamp(48px, 6vw, 88px);
+
+  font-weight: 500;
+
+  line-height: 0.92;
+
+  letter-spacing: -0.07em;
+}
+
+
+.dfy-final h3 em {
+  display: block;
+
+  color: #999992;
+
+  font-style: normal;
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .dfy__shell {
+    width:
+      calc(100% - 50px);
+  }
+
+
+  .dfy__header {
+    grid-template-columns:
+      120px
+      1fr;
+  }
+
+
+  .dfy__header p {
+    display: none;
+  }
+
+
+  .operations {
+    width: 46%;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .dfy {
+    height: auto;
+
+    padding:
+      80px
+      0;
+  }
+
+
+  .dfy__sticky {
+    position: relative;
+
+    height: auto;
+
+    overflow: visible;
+  }
+
+
+  .dfy__shell {
+    width:
+      calc(100% - 36px);
+
+    height: auto;
+
+    display: block;
+
+    padding: 0;
+  }
+
+
+  .dfy__header {
+    display: block;
+  }
+
+
+  .dfy__label {
+    display: block;
+
+    margin-bottom: 21px;
+  }
+
+
+  .dfy__header h2 {
+    font-size:
+      clamp(40px, 10vw, 62px);
+  }
+
+
+  .dfy__header p {
+    display: block;
+
+    margin-top: 24px;
+  }
+
+
+  .dfy__stage {
+    overflow: visible;
+
+    margin-top: 55px;
+  }
+
+
+  .author-world {
+    position: relative;
+
+    inset: auto;
+
+    height: 520px;
+  }
+
+
+  .meanwhile {
+    position: relative;
+
+    inset: auto;
+
+    margin:
+      75px
+      0
+      45px;
+
+    opacity: 1;
+
+    transform: none;
+
+    filter: none;
+  }
+
+
+  .operations {
+    position: relative;
+
+    inset: auto;
+
+    width: 100%;
+
+    opacity: 1;
+  }
+
+
+  .operation {
+    position: relative;
+
+    inset: auto;
+
+    margin-bottom: 90px;
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: none;
+
+    filter: none;
+  }
+
+
+  .dfy-final {
+    position: relative;
+
+    inset: auto;
+
+    width: 100%;
+
+    margin:
+      110px
+      auto
+      40px;
+
+    opacity: 1;
+
+    transform: none;
+
+    filter: none;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 580px) {
+
+  .dfy {
+    padding:
+      65px
+      0;
+  }
+
+
+  .author-world {
+    height: 400px;
+  }
+
+
+  .create-visual {
+    display: block;
+
+    height: auto;
+  }
+
+
+  .create-piece {
+    min-height: 180px;
+
+    margin-bottom: 10px;
+  }
+
+
+  .create-piece--image {
+    height: 280px;
+  }
+
+
+  .schedule-visual {
+    gap: 8px;
+  }
+
+
+  .schedule-content {
+    height: 170px;
+  }
+
+
+  .schedule-day {
+    font-size: 7px;
+  }
+
+
+  .dfy-final h3 {
+    font-size:
+      48px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration:
+      0.01ms !important;
+
+    transition-duration:
+      0.01ms !important;
+  }
+
+}

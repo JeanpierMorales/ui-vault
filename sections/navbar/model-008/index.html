@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Cacaotal, chocolate peruano de origen único hecho en Tarapoto. Tabletas de Piura, Quillabamba, San Martín y Junín con envío a todo el Perú.">
+  <title>Cacaotal, chocolate de origen desde Tarapoto</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<header class="bar" id="bar">
+  <div class="pill pill--left">
+    <a class="brand" href="#contenido" aria-label="Cacaotal, inicio">cacaotal</a>
+    <nav class="nav" aria-label="Principal">
+      <ul class="nav-list">
+        <li><a href="#tabletas" aria-current="page">Tabletas</a></li>
+        <li><a href="#bombones">Bombones</a></li>
+        <li><a href="#regalo">Para regalar</a></li>
+        <li><a href="#origen">Origen</a></li>
+      </ul>
+    </nav>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Abrir menú">
+      <span aria-hidden="true"><i></i><i></i></span>
+    </button>
+  </div>
+
+  <div class="pill pill--right">
+    <button class="search-trigger" id="searchBtn" type="button" aria-haspopup="dialog" aria-controls="palette" aria-keyshortcuts="/ Meta+K Control+K">
+      <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="8.5" cy="8.5" r="5.5" /><path d="M13 13l4.5 4.5" /></svg>
+      <span class="search-text">Buscar por origen o % de cacao</span>
+      <kbd class="search-kbd" aria-hidden="true">/</kbd>
+      <span class="sr-only">Abrir buscador</span>
+    </button>
+
+    <div class="currency" role="group" aria-label="Moneda">
+      <button type="button" class="cur-btn" data-cur="PEN" aria-pressed="true">S/</button>
+      <button type="button" class="cur-btn" data-cur="USD" aria-pressed="false">US$</button>
+    </div>
+
+    <button class="cart-btn" id="cartBtn" type="button" aria-haspopup="dialog" aria-controls="cart" aria-expanded="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 8h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8Z" /><path d="M9 10V6.5a3 3 0 0 1 6 0V10" /></svg>
+      <span class="cart-count" id="cartCount">2</span>
+      <span class="sr-only">Bolsa</span><span class="sr-only" id="cartSr">, 2 productos</span>
+    </button>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu" hidden>
+    <ul>
+      <li><a href="#tabletas" aria-current="page">Tabletas</a></li>
+      <li><a href="#bombones">Bombones</a></li>
+      <li><a href="#regalo">Para regalar</a></li>
+      <li><a href="#origen">Origen</a></li>
+    </ul>
+    <div class="currency currency--menu" role="group" aria-label="Moneda">
+      <button type="button" class="cur-btn" data-cur="PEN" aria-pressed="true">Soles (S/)</button>
+      <button type="button" class="cur-btn" data-cur="USD" aria-pressed="false">Dólares (US$)</button>
+    </div>
+  </div>
+</header>
+
+<!-- command palette -->
+<div class="palette" id="palette" role="dialog" aria-modal="true" aria-label="Buscar chocolates" hidden>
+  <div class="palette-scrim" data-close></div>
+  <div class="palette-box">
+    <div class="palette-field">
+      <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="8.5" cy="8.5" r="5.5" /><path d="M13 13l4.5 4.5" /></svg>
+      <label class="sr-only" for="paletteInput">Buscar por nombre, origen o porcentaje de cacao</label>
+      <input id="paletteInput" type="text" role="combobox" aria-expanded="true" aria-controls="paletteList" aria-autocomplete="list" autocomplete="off" spellcheck="false" placeholder="Prueba «Piura», «70» o «pisco»">
+      <button class="palette-close" type="button" data-close aria-label="Cerrar buscador"><span class="close-key">Esc</span><span class="close-word">Cerrar</span></button>
+    </div>
+    <div class="palette-chips" aria-label="Búsquedas rápidas" role="group">
+      <button type="button" data-q="70">70&nbsp;% o más</button>
+      <button type="button" data-q="cusco">Cusco</button>
+      <button type="button" data-q="piura">Piura</button>
+      <button type="button" data-q="regalo">Para regalar</button>
+    </div>
+    <ul class="palette-list" id="paletteList" role="listbox" aria-label="Resultados"></ul>
+    <p class="palette-empty" id="paletteEmpty" hidden>No tenemos nada con «<span id="emptyQ"></span>». Prueba con un origen, como Junín, o un porcentaje, como 64.</p>
+    <p class="palette-help" aria-hidden="true"><kbd>↑</kbd><kbd>↓</kbd> elegir <kbd>Enter</kbd> agregar a la bolsa</p>
+    <p class="sr-only" id="paletteStatus" role="status" aria-live="polite"></p>
+  </div>
+</div>
+
+<!-- cart drawer -->
+<div class="cart" id="cart" role="dialog" aria-modal="true" aria-labelledby="cartTitle" hidden>
+  <div class="cart-scrim" data-close-cart></div>
+  <section class="cart-panel">
+    <header class="cart-head">
+      <h2 id="cartTitle">Tu bolsa</h2>
+      <button class="cart-close" type="button" data-close-cart aria-label="Cerrar bolsa">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 5l10 10M15 5L5 15" /></svg>
+      </button>
+    </header>
+    <div class="ship">
+      <p id="shipText">Te faltan S/ 74.00 para el envío gratis a Lima</p>
+      <div class="ship-track" aria-hidden="true"><span id="shipFill"></span></div>
+    </div>
+    <ul class="cart-list" id="cartList"></ul>
+    <p class="cart-empty" id="cartEmpty" hidden>Tu bolsa está vacía. Empieza por la tableta de Piura: es la que más se agota.</p>
+    <footer class="cart-foot">
+      <p class="cart-total"><span>Subtotal</span><strong id="cartTotal">S/ 46.00</strong></p>
+      <p class="cart-note" id="fxNote">Precios en soles. Envío en 48 h a Lima, 3 a 5 días a provincias.</p>
+      <a class="checkout" href="#contenido" id="checkout">Ir a pagar</a>
+    </footer>
+  </section>
+</div>
+
+<main id="contenido" tabindex="-1">
+  <section class="hero" aria-labelledby="heroTitle">
+    <img class="hero-img" src="img/hero.webp" width="1800" height="1200" alt="Mano sosteniendo una mazorca de cacao madura de color naranja">
+    <div class="hero-copy">
+      <p class="hero-meta">Cosecha de septiembre · Tarapoto, San Martín</p>
+      <h1 id="heroTitle">Chocolate de una sola chacra</h1>
+      <p class="hero-lede">Fermentamos y tostamos en la Banda de Shilcayo. Cada tableta dice de qué productor viene el grano.</p>
+      <a class="hero-cta" href="#tabletas">Ver tabletas</a>
+    </div>
+  </section>
+
+  <section class="shelf" id="tabletas" aria-labelledby="shelfTitle">
+    <div class="shelf-head">
+      <h2 id="shelfTitle">Tabletas de 70 g</h2>
+      <p>Seis orígenes este mes. Envío gratis a Lima desde S/ 120.</p>
+    </div>
+    <ul class="grid">
+      <li class="card">
+        <img src="img/tableta.webp" width="700" height="467" loading="lazy" alt="Tableta de chocolate oscuro sobre papel arrugado">
+        <p class="card-origin">Alto Piura</p>
+        <h3>Piura blanco 70&nbsp;%</h3>
+        <p class="card-meta">Cacao blanco de la Cooperativa Norandino. Notas de uva y panela.</p>
+        <p class="card-row"><span class="price" data-pen="24">S/ 24.00</span><button type="button" class="add" data-add="piura">Agregar<span class="sr-only"> Piura blanco 70&nbsp;%</span></button></p>
+      </li>
+      <li class="card">
+        <img src="img/leche.webp" width="700" height="933" loading="lazy" alt="Trozos de chocolate con leche sobre una superficie blanca">
+        <p class="card-origin">Quillabamba, Cusco</p>
+        <h3>Chuncho 64&nbsp;%</h3>
+        <p class="card-meta">Cacao nativo del valle de La Convención. Floral, con final de miel.</p>
+        <p class="card-row"><span class="price" data-pen="22">S/ 22.00</span><button type="button" class="add" data-add="chuncho">Agregar<span class="sr-only"> Chuncho 64&nbsp;%</span></button></p>
+      </li>
+      <li class="card">
+        <img src="img/trozos.webp" width="700" height="1050" loading="lazy" alt="Trozos de chocolate negro con virutas sobre una mesa gris">
+        <p class="card-origin">Lamas, San Martín</p>
+        <h3>Lamas 85&nbsp;%</h3>
+        <p class="card-meta">De la familia Sangama. Intenso, con acidez de frutos rojos.</p>
+        <p class="card-row"><span class="price" data-pen="22">S/ 22.00</span><button type="button" class="add" data-add="tarapoto">Agregar<span class="sr-only"> Lamas 85&nbsp;%</span></button></p>
+      </li>
+      <li class="card">
+        <img src="img/barra.webp" width="700" height="467" loading="lazy" alt="Barra de chocolate partida sobre fondo blanco">
+        <p class="card-origin">Pangoa, Junín</p>
+        <h3>Pangoa 72&nbsp;% con sal de Maras</h3>
+        <p class="card-meta">Cristales de sal rosada de Cusco sobre cacao de la selva central.</p>
+        <p class="card-row"><span class="price" data-pen="24">S/ 24.00</span><button type="button" class="add" data-add="junin">Agregar<span class="sr-only"> Pangoa 72&nbsp;% con sal de Maras</span></button></p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="more" aria-label="Más de la tienda">
+    <div id="bombones"><h2>Bombones</h2><p>Caja de 9 con pisco quebranta de Ica, S/ 48. Salen los martes y viernes.</p></div>
+    <div id="regalo"><h2>Para regalar</h2><p>Cajas de madera de bolaina con tres tabletas y tarjeta escrita a mano, desde S/ 79.</p></div>
+    <div id="origen"><h2>Origen</h2><p>Pagamos el grano fermentado a S/ 14 el kilo, directo a doce familias de San Martín.</p></div>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>POCO — Start a room</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<section class="contact" id="contact" aria-labelledby="contact-title">
+
+  <header class="contact-top">
+    <a class="brand" href="#contact" aria-label="POCO interior studio">
+      <span class="brand-word">poco</span><span class="brand-dot" aria-hidden="true"></span>
+    </a>
+    <p class="top-note">Small apartments, planned to the centimetre.</p>
+  </header>
+
+  <div class="intro">
+    <h2 id="contact-title">Tell us about<br>the room.</h2>
+    <p class="intro-copy">Skip the contact form small talk. Give us the room, its size and what it has to do for you, and we'll reply with a first idea for the layout within two working days.</p>
+  </div>
+
+  <form class="planner" id="planner" novalidate>
+
+    <div class="fields">
+
+      <fieldset class="block" id="room-block" aria-describedby="room-error">
+        <legend class="block-label">Which room?</legend>
+        <div class="rooms">
+          <label class="room">
+            <input type="radio" name="room" value="living" required>
+            <span class="room-face">
+              <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 17v-4a3 3 0 0 1 3-3h16a3 3 0 0 1 3 3v4"/><path d="M3 17h26v6H3z"/><path d="M6 23v3M26 23v3"/><path d="M11 17v-2h10v2"/></svg>
+              <span>Living room</span>
+            </span>
+          </label>
+          <label class="room">
+            <input type="radio" name="room" value="bedroom">
+            <span class="room-face">
+              <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 26V8M28 26v-8"/><path d="M4 18h24M4 22h24"/><rect x="7" y="13" width="7" height="5" rx="1.5"/></svg>
+              <span>Bedroom</span>
+            </span>
+          </label>
+          <label class="room">
+            <input type="radio" name="room" value="kitchen">
+            <span class="room-face">
+              <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 14h24v13H4z"/><path d="M4 19h24M16 14v13"/><path d="M9 10h5M18 10h5"/><path d="M11.5 10V6M20.5 10V6"/></svg>
+              <span>Kitchen</span>
+            </span>
+          </label>
+          <label class="room">
+            <input type="radio" name="room" value="studio">
+            <span class="room-face">
+              <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 4h24v24H4z"/><path d="M16 4v10M4 18h9"/><rect x="18" y="19" width="7" height="6" rx="1"/><path d="M7 8h6v6H7z"/></svg>
+              <span>Studio</span>
+            </span>
+          </label>
+        </div>
+        <p class="error" id="room-error" hidden>Choose the room you want to plan first.</p>
+      </fieldset>
+
+      <div class="block size-block">
+        <div class="size-head">
+          <label class="block-label" for="size">How big is it?</label>
+          <output class="size-out" for="size" id="size-out"><span id="size-num">28</span> m²</output>
+        </div>
+        <input type="range" id="size" name="size" min="8" max="90" step="1" value="28" aria-describedby="size-hint">
+        <div class="size-scale" aria-hidden="true"><span>8 m²</span><span>90 m²</span></div>
+        <p class="hint" id="size-hint">A guess is fine. We measure everything on the first visit.</p>
+      </div>
+
+      <div class="block">
+        <label class="block-label" for="district">Where is the apartment? <span class="opt">Optional</span></label>
+        <input class="line-input" type="text" id="district" name="district" list="districts" autocomplete="address-level3" placeholder="Miraflores" maxlength="40">
+        <datalist id="districts">
+          <option value="Miraflores"></option>
+          <option value="Barranco"></option>
+          <option value="San Isidro"></option>
+          <option value="Surco"></option>
+          <option value="Lince"></option>
+          <option value="Jesús María"></option>
+          <option value="Magdalena"></option>
+        </datalist>
+      </div>
+
+      <fieldset class="block" aria-describedby="needs-hint">
+        <legend class="block-label">What should it do better? <span class="opt">Up to three</span></legend>
+        <div class="needs">
+          <label class="need"><input type="checkbox" name="needs" value="calm"><span>Feel calm</span></label>
+          <label class="need"><input type="checkbox" name="needs" value="storage"><span>Lots of storage</span></label>
+          <label class="need"><input type="checkbox" name="needs" value="work"><span>A place to work</span></label>
+          <label class="need"><input type="checkbox" name="needs" value="guests"><span>Room for guests</span></label>
+          <label class="need"><input type="checkbox" name="needs" value="light"><span>More daylight</span></label>
+          <label class="need"><input type="checkbox" name="needs" value="pet"><span>Space for a pet</span></label>
+        </div>
+        <p class="hint" id="needs-hint">Three is plenty. Small rooms reward clear priorities.</p>
+      </fieldset>
+
+      <div class="block pair">
+        <div class="field" id="name-field">
+          <label class="block-label" for="name">Your name</label>
+          <input class="line-input" type="text" id="name" name="name" autocomplete="name" required aria-describedby="name-error">
+          <p class="error" id="name-error" hidden>Tell us what to call you.</p>
+        </div>
+        <div class="field" id="email-field">
+          <label class="block-label" for="email">Email</label>
+          <input class="line-input" type="email" id="email" name="email" autocomplete="email" inputmode="email" required aria-describedby="email-error">
+          <p class="error" id="email-error" hidden>We need an email to send the layout to.</p>
+        </div>
+      </div>
+
+      <div class="block">
+        <label class="block-label" for="notes">Anything we should know? <span class="opt">Optional</span></label>
+        <textarea class="line-input notes" id="notes" name="notes" rows="3" maxlength="600" placeholder="The window faces a wall, we rent, the sofa has to stay…"></textarea>
+      </div>
+
+    </div>
+
+    <aside class="brief" aria-labelledby="brief-title">
+      <div class="brief-inner">
+        <h3 class="brief-title" id="brief-title">Your brief so far</h3>
+
+        <figure class="plan">
+          <svg viewBox="0 0 132 108" role="img" aria-labelledby="plan-desc" id="plan-svg">
+            <title id="plan-desc">Floor plan sketch of the room at the chosen size</title>
+            <defs>
+              <pattern id="metre" width="10" height="10" patternUnits="userSpaceOnUse">
+                <path d="M10 0H0V10" fill="none" class="grid-line"/>
+              </pattern>
+            </defs>
+            <rect x="6" y="2" width="120" height="100" fill="url(#metre)"/>
+            <rect class="room-rect" id="room-rect" x="36" y="28" width="60" height="47"/>
+          </svg>
+          <figcaption><span id="plan-dims">6.1 × 4.6 m</span><span class="plan-key">Each square is one metre</span></figcaption>
+        </figure>
+
+        <p class="brief-text" id="brief-text" aria-hidden="true"></p>
+        <p class="sr-only" id="brief-live" aria-live="polite"></p>
+
+        <button class="send" type="submit">
+          <span>Send the brief</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+        </button>
+        <p class="send-note">Opens your email app with the brief written out. Nothing is sent until you press send there.</p>
+
+        <div class="form-alert" id="form-alert" role="alert" aria-live="assertive"></div>
+
+        <div class="done" id="done" tabindex="-1" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m7.5 12.5 3 3 6-6.5"/></svg>
+          <div>
+            <p class="done-title">Your brief is ready in your email app.</p>
+            <p class="done-copy">If nothing opened, copy it and send it to <a href="mailto:hello@poco.studio">hello@poco.studio</a>.</p>
+            <button class="copy" type="button" id="copy">Copy the brief</button>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </form>
+
+  <div class="studio">
+    <figure class="studio-photo">
+      <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1600&q=85" alt="Mustard armchair beside a brass floor lamp and a framed print in a pale, sparsely furnished room" loading="lazy" width="1600" height="1067">
+    </figure>
+
+    <div class="studio-info">
+      <h3>Or come by the studio.</h3>
+      <p class="studio-lede">Bring a photo of the room and a tape measure reading. We keep fabric, wood and handle samples on the table.</p>
+      <dl class="facts">
+        <div>
+          <dt>Address</dt>
+          <dd>Calle Colón 214, 2nd floor<br>Miraflores, Lima 15074</dd>
+        </div>
+        <div>
+          <dt>Hours</dt>
+          <dd>Tue – Fri, 10:00 – 18:00<br>Sat, 10:00 – 14:00</dd>
+        </div>
+        <div>
+          <dt>Write or call</dt>
+          <dd><a href="mailto:hello@poco.studio">hello@poco.studio</a><br><a href="tel:+5115550142">+51 1 555 0142</a></dd>
+        </div>
+      </dl>
+    </div>
+
+    <figure class="map">
+      <svg viewBox="0 0 360 280" role="img" aria-labelledby="map-title">
+        <title id="map-title">Sketch map: the studio sits on Calle Colón, two blocks from Parque Kennedy and a short walk from the Malecón cliffs</title>
+        <path class="sea" d="M0 214 C60 206 90 236 150 244 C210 252 260 238 360 250 V280 H0Z"/>
+        <path class="cliff" d="M0 214 C60 206 90 236 150 244 C210 252 260 238 360 250"/>
+        <g class="streets">
+          <path d="M40 0 L70 222"/>
+          <path d="M150 0 L156 243"/>
+          <path d="M262 0 L268 240"/>
+          <path d="M0 52 H360"/>
+          <path d="M0 118 H360"/>
+          <path d="M0 176 H360"/>
+        </g>
+        <path class="street-main" d="M204 0 L210 246"/>
+        <rect class="park" x="92" y="60" width="50" height="50" rx="2"/>
+        <text class="map-label" x="96" y="132">Parque Kennedy</text>
+        <text class="map-label" x="214" y="18">Av. Larco</text>
+        <text class="map-label" x="276" y="112">Calle Colón</text>
+        <text class="map-label sea-label" x="24" y="266">Pacific</text>
+        <g class="pin">
+          <circle class="pin-halo" cx="239" cy="118" r="16"/>
+          <circle class="pin-dot" cx="239" cy="118" r="7"/>
+        </g>
+      </svg>
+      <figcaption>Five minutes on foot from Parque Kennedy.</figcaption>
+    </figure>
+  </div>
+
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

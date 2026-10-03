@@ -1,0 +1,442 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", Arial, sans-serif;
+  background: #f8f8f6;
+  color: #0a0a0a;
+}
+
+
+/* =========================================
+   MAIN SECTION
+========================================= */
+
+.growth-section {
+  width: 100%;
+  min-height: 100vh;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(500px, 0.85fr);
+
+  gap: clamp(60px, 8vw, 150px);
+
+  padding:
+    clamp(35px, 4vw, 70px)
+    clamp(28px, 4vw, 75px)
+    clamp(50px, 5vw, 90px);
+
+  background: #fafaf8;
+}
+
+
+/* =========================================
+   LEFT SIDE
+========================================= */
+
+.growth-content {
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+
+/* TITLE */
+
+.growth-title {
+  font-size: clamp(76px, 8.4vw, 155px);
+  font-weight: 500;
+
+  line-height: 0.86;
+  letter-spacing: -0.075em;
+
+  max-width: 900px;
+}
+
+
+/* DESCRIPTION */
+
+.growth-description {
+  margin-top: clamp(50px, 7vh, 100px);
+
+  max-width: 610px;
+
+  font-size: clamp(15px, 1.1vw, 19px);
+  line-height: 1.55;
+
+  color: #999996;
+}
+
+
+/* =========================================
+   CTA
+========================================= */
+
+.growth-cta {
+  margin-top: 45px;
+
+  display: inline-flex;
+  align-items: center;
+
+  height: 68px;
+
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* BLACK BUTTON */
+
+.growth-cta__text {
+  height: 68px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 40px;
+
+  background: #161616;
+  color: #ffffff;
+
+  border-radius: 100px;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+/* ARROW CIRCLE */
+
+.growth-cta__arrow {
+  width: 68px;
+  height: 68px;
+
+  margin-left: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #e4e4e1;
+  border-radius: 50%;
+
+  color: #171717;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s cubic-bezier(.2,.8,.2,1);
+}
+
+.growth-cta__arrow svg {
+  width: 20px;
+  height: 20px;
+
+  transition: transform 0.3s cubic-bezier(.2,.8,.2,1);
+}
+
+
+/* CTA HOVER */
+
+.growth-cta:hover .growth-cta__text {
+  background: #000;
+}
+
+.growth-cta:hover .growth-cta__arrow {
+  background: #161616;
+  color: #fff;
+
+  transform: translateX(5px);
+}
+
+.growth-cta:hover .growth-cta__arrow svg {
+  transform: translateX(2px);
+}
+
+
+/* =========================================
+   RIGHT SIDE / GRID
+========================================= */
+
+.team-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  column-gap: clamp(30px, 3vw, 60px);
+  row-gap: clamp(45px, 5vw, 80px);
+
+  align-content: start;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.team-card {
+  min-width: 0;
+}
+
+
+/* IMAGE */
+
+.team-image {
+  width: 100%;
+  aspect-ratio: 1.45 / 1;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  background: #e8e8e5;
+}
+
+.team-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  filter: saturate(0.82);
+
+  transition:
+    transform 0.7s cubic-bezier(.2,.7,.2,1),
+    filter 0.5s ease;
+}
+
+
+/* IMAGE HOVER */
+
+.team-card:hover .team-image img {
+  transform: scale(1.035);
+  filter: saturate(1);
+}
+
+
+/* CARD TITLE */
+
+.team-card h3 {
+  margin-top: 20px;
+
+  font-size: clamp(17px, 1.15vw, 21px);
+  line-height: 1.2;
+
+  font-weight: 600;
+
+  letter-spacing: -0.035em;
+}
+
+
+/* CARD DESCRIPTION */
+
+.team-card p {
+  margin-top: 9px;
+
+  max-width: 290px;
+
+  font-size: clamp(13px, 0.95vw, 16px);
+  line-height: 1.5;
+
+  color: #a09f9b;
+}
+
+
+/* =========================================
+   CONTACT DEMO
+========================================= */
+
+.contact-placeholder {
+  min-height: 80vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #111;
+  color: #fff;
+}
+
+.contact-placeholder span {
+  font-size: clamp(60px, 10vw, 160px);
+  letter-spacing: -0.07em;
+}
+
+
+/* =========================================
+   LAPTOP
+========================================= */
+
+@media (max-width: 1250px) {
+
+  .growth-section {
+    grid-template-columns: 1fr 0.9fr;
+
+    gap: 70px;
+  }
+
+  .growth-title {
+    font-size: clamp(72px, 8vw, 110px);
+  }
+
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+  .growth-section {
+    grid-template-columns: 1fr;
+
+    gap: 90px;
+
+    padding:
+      50px
+      35px
+      80px;
+  }
+
+  .growth-content {
+    min-height: auto;
+  }
+
+  .growth-title {
+    font-size: clamp(75px, 13vw, 125px);
+  }
+
+  .growth-description {
+    margin-top: 55px;
+
+    max-width: 580px;
+  }
+
+  .team-grid {
+    max-width: 850px;
+
+    column-gap: 30px;
+    row-gap: 55px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+  .growth-section {
+    padding:
+      30px
+      20px
+      60px;
+
+    gap: 75px;
+  }
+
+
+  /* TITLE */
+
+  .growth-title {
+    font-size: clamp(58px, 18vw, 90px);
+
+    line-height: 0.88;
+    letter-spacing: -0.07em;
+  }
+
+
+  /* DESCRIPTION */
+
+  .growth-description {
+    margin-top: 45px;
+
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+
+  /* CTA */
+
+  .growth-cta {
+    margin-top: 32px;
+
+    height: 58px;
+  }
+
+  .growth-cta__text {
+    height: 58px;
+
+    padding: 0 28px;
+  }
+
+  .growth-cta__arrow {
+    width: 58px;
+    height: 58px;
+  }
+
+
+  /* GRID */
+
+  .team-grid {
+    grid-template-columns: 1fr;
+
+    gap: 50px;
+  }
+
+  .team-image {
+    border-radius: 16px;
+  }
+
+  .team-card h3 {
+    margin-top: 17px;
+
+    font-size: 18px;
+  }
+
+  .team-card p {
+    max-width: 420px;
+
+    font-size: 14px;
+  }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 390px) {
+
+  .growth-title {
+    font-size: 55px;
+  }
+
+  .growth-cta__text {
+    padding: 0 23px;
+  }
+
+}

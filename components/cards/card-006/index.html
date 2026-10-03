@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spotlight Feature Cards</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../_shared/tokens.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <main class="pl">
+
+    <header class="pl__head">
+      <p class="pl__brand">
+        <span class="pl__lamp" aria-hidden="true"></span>
+        Porchlight
+        <span class="pl__tag">uptime for independent shops</span>
+      </p>
+      <p class="pl__clock"><span class="pl__live" aria-hidden="true"></span> Last sweep <span data-sweep>12s</span> ago</p>
+    </header>
+
+    <!-- Lamp: one pointermove on the grid moves a light that reveals the probe grid under each tile -->
+    <section class="pl__grid" aria-label="What Porchlight does">
+
+      <!-- TILE 1 — large: latency ruler -->
+      <article class="tile tile--probes">
+        <div class="tile__inner">
+          <p class="tile__kicker">Probes</p>
+          <h2 class="tile__title">Checked from 14 cities, every 30&nbsp;seconds.</h2>
+          <p class="tile__text">
+            When São Paulo can’t reach your checkout but Frankfurt can, you see which city broke — before a customer writes in.
+          </p>
+
+          <figure class="ruler" aria-label="Checkout response time by city, from 38 ms in Frankfurt to 241 ms in Sydney">
+            <div class="ruler__lane" aria-hidden="true">
+              <span class="ruler__dot" style="--ms:38;--row:0"  data-base="38"><b>FRA <i data-ms>38</i></b></span>
+              <span class="ruler__dot" style="--ms:44;--row:3"  data-base="44"></span>
+              <span class="ruler__dot" style="--ms:52;--row:2"  data-base="52"></span>
+              <span class="ruler__dot" style="--ms:64;--row:1"  data-base="64"><b>IAD <i data-ms>64</i></b></span>
+              <span class="ruler__dot" style="--ms:71;--row:3"  data-base="71"></span>
+              <span class="ruler__dot" style="--ms:89;--row:2"  data-base="89"></span>
+              <span class="ruler__dot" style="--ms:103;--row:2" data-base="103"></span>
+              <span class="ruler__dot" style="--ms:118;--row:3" data-base="118"></span>
+              <span class="ruler__dot" style="--ms:131;--row:0" data-base="131"><b>MEX <i data-ms>131</i></b></span>
+              <span class="ruler__dot" style="--ms:156;--row:2" data-base="156"></span>
+              <span class="ruler__dot" style="--ms:174;--row:3" data-base="174"></span>
+              <span class="ruler__dot is-slow" style="--ms:212;--row:1" data-base="212"><b>GRU <i data-ms>212</i></b></span>
+              <span class="ruler__dot" style="--ms:226;--row:3" data-base="226"></span>
+              <span class="ruler__dot is-flip" style="--ms:241;--row:2" data-base="241"><b>SYD <i data-ms>241</i></b></span>
+            </div>
+            <div class="ruler__axis" aria-hidden="true">
+              <span>0</span><span>100</span><span>200</span><span>300 ms</span>
+            </div>
+          </figure>
+
+          <a class="tile__link" href="#">
+            See all 14 probe cities
+            <span class="tile__arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- TILE 2 — on-call status list -->
+      <article class="tile tile--oncall">
+        <div class="tile__inner">
+          <p class="tile__kicker">On call</p>
+          <h2 class="tile__title">Pages whoever’s on call — not all of #general.</h2>
+
+          <ul class="checks" aria-label="Example checks">
+            <li class="checks__row is-down">
+              <span class="checks__name">checkout.api</span>
+              <span class="checks__state">502 · paging Inés · <span data-elapsed>3m 12s</span></span>
+            </li>
+            <li class="checks__row">
+              <span class="checks__name">storefront</span>
+              <span class="checks__state">200 · 41 ms</span>
+            </li>
+            <li class="checks__row">
+              <span class="checks__name">webhooks/stripe</span>
+              <span class="checks__state">200 · 88 ms</span>
+            </li>
+          </ul>
+
+          <a class="tile__link" href="#">
+            Set up an on-call rota
+            <span class="tile__arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- TILE 3 — p95 mini chart -->
+      <article class="tile tile--p95">
+        <div class="tile__inner">
+          <p class="tile__kicker">Latency</p>
+          <h2 class="tile__title">p95, because averages hide the slow checkouts.</h2>
+
+          <div class="p95">
+            <p class="p95__value"><span data-p95>184</span><small> ms p95 · last 12 min</small></p>
+            <div class="p95__bars" aria-hidden="true"></div>
+          </div>
+
+          <a class="tile__link" href="#">
+            How we calculate p95
+            <span class="tile__arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

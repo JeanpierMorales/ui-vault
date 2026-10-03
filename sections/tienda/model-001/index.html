@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vincce — Ropa hecha en Perú · Miraflores</title>
+<meta name="description" content="Vincce: ropa de temporada, esenciales y sastrería. Tienda en Calle Berlín 342, Miraflores. Envío gratis en Lima desde S/ 299.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+  <symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></symbol>
+  <symbol id="i-store" viewBox="0 0 24 24"><path d="M4 9h16l-1-4H5L4 9Z"/><path d="M5 9v10h14V9M10 19v-5h4v5"/></symbol>
+  <symbol id="i-ruler" viewBox="0 0 24 24"><path d="M3 15 15 3l6 6L9 21l-6-6Z"/><path d="m7 11 2 2M10 8l2 2M13 5l2 2"/></symbol>
+  <symbol id="i-return" viewBox="0 0 24 24"><path d="M9 14 4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 0 10h-3"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z"/></symbol>
+  <symbol id="i-zoom" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></symbol>
+</svg>
+
+<a class="skip" href="#app">Saltar al contenido</a>
+
+<p class="announce">
+  <span>Envío gratis en Lima desde S/ 299</span>
+  <span class="announce-hide">Cambios y devoluciones gratis por 30 días</span>
+  <span class="announce-hide">Recoge en Miraflores en 2 horas</span>
+</p>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <button class="icon-btn nav-menu" type="button" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Abrir menú">
+      <svg><use href="#i-menu"/></svg>
+    </button>
+    <a class="logo" href="#/" aria-label="Vincce, inicio">vincce</a>
+
+    <nav class="nav-links" aria-label="Principal">
+      <ul id="navList"></ul>
+    </nav>
+
+    <div class="nav-tools">
+      <button class="nav-search" type="button" id="searchOpen" aria-haspopup="dialog">
+        <svg aria-hidden="true"><use href="#i-search"/></svg><span>Buscar</span>
+      </button>
+      <button class="icon-btn" type="button" id="accountBtn" aria-haspopup="dialog" aria-label="Mi cuenta"><svg><use href="#i-user"/></svg></button>
+      <a class="icon-btn" href="#/favoritos" id="wishBtn" aria-label="Favoritos, 0 prendas">
+        <svg><use href="#i-heart"/></svg><span class="count" id="wishCount" hidden>0</span>
+      </a>
+      <button class="icon-btn" type="button" id="bagBtn" aria-haspopup="dialog" aria-label="Bolsa, 0 prendas">
+        <svg><use href="#i-bag"/></svg><span class="count" id="bagCount" hidden>0</span>
+      </button>
+    </div>
+  </div>
+  <div class="mega" id="mega" hidden></div>
+</header>
+
+<main id="app" class="app" tabindex="-1"></main>
+
+<footer class="foot" id="foot">
+  <div class="foot-news">
+    <div>
+      <h2>Entérate primero de cada colección.</h2>
+      <p>Un correo al mes con estrenos, preventas y 10% en tu primera compra.</p>
+    </div>
+    <form class="news-form" id="newsForm" novalidate>
+      <label class="sr-only" for="newsEmail">Correo electrónico</label>
+      <input id="newsEmail" type="email" placeholder="tu@correo.com" autocomplete="email" required>
+      <button class="btn btn-ink" type="submit">Suscribirme</button>
+      <label class="check"><input type="checkbox" id="newsConsent" required><span>Acepto recibir correos de Vincce y la <a href="#">política de privacidad</a>.</span></label>
+      <p class="field-msg" id="newsMsg" aria-live="polite"></p>
+    </form>
+  </div>
+
+  <div class="foot-cols">
+    <div class="foot-brand">
+      <a class="logo" href="#/">vincce</a>
+      <p>Calle Berlín 342, Miraflores<br>Lun a sáb 10:00–20:00 · Dom 11:00–18:00</p>
+      <p><a href="#">WhatsApp 987 654 321</a><br><a href="#">hola@vincce.pe</a></p>
+    </div>
+    <nav aria-label="Ayuda">
+      <h3>Ayuda</h3>
+      <ul>
+        <li><a href="#" data-sizeguide>Guía de tallas</a></li>
+        <li><a href="#/ayuda/envios">Envíos y entregas</a></li>
+        <li><a href="#/ayuda/cambios">Cambios y devoluciones</a></li>
+        <li><a href="#/ayuda/pagos">Medios de pago</a></li>
+        <li><a href="#/ayuda/preguntas">Preguntas frecuentes</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Vincce">
+      <h3>Vincce</h3>
+      <ul>
+        <li><a href="#/catalogo/all">Toda la tienda</a></li>
+        <li><a href="#/catalogo/new">Primavera 26</a></li>
+        <li><a href="#/catalogo/outlet">Outlet</a></li>
+        <li><a href="#/ayuda/nosotros">Nosotros</a></li>
+        <li><a href="#/ayuda/tienda">Tienda Miraflores</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Legal">
+      <h3>Legal</h3>
+      <ul>
+        <li><a href="#">Términos y condiciones</a></li>
+        <li><a href="#">Política de privacidad</a></li>
+        <li><a href="#">Política de cookies</a></li>
+        <li><a href="#" class="reclamos">Libro de Reclamaciones</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="foot-base">
+    <p>© 2026 Vincce Moda S.A.C. · RUC 20601234567</p>
+    <p class="pay-list" aria-label="Medios de pago">Visa · Mastercard · Amex · Yape · Plin · PagoEfectivo</p>
+    <p><a href="#">Instagram</a> · <a href="#">TikTok</a> · <a href="#">Pinterest</a></p>
+  </div>
+</footer>
+
+<!-- Menú móvil -->
+<dialog class="modal side side-left" id="mobileMenu" aria-label="Menú">
+  <div class="side-inner">
+    <div class="side-head">
+      <a class="logo" href="#/">vincce</a>
+      <button class="icon-btn" type="button" data-close aria-label="Cerrar menú"><svg><use href="#i-x"/></svg></button>
+    </div>
+    <div class="mm-body" id="mmBody"></div>
+  </div>
+</dialog>
+
+<!-- Búsqueda -->
+<dialog class="modal search-dlg" id="searchDlg" aria-label="Buscar">
+  <div class="search-inner">
+    <form class="search-bar" id="searchForm" role="search">
+      <svg aria-hidden="true"><use href="#i-search"/></svg>
+      <label class="sr-only" for="searchField">Buscar en Vincce</label>
+      <input id="searchField" type="search" placeholder="Busca vestidos, lino, alpaca…" autocomplete="off" aria-controls="searchResults">
+      <button class="icon-btn" type="button" data-close aria-label="Cerrar búsqueda"><svg><use href="#i-x"/></svg></button>
+    </form>
+    <div class="search-results" id="searchResults" aria-live="polite"></div>
+  </div>
+</dialog>
+
+<!-- Vista rápida -->
+<dialog class="modal quick" id="quickView" aria-labelledby="qvName">
+  <div class="quick-inner">
+    <figure class="quick-photo"><img id="qvImg" src="" alt=""></figure>
+    <form class="quick-body" method="dialog" id="qvForm">
+      <button class="icon-btn modal-close" type="button" data-close aria-label="Cerrar"><svg><use href="#i-x"/></svg></button>
+      <p class="quick-line" id="qvLine"></p>
+      <h2 id="qvName"></h2>
+      <p class="quick-price" id="qvPrice"></p>
+      <fieldset>
+        <legend>Color: <span id="qvColorName"></span></legend>
+        <div class="qv-colors" id="qvColors"></div>
+      </fieldset>
+      <fieldset>
+        <legend class="legend-row"><span>Talla</span><button type="button" class="link" data-sizeguide>Guía de tallas</button></legend>
+        <div class="qv-sizes" id="qvSizes"></div>
+      </fieldset>
+      <p class="quick-note" id="qvNote" aria-live="polite"></p>
+      <button class="btn btn-ink btn-wide" type="submit">Añadir a la bolsa</button>
+      <a class="link quick-more" id="qvMore" href="#">Ver todos los detalles</a>
+    </form>
+  </div>
+</dialog>
+
+<!-- Bolsa lateral -->
+<dialog class="modal side" id="bag" aria-labelledby="bagTitle">
+  <div class="side-inner">
+    <div class="side-head">
+      <h2 id="bagTitle">Tu bolsa</h2>
+      <button class="icon-btn" type="button" data-close aria-label="Cerrar bolsa"><svg><use href="#i-x"/></svg></button>
+    </div>
+    <div class="ship" id="bagShip"></div>
+    <ul class="bag-list" id="bagList"></ul>
+    <div class="bag-empty" id="bagEmpty">
+      <p>Tu bolsa está vacía.</p>
+      <a class="btn btn-line" href="#/catalogo/new" data-close>Ver Primavera 26</a>
+    </div>
+    <div class="side-foot" id="bagFoot">
+      <p class="subtotal"><span>Subtotal</span><strong id="bagTotal">S/ 0</strong></p>
+      <p class="side-note">Envío y cupones se calculan en el siguiente paso. Precios con IGV.</p>
+      <a class="btn btn-ink btn-wide" href="#/checkout" data-close>Ir a pagar</a>
+      <a class="btn btn-ghost btn-wide" href="#/bolsa" data-close>Ver bolsa</a>
+    </div>
+  </div>
+</dialog>
+
+<!-- Guía de tallas -->
+<dialog class="modal sheet" id="sizeGuide" aria-labelledby="sgTitle">
+  <div class="sheet-inner">
+    <div class="side-head">
+      <h2 id="sgTitle">Guía de tallas</h2>
+      <button class="icon-btn" type="button" data-close aria-label="Cerrar guía"><svg><use href="#i-x"/></svg></button>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Tipo de prenda" id="sgTabs">
+      <button type="button" role="tab" aria-selected="true" data-sg="finder" id="sgt-finder" aria-controls="sgPanel">Encuentra tu talla</button>
+      <button type="button" role="tab" aria-selected="false" data-sg="ropa" id="sgt-ropa" aria-controls="sgPanel" tabindex="-1">Ropa</button>
+      <button type="button" role="tab" aria-selected="false" data-sg="calzado" id="sgt-calzado" aria-controls="sgPanel" tabindex="-1">Calzado</button>
+      <button type="button" role="tab" aria-selected="false" data-sg="medir" id="sgt-medir" aria-controls="sgPanel" tabindex="-1">Cómo medirte</button>
+    </div>
+    <div class="sg-panel" id="sgPanel" role="tabpanel"></div>
+  </div>
+</dialog>
+
+<!-- Avísame -->
+<dialog class="modal small" id="notifyDlg" aria-labelledby="nTitle">
+  <form class="small-inner" id="notifyForm" novalidate>
+    <button class="icon-btn modal-close" type="button" data-close aria-label="Cerrar"><svg><use href="#i-x"/></svg></button>
+    <h2 id="nTitle">Te avisamos cuando vuelva</h2>
+    <p id="nText"></p>
+    <label class="field"><span>Correo electrónico</span><input type="email" id="nEmail" autocomplete="email" required></label>
+    <p class="field-msg" id="nMsg" aria-live="polite"></p>
+    <button class="btn btn-ink btn-wide" type="submit">Avísame</button>
+  </form>
+</dialog>
+
+<!-- Cuenta -->
+<dialog class="modal small" id="accountDlg" aria-labelledby="acTitle">
+  <form class="small-inner" id="accountForm" novalidate>
+    <button class="icon-btn modal-close" type="button" data-close aria-label="Cerrar"><svg><use href="#i-x"/></svg></button>
+    <h2 id="acTitle">Tu cuenta Vincce</h2>
+    <p>Sigue tus pedidos, guarda tus tallas y compra más rápido.</p>
+    <label class="field"><span>Correo electrónico</span><input type="email" id="acEmail" autocomplete="email" required></label>
+    <label class="field"><span>Contraseña</span><input type="password" id="acPass" autocomplete="current-password" required minlength="6"></label>
+    <p class="field-msg" id="acMsg" aria-live="polite"></p>
+    <button class="btn btn-ink btn-wide" type="submit">Ingresar</button>
+    <p class="small-alt">¿Primera vez? <a class="link" href="#">Crea tu cuenta</a> · <a class="link" href="#">Olvidé mi contraseña</a></p>
+  </form>
+</dialog>
+
+<!-- Lightbox -->
+<dialog class="modal lightbox" id="lightbox" aria-label="Galería ampliada">
+  <img id="lbImg" src="" alt="">
+  <button class="icon-btn lb-close" type="button" data-close aria-label="Cerrar galería"><svg><use href="#i-x"/></svg></button>
+  <button class="icon-btn lb-prev" type="button" id="lbPrev" aria-label="Foto anterior"><svg><use href="#i-left"/></svg></button>
+  <button class="icon-btn lb-next" type="button" id="lbNext" aria-label="Foto siguiente"><svg><use href="#i-right"/></svg></button>
+  <p class="lb-count" id="lbCount"></p>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"><span id="toastText"></span><button type="button" class="toast-undo" id="toastUndo" hidden>Deshacer</button></div>
+
+<script src="script.js"></script>
+</body>
+</html>

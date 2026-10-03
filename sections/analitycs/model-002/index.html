@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cooperativa Sillar: lo que generan en vivo los 214 techos solares de Cayma, Arequipa, en kWh, soles ahorrados y CO₂ evitado.">
+  <title>Sillar, cooperativa solar de Cayma</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<main>
+  <section class="sillar" id="impacto" aria-labelledby="sillarTitle">
+    <div class="wrap">
+
+      <div class="intro">
+        <header class="lead">
+          <p class="brand"><span class="brand-mark" aria-hidden="true"></span>Sillar <span class="brand-place">Cooperativa solar · Cayma, Arequipa</span></p>
+          <h2 id="sillarTitle">214 techos que ya generan su propia luz.</h2>
+          <p class="lead-text">Cada socio instala 2.4 kWp en su azotea y la cooperativa vende el excedente a la red. Las cifras salen del medidor bidireccional de cada casa, no de una proyección.</p>
+        </header>
+
+        <figure class="photo">
+          <img src="https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?auto=format&fit=crop&w=900&q=78"
+               srcset="https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?auto=format&fit=crop&w=600&q=78 600w, https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?auto=format&fit=crop&w=1100&q=78 1100w"
+               sizes="(max-width: 900px) 100vw, 36vw"
+               width="900" height="700"
+               alt="Técnico conectando el cableado de un panel solar en una azotea">
+          <figcaption class="chip">Instalación n.º 214, Urb. La Rinconada</figcaption>
+        </figure>
+      </div>
+
+      <div class="grid">
+
+        <article class="panel panel--dark live" id="today" aria-labelledby="liveLabel">
+          <div class="live-top">
+            <p class="tag" id="liveLabel"><span class="pulse" aria-hidden="true"></span>En vivo</p>
+            <p class="now"><span id="kwNow">0</span> kW <span class="now-label" id="kwLabel">ahora</span></p>
+          </div>
+
+          <p class="hero-num"><span class="num" id="kwhTotal">716,300</span><span class="unit">kWh</span></p>
+          <p class="hero-label">generados en 2026. La cifra sube con lo que producen los paneles en este momento.</p>
+
+          <div class="day">
+            <div class="day-head">
+              <p class="day-title" id="todayTitle">Hoy, potencia combinada</p>
+              <ul class="legend" aria-label="Leyenda">
+                <li><span class="key key--sol" aria-hidden="true"></span>Generado</li>
+                <li><span class="key key--forecast" aria-hidden="true"></span>Pronóstico</li>
+              </ul>
+            </div>
+            <div class="chart chart--day">
+              <svg class="chart-svg" id="dayChart" aria-labelledby="dayDesc" role="img" focusable="false"></svg>
+              <p class="sr-only" id="dayDesc">Curva de potencia del día.</p>
+              <div class="scrub" id="dayScrub" tabindex="0" role="slider" aria-label="Recorrer la curva por hora" aria-valuemin="360" aria-valuemax="1095" aria-valuenow="720" aria-valuetext="12:00"></div>
+              <div class="tip" id="dayTip" aria-hidden="true"></div>
+            </div>
+            <p class="today-total" id="todayTotal">Generado hoy: — kWh</p>
+          </div>
+        </article>
+
+        <article class="panel panel--stone stat">
+          <p class="stat-num"><span class="unit unit--pre">S/</span><span class="num" id="solesTotal">558,714</span></p>
+          <div class="stat-foot">
+            <p class="stat-label">que no se pagaron en recibos de luz</p>
+            <p class="stat-note">A S/ 0.78 por kWh, tarifa residencial BT5B.</p>
+          </div>
+        </article>
+
+        <article class="panel panel--stone stat">
+          <p class="stat-num"><span class="num" id="co2Total">301</span><span class="unit">t CO₂</span></p>
+          <div class="stat-foot">
+            <p class="stat-label">que la red no tuvo que emitir</p>
+            <p class="stat-note">Factor del sistema interconectado: 0.42 t por MWh.</p>
+          </div>
+        </article>
+
+        <figure class="panel panel--white months">
+          <figcaption class="months-head">
+            <h3>Generación por mes, 2026</h3>
+            <p class="months-sub">MWh · septiembre, al día 27</p>
+          </figcaption>
+          <div class="chart" id="monthChart">
+            <svg class="chart-svg" focusable="false"></svg>
+            <p class="sr-only" id="monthDesc">Columnas de enero a septiembre de 2026. El mes más bajo fue febrero, con 64.8 MWh, por la temporada de lluvias; el más alto, agosto, con 91.2 MWh.</p>
+            <div class="tip" id="monthTip" aria-hidden="true"></div>
+          </div>
+          <details class="data">
+            <summary>Ver los datos en tabla</summary>
+            <table>
+              <caption class="sr-only">Generación mensual en MWh, 2026</caption>
+              <thead><tr><th scope="col">Mes</th><th scope="col">MWh</th></tr></thead>
+              <tbody id="monthTable"></tbody>
+            </table>
+          </details>
+        </figure>
+
+      </div>
+
+      <div class="cta-row">
+        <a class="btn" href="#impacto">Sumar mi techo
+          <span class="btn-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false"><path d="M5 11 11 5M6 5h5v5" /></svg></span>
+        </a>
+        <p class="cta-note">Cuota de ingreso S/ 480. La instalación se paga con el ahorro en unos 4 años.</p>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

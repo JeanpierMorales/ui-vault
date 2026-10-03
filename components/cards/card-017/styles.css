@@ -1,0 +1,528 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --ink: #15131c;
+  --muted: #6b6878;
+  --card: rgba(255, 255, 255, 0.82);
+  --card-border: rgba(255, 255, 255, 0.9);
+  --accent: #5b4bff;
+
+  --radius: 18px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 520ms;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(520px 380px at 15% 15%, #d9d2ff, transparent 70%),
+    radial-gradient(560px 380px at 90% 20%, #ffe0d1, transparent 70%),
+    radial-gradient(620px 420px at 60% 100%, #d4ecff, transparent 70%),
+    #f3f1f8;
+  -webkit-font-smoothing: antialiased;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* ======================================
+   PAGE
+====================================== */
+
+.stage {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: clamp(20px, 5vh, 48px) 16px;
+  overflow-x: hidden;
+}
+
+.notif {
+  width: 100%;
+  max-width: 392px;
+  /* Collapsed: nudged down so the small pile sits in the middle */
+  transform: translateY(var(--shift, 0px));
+  transition: transform var(--dur) var(--ease);
+}
+
+/* No animation on first paint */
+.notif.is-booting,
+.notif.is-booting * {
+  transition: none !important;
+}
+
+/* ======================================
+   HEADER
+====================================== */
+
+.notif__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 0 4px;
+}
+
+.notif__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.notif__count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 7px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.notif__toggle {
+  min-height: 34px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: inset 0 0 0 1px rgba(21, 19, 28, 0.08);
+  cursor: pointer;
+  transition:
+    background-color 240ms var(--ease),
+    transform 240ms var(--ease);
+}
+
+.notif__toggle:hover {
+  background: #fff;
+}
+
+.notif__toggle:active {
+  transform: scale(0.96);
+}
+
+/* ======================================
+   LIST
+   Cards always keep their expanded layout in the
+   document flow; the collapsed "pile" is produced
+   purely with transforms set by script.js, so every
+   change can be animated with transform/opacity.
+====================================== */
+
+.notif__list {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.note {
+  position: relative;
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) 28px;
+  align-items: start;
+  gap: 12px;
+  padding: 14px 12px 14px 14px;
+  border-radius: var(--radius);
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  box-shadow:
+    0 1px 2px rgba(21, 19, 28, 0.05),
+    0 12px 30px -14px rgba(51, 38, 120, 0.28);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  transform-origin: 50% 100%;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  transition:
+    transform var(--dur) var(--ease),
+    opacity 320ms var(--ease);
+}
+
+.notif.is-collapsed .note {
+  cursor: pointer;
+}
+
+/* Cards behind the top one: hide their content so they read as paper edges */
+.note > * {
+  transition: opacity 260ms var(--ease);
+}
+
+.note.is-behind > * {
+  opacity: 0;
+}
+
+.note.is-hidden {
+  opacity: 0;
+}
+
+.note.is-dragging {
+  transition: none;
+  cursor: grabbing;
+}
+
+.note.is-leaving {
+  pointer-events: none;
+  transition:
+    transform 300ms var(--ease),
+    opacity 240ms var(--ease);
+}
+
+/* ---------- Icon / avatar ---------- */
+
+.note__icon,
+.note__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+}
+
+.note__icon {
+  display: grid;
+  place-items: center;
+  color: #fff;
+}
+
+.note__icon svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.note__icon--calendar {
+  background: linear-gradient(145deg, #ff7a59, #f5476a);
+}
+
+.note__icon--pay {
+  background: linear-gradient(145deg, #22c58b, #0e9f6e);
+}
+
+.note__icon--deploy {
+  background: linear-gradient(145deg, #6c5cff, #4632e0);
+}
+
+.note__avatar {
+  display: block;
+  object-fit: cover;
+  border-radius: 50%;
+  background: #d8d3e8;
+}
+
+/* ---------- Text ---------- */
+
+.note__body {
+  min-width: 0;
+}
+
+.note__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.note__app {
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.note__time {
+  flex: none;
+  font-variant-numeric: tabular-nums;
+}
+
+.note__title {
+  margin: 2px 0 0;
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+}
+
+.note__text {
+  margin: 2px 0 0;
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: #45424f;
+  text-wrap: pretty;
+}
+
+/* ---------- Dismiss ---------- */
+
+.note__close {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  margin-top: -2px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: var(--muted);
+  background: transparent;
+  cursor: pointer;
+  transition:
+    background-color 200ms var(--ease),
+    color 200ms var(--ease);
+}
+
+.note__close:hover {
+  color: var(--ink);
+  background: rgba(21, 19, 28, 0.07);
+}
+
+.note__close svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+/* ======================================
+   EMPTY STATE + HINT
+====================================== */
+
+.notif__empty {
+  outline: none;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px dashed rgba(21, 19, 28, 0.14);
+  animation: fade-up 500ms var(--ease) both;
+}
+
+.notif__empty p {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.notif__empty strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.notif__empty-icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #0e9f6e;
+  background: rgba(34, 197, 139, 0.14);
+}
+
+.notif__empty-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+/* Sits just under the collapsed pile (position set by script.js) */
+.notif__hint {
+  margin: 0;
+  font-size: 12px;
+  text-align: center;
+  color: var(--muted);
+  transform: translateY(var(--hint-y, 0px));
+  transition:
+    opacity 300ms var(--ease),
+    transform var(--dur) var(--ease);
+}
+
+.hint-touch {
+  display: none;
+}
+
+@media (hover: none) {
+  .hint-hover {
+    display: none;
+  }
+
+  .hint-touch {
+    display: inline;
+  }
+}
+
+.notif:not(.is-collapsed) .notif__hint {
+  opacity: 0;
+}
+
+/* ======================================
+   TOAST
+====================================== */
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  overflow: hidden;
+  max-width: calc(100vw - 32px);
+  padding: 8px 8px 8px 16px;
+  border-radius: 14px;
+  color: #fff;
+  background: #1b1924;
+  box-shadow: 0 16px 36px -14px rgba(21, 19, 28, 0.55);
+  font-size: 14px;
+  opacity: 0;
+  visibility: hidden; /* keeps Undo out of the tab order while hidden */
+  transform: translate(-50%, 16px) scale(0.98);
+  transition:
+    opacity 300ms var(--ease),
+    transform 420ms var(--ease),
+    visibility 0s linear 420ms;
+}
+
+.toast.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+  transition:
+    opacity 300ms var(--ease),
+    transform 420ms var(--ease),
+    visibility 0s;
+}
+
+.toast__text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.toast__undo {
+  flex: none;
+  min-height: 32px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 9px;
+  font: inherit;
+  font-weight: 600;
+  color: #c9c2ff;
+  background: rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: background-color 200ms var(--ease);
+}
+
+.toast__undo:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* Countdown bar: scaleX from 1 to 0 over the toast lifetime */
+.toast__bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: #8f82ff;
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+}
+
+.toast.is-counting .toast__bar {
+  animation: countdown var(--toast-ms, 5000ms) linear forwards;
+}
+
+@keyframes countdown {
+  from { transform: scaleX(1); }
+  to { transform: scaleX(0); }
+}
+
+/* ======================================
+   FOCUS
+====================================== */
+
+.notif__toggle:focus-visible,
+.note__close:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.toast__undo:focus-visible {
+  outline: 2px solid #c9c2ff;
+  outline-offset: 2px;
+}
+
+/* ======================================
+   REDUCED MOTION
+====================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur: 1ms;
+  }
+
+  .notif,
+  .note,
+  .note.is-leaving,
+  .note > *,
+  .toast,
+  .notif__hint {
+    transition-duration: 1ms;
+  }
+
+  .notif__empty {
+    animation: none;
+  }
+
+  .toast.is-counting .toast__bar {
+    animation: none;
+    transform: scaleX(1);
+  }
+}

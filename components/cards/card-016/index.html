@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Real Estate Listing Cards</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <main class="listings">
+
+    <section class="listings__grid" aria-label="Featured homes">
+
+      <!-- LISTING 1 -->
+      <article class="listing">
+        <div class="listing__media" role="group" aria-roledescription="carousel" aria-label="Photos of 48 Coral Ridge Drive">
+          <div class="listing__viewport">
+            <ul class="listing__track" role="list">
+              <li class="listing__slide" role="group" aria-roledescription="slide" aria-label="1 of 3">
+                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80" alt="White contemporary villa with a swimming pool in front" width="900" height="620" decoding="async" draggable="false" />
+              </li>
+              <li class="listing__slide" role="group" aria-roledescription="slide" aria-label="2 of 3">
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80" alt="Open-plan living room with a white sofa and wood-panelled wall" width="900" height="620" decoding="async" draggable="false" />
+              </li>
+              <li class="listing__slide" role="group" aria-roledescription="slide" aria-label="3 of 3">
+                <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=900&q=80" alt="Long pool terrace below the upper-floor balconies" width="900" height="620" decoding="async" draggable="false" />
+              </li>
+            </ul>
+          </div>
+
+          <span class="listing__badge listing__badge--new">New</span>
+
+          <button class="listing__fav" type="button" aria-pressed="false" aria-label="Save 48 Coral Ridge Drive">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3 4.6 13a4.6 4.6 0 0 1 6.5-6.5l.9.9.9-.9a4.6 4.6 0 0 1 6.5 6.5L12 20.3Z"/></svg>
+          </button>
+
+          <button class="listing__arrow listing__arrow--prev" type="button" aria-label="Previous photo">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14.5 6-6 6 6 6"/></svg>
+          </button>
+          <button class="listing__arrow listing__arrow--next" type="button" aria-label="Next photo">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9.5 6 6 6-6 6"/></svg>
+          </button>
+
+          <div class="listing__dots">
+              <button class="listing__dot" type="button" aria-label="Show photo 1 of 3" aria-current="true"></button>
+              <button class="listing__dot" type="button" aria-label="Show photo 2 of 3"></button>
+              <button class="listing__dot" type="button" aria-label="Show photo 3 of 3"></button>
+          </div>
+        </div>
+
+        <div class="listing__body">
+          <p class="listing__price">
+            <strong>$1,285,000</strong>
+            <span class="listing__kind">For sale</span>
+          </p>
+          <h2 class="listing__address">
+            <a href="#">48 Coral Ridge Drive</a>
+            <span>San Diego, CA 92037</span>
+          </h2>
+          <ul class="listing__facts" role="list">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18v-7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7M3 15h18M3 18v2M21 18v2M6 9V6.5A1.5 1.5 0 0 1 7.5 5h9A1.5 1.5 0 0 1 18 6.5V9"/></svg><span><b>4</b> beds</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h18v1.5a5.5 5.5 0 0 1-5.5 5.5h-7A5.5 5.5 0 0 1 3 13.5V12ZM5.5 12V6.2a2.2 2.2 0 0 1 4.1-1.1M8.5 7.5l2.2-2.2M7 19l-1 2M17 19l1 2"/></svg><span><b>3</b> baths</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><span><b>286</b> m²</span></li>
+          </ul>
+          <p class="listing__meta">Listed 2 days ago</p>
+        </div>
+      </article>
+      <!-- LISTING 2 -->
+      <article class="listing">
+        <div class="listing__media" role="group" aria-roledescription="carousel" aria-label="Photos of 17 Harbor View Lane">
+          <div class="listing__viewport">
+            <ul class="listing__track" role="list">
+              <li class="listing__slide" role="group" aria-roledescription="slide" aria-label="1 of 3">
+                <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=900&q=80" alt="Grey shingle family home with a white wraparound porch and lawn" width="900" height="620" decoding="async" draggable="false" />
+              </li>
+              <li class="listing__slide" role="group" aria-roledescription="slide" aria-label="2 of 3">
+                <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=900&q=80" alt="Bright sitting room with herringbone oak floor and tall windows" width="900" height="620" decoding="async" draggable="false" />
+              </li>
+              <li class="listing__slide" role="group" aria-roledescription="slide" aria-label="3 of 3">
+                <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=900&q=80" alt="Cosy lounge with a grey sofa, plants and bookshelves" width="900" height="620" decoding="async" draggable="false" />
+              </li>
+            </ul>
+          </div>
+
+          <span class="listing__badge listing__badge--drop">Price drop</span>
+
+          <button class="listing__fav" type="button" aria-pressed="false" aria-label="Save 17 Harbor View Lane">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3 4.6 13a4.6 4.6 0 0 1 6.5-6.5l.9.9.9-.9a4.6 4.6 0 0 1 6.5 6.5L12 20.3Z"/></svg>
+          </button>
+
+          <button class="listing__arrow listing__arrow--prev" type="button" aria-label="Previous photo">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14.5 6-6 6 6 6"/></svg>
+          </button>
+          <button class="listing__arrow listing__arrow--next" type="button" aria-label="Next photo">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9.5 6 6 6-6 6"/></svg>
+          </button>
+
+          <div class="listing__dots">
+              <button class="listing__dot" type="button" aria-label="Show photo 1 of 3" aria-current="true"></button>
+              <button class="listing__dot" type="button" aria-label="Show photo 2 of 3"></button>
+              <button class="listing__dot" type="button" aria-label="Show photo 3 of 3"></button>
+          </div>
+        </div>
+
+        <div class="listing__body">
+          <p class="listing__price">
+            <strong>$849,000</strong>
+            <span class="listing__kind">For sale</span>
+            <s class="listing__was"><span class="visually-hidden">was </span>$895,000</s>
+          </p>
+          <h2 class="listing__address">
+            <a href="#">17 Harbor View Lane</a>
+            <span>Portland, ME 04101</span>
+          </h2>
+          <ul class="listing__facts" role="list">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18v-7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7M3 15h18M3 18v2M21 18v2M6 9V6.5A1.5 1.5 0 0 1 7.5 5h9A1.5 1.5 0 0 1 18 6.5V9"/></svg><span><b>5</b> beds</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h18v1.5a5.5 5.5 0 0 1-5.5 5.5h-7A5.5 5.5 0 0 1 3 13.5V12ZM5.5 12V6.2a2.2 2.2 0 0 1 4.1-1.1M8.5 7.5l2.2-2.2M7 19l-1 2M17 19l1 2"/></svg><span><b>3</b> baths</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><span><b>312</b> m²</span></li>
+          </ul>
+          <p class="listing__meta">Reduced yesterday</p>
+        </div>
+      </article>
+      <!-- LISTING 3 -->
+      <article class="listing">
+        <div class="listing__media" role="group" aria-roledescription="carousel" aria-label="Photos of 220 Linden Street">
+          <div class="listing__viewport">
+            <ul class="listing__track" role="list">
+              <li class="listing__slide" role="group" aria-roledescription="slide" aria-label="1 of 3">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" alt="Modern black-and-glass house lit at dusk beneath a large tree" width="900" height="620" decoding="async" draggable="false" />
+              </li>
+              <li class="listing__slide" role="group" aria-roledescription="slide" aria-label="2 of 3">
+                <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=900&q=80" alt="Living and dining area with a red armchair and light wood floor" width="900" height="620" decoding="async" draggable="false" />
+              </li>
+              <li class="listing__slide" role="group" aria-roledescription="slide" aria-label="3 of 3">
+                <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=900&q=80" alt="White kitchen with stainless steel appliances and a breakfast bar" width="900" height="620" decoding="async" draggable="false" />
+              </li>
+            </ul>
+          </div>
+
+          <span class="listing__badge listing__badge--open">Open house Sat</span>
+
+          <button class="listing__fav" type="button" aria-pressed="false" aria-label="Save 220 Linden Street">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3 4.6 13a4.6 4.6 0 0 1 6.5-6.5l.9.9.9-.9a4.6 4.6 0 0 1 6.5 6.5L12 20.3Z"/></svg>
+          </button>
+
+          <button class="listing__arrow listing__arrow--prev" type="button" aria-label="Previous photo">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14.5 6-6 6 6 6"/></svg>
+          </button>
+          <button class="listing__arrow listing__arrow--next" type="button" aria-label="Next photo">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9.5 6 6 6-6 6"/></svg>
+          </button>
+
+          <div class="listing__dots">
+              <button class="listing__dot" type="button" aria-label="Show photo 1 of 3" aria-current="true"></button>
+              <button class="listing__dot" type="button" aria-label="Show photo 2 of 3"></button>
+              <button class="listing__dot" type="button" aria-label="Show photo 3 of 3"></button>
+          </div>
+        </div>
+
+        <div class="listing__body">
+          <p class="listing__price">
+            <strong>$3,200</strong>
+            <span class="listing__kind">per month</span>
+          </p>
+          <h2 class="listing__address">
+            <a href="#">220 Linden Street</a>
+            <span>Austin, TX 78704</span>
+          </h2>
+          <ul class="listing__facts" role="list">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18v-7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7M3 15h18M3 18v2M21 18v2M6 9V6.5A1.5 1.5 0 0 1 7.5 5h9A1.5 1.5 0 0 1 18 6.5V9"/></svg><span><b>3</b> beds</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h18v1.5a5.5 5.5 0 0 1-5.5 5.5h-7A5.5 5.5 0 0 1 3 13.5V12ZM5.5 12V6.2a2.2 2.2 0 0 1 4.1-1.1M8.5 7.5l2.2-2.2M7 19l-1 2M17 19l1 2"/></svg><span><b>2</b> baths</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><span><b>164</b> m²</span></li>
+          </ul>
+          <p class="listing__meta">Available 1 Nov</p>
+        </div>
+      </article>
+
+    </section>
+
+    <p class="visually-hidden" role="status" aria-live="polite" data-status></p>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

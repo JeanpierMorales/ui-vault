@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StandPe — Ropa de calle hecha en Lima</title>
+  <meta name="description" content="StandPe: casacas, poleras, polos y denim en tiradas cortas, confeccionados en Lima. Envíos a todo el Perú." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="img/hero.webp" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-route="home" class="is-loading">
+  <a class="skip" href="#view">Saltar al contenido</a>
+
+  <!-- Preloader: fondo oscuro con el wordmark; se funde sobre el hero -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <span class="preloader-mark">StandPe</span>
+  </div>
+
+  <header class="top" id="top">
+    <nav class="top-nav" aria-label="Principal">
+      <a href="#/" data-nav="home">Inicio</a>
+      <a href="#/catalogo" data-nav="catalog">Catálogo</a>
+      <a href="#/contacto" data-nav="contact">Contacto</a>
+    </nav>
+    <a class="top-mark" href="#/" aria-label="StandPe, inicio">StandPe</a>
+    <button class="top-bag" id="bag-open" type="button" aria-haspopup="dialog" aria-controls="bag">
+      Bolsa <span class="top-bag-count">(<span id="bag-count">0</span>)</span>
+    </button>
+  </header>
+
+  <main id="view" tabindex="-1"></main>
+
+  <footer class="foot" id="foot">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <h2>Ayuda</h2>
+        <a href="#/contacto">Envíos y plazos</a>
+        <a href="#/contacto">Cambios y devoluciones</a>
+        <a href="#/contacto">Guía de tallas</a>
+        <a href="#/contacto">Cuidado de prendas</a>
+      </div>
+      <div class="foot-col">
+        <h2>StandPe</h2>
+        <a href="#/contacto">El taller</a>
+        <a href="#/contacto">Showroom Miraflores</a>
+        <a href="#/catalogo">Tarjeta de regalo</a>
+        <a href="#/contacto">Venta por mayor</a>
+      </div>
+      <div class="foot-col">
+        <h2>Redes</h2>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.pinterest.com/" target="_blank" rel="noopener">Pinterest</a>
+      </div>
+      <div class="foot-col">
+        <h2>Legal</h2>
+        <a href="#/contacto">Términos</a>
+        <a href="#/contacto">Privacidad</a>
+        <a href="#/contacto">Libro de reclamaciones</a>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span class="foot-mark" aria-hidden="true">StandPe</span>
+      <p>© 2026 StandPe · Lima, Perú · Precios en soles (S/)</p>
+    </div>
+  </footer>
+
+  <!-- Bolsa -->
+  <div class="bag-scrim" id="bag-scrim" hidden></div>
+  <aside class="bag" id="bag" role="dialog" aria-modal="true" aria-labelledby="bag-title" hidden>
+    <div class="bag-head">
+      <h2 id="bag-title">Bolsa</h2>
+      <button type="button" class="link-btn" id="bag-close">Cerrar</button>
+    </div>
+    <div class="bag-body" id="bag-body"></div>
+    <div class="bag-foot" id="bag-foot"></div>
+  </aside>
+
+  <p class="sr-only" id="announcer" aria-live="polite"></p>
+
+  <script src="script.js"></script>
+</body>
+</html>

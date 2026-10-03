@@ -7,7 +7,14 @@
     content="width=device-width, initial-scale=1.0"
   />
 
-  <title>Infinite Product Cards</title>
+  <title>Product Cards Carousel</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+  />
 
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -16,221 +23,236 @@
 
   <main>
 
-    <section class="product-showcase">
+    <section
+      class="product-showcase"
+      aria-roledescription="carousel"
+      aria-labelledby="showcaseTitle"
+    >
 
       <div class="showcase-header">
-        <h2>
+        <h2 id="showcaseTitle">
           Elevated home theater sound.
           <span>Just in time for Ted’s return.</span>
         </h2>
+
+        <div class="carousel-controls">
+          <button
+            class="carousel-control"
+            id="carouselPrev"
+            type="button"
+            aria-label="Anterior"
+            aria-controls="productCarousel"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M15 5L8 12L15 19" />
+            </svg>
+          </button>
+
+          <button
+            class="carousel-control"
+            id="carouselNext"
+            type="button"
+            aria-label="Siguiente"
+            aria-controls="productCarousel"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 5L16 12L9 19" />
+            </svg>
+          </button>
+        </div>
       </div>
 
-      <div class="carousel-shell">
+      <!-- Scroll nativo + scroll-snap: swipe, trackpad
+           y teclado funcionan sin librerías -->
+      <div
+        class="product-carousel"
+        id="productCarousel"
+        tabindex="0"
+        role="region"
+        aria-label="Productos destacados (usa las flechas del teclado)"
+      >
 
-        <button
-          class="carousel-control carousel-control--prev"
-          id="carouselPrev"
-          type="button"
-          aria-label="Anterior"
-        >
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M15 4L7 12L15 20" />
-          </svg>
-        </button>
+        <ul class="product-track" role="list">
 
-        <div
-          class="product-carousel"
-          id="productCarousel"
-          aria-label="Productos destacados"
-        >
+          <!-- PRODUCT 1 -->
+          <li class="product-card" aria-roledescription="slide" aria-label="1 de 6">
 
-          <div class="product-track" id="productTrack">
+            <div class="product-card__image-area">
+              <img
+                src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=90"
+                alt="Beats Solo 4 headphones"
+                draggable="false"
+              />
+              <span class="product-card__tint" aria-hidden="true"></span>
+            </div>
 
-            <!-- PRODUCT 1 -->
-            <article class="product-card">
-              <a href="#" class="product-card__link">
+            <div class="product-card__colors" role="group" aria-label="Color">
+              <button class="product-color" type="button" aria-pressed="true" aria-label="Slate Blue" data-variant="Slate Blue" style="--swatch: #7891aa;"></button>
+              <button class="product-color" type="button" aria-pressed="false" aria-label="Matte Black" data-variant="Matte Black" style="--swatch: #171719;"></button>
+              <button class="product-color" type="button" aria-pressed="false" aria-label="Cloud Pink" data-variant="Cloud Pink" style="--swatch: #e8b9c0;"></button>
+            </div>
 
-                <div class="product-card__image-area">
-                  <img
-                    src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=90"
-                    alt="Beats Solo 4"
-                    draggable="false"
-                  />
-                </div>
+            <div class="product-card__body">
+              <h3>
+                <a href="#" class="product-card__link">
+                  Beats Solo 4 — On-Ear Wireless Headphones — <span class="product-card__variant">Slate Blue</span>
+                </a>
+              </h3>
 
-                <div class="product-card__colors">
-                  <span class="product-color product-color--black product-color--active"></span>
-                  <span class="product-color product-color--blue"></span>
-                  <span class="product-color product-color--gray"></span>
-                </div>
+              <p class="product-card__price">$199.99</p>
+            </div>
 
-                <div class="product-card__body">
-                  <h3>
-                    Beats Solo 4 — On-Ear Wireless Headphones — Slate Blue
-                  </h3>
+          </li>
 
-                  <p class="product-card__price">$199.99</p>
-                </div>
+          <!-- PRODUCT 2 -->
+          <li class="product-card" aria-roledescription="slide" aria-label="2 de 6">
 
-              </a>
-            </article>
+            <div class="product-card__image-area">
+              <img
+                src="https://images.unsplash.com/photo-1589003077984-894e133dabab?auto=format&fit=crop&w=900&q=90"
+                alt="HomePod speaker"
+                draggable="false"
+              />
+              <span class="product-card__tint" aria-hidden="true"></span>
+            </div>
 
-            <!-- PRODUCT 2 -->
-            <article class="product-card">
-              <a href="#" class="product-card__link">
+            <div class="product-card__colors" role="group" aria-label="Color">
+              <button class="product-color" type="button" aria-pressed="true" aria-label="Midnight" data-variant="Midnight" style="--swatch: #171719;"></button>
+              <button class="product-color" type="button" aria-pressed="false" aria-label="White" data-variant="White" style="--swatch: #f5f5f5;"></button>
+            </div>
 
-                <div class="product-card__image-area">
-                  <img
-                    src="https://images.unsplash.com/photo-1589003077984-894e133dabab?auto=format&fit=crop&w=900&q=90"
-                    alt="HomePod White"
-                    draggable="false"
-                  />
-                </div>
+            <div class="product-card__body">
+              <h3>
+                <a href="#" class="product-card__link">
+                  HomePod - <span class="product-card__variant">Midnight</span>
+                </a>
+              </h3>
 
-                <div class="product-card__colors">
-                  <span class="product-color product-color--black product-color--active"></span>
-                  <span class="product-color product-color--white"></span>
-                </div>
+              <p class="product-card__price">$349.00</p>
+            </div>
 
-                <div class="product-card__body">
-                  <h3>HomePod - White</h3>
+          </li>
 
-                  <p class="product-card__price">$349.00</p>
-                </div>
+          <!-- PRODUCT 3 -->
+          <li class="product-card" aria-roledescription="slide" aria-label="3 de 6">
 
-              </a>
-            </article>
+            <div class="product-card__image-area">
+              <img
+                src="https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&w=900&q=90"
+                alt="Siri Remote with a smart TV"
+                draggable="false"
+              />
+            </div>
 
-            <!-- PRODUCT 3 -->
-            <article class="product-card">
-              <a href="#" class="product-card__link">
+            <p class="product-card__colors product-card__colors--note">One finish</p>
 
-                <div class="product-card__image-area">
-                  <img
-                    src="https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&w=900&q=90"
-                    alt="Siri Remote"
-                    draggable="false"
-                  />
-                </div>
+            <div class="product-card__body">
+              <h3>
+                <a href="#" class="product-card__link">Siri Remote</a>
+              </h3>
 
-                <div class="product-card__colors product-card__colors--empty">
-                </div>
+              <p class="product-card__price">$59.00</p>
+            </div>
 
-                <div class="product-card__body">
-                  <h3>Siri Remote</h3>
+          </li>
 
-                  <p class="product-card__price">$59.00</p>
-                </div>
+          <!-- PRODUCT 4 -->
+          <li class="product-card" aria-roledescription="slide" aria-label="4 de 6">
 
-              </a>
-            </article>
+            <div class="product-card__image-area">
+              <img
+                src="https://images.unsplash.com/photo-1558089687-f282ffcbc126?auto=format&fit=crop&w=900&q=90"
+                alt="Smart home accessories on a shelf"
+                draggable="false"
+              />
+            </div>
 
-            <!-- PRODUCT 4 -->
-            <article class="product-card">
-              <a href="#" class="product-card__link">
+            <p class="product-card__colors product-card__colors--note">Multicolor</p>
 
-                <div class="product-card__image-area">
-                  <img
-                    src="https://images.unsplash.com/photo-1550985543-f47f38aeee2d?auto=format&fit=crop&w=900&q=90"
-                    alt="Nanoleaf Essentials"
-                    draggable="false"
-                  />
-                </div>
+            <div class="product-card__body">
+              <span class="product-card__eyebrow">Smart Home Accessories</span>
 
-                <div class="product-card__colors product-card__colors--empty">
-                </div>
+              <h3>
+                <a href="#" class="product-card__link">
+                  Nanoleaf Essentials Matter Smart Multicolor HD Lightstrip
+                </a>
+              </h3>
 
-                <div class="product-card__body">
+              <p class="product-card__price">$69.95</p>
+            </div>
 
-                  <span class="product-card__eyebrow">
-                    Smart Home Accessories
-                  </span>
+          </li>
 
-                  <h3>
-                    Nanoleaf Essentials Matter Smart Multicolor HD Lightstrip
-                  </h3>
+          <!-- PRODUCT 5 -->
+          <li class="product-card" aria-roledescription="slide" aria-label="5 de 6">
 
-                  <p class="product-card__price">$69.95</p>
-                </div>
+            <div class="product-card__image-area">
+              <img
+                src="https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?auto=format&fit=crop&w=900&q=90"
+                alt="AirPods Max headphones"
+                draggable="false"
+              />
+              <span class="product-card__tint" aria-hidden="true"></span>
+            </div>
 
-              </a>
-            </article>
+            <div class="product-card__colors" role="group" aria-label="Color">
+              <button class="product-color" type="button" aria-pressed="true" aria-label="Blue" data-variant="Blue" style="--swatch: #8198a2;"></button>
+              <button class="product-color" type="button" aria-pressed="false" aria-label="Purple" data-variant="Purple" style="--swatch: #b9b0c7;"></button>
+              <button class="product-color" type="button" aria-pressed="false" aria-label="Midnight" data-variant="Midnight" style="--swatch: #171719;"></button>
+              <button class="product-color" type="button" aria-pressed="false" aria-label="Starlight" data-variant="Starlight" style="--swatch: #d8cfbc;"></button>
+              <button class="product-color" type="button" aria-pressed="false" aria-label="Orange" data-variant="Orange" style="--swatch: #e7a17c;"></button>
+            </div>
 
-            <!-- PRODUCT 5 -->
-            <article class="product-card">
-              <a href="#" class="product-card__link">
+            <div class="product-card__body">
+              <span class="product-card__eyebrow">Free Engraving</span>
 
-                <div class="product-card__image-area">
-                  <img
-                    src="https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?auto=format&fit=crop&w=900&q=90"
-                    alt="AirPods Max"
-                    draggable="false"
-                  />
-                </div>
+              <h3>
+                <a href="#" class="product-card__link">
+                  AirPods Max 2 - <span class="product-card__variant">Blue</span>
+                </a>
+              </h3>
 
-                <div class="product-card__colors">
-                  <span class="product-color product-color--steel product-color--active"></span>
-                  <span class="product-color product-color--purple"></span>
-                  <span class="product-color product-color--black"></span>
-                  <span class="product-color product-color--sand"></span>
-                  <span class="product-color product-color--orange"></span>
-                </div>
+              <p class="product-card__price">$549.00</p>
+            </div>
 
-                <div class="product-card__body">
+          </li>
 
-                  <span class="product-card__eyebrow">
-                    Free Engraving
-                  </span>
+          <!-- PRODUCT 6 -->
+          <li class="product-card" aria-roledescription="slide" aria-label="6 de 6">
 
-                  <h3>AirPods Max 2 - Blue</h3>
+            <div class="product-card__image-area">
+              <img
+                src="https://images.unsplash.com/photo-1599669454699-248893623440?auto=format&fit=crop&w=900&q=90"
+                alt="Studio Pro wireless headphones"
+                draggable="false"
+              />
+              <span class="product-card__tint" aria-hidden="true"></span>
+            </div>
 
-                  <p class="product-card__price">$549.00</p>
-                </div>
+            <div class="product-card__colors" role="group" aria-label="Color">
+              <button class="product-color" type="button" aria-pressed="true" aria-label="Black" data-variant="Black" style="--swatch: #171719;"></button>
+              <button class="product-color" type="button" aria-pressed="false" aria-label="Sandstone" data-variant="Sandstone" style="--swatch: #d5c7b2;"></button>
+            </div>
 
-              </a>
-            </article>
+            <div class="product-card__body">
+              <h3>
+                <a href="#" class="product-card__link">
+                  Studio Pro Wireless Headphones — <span class="product-card__variant">Black</span>
+                </a>
+              </h3>
 
-            <!-- PRODUCT 6 -->
-            <article class="product-card">
-              <a href="#" class="product-card__link">
+              <p class="product-card__price">$349.99</p>
+            </div>
 
-                <div class="product-card__image-area">
-                  <img
-                    src="https://images.unsplash.com/photo-1599669454699-248893623440?auto=format&fit=crop&w=900&q=90"
-                    alt="Studio Pro Headphones"
-                    draggable="false"
-                  />
-                </div>
+          </li>
 
-                <div class="product-card__colors">
-                  <span class="product-color product-color--black product-color--active"></span>
-                  <span class="product-color product-color--gray"></span>
-                </div>
+        </ul>
 
-                <div class="product-card__body">
-                  <h3>Studio Pro Wireless Headphones</h3>
+      </div>
 
-                  <p class="product-card__price">$349.99</p>
-                </div>
-
-              </a>
-            </article>
-
-          </div>
-
-        </div>
-
-        <button
-          class="carousel-control carousel-control--next"
-          id="carouselNext"
-          type="button"
-          aria-label="Siguiente"
-        >
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M9 4L17 12L9 20" />
-          </svg>
-        </button>
-
+      <!-- Indicador de progreso: solo transform -->
+      <div class="carousel-progress" aria-hidden="true">
+        <span class="carousel-progress__thumb" id="carouselThumb"></span>
       </div>
 
     </section>

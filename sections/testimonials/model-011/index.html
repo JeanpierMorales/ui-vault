@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Comanda, sistema de caja, cocina, delivery e inventario para restaurantes en Perú. Reseñas verificadas de restaurantes que la usan, filtrables por puntaje y módulo.">
+  <title>Comanda · Reseñas de restaurantes</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<section class="cm" aria-labelledby="cm-title">
+  <div class="cm-wrap">
+
+    <header class="cm-head">
+      <p class="cm-brand"><span class="cm-logo" aria-hidden="true">C</span> Comanda</p>
+      <h2 id="cm-title">214 restaurantes la usan en hora punta. Esto dicen, también lo malo.</h2>
+      <p class="cm-lede">Solo pueden opinar locales con plan activo por más de 90 días. Publicamos todas las reseñas, y respondemos las de 1 a 3 estrellas con lo que cambiamos.</p>
+    </header>
+
+    <div class="cm-body">
+      <aside class="cm-score" aria-labelledby="cm-score-title">
+        <h3 id="cm-score-title" class="sr-only">Resumen de puntajes y filtros</h3>
+        <p class="cm-avg"><span class="cm-avg-num">4,6</span> <span class="cm-avg-of">de 5<br>214 reseñas</span></p>
+
+        <fieldset class="cm-bars">
+          <legend>Filtrar por puntaje</legend>
+          <button class="cm-bar" type="button" aria-pressed="false" data-stars="5"><span class="cm-bar-k">5</span><span class="cm-bar-track"><span style="--w: 73.8%"></span></span><span class="cm-bar-n">158</span><span class="sr-only">reseñas de 5 estrellas</span></button>
+          <button class="cm-bar" type="button" aria-pressed="false" data-stars="4"><span class="cm-bar-k">4</span><span class="cm-bar-track"><span style="--w: 17.8%"></span></span><span class="cm-bar-n">38</span><span class="sr-only">reseñas de 4 estrellas</span></button>
+          <button class="cm-bar" type="button" aria-pressed="false" data-stars="3"><span class="cm-bar-k">3</span><span class="cm-bar-track"><span style="--w: 5.1%"></span></span><span class="cm-bar-n">11</span><span class="sr-only">reseñas de 3 estrellas</span></button>
+          <button class="cm-bar" type="button" aria-pressed="false" data-stars="2"><span class="cm-bar-k">2</span><span class="cm-bar-track"><span style="--w: 2.3%"></span></span><span class="cm-bar-n">5</span><span class="sr-only">reseñas de 2 estrellas</span></button>
+          <button class="cm-bar" type="button" aria-pressed="false" data-stars="1"><span class="cm-bar-k">1</span><span class="cm-bar-track"><span style="--w: 0.9%"></span></span><span class="cm-bar-n">2</span><span class="sr-only">reseñas de 1 estrella</span></button>
+        </fieldset>
+
+        <fieldset class="cm-mods">
+          <legend>Módulo</legend>
+          <div class="cm-seg">
+            <label><input type="radio" name="cm-mod" value="all" checked><span>Todos</span></label>
+            <label><input type="radio" name="cm-mod" value="caja"><span>Caja</span></label>
+            <label><input type="radio" name="cm-mod" value="cocina"><span>Cocina</span></label>
+            <label><input type="radio" name="cm-mod" value="delivery"><span>Delivery</span></label>
+            <label><input type="radio" name="cm-mod" value="inventario"><span>Inventario</span></label>
+          </div>
+        </fieldset>
+
+        <div class="cm-status">
+          <p id="cm-count" aria-live="polite">Mostrando 10 reseñas destacadas</p>
+          <button id="cm-clear" class="cm-clear" type="button" hidden>Quitar filtros</button>
+        </div>
+      </aside>
+
+      <div class="cm-list-wrap">
+        <ol class="cm-list" id="cm-list">
+
+          <li class="tk" data-stars="5" data-mod="cocina">
+            <div class="tk-paper">
+              <p class="tk-top"><span>Cocina</span><span>5/5 · 12 ago</span></p>
+              <blockquote><p>En almuerzo sacamos 180 platos. Antes el mozo gritaba la comanda; ahora la pantalla de cocina ordena por hora de llegada y nadie reclama que su tiradito salió después.</p></blockquote>
+              <p class="tk-who"><strong>Rosa Quispe</strong>, dueña · Cevichería El Muelle, Chorrillos</p>
+              <p class="tk-metric"><span>De mesa a cocina</span><span>4 min → 20 s</span></p>
+            </div>
+          </li>
+
+          <li class="tk" data-stars="5" data-mod="caja">
+            <div class="tk-paper">
+              <p class="tk-top"><span>Caja</span><span>5/5 · 3 jul</span></p>
+              <blockquote><p>El cuadre de caja nos tomaba 40 minutos cada noche con tres cajeros. Ahora lo cierro desde el celular antes de que bajen la reja.</p></blockquote>
+              <p class="tk-who"><strong>Jorge Takahashi</strong>, administrador · Pollería Don Tito, Los Olivos</p>
+              <p class="tk-metric"><span>Cuadre de caja</span><span>40 min → 6 min</span></p>
+            </div>
+          </li>
+
+          <li class="tk" data-stars="2" data-mod="delivery">
+            <div class="tk-paper">
+              <p class="tk-top"><span>Delivery</span><span>2/5 · 29 jul</span></p>
+              <blockquote><p>En Fiestas Patrias la impresora de despacho se desconectó dos veces. Soporte respondió en 8 minutos, pero en hora punta 8 minutos son 14 pizzas.</p></blockquote>
+              <p class="tk-who"><strong>Martín Cárdenas</strong>, dueño · Pizzería Forno 52, San Borja</p>
+              <p class="tk-reply"><strong>Respuesta de Comanda</strong> Pasamos su impresora a red cableada el 2 de agosto. Desde entonces, cero caídas registradas.</p>
+            </div>
+          </li>
+
+          <li class="tk" data-stars="5" data-mod="inventario">
+            <div class="tk-paper">
+              <p class="tk-top"><span>Inventario</span><span>5/5 · 18 jun</span></p>
+              <blockquote><p>Me avisa cuando queda leche para dos días y cruza las recetas con lo vendido. Así descubrimos que el flat white salía con 40 ml de más.</p></blockquote>
+              <p class="tk-who"><strong>Diego Salas</strong>, chef · Café Tostado, Miraflores</p>
+              <p class="tk-metric"><span>Merma de lácteos</span><span>11 % → 4 %</span></p>
+            </div>
+          </li>
+
+          <li class="tk" data-stars="4" data-mod="delivery">
+            <div class="tk-paper">
+              <p class="tk-top"><span>Delivery</span><span>4/5 · 9 may</span></p>
+              <blockquote><p>Juntar Rappi, PedidosYa y los pedidos por WhatsApp en una sola cola nos salvó los viernes. Le pongo 4 porque PedidosYa a veces tarda un minuto en entrar.</p></blockquote>
+              <p class="tk-who"><strong>Milagros Huamán</strong>, encargada · Chifa Kam Lung, Surquillo</p>
+              <p class="tk-metric"><span>Pedidos perdidos al mes</span><span>23 → 2</span></p>
+            </div>
+          </li>
+
+          <li class="tk" data-stars="3" data-mod="cocina">
+            <div class="tk-paper">
+              <p class="tk-top"><span>Cocina</span><span>3/5 · 21 abr</span></p>
+              <blockquote><p>Funciona bien, pero la pantalla se calentaba al lado de la plancha. Nos mandaron un brazo de pared sin costo; igual hubiera preferido que lo advirtieran en la instalación.</p></blockquote>
+              <p class="tk-who"><strong>Paola Ríos</strong>, jefa de cocina · Sanguchería La Ocho, Barranco</p>
+              <p class="tk-reply"><strong>Respuesta de Comanda</strong> Ahora la visita técnica mide la distancia a fuentes de calor antes de instalar.</p>
+            </div>
+          </li>
+
+          <li class="tk" data-stars="5" data-mod="caja">
+            <div class="tk-paper">
+              <p class="tk-top"><span>Caja</span><span>5/5 · 30 may</span></p>
+              <blockquote><p>Tengo 70 años y aprendí a usarla en una tarde. El Yape y el Plin entran solos a la caja; ya no anoto nada en el cuaderno.</p></blockquote>
+              <p class="tk-who"><strong>Lucía Ferrand</strong>, dueña · Juguería Doña Lucha, Mercado de Surquillo</p>
+              <p class="tk-metric"><span>Capacitación</span><span>1 tarde</span></p>
+            </div>
+          </li>
+
+          <li class="tk" data-stars="4" data-mod="inventario">
+            <div class="tk-paper">
+              <p class="tk-top"><span>Inventario</span><span>4/5 · 14 mar</span></p>
+              <blockquote><p>El kilo de corazón por fin cuadra con lo vendido. Falta poder contar el inventario sin wifi desde la cámara de frío.</p></blockquote>
+              <p class="tk-who"><strong>Renato Villena</strong>, dueño · Anticuchería El Farolito, Breña</p>
+              <p class="tk-metric"><span>Diferencia semanal</span><span>9 kg → 1,5 kg</span></p>
+            </div>
+          </li>
+
+          <li class="tk" data-stars="1" data-mod="caja">
+            <div class="tk-paper">
+              <p class="tk-top"><span>Caja</span><span>1/5 · 17 jun</span></p>
+              <blockquote><p>La migración desde nuestro sistema anterior borró el historial de clientes frecuentes y tuvimos que cargarlo a mano durante un fin de semana.</p></blockquote>
+              <p class="tk-who"><strong>Andrea Paredes</strong>, socia · Bar La Esquina, Arequipa</p>
+              <p class="tk-reply"><strong>Respuesta de Comanda</strong> Recuperamos 1 240 registros del respaldo el 19 de junio y corregimos el importador para todos.</p>
+            </div>
+          </li>
+
+          <li class="tk" data-stars="5" data-mod="cocina">
+            <div class="tk-paper">
+              <p class="tk-top"><span>Cocina</span><span>5/5 · 2 sep</span></p>
+              <blockquote><p>Los tiempos por estación nos mostraron que el cuello de botella era la freidora, no los cocineros. Compramos otra y la espera del plato caliente bajó a la mitad.</p></blockquote>
+              <p class="tk-who"><strong>Kevin Chumpitaz</strong>, jefe de cocina · Umi Nikkei, San Isidro</p>
+              <p class="tk-metric"><span>Espera de plato caliente</span><span>18 min → 9 min</span></p>
+            </div>
+          </li>
+
+        </ol>
+        <div class="cm-empty" id="cm-empty" hidden>
+          <p>No hay reseñas destacadas con esa combinación.</p>
+          <button class="cm-clear" type="button" data-clear>Quitar filtros</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="cm-foot">
+      <a class="cm-cta" href="#">Probar 30 días gratis</a>
+      <p>Sin tarjeta. Instalamos caja y pantalla de cocina en tu local de Lima Metropolitana en 48 horas.</p>
+    </footer>
+
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

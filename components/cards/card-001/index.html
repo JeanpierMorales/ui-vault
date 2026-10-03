@@ -6,96 +6,77 @@
 
   <title>Product Cards - Model 001</title>
 
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
   />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
   <main class="page">
 
-    <section class="products">
+    <section class="products" aria-label="Sneakers">
 
       <!-- =========================================
            CARD 01
       ========================================== -->
 
-      <article class="product-card">
+      <article class="product-card" style="--accent: #f34b45; --accent-soft: #fbdcda;">
 
-        <div class="shape shape-blue"></div>
-
-        <div class="product-image-wrapper">
+        <div class="product-media">
           <img
             class="product-image"
             src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=90"
-            alt="Nike Air sneaker"
+            alt="Nike Air sneaker in red, side view"
+            draggable="false"
           />
+
+          <span class="product-tag">Running</span>
         </div>
 
         <div class="product-content">
 
-          <h2 class="product-title">
-            Nike Air
-          </h2>
-
-          <div class="product-details">
-
-            <div class="option-row">
-
-              <span class="option-label">
-                SIZE :
-              </span>
-
-              <div class="sizes">
-                <button class="size active">6</button>
-                <button class="size">7</button>
-                <button class="size">8</button>
-                <button class="size">9</button>
-              </div>
-
+          <header class="product-header">
+            <div>
+              <h2 class="product-title">Nike Air</h2>
+              <p class="product-subtitle">Men's road running shoe</p>
             </div>
 
-            <div class="option-row">
+            <p class="product-price">$129</p>
+          </header>
 
-              <span class="option-label">
-                COLOR :
-              </span>
+          <div class="option-row">
+            <span class="option-label" id="size-label-1">Size</span>
 
-              <div class="colors">
-                <button
-                  class="color color-red"
-                  aria-label="Red"
-                ></button>
-
-                <button
-                  class="color color-blue active"
-                  aria-label="Blue"
-                ></button>
-
-                <button
-                  class="color color-black"
-                  aria-label="Black"
-                ></button>
-              </div>
-
+            <div class="sizes" role="group" aria-labelledby="size-label-1">
+              <button class="size" type="button" aria-pressed="true">6</button>
+              <button class="size" type="button" aria-pressed="false">7</button>
+              <button class="size" type="button" aria-pressed="false">8</button>
+              <button class="size" type="button" aria-pressed="false">9</button>
             </div>
-
-            <button class="cart-button">
-
-              <span class="cart-fill"></span>
-
-              <span class="cart-text">
-                ADD TO CART
-              </span>
-
-            </button>
-
           </div>
+
+          <div class="option-row">
+            <span class="option-label">
+              Color <span class="color-name" aria-live="polite">Red</span>
+            </span>
+
+            <div class="colors" role="group" aria-label="Color">
+              <button class="color" type="button" aria-pressed="true" aria-label="Red" data-name="Red" style="--swatch: #f34b45;"></button>
+              <button class="color" type="button" aria-pressed="false" aria-label="Blue" data-name="Blue" style="--swatch: #64b2e3;"></button>
+              <button class="color" type="button" aria-pressed="false" aria-label="Black" data-name="Black" style="--swatch: #101419;"></button>
+            </div>
+          </div>
+
+          <button class="cart-button" type="button">
+            <span class="cart-fill" aria-hidden="true"></span>
+            <span class="cart-text">Add to cart</span>
+          </button>
 
         </div>
 
@@ -106,77 +87,57 @@
            CARD 02
       ========================================== -->
 
-      <article class="product-card">
+      <article class="product-card" style="--accent: #8d74e5; --accent-soft: #e6e0fa;">
 
-        <div class="shape shape-purple"></div>
-
-        <div class="product-image-wrapper">
+        <div class="product-media">
           <img
             class="product-image"
             src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=900&q=90"
-            alt="Sport sneaker"
+            alt="White leather sport sneaker on a black background"
+            draggable="false"
           />
+
+          <span class="product-tag">Lifestyle</span>
         </div>
 
         <div class="product-content">
 
-          <h2 class="product-title">
-            Air Runner
-          </h2>
-
-          <div class="product-details">
-
-            <div class="option-row">
-
-              <span class="option-label">
-                SIZE :
-              </span>
-
-              <div class="sizes">
-                <button class="size">6</button>
-                <button class="size active">7</button>
-                <button class="size">8</button>
-                <button class="size">9</button>
-              </div>
-
+          <header class="product-header">
+            <div>
+              <h2 class="product-title">Air Runner</h2>
+              <p class="product-subtitle">Everyday leather trainer</p>
             </div>
 
-            <div class="option-row">
+            <p class="product-price">$149</p>
+          </header>
 
-              <span class="option-label">
-                COLOR :
-              </span>
+          <div class="option-row">
+            <span class="option-label" id="size-label-2">Size</span>
 
-              <div class="colors">
-                <button
-                  class="color color-purple active"
-                  aria-label="Purple"
-                ></button>
-
-                <button
-                  class="color color-white"
-                  aria-label="White"
-                ></button>
-
-                <button
-                  class="color color-black"
-                  aria-label="Black"
-                ></button>
-              </div>
-
+            <div class="sizes" role="group" aria-labelledby="size-label-2">
+              <button class="size" type="button" aria-pressed="false">6</button>
+              <button class="size" type="button" aria-pressed="true">7</button>
+              <button class="size" type="button" aria-pressed="false">8</button>
+              <button class="size" type="button" aria-pressed="false">9</button>
             </div>
-
-            <button class="cart-button">
-
-              <span class="cart-fill"></span>
-
-              <span class="cart-text">
-                ADD TO CART
-              </span>
-
-            </button>
-
           </div>
+
+          <div class="option-row">
+            <span class="option-label">
+              Color <span class="color-name" aria-live="polite">Purple</span>
+            </span>
+
+            <div class="colors" role="group" aria-label="Color">
+              <button class="color" type="button" aria-pressed="true" aria-label="Purple" data-name="Purple" style="--swatch: #8d74e5;"></button>
+              <button class="color color--light" type="button" aria-pressed="false" aria-label="White" data-name="White" style="--swatch: #ffffff;"></button>
+              <button class="color" type="button" aria-pressed="false" aria-label="Black" data-name="Black" style="--swatch: #101419;"></button>
+            </div>
+          </div>
+
+          <button class="cart-button" type="button">
+            <span class="cart-fill" aria-hidden="true"></span>
+            <span class="cart-text">Add to cart</span>
+          </button>
 
         </div>
 
@@ -187,77 +148,57 @@
            CARD 03
       ========================================== -->
 
-      <article class="product-card">
+      <article class="product-card" style="--accent: #ee934d; --accent-soft: #fbe6d4;">
 
-        <div class="shape shape-orange"></div>
-
-        <div class="product-image-wrapper">
+        <div class="product-media">
           <img
             class="product-image"
             src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?auto=format&fit=crop&w=900&q=90"
-            alt="Nike sneaker"
+            alt="White Nike sneaker resting on dark clothing"
+            draggable="false"
           />
+
+          <span class="product-tag">Street</span>
         </div>
 
         <div class="product-content">
 
-          <h2 class="product-title">
-            Urban Max
-          </h2>
-
-          <div class="product-details">
-
-            <div class="option-row">
-
-              <span class="option-label">
-                SIZE :
-              </span>
-
-              <div class="sizes">
-                <button class="size">6</button>
-                <button class="size">7</button>
-                <button class="size active">8</button>
-                <button class="size">9</button>
-              </div>
-
+          <header class="product-header">
+            <div>
+              <h2 class="product-title">Urban Max</h2>
+              <p class="product-subtitle">Low-top street classic</p>
             </div>
 
-            <div class="option-row">
+            <p class="product-price">$119</p>
+          </header>
 
-              <span class="option-label">
-                COLOR :
-              </span>
+          <div class="option-row">
+            <span class="option-label" id="size-label-3">Size</span>
 
-              <div class="colors">
-                <button
-                  class="color color-orange active"
-                  aria-label="Orange"
-                ></button>
-
-                <button
-                  class="color color-blue"
-                  aria-label="Blue"
-                ></button>
-
-                <button
-                  class="color color-black"
-                  aria-label="Black"
-                ></button>
-              </div>
-
+            <div class="sizes" role="group" aria-labelledby="size-label-3">
+              <button class="size" type="button" aria-pressed="false">6</button>
+              <button class="size" type="button" aria-pressed="false">7</button>
+              <button class="size" type="button" aria-pressed="true">8</button>
+              <button class="size" type="button" aria-pressed="false">9</button>
             </div>
-
-            <button class="cart-button">
-
-              <span class="cart-fill"></span>
-
-              <span class="cart-text">
-                ADD TO CART
-              </span>
-
-            </button>
-
           </div>
+
+          <div class="option-row">
+            <span class="option-label">
+              Color <span class="color-name" aria-live="polite">Orange</span>
+            </span>
+
+            <div class="colors" role="group" aria-label="Color">
+              <button class="color" type="button" aria-pressed="true" aria-label="Orange" data-name="Orange" style="--swatch: #ee934d;"></button>
+              <button class="color" type="button" aria-pressed="false" aria-label="Blue" data-name="Blue" style="--swatch: #64b2e3;"></button>
+              <button class="color" type="button" aria-pressed="false" aria-label="Black" data-name="Black" style="--swatch: #101419;"></button>
+            </div>
+          </div>
+
+          <button class="cart-button" type="button">
+            <span class="cart-fill" aria-hidden="true"></span>
+            <span class="cart-text">Add to cart</span>
+          </button>
 
         </div>
 

@@ -1,0 +1,1101 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+
+  background: #f5f5f1;
+  color: #171715;
+
+  font-family:
+    "DM Sans",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.analytics-section {
+  width: 100%;
+
+  padding:
+    clamp(90px, 9vw, 150px)
+    clamp(24px, 5vw, 80px);
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      #f8f8f5 0%,
+      #f2f2ee 100%
+    );
+}
+
+
+.analytics-container {
+  width: min(1480px, 100%);
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(300px, 0.72fr)
+    minmax(650px, 1.55fr);
+
+  gap: clamp(70px, 8vw, 140px);
+
+  align-items: center;
+}
+
+
+
+/* =========================================================
+   LEFT COPY
+========================================================= */
+
+.analytics-copy {
+  width: 100%;
+  max-width: 480px;
+}
+
+
+.analytics-eyebrow {
+  display: block;
+
+  margin-bottom: 28px;
+
+  color: #777771;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+}
+
+
+.analytics-title {
+  max-width: 600px;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: clamp(46px, 4.3vw, 72px);
+
+  font-weight: 600;
+
+  line-height: 0.98;
+
+  letter-spacing: -0.06em;
+
+  color: #151515;
+}
+
+
+.analytics-title span {
+  display: block;
+
+  color: #999993;
+}
+
+
+.analytics-description {
+  max-width: 440px;
+
+  margin-top: 30px;
+
+  color: #696964;
+
+  font-size: 16px;
+
+  line-height: 1.7;
+}
+
+
+
+/* =========================================================
+   ACCORDION
+========================================================= */
+
+.analytics-accordion {
+  width: 100%;
+
+  margin-top: 55px;
+
+  border-top: 1px solid #d5d5cf;
+}
+
+
+.accordion-item {
+  border-bottom: 1px solid #d5d5cf;
+}
+
+
+
+/* =========================================================
+   ACCORDION TRIGGER
+========================================================= */
+
+.accordion-trigger {
+  width: 100%;
+
+  min-height: 72px;
+
+  display: grid;
+
+  grid-template-columns:
+    42px
+    1fr
+    22px;
+
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 0;
+
+  background: transparent;
+
+  border: 0;
+
+  color: #1b1b19;
+
+  cursor: pointer;
+
+  text-align: left;
+}
+
+
+.accordion-number {
+  color: #a0a09a;
+
+  font-size: 10px;
+  font-weight: 500;
+
+  letter-spacing: 0.1em;
+
+  transition:
+    color 250ms ease;
+}
+
+
+.accordion-title {
+  font-size: 15px;
+
+  font-weight: 600;
+
+  letter-spacing: -0.02em;
+
+  transition:
+    transform 250ms ease,
+    color 250ms ease;
+}
+
+
+
+/* =========================================================
+   PLUS ICON
+========================================================= */
+
+.accordion-icon {
+  position: relative;
+
+  width: 18px;
+  height: 18px;
+}
+
+
+.accordion-icon::before,
+.accordion-icon::after {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  background: #6e6e69;
+
+  transform:
+    translate(-50%, -50%);
+
+  transition:
+    transform 280ms ease,
+    opacity 280ms ease;
+}
+
+
+.accordion-icon::before {
+  width: 13px;
+  height: 1px;
+}
+
+
+.accordion-icon::after {
+  width: 1px;
+  height: 13px;
+}
+
+
+
+/* =========================================================
+   ACCORDION CONTENT
+========================================================= */
+
+.accordion-content {
+  display: grid;
+
+  grid-template-rows: 0fr;
+
+  opacity: 0;
+
+  transition:
+    grid-template-rows 380ms
+      cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 250ms ease;
+}
+
+
+.accordion-content-inner {
+  overflow: hidden;
+}
+
+
+.accordion-content p {
+  max-width: 330px;
+
+  padding:
+    0
+    35px
+    22px
+    56px;
+
+  color: #73736e;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+
+/* =========================================================
+   ACCORDION ACTIVE
+========================================================= */
+
+.accordion-item.active
+.accordion-content {
+  grid-template-rows: 1fr;
+
+  opacity: 1;
+}
+
+
+.accordion-item.active
+.accordion-icon::after {
+  transform:
+    translate(-50%, -50%)
+    rotate(90deg);
+
+  opacity: 0;
+}
+
+
+.accordion-item.active
+.accordion-number {
+  color: #181816;
+}
+
+
+.accordion-trigger:hover
+.accordion-title {
+  transform: translateX(3px);
+}
+
+
+
+/* =========================================================
+   DASHBOARD
+========================================================= */
+
+.analytics-dashboard {
+  width: 100%;
+
+  padding:
+    clamp(24px, 3vw, 38px);
+
+  background: #ffffff;
+
+  border: 1px solid #deded8;
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 35px 90px
+    rgba(24, 24, 20, 0.07);
+}
+
+
+
+/* =========================================================
+   DASHBOARD HEADER
+========================================================= */
+
+.dashboard-header {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  padding-bottom: 27px;
+
+  border-bottom:
+    1px solid #e8e8e3;
+}
+
+
+.dashboard-eyebrow {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #888883;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+}
+
+
+.dashboard-header h2 {
+  color: #181816;
+
+  font-size: 22px;
+
+  font-weight: 600;
+
+  letter-spacing: -0.035em;
+}
+
+
+
+/* =========================================================
+   PERIOD
+========================================================= */
+
+.period-selector {
+  display: flex;
+
+  flex-shrink: 0;
+
+  align-items: center;
+
+  gap: 16px;
+
+  padding: 10px 13px;
+
+  background: #fafaf8;
+
+  border: 1px solid #deded9;
+
+  border-radius: 5px;
+
+  color: #62625e;
+
+  font-size: 12px;
+}
+
+
+.period-selector svg {
+  width: 14px;
+  height: 14px;
+}
+
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  border-bottom:
+    1px solid #e8e8e3;
+}
+
+
+.stat-card {
+  padding:
+    28px
+    22px
+    28px
+    0;
+}
+
+
+.stat-card + .stat-card {
+  padding-left: 25px;
+
+  border-left:
+    1px solid #e8e8e3;
+}
+
+
+.stat-label {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: #82827d;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.13em;
+}
+
+
+.stat-value {
+  display: block;
+
+  color: #181816;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size:
+    clamp(30px, 2.7vw, 42px);
+
+  font-weight: 600;
+
+  line-height: 1;
+
+  letter-spacing: -0.05em;
+}
+
+
+
+/* =========================================================
+   PERFORMANCE
+========================================================= */
+
+.performance-card {
+  padding: 31px 0 30px;
+
+  border-bottom:
+    1px solid #e8e8e3;
+}
+
+
+.card-header {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+
+.card-eyebrow {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #858580;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+}
+
+
+.card-header h3 {
+  color: #1b1b19;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  letter-spacing: -0.02em;
+}
+
+
+.card-total {
+  color: #3e3e3a;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+
+
+/* =========================================================
+   CHART
+========================================================= */
+
+.chart {
+  position: relative;
+
+  width: 100%;
+
+  height: 230px;
+
+  margin-top: 28px;
+}
+
+
+.chart-grid {
+  position: absolute;
+
+  inset:
+    0
+    0
+    29px
+    0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+}
+
+
+.chart-grid span {
+  width: 100%;
+  height: 1px;
+
+  background: #eeeeea;
+}
+
+
+.chart-svg {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  height: calc(100% - 29px);
+}
+
+
+.chart-area {
+  fill: url("#chartGradient");
+}
+
+
+.chart-line {
+  fill: none;
+
+  stroke: #171715;
+
+  stroke-width: 2;
+
+  stroke-linecap: round;
+
+  vector-effect:
+    non-scaling-stroke;
+}
+
+
+.chart-dates {
+  position: absolute;
+
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  color: #7f7f79;
+
+  font-size: 10px;
+
+  font-weight: 500;
+}
+
+
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.analytics-bottom {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.4fr)
+    minmax(230px, 0.85fr);
+}
+
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.content-card {
+  min-width: 0;
+
+  padding:
+    30px
+    31px
+    0
+    0;
+
+  border-right:
+    1px solid #e8e8e3;
+}
+
+
+.post-list {
+  margin-top: 23px;
+}
+
+
+.post-row {
+  display: grid;
+
+  grid-template-columns:
+    30px
+    minmax(0, 1fr)
+    80px;
+
+  align-items: center;
+
+  gap: 12px;
+
+  min-height: 62px;
+
+  border-top:
+    1px solid #eeeeea;
+}
+
+
+.post-number {
+  color: #878781;
+
+  font-size: 10px;
+
+  font-weight: 500;
+}
+
+
+.post-info {
+  min-width: 0;
+}
+
+
+.post-info strong {
+  display: block;
+
+  overflow: hidden;
+
+  color: #292926;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
+
+
+.post-performance {
+  text-align: right;
+}
+
+
+.post-performance strong {
+  color: #292926;
+
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+
+
+/* =========================================================
+   PERFORMANCE BAR
+========================================================= */
+
+.performance-bar {
+  width: 100%;
+  height: 2px;
+
+  margin-top: 8px;
+
+  overflow: hidden;
+
+  background: #e7e7e2;
+}
+
+
+.bar {
+  display: block;
+
+  height: 100%;
+
+  background: #181816;
+}
+
+
+.bar-94 {
+  width: 94%;
+}
+
+
+.bar-76 {
+  width: 76%;
+}
+
+
+.bar-58 {
+  width: 58%;
+}
+
+
+
+/* =========================================================
+   ACCOUNTS
+========================================================= */
+
+.accounts-card {
+  min-width: 0;
+
+  padding:
+    30px
+    0
+    0
+    31px;
+}
+
+
+.account-list {
+  margin-top: 23px;
+}
+
+
+.account-row {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 14px;
+
+  min-height: 62px;
+
+  border-top:
+    1px solid #eeeeea;
+}
+
+
+.account-info {
+  display: flex;
+
+  min-width: 0;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+
+.account-indicator {
+  width: 6px;
+  height: 6px;
+
+  flex: 0 0 auto;
+
+  background: #1c1c1a;
+
+  border-radius: 50%;
+}
+
+
+.account-info strong {
+  display: block;
+
+  overflow: hidden;
+
+  color: #292926;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
+
+
+.account-value {
+  flex: 0 0 auto;
+
+  color: #292926;
+
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1150px) {
+
+  .analytics-container {
+    grid-template-columns: 1fr;
+
+    gap: 70px;
+  }
+
+
+  .analytics-copy {
+    max-width: 650px;
+  }
+
+
+  .analytics-description {
+    max-width: 520px;
+  }
+
+
+  .analytics-accordion {
+    max-width: 550px;
+  }
+
+}
+
+
+
+@media (max-width: 760px) {
+
+  .analytics-section {
+    padding:
+      80px
+      22px;
+  }
+
+
+  .analytics-dashboard {
+    padding: 22px;
+  }
+
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .stat-card {
+    padding:
+      22px
+      0;
+  }
+
+
+  .stat-card + .stat-card {
+    padding-left: 0;
+
+    border-left: 0;
+
+    border-top:
+      1px solid #e8e8e3;
+  }
+
+
+  .analytics-bottom {
+    grid-template-columns: 1fr;
+  }
+
+
+  .content-card {
+    padding:
+      27px
+      0;
+
+    border-right: 0;
+
+    border-bottom:
+      1px solid #e8e8e3;
+  }
+
+
+  .accounts-card {
+    padding:
+      27px
+      0
+      0;
+  }
+
+
+  .chart {
+    height: 190px;
+  }
+
+}
+
+
+
+@media (max-width: 520px) {
+
+  .analytics-section {
+    padding:
+      70px
+      18px;
+  }
+
+
+  .analytics-title {
+    font-size:
+      clamp(42px, 13vw, 58px);
+  }
+
+
+  .analytics-description {
+    font-size: 15px;
+  }
+
+
+  .analytics-accordion {
+    margin-top: 42px;
+  }
+
+
+  .accordion-trigger {
+    grid-template-columns:
+      32px
+      1fr
+      20px;
+
+    min-height: 68px;
+  }
+
+
+  .accordion-content p {
+    padding:
+      0
+      25px
+      20px
+      46px;
+  }
+
+
+  .analytics-dashboard {
+    padding: 18px;
+  }
+
+
+  .dashboard-header {
+    flex-direction: column;
+  }
+
+
+  .period-selector {
+    width: 100%;
+
+    justify-content: space-between;
+  }
+
+
+  .chart {
+    height: 170px;
+  }
+
+
+  .chart-dates span:nth-child(2),
+  .chart-dates span:nth-child(4) {
+    display: none;
+  }
+
+
+  .post-row {
+    grid-template-columns:
+      24px
+      minmax(0, 1fr)
+      62px;
+  }
+
+
+  .account-info strong {
+    max-width: 150px;
+  }
+
+}
+
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+
+}

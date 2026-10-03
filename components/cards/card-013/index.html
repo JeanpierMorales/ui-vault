@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Music Player Card</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="../_shared/tokens.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <main class="mp-page">
+
+    <article class="player" aria-label="Music player">
+
+      <div class="player__top">
+
+        <!-- Art + vinyl: the disc slides out and spins while playing -->
+        <div class="player__media">
+          <div class="player__vinyl" aria-hidden="true">
+            <div class="player__disc">
+              <span class="player__vinyl-label">
+                <img
+                  class="player__vinyl-img"
+                  src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=900&q=80"
+                  alt=""
+                />
+              </span>
+            </div>
+          </div>
+
+          <div class="player__art">
+            <img
+              class="player__art-img is-current"
+              src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=900&q=80"
+              alt="Album cover of Midnight Arcade by Nova Lanes"
+              draggable="false"
+            />
+          </div>
+        </div>
+
+        <div class="player__info">
+          <div class="player__status">
+            <span class="eq" aria-hidden="true">
+              <span></span><span></span><span></span><span></span>
+            </span>
+            <span class="player__status-text">Paused</span>
+          </div>
+
+          <div class="player__meta" aria-live="polite">
+            <h1 class="player__title">Midnight Arcade</h1>
+            <p class="player__artist">Nova Lanes</p>
+          </div>
+
+          <p class="player__queue"><span class="player__queue-pos">1</span> of 3 · Late Night Mix</p>
+        </div>
+
+        <button
+          class="icon-btn player__like"
+          type="button"
+          aria-pressed="false"
+          aria-label="Like track"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 20.3 10.6 19C5.6 14.5 2.5 11.7 2.5 8.2 2.5 5.5 4.6 3.4 7.3 3.4c1.5 0 3 .7 4 1.9 1-1.2 2.5-1.9 4-1.9 2.7 0 4.8 2.1 4.8 4.8 0 3.5-3.1 6.3-8.1 10.8L12 20.3Z" />
+          </svg>
+        </button>
+
+      </div>
+
+      <!-- Progress: custom slider (pointer drag, click, arrow keys) -->
+      <div class="player__progress">
+        <div
+          class="scrub"
+          role="slider"
+          tabindex="0"
+          aria-label="Seek"
+          aria-valuemin="0"
+          aria-valuemax="0"
+          aria-valuenow="0"
+          aria-valuetext="0:00 of 0:00"
+        >
+          <span class="scrub__rail">
+            <span class="scrub__fill"></span>
+          </span>
+          <span class="scrub__thumb-track">
+            <span class="scrub__thumb"></span>
+          </span>
+        </div>
+
+        <div class="player__times">
+          <span class="player__elapsed">0:00</span>
+          <span class="player__remaining">-0:00</span>
+        </div>
+      </div>
+
+      <div class="player__controls">
+        <button class="icon-btn player__prev" type="button" aria-label="Previous track">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M18.5 5.6v12.8a.8.8 0 0 1-1.25.66L8.6 12.66a.8.8 0 0 1 0-1.32l8.65-6.4a.8.8 0 0 1 1.25.66Z" />
+            <rect x="5" y="5" width="2.4" height="14" rx="1.2" />
+          </svg>
+        </button>
+
+        <button class="player__play" type="button" aria-pressed="false" aria-label="Play">
+          <span class="play-icon" aria-hidden="true"></span>
+        </button>
+
+        <button class="icon-btn player__next" type="button" aria-label="Next track">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5.5 5.6v12.8a.8.8 0 0 0 1.25.66l8.65-6.4a.8.8 0 0 0 0-1.32L6.75 4.94a.8.8 0 0 0-1.25.66Z" />
+            <rect x="16.6" y="5" width="2.4" height="14" rx="1.2" />
+          </svg>
+        </button>
+      </div>
+
+    </article>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

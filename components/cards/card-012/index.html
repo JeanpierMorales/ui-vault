@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expanding Image Cards</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <main class="xp-page">
+
+    <header class="xp-head">
+      <p class="xp-head__eyebrow">Autumn journeys · 2026</p>
+      <h1 class="xp-head__title">Where to next?</h1>
+    </header>
+
+    <!--
+      Each card = full-size trigger button (opens the card) + an info panel.
+      Folded panels are made `inert` from script.js so hidden links are never focusable.
+    -->
+    <ul class="xp-row" aria-label="Featured destinations">
+
+      <li class="xp-card" style="--tone:#6b4a3a">
+        <img
+          class="xp-card__img"
+          src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=900&q=80"
+          alt="Wooden pagoda among autumn maples in Kyoto"
+          draggable="false"
+          loading="lazy"
+        />
+        <span class="xp-card__shade" aria-hidden="true"></span>
+
+        <button class="xp-card__trigger" type="button" aria-expanded="false" aria-controls="xp-panel-1">
+          <span class="xp-card__index" aria-hidden="true">01</span>
+          <span class="xp-card__spine">Kyoto</span>
+          <span class="visually-hidden">Show details</span>
+        </button>
+
+        <div class="xp-card__panel" id="xp-panel-1">
+          <p class="xp-card__meta">Japan · 7 nights</p>
+          <h2 class="xp-card__title">Kyoto</h2>
+          <p class="xp-card__text">Temple gardens at first light, tea houses in Gion and maple valleys turning crimson.</p>
+          <a class="xp-card__cta" href="#">
+            <span>Explore trip</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></svg>
+          </a>
+        </div>
+      </li>
+
+      <li class="xp-card" style="--tone:#2f5673">
+        <img
+          class="xp-card__img"
+          src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=900&q=80"
+          alt="White houses and blue domes above the sea in Santorini"
+          draggable="false"
+          loading="lazy"
+        />
+        <span class="xp-card__shade" aria-hidden="true"></span>
+
+        <button class="xp-card__trigger" type="button" aria-expanded="false" aria-controls="xp-panel-2">
+          <span class="xp-card__index" aria-hidden="true">02</span>
+          <span class="xp-card__spine">Santorini</span>
+          <span class="visually-hidden">Show details</span>
+        </button>
+
+        <div class="xp-card__panel" id="xp-panel-2">
+          <p class="xp-card__meta">Greece · 5 nights</p>
+          <h2 class="xp-card__title">Santorini</h2>
+          <p class="xp-card__text">Caldera sunsets from Oia, volcanic beaches and slow lunches by the Aegean.</p>
+          <a class="xp-card__cta" href="#">
+            <span>Explore trip</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></svg>
+          </a>
+        </div>
+      </li>
+
+      <li class="xp-card" style="--tone:#2e5a5c">
+        <img
+          class="xp-card__img"
+          src="https://images.unsplash.com/photo-1531761535209-180857e963b9?auto=format&fit=crop&w=900&q=80"
+          alt="Turquoise lagoon and limestone islands in El Nido, Palawan"
+          draggable="false"
+          loading="lazy"
+        />
+        <span class="xp-card__shade" aria-hidden="true"></span>
+
+        <button class="xp-card__trigger" type="button" aria-expanded="false" aria-controls="xp-panel-3">
+          <span class="xp-card__index" aria-hidden="true">03</span>
+          <span class="xp-card__spine">Palawan</span>
+          <span class="visually-hidden">Show details</span>
+        </button>
+
+        <div class="xp-card__panel" id="xp-panel-3">
+          <p class="xp-card__meta">Philippines · 9 nights</p>
+          <h2 class="xp-card__title">Palawan</h2>
+          <p class="xp-card__text">Island-hopping by bangka through El Nido, hidden lagoons and quiet white-sand coves.</p>
+          <a class="xp-card__cta" href="#">
+            <span>Explore trip</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></svg>
+          </a>
+        </div>
+      </li>
+
+      <li class="xp-card" style="--tone:#2c3b3a">
+        <img
+          class="xp-card__img"
+          src="https://images.unsplash.com/photo-1504893524553-b855bce32c67?auto=format&fit=crop&w=900&q=80"
+          alt="Moss-covered canyon with a winding river in southern Iceland"
+          draggable="false"
+          loading="lazy"
+        />
+        <span class="xp-card__shade" aria-hidden="true"></span>
+
+        <button class="xp-card__trigger" type="button" aria-expanded="false" aria-controls="xp-panel-4">
+          <span class="xp-card__index" aria-hidden="true">04</span>
+          <span class="xp-card__spine">Iceland</span>
+          <span class="visually-hidden">Show details</span>
+        </button>
+
+        <div class="xp-card__panel" id="xp-panel-4">
+          <p class="xp-card__meta">Nordics · 6 nights</p>
+          <h2 class="xp-card__title">Iceland</h2>
+          <p class="xp-card__text">Ring Road waterfalls, black-sand coves and geothermal pools under the northern lights.</p>
+          <a class="xp-card__cta" href="#">
+            <span>Explore trip</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></svg>
+          </a>
+        </div>
+      </li>
+
+      <li class="xp-card" style="--tone:#7a4a2c">
+        <img
+          class="xp-card__img"
+          src="https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?auto=format&fit=crop&w=900&q=80"
+          alt="Mud-brick kasbah and palm oasis below the Atlas Mountains"
+          draggable="false"
+          loading="lazy"
+        />
+        <span class="xp-card__shade" aria-hidden="true"></span>
+
+        <button class="xp-card__trigger" type="button" aria-expanded="false" aria-controls="xp-panel-5">
+          <span class="xp-card__index" aria-hidden="true">05</span>
+          <span class="xp-card__spine">Morocco</span>
+          <span class="visually-hidden">Show details</span>
+        </button>
+
+        <div class="xp-card__panel" id="xp-panel-5">
+          <p class="xp-card__meta">Morocco · 8 nights</p>
+          <h2 class="xp-card__title">Morocco</h2>
+          <p class="xp-card__text">Riads in Marrakech, the Atlas passes and a night under the stars in the Sahara.</p>
+          <a class="xp-card__cta" href="#">
+            <span>Explore trip</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></svg>
+          </a>
+        </div>
+      </li>
+
+    </ul>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

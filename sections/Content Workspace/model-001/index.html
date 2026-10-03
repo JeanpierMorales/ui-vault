@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>MIRA — Content Workflow</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <main>
+      <!-- DEMO PREVIOUS SECTION -->
+      <section class="demo-section">
+        <span>Previous section</span>
+      </section>
+
+      <!-- =====================================================
+         MIRA — CONTENT SECTION
+    ====================================================== -->
+
+      <section class="content-story" id="content-story">
+        <div class="content-sticky">
+          <div class="content-container">
+            <!-- =================================================
+               HEADER
+          ================================================== -->
+
+            <header class="story-header">
+              <span class="section-label"> CONTENT CREATION </span>
+
+              <h1>
+                Do I have to create
+                <span>everything from scratch?</span>
+              </h1>
+
+              <p>
+                No. Start with what you already have. MIRA can work with
+                finished content, a single scene, or a Booketeer-indexed
+                manuscript.
+              </p>
+            </header>
+
+            <!-- =================================================
+               MAIN EXPERIENCE
+          ================================================== -->
+
+            <div class="story-layout">
+              <!-- ===============================================
+                 LEFT — VISUAL
+            ================================================ -->
+
+              <div class="visual-shell" id="visualShell">
+                <!-- =============================================
+                   STATE 01
+            ============================================== -->
+
+                <div class="visual-state state-one active" data-state="0">
+                  <!-- BACKGROUND IMAGE -->
+
+                  <div class="media-layer main-photo" data-depth="0.35">
+                    <img
+                      src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1500&q=85"
+                      alt="Collection of books"
+                    />
+
+                    <div class="image-overlay"></div>
+                  </div>
+
+                  <!-- BIG NUMBER -->
+
+                  <span class="visual-number" data-depth="0.12"> 01 </span>
+
+                  <!-- COPY ON IMAGE -->
+
+                  <div class="visual-caption" data-depth="0.16">
+                    <span> BRING WHAT YOU HAVE </span>
+
+                    <strong>
+                      Already made it?
+                      <br />
+                      Upload it.
+                    </strong>
+                  </div>
+
+                  <!-- CONTENT WINDOW -->
+
+                  <div class="floating-window upload-window" data-depth="0.55">
+                    <div class="window-header">
+                      <div class="window-title">
+                        <span> CONTENT LIBRARY </span>
+
+                        <strong> Ready to use </strong>
+                      </div>
+
+                      <span class="window-action"> + </span>
+                    </div>
+
+                    <div class="upload-list">
+                      <!-- ITEM -->
+
+                      <div class="upload-item">
+                        <div class="upload-thumbnail">
+                          <img
+                            src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=300&q=80"
+                            alt=""
+                          />
+                        </div>
+
+                        <div class="upload-info">
+                          <strong> winter-cover.jpg </strong>
+
+                          <span> Image </span>
+                        </div>
+
+                        <span class="check"> ✓ </span>
+                      </div>
+
+                      <!-- ITEM -->
+
+                      <div class="upload-item">
+                        <div class="file-icon">Aa</div>
+
+                        <div class="upload-info">
+                          <strong> launch-caption.txt </strong>
+
+                          <span> Caption </span>
+                        </div>
+
+                        <span class="check"> ✓ </span>
+                      </div>
+
+                      <!-- ITEM -->
+
+                      <div class="upload-item">
+                        <div class="file-icon dark">▶</div>
+
+                        <div class="upload-info">
+                          <strong> teaser-video.mp4 </strong>
+
+                          <span> Video </span>
+                        </div>
+
+                        <span class="check"> ✓ </span>
+                      </div>
+                    </div>
+
+                    <div class="upload-footer">
+                      <span> 3 items selected </span>
+
+                      <button type="button">Add content</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- =============================================
+                   STATE 02
+              ============================================== -->
+
+                <div class="visual-state state-two" data-state="1">
+                  <!-- BACKGROUND -->
+
+                  <div class="media-layer writing-photo" data-depth="0.3">
+                    <img
+                      src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1500&q=85"
+                      alt="Author writing a manuscript"
+                    />
+
+                    <div class="image-overlay"></div>
+                  </div>
+
+                  <!-- NUMBER -->
+
+                  <span class="visual-number" data-depth="0.1"> 02 </span>
+
+                  <!-- SCENE PAPER -->
+
+                  <div class="scene-paper" data-depth="0.48">
+                    <div class="paper-header">
+                      <span> SCENE 14 </span>
+
+                      <span> A VOW IN WINTER </span>
+                    </div>
+
+                    <div class="paper-content">
+                      <span class="quote-mark"> “ </span>
+
+                      <p>
+                        She had promised herself she would never come back. Yet
+                        there he was, standing beneath the same winter sky.
+                      </p>
+                    </div>
+
+                    <div class="selection-line">
+                      <span></span>
+
+                      <strong> Selected scene </strong>
+                    </div>
+                  </div>
+
+                  <!-- GENERATED OUTPUT -->
+
+                  <div class="generate-panel" data-depth="0.7">
+                    <span class="generate-label"> CREATE FROM THIS SCENE </span>
+
+                    <div class="generate-grid">
+                      <button type="button">
+                        <span>Hook</span>
+                        <strong>→</strong>
+                      </button>
+
+                      <button type="button">
+                        <span>Caption</span>
+                        <strong>→</strong>
+                      </button>
+
+                      <button type="button">
+                        <span>Visual</span>
+                        <strong>→</strong>
+                      </button>
+
+                      <button type="button">
+                        <span>Hashtags</span>
+                        <strong>→</strong>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- =============================================
+                   STATE 03
+              ============================================== -->
+
+                <div class="visual-state state-three" data-state="2">
+                  <div class="booketeer-background"></div>
+
+                  <!-- BIG NUMBER -->
+
+                  <span class="visual-number dark-number" data-depth="0.08">
+                    03
+                  </span>
+
+                  <!-- BOOK -->
+
+                  <div class="book-object" data-depth="0.42">
+                    <img
+                      src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=900&q=85"
+                      alt="Book manuscript"
+                    />
+
+                    <div class="book-shade"></div>
+
+                    <div class="book-copy">
+                      <span> A NOVEL </span>
+
+                      <strong>
+                        A Vow
+                        <br />
+                        in Winter
+                      </strong>
+                    </div>
+                  </div>
+
+                  <!-- CONNECTION -->
+
+                  <div class="connection">
+                    <span></span>
+
+                    <div>→</div>
+                  </div>
+
+                  <!-- INDEX PANEL -->
+
+                  <div class="index-window" data-depth="0.62">
+                    <div class="index-header">
+                      <div>
+                        <span> BOOKETEER </span>
+
+                        <h3>Your book is ready.</h3>
+                      </div>
+
+                      <div class="ready-icon">✓</div>
+                    </div>
+
+                    <div class="index-metrics">
+                      <div>
+                        <strong> 42 </strong>
+
+                        <span> Scenes </span>
+                      </div>
+
+                      <div>
+                        <strong> 8 </strong>
+
+                        <span> Characters </span>
+                      </div>
+
+                      <div>
+                        <strong> 12 </strong>
+
+                        <span> Tropes </span>
+                      </div>
+                    </div>
+
+                    <div class="index-scenes">
+                      <button type="button">
+                        <span class="scene-index"> 14 </span>
+
+                        <div>
+                          <strong> The return </strong>
+
+                          <span> Second chance · tension </span>
+                        </div>
+
+                        <span> → </span>
+                      </button>
+
+                      <button type="button">
+                        <span class="scene-index"> 21 </span>
+
+                        <div>
+                          <strong> One room left </strong>
+
+                          <span> Forced proximity </span>
+                        </div>
+
+                        <span> → </span>
+                      </button>
+
+                      <button type="button">
+                        <span class="scene-index"> 31 </span>
+
+                        <div>
+                          <strong> The confession </strong>
+
+                          <span> Emotional payoff </span>
+                        </div>
+
+                        <span> → </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ===============================================
+                 RIGHT — NAVIGATION
+            ================================================ -->
+
+              <div class="story-navigation">
+                <!-- STEP 01 -->
+
+                <button class="story-step active" data-target="0" type="button">
+                  <span class="step-number"> 01 </span>
+
+                  <div class="step-content">
+                    <span class="step-overline"> ALREADY HAVE CONTENT? </span>
+
+                    <h2>Upload your own.</h2>
+
+                    <div class="step-description">
+                      <p>
+                        Bring finished text, images, videos, captions, and
+                        hashtags directly into MIRA.
+                      </p>
+                    </div>
+                  </div>
+
+                  <span class="step-arrow"> → </span>
+                </button>
+
+                <!-- STEP 02 -->
+
+                <button class="story-step" data-target="1" type="button">
+                  <span class="step-number"> 02 </span>
+
+                  <div class="step-content">
+                    <span class="step-overline"> NEED SOMETHING NEW? </span>
+
+                    <h2>Start with a scene.</h2>
+
+                    <div class="step-description">
+                      <p>
+                        Paste a scene and use it as the starting point for your
+                        next piece of content.
+                      </p>
+                    </div>
+                  </div>
+
+                  <span class="step-arrow"> → </span>
+                </button>
+
+                <!-- STEP 03 -->
+
+                <button class="story-step" data-target="2" type="button">
+                  <span class="step-number"> 03 </span>
+
+                  <div class="step-content">
+                    <span class="step-overline"> HAVE THE FULL BOOK? </span>
+
+                    <h2>Index it once.</h2>
+
+                    <div class="step-description">
+                      <p>
+                        Use a Booketeer-indexed book to pull scenes directly
+                        into your MIRA workflow.
+                      </p>
+                    </div>
+                  </div>
+
+                  <span class="step-arrow"> → </span>
+                </button>
+
+                <!-- SCROLL PROGRESS -->
+
+                <div class="scroll-status">
+                  <span> SCROLL TO EXPLORE </span>
+
+                  <div class="scroll-track">
+                    <span class="scroll-fill" id="scrollFill"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DEMO NEXT SECTION -->
+
+      <section class="demo-section demo-dark">
+        <span>Next section</span>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

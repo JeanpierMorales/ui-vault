@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>BC — Architecture</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="nav">
+      <a href="#" class="logo">BC</a>
+      <nav>
+        <a href="#about" class="active">ABOUT</a>
+        <a href="#services">SERVICES</a>
+        <a href="#portfolio">PORTFOLIO</a>
+        <a href="#contact">CONTACTS</a>
+      </nav>
+      <a href="#contact" class="book">BOOK A CALL <span>↗</span></a>
+    </header>
+
+    <main>
+      <section class="hero" id="about">
+        <img
+          class="hero-bg"
+          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2200&q=90"
+          alt="Modern architecture"
+        />
+
+        <div class="hero-shade"></div>
+
+        <div class="hero-copy">
+          <p class="eyebrow">
+            Turning ambitious ideas into architecture that shapes cities,
+            businesses and the way people experience space.
+          </p>
+          <h1>The best way to predict<br />the future is to invent it.</h1>
+          <a href="#services" class="hero-btn">Learn More <span>↗</span></a>
+        </div>
+
+        <div class="video-card">
+          <img
+            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=700&q=85"
+            alt=""
+          />
+          <button aria-label="Play video">▶</button>
+        </div>
+      </section>
+
+      <section class="stats" id="services">
+        <article class="stat stat-light">
+          <div class="stat-top">
+            <span class="number">10 K</span>
+            <span class="mini-label">TEAM</span>
+          </div>
+          <div class="stat-bottom">
+            <p>EMPLOYEES ALL OVER THE WORLD</p>
+            <button>↗</button>
+          </div>
+        </article>
+
+        <article class="stat stat-light">
+          <div class="stat-top">
+            <span class="number">$12 Bn</span>
+          </div>
+          <div class="stat-bottom">
+            <p>OF CONSTRUCTION</p>
+            <div class="thumb">
+              <img
+                src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=400&q=80"
+                alt=""
+              />
+            </div>
+          </div>
+        </article>
+
+        <article class="stat stat-dark" id="portfolio">
+          <span class="number">1,500</span>
+          <p>PROJECTS EACH YEAR</p>
+        </article>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

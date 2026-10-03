@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Paralelo, taller de arquitectura en Arequipa. Casas, patios y rehabilitación en sillar y concreto.">
+  <title>Paralelo, arquitectura en Arequipa</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<header class="top" id="top">
+  <a class="brand" href="#contenido" aria-label="Paralelo, taller de arquitectura, inicio">
+    <span class="brand-lines" aria-hidden="true"><i></i><i></i></span>
+    <span>paralelo</span>
+  </a>
+
+  <nav class="top-nav" aria-label="Principal">
+    <a class="top-link" href="#proyectos">Proyectos</a>
+    <a class="top-link" href="mailto:taller@paralelo.pe">taller@paralelo.pe</a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="overlay">
+      <span>Menú</span>
+      <span class="menu-icon" aria-hidden="true"><i></i><i></i></span>
+    </button>
+  </nav>
+</header>
+
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Menú del sitio" hidden>
+  <div class="overlay-top">
+    <p class="brand brand--overlay" aria-hidden="true"><span class="brand-lines"><i></i><i></i></span><span>paralelo</span></p>
+    <button class="close-btn" id="closeBtn" type="button">Cerrar<span class="sr-only"> menú</span></button>
+  </div>
+
+  <div class="overlay-body">
+    <nav class="big-nav" aria-label="Secciones">
+      <ul id="bigList">
+        <li><a href="#proyectos" data-img="img/fachada.webp" data-cap="Casa Tingo, Sachaca. Muros de concreto blanqueado, 2025."><span class="line"><span class="word">Proyectos</span></span><span class="count">14 obras</span></a></li>
+        <li><a href="#estudio" data-img="img/calle.webp" data-cap="Pasaje del taller en la calle Moral, a las 9:00."><span class="line"><span class="word">Estudio</span></span><span class="count">6 personas</span></a></li>
+        <li><a href="#sillar" data-img="img/muro.webp" data-cap="Muro de prueba de 60 cm para la casona Goyeneche."><span class="line"><span class="word">Sillar</span></span><span class="count">investigación</span></a></li>
+        <li><a href="#contacto" data-img="img/aletas.webp" data-cap="Aletas de sombra del colegio de Cayma, maqueta 1:50."><span class="line"><span class="word">Contacto</span></span><span class="count">visitas los jueves</span></a></li>
+      </ul>
+    </nav>
+
+    <figure class="preview" aria-hidden="true">
+      <div class="preview-frame"><img id="previewImg" src="img/fachada.webp" alt="" width="800" height="533"></div>
+      <figcaption id="previewCap">Casa Tingo, Sachaca. Muros de concreto blanqueado, 2025.</figcaption>
+    </figure>
+  </div>
+
+  <div class="overlay-foot">
+    <div class="live">
+      <p class="live-clock"><span id="clock">--:--</span> en Arequipa</p>
+      <p class="live-status" id="liveStatus">El taller abre de lunes a viernes, de 9:00 a 19:00.</p>
+    </div>
+    <p class="live-visit" id="nextVisit">Visita abierta: jueves 1 de octubre, 18:30</p>
+    <p class="live-contact">Calle Moral 214, Cercado<br><a href="tel:+5154281406">054 281 406</a></p>
+  </div>
+</div>
+
+<main id="contenido" tabindex="-1">
+  <section class="hero" aria-labelledby="heroTitle">
+    <img class="hero-img" src="img/hero.webp" width="1800" height="1350" alt="Galería de concreto con columnas curvas y celosías que filtran la luz">
+    <div class="hero-copy">
+      <p class="hero-meta">Taller de arquitectura · Arequipa</p>
+      <h1 id="heroTitle">Casas que guardan la sombra.</h1>
+      <p class="hero-lede">Vivienda, patios y rehabilitación en sillar y concreto, pensados desde dónde cae el sol a las tres de la tarde.</p>
+    </div>
+  </section>
+
+  <section class="works" id="proyectos" aria-labelledby="worksTitle">
+    <h2 id="worksTitle">Obras recientes</h2>
+    <ol class="works-list">
+      <li><span class="w-name">Casa Tingo</span><span class="w-place">Sachaca</span><span class="w-year">2025</span></li>
+      <li><span class="w-name">Rehabilitación casona Goyeneche</span><span class="w-place">Cercado</span><span class="w-year">2024–2026</span></li>
+      <li><span class="w-name">Colegio Cayma, pabellón de ciencias</span><span class="w-place">Cayma</span><span class="w-year">2024</span></li>
+      <li><span class="w-name">Tambo de Yura, refugio de caminantes</span><span class="w-place">Yura</span><span class="w-year">2023</span></li>
+      <li><span class="w-name">Patio de la Ranchería</span><span class="w-place">Yanahuara</span><span class="w-year">2022</span></li>
+    </ol>
+  </section>
+
+  <section class="about" id="estudio" aria-labelledby="aboutTitle">
+    <h2 id="aboutTitle">El taller</h2>
+    <p>Somos seis personas en una casona de la calle Moral. Dibujamos a mano la primera semana de cada proyecto y maquetamos todo en cartón piedra antes de abrir el modelo digital.</p>
+  </section>
+
+  <section class="about" id="sillar" aria-labelledby="sillarTitle">
+    <h2 id="sillarTitle">Sillar</h2>
+    <p>Desde 2021 medimos la temperatura interior de doce casonas del centro histórico. Un muro de sillar de 60 cm retrasa el calor de la tarde unas siete horas: la casa se entibia de noche, cuando más se necesita.</p>
+  </section>
+
+  <section class="about" id="contacto" aria-labelledby="contactTitle">
+    <h2 id="contactTitle">Contacto</h2>
+    <p>Los jueves a las 18:30 abrimos el taller a quien quiera conversar sobre una obra. No hace falta cita; sí avisar si vienen más de tres personas. Escríbenos a <a href="mailto:taller@paralelo.pe">taller@paralelo.pe</a>.</p>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

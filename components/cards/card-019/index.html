@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Course Progress Cards</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <main class="page">
+    <section class="courses" aria-label="Continue learning">
+
+      <!-- COURSE 1 · in progress -->
+      <article class="course" style="--c: #6a48f5; --c-soft: #efeaff; --i: 0"
+               data-done="9" data-total="24">
+        <figure class="course__thumb">
+          <img
+            src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=900&q=80"
+            alt="Designer's desk with printed colour swatches and a tablet showing a palette"
+            width="900" height="600" loading="lazy" decoding="async"
+          />
+          <span class="course__cat">UI Design</span>
+          <span class="course__badge" aria-hidden="true">
+            <svg viewBox="0 0 16 16"><path d="m3.5 8.5 3 3 6-7" /></svg>
+            Completed
+          </span>
+        </figure>
+
+        <div class="course__body">
+          <h2 class="course__title">Design Systems in Figma: From Tokens to Components</h2>
+
+          <p class="course__meta">
+            <span><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="3" width="12" height="10" rx="2" /><path d="m7 6.3 2.6 1.7L7 9.7Z" /></svg>24 lessons</span>
+            <span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.8" /><path d="M8 5v3.2l2 1.3" /></svg>6h 40m</span>
+          </p>
+
+          <p class="course__by">
+            <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&crop=faces&w=96&h=96&q=80"
+                 alt="" width="28" height="28" loading="lazy" />
+            <span>Amara Okafor</span>
+          </p>
+
+          <div class="progress">
+            <!-- pathLength="100" lets dashoffset be the remaining percentage -->
+            <svg class="ring" viewBox="0 0 48 48" aria-hidden="true">
+              <circle class="ring__track" cx="24" cy="24" r="20" pathLength="100" />
+              <circle class="ring__fill" cx="24" cy="24" r="20" pathLength="100" />
+            </svg>
+            <span class="ring__pct" aria-hidden="true"><span data-pct>38</span><small>%</small></span>
+
+            <div class="progress__info">
+              <p class="progress__label"><span data-lessons>9 of 24</span> lessons</p>
+              <div class="bar" role="progressbar" aria-label="Course progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="38">
+                <span class="bar__fill"></span>
+              </div>
+            </div>
+          </div>
+
+          <button class="course__btn" type="button" data-action="continue">
+            <span data-btn-label>Continue</span>
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" /></svg>
+          </button>
+        </div>
+      </article>
+
+      <!-- COURSE 2 · in progress -->
+      <article class="course" style="--c: #1f6fe5; --c-soft: #e6f0ff; --i: 1"
+               data-done="31" data-total="42">
+        <figure class="course__thumb">
+          <img
+            src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=900&q=80"
+            alt="Laptop on a white desk with a code editor open, next to a potted plant"
+            width="900" height="600" loading="lazy" decoding="async"
+          />
+          <span class="course__cat">Development</span>
+          <span class="course__badge" aria-hidden="true">
+            <svg viewBox="0 0 16 16"><path d="m3.5 8.5 3 3 6-7" /></svg>
+            Completed
+          </span>
+        </figure>
+
+        <div class="course__body">
+          <h2 class="course__title">Modern JavaScript: Async Patterns &amp; the Event Loop</h2>
+
+          <p class="course__meta">
+            <span><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="3" width="12" height="10" rx="2" /><path d="m7 6.3 2.6 1.7L7 9.7Z" /></svg>42 lessons</span>
+            <span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.8" /><path d="M8 5v3.2l2 1.3" /></svg>9h 15m</span>
+          </p>
+
+          <p class="course__by">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&crop=faces&w=96&h=96&q=80"
+                 alt="" width="28" height="28" loading="lazy" />
+            <span>Daniel Hughes</span>
+          </p>
+
+          <div class="progress">
+            <svg class="ring" viewBox="0 0 48 48" aria-hidden="true">
+              <circle class="ring__track" cx="24" cy="24" r="20" pathLength="100" />
+              <circle class="ring__fill" cx="24" cy="24" r="20" pathLength="100" />
+            </svg>
+            <span class="ring__pct" aria-hidden="true"><span data-pct>74</span><small>%</small></span>
+
+            <div class="progress__info">
+              <p class="progress__label"><span data-lessons>31 of 42</span> lessons</p>
+              <div class="bar" role="progressbar" aria-label="Course progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="74">
+                <span class="bar__fill"></span>
+              </div>
+            </div>
+          </div>
+
+          <button class="course__btn" type="button" data-action="continue">
+            <span data-btn-label>Continue</span>
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" /></svg>
+          </button>
+        </div>
+      </article>
+
+      <!-- COURSE 3 · completed -->
+      <article class="course" style="--c: #c2410c; --c-soft: #fff0e6; --i: 2"
+               data-done="18" data-total="18">
+        <figure class="course__thumb">
+          <img
+            src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=900&q=80"
+            alt="Black DSLR camera with a zoom lens on a white background"
+            width="900" height="600" loading="lazy" decoding="async"
+          />
+          <span class="course__cat">Photography</span>
+          <span class="course__badge" aria-hidden="true">
+            <svg viewBox="0 0 16 16"><path d="m3.5 8.5 3 3 6-7" /></svg>
+            Completed
+          </span>
+        </figure>
+
+        <div class="course__body">
+          <h2 class="course__title">Natural Light Portraits: Shooting &amp; Editing</h2>
+
+          <p class="course__meta">
+            <span><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="3" width="12" height="10" rx="2" /><path d="m7 6.3 2.6 1.7L7 9.7Z" /></svg>18 lessons</span>
+            <span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.8" /><path d="M8 5v3.2l2 1.3" /></svg>4h 05m</span>
+          </p>
+
+          <p class="course__by">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&crop=faces&w=96&h=96&q=80"
+                 alt="" width="28" height="28" loading="lazy" />
+            <span>Sofia Marin</span>
+          </p>
+
+          <div class="progress">
+            <svg class="ring" viewBox="0 0 48 48" aria-hidden="true">
+              <circle class="ring__track" cx="24" cy="24" r="20" pathLength="100" />
+              <circle class="ring__fill" cx="24" cy="24" r="20" pathLength="100" />
+            </svg>
+            <span class="ring__pct" aria-hidden="true"><span data-pct>100</span><small>%</small></span>
+
+            <div class="progress__info">
+              <p class="progress__label"><span data-lessons>18 of 18</span> lessons</p>
+              <div class="bar" role="progressbar" aria-label="Course progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
+                <span class="bar__fill"></span>
+              </div>
+            </div>
+          </div>
+
+          <button class="course__btn" type="button" data-action="continue">
+            <span data-btn-label>Continue</span>
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" /></svg>
+          </button>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- Announces lesson progress to screen readers -->
+    <p class="sr-only" aria-live="polite" id="course-status"></p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

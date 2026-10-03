@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Card</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Small icons for the hourly strip, reused with <use> -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-sun" viewBox="0 0 32 32">
+        <circle cx="16" cy="16" r="6" fill="#ffd166" />
+        <g stroke="#ffd166" stroke-width="2" stroke-linecap="round">
+          <path d="M16 3v3M16 26v3M3 16h3M26 16h3M6.8 6.8l2.1 2.1M23.1 23.1l2.1 2.1M6.8 25.2l2.1-2.1M23.1 8.9l2.1-2.1" />
+        </g>
+      </symbol>
+      <symbol id="i-partly" viewBox="0 0 32 32">
+        <circle cx="12" cy="12" r="5.5" fill="#ffd166" />
+        <path d="M11 26h12.5a5 5 0 0 0 .6-10 6.5 6.5 0 0 0-12.4 1.6A4.2 4.2 0 0 0 11 26Z" fill="#fff" />
+      </symbol>
+      <symbol id="i-cloud" viewBox="0 0 32 32">
+        <path d="M9 25h14.5a5.5 5.5 0 0 0 .7-11 7.2 7.2 0 0 0-13.8 1.8A4.6 4.6 0 0 0 9 25Z" fill="#fff" />
+      </symbol>
+      <symbol id="i-rain" viewBox="0 0 32 32">
+        <path d="M9 20h14.5a5.5 5.5 0 0 0 .7-11 7.2 7.2 0 0 0-13.8 1.8A4.6 4.6 0 0 0 9 20Z" fill="#fff" />
+        <path d="M11 23l-1.5 4M16.5 23 15 27M22 23l-1.5 4" stroke="#9fd3ff" stroke-width="2" stroke-linecap="round" />
+      </symbol>
+      <symbol id="i-moon" viewBox="0 0 32 32">
+        <path d="M21.5 22.8A9 9 0 0 1 13.2 7a9 9 0 1 0 11.6 12.4 9 9 0 0 1-3.3 3.4Z" fill="#e8ecff" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <main class="page">
+    <article class="wx" data-cond="sun" aria-label="Weather">
+
+      <!-- Condition backgrounds are stacked; only the active one is opaque -->
+      <div class="wx__bg wx__bg--sun" aria-hidden="true"></div>
+      <div class="wx__bg wx__bg--cloud" aria-hidden="true"></div>
+      <div class="wx__bg wx__bg--rain" aria-hidden="true"></div>
+
+      <header class="wx__top">
+        <div class="tabs" role="tablist" aria-label="City">
+          <button class="tab" type="button" role="tab" id="tab-lisbon" aria-controls="wx-panel" aria-selected="true" data-city="lisbon">Lisbon</button>
+          <button class="tab" type="button" role="tab" id="tab-london" aria-controls="wx-panel" aria-selected="false" tabindex="-1" data-city="london">London</button>
+          <button class="tab" type="button" role="tab" id="tab-tokyo" aria-controls="wx-panel" aria-selected="false" tabindex="-1" data-city="tokyo">Tokyo</button>
+        </div>
+
+        <div class="units" role="group" aria-label="Temperature unit">
+          <span class="units__pill" aria-hidden="true"></span>
+          <button class="units__btn" type="button" data-unit="c" aria-pressed="true"><span class="sr-only">Celsius </span>°C</button>
+          <button class="units__btn" type="button" data-unit="f" aria-pressed="false"><span class="sr-only">Fahrenheit </span>°F</button>
+        </div>
+      </header>
+
+      <div class="wx__panel" id="wx-panel" role="tabpanel" aria-labelledby="tab-lisbon">
+
+        <section class="now">
+          <div class="now__text">
+            <h1 class="now__place" data-swap>
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 14.5s4.8-4.3 4.8-8a4.8 4.8 0 0 0-9.6 0c0 3.7 4.8 8 4.8 8Z" /><circle cx="8" cy="6.5" r="1.7" /></svg>
+              <span data-field="place">Lisbon, Portugal</span>
+            </h1>
+            <p class="now__time" data-swap data-field="time">Saturday · 2:00 PM</p>
+
+            <p class="now__temp">
+              <span data-temp="now">27</span><span class="now__deg" aria-hidden="true">°</span>
+              <span class="sr-only" data-unit-label>Celsius</span>
+            </p>
+
+            <p class="now__cond" data-swap data-field="cond">Sunny and clear</p>
+            <p class="now__range">
+              <span>H <b data-temp="hi">29</b>°</span>
+              <span>L <b data-temp="lo">18</b>°</span>
+            </p>
+          </div>
+
+          <!-- Animated condition icons; the active one is visible -->
+          <div class="art" aria-hidden="true">
+            <svg class="art__icon art__icon--sun" viewBox="0 0 160 160">
+              <g class="sun__rays" stroke="#ffe08a" stroke-width="6" stroke-linecap="round">
+                <path d="M80 12v18M80 130v18M12 80h18M130 80h18M31.9 31.9l12.7 12.7M115.4 115.4l12.7 12.7M31.9 128.1l12.7-12.7M115.4 44.6l12.7-12.7" />
+              </g>
+              <defs>
+                <radialGradient id="sun-glow">
+                  <stop offset=".55" stop-color="#fff1c2" stop-opacity=".55" />
+                  <stop offset="1" stop-color="#fff1c2" stop-opacity="0" />
+                </radialGradient>
+              </defs>
+              <circle class="sun__glow" cx="80" cy="80" r="56" fill="url(#sun-glow)" />
+              <circle cx="80" cy="80" r="34" fill="#ffd166" />
+            </svg>
+
+            <svg class="art__icon art__icon--cloud" viewBox="0 0 160 160">
+              <path class="cloud cloud--back" d="M52 92h62a20 20 0 0 0 2.6-39.8A28 28 0 0 0 62.4 60 17 17 0 0 0 52 92Z" fill="#dfe6f1" />
+              <path class="cloud cloud--front" d="M34 126h76a24 24 0 0 0 3-47.8 33 33 0 0 0-63.3 9.2A19.4 19.4 0 0 0 34 126Z" fill="#fff" />
+            </svg>
+
+            <svg class="art__icon art__icon--rain" viewBox="0 0 160 160">
+              <g class="drops" stroke="#9fd3ff" stroke-width="5" stroke-linecap="round">
+                <path class="drop" d="M52 112l-5 13" />
+                <path class="drop" d="M76 112l-5 13" />
+                <path class="drop" d="M100 112l-5 13" />
+                <path class="drop" d="M64 130l-5 13" />
+                <path class="drop" d="M88 130l-5 13" />
+              </g>
+              <path class="cloud cloud--rain" d="M36 104h78a24 24 0 0 0 3-47.8 33 33 0 0 0-63.3 9.2A19.4 19.4 0 0 0 36 104Z" fill="#fff" />
+            </svg>
+          </div>
+        </section>
+
+        <ul class="stats">
+          <li class="stat">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.5S4.5 8.6 4.5 12a5.5 5.5 0 0 0 11 0c0-3.4-5.5-9.5-5.5-9.5Z" /></svg>
+            <span class="stat__label">Humidity</span>
+            <span class="stat__value"><b data-field="humidity">42</b>%</span>
+          </li>
+          <li class="stat">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2.5 7.5h9a2.5 2.5 0 1 0-2.5-2.5M2.5 12.5h12.5a2.5 2.5 0 1 1-2.5 2.5M2.5 10h7" /></svg>
+            <span class="stat__label">Wind</span>
+            <span class="stat__value"><b data-wind>14</b> <span data-wind-unit>km/h</span></span>
+          </li>
+          <li class="stat">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M8 11.8V4a2 2 0 1 1 4 0v7.8a4 4 0 1 1-4 0Z" /><path d="M10 9v5" /></svg>
+            <span class="stat__label">Feels like</span>
+            <span class="stat__value"><b data-temp="feels">28</b>°</span>
+          </li>
+        </ul>
+
+        <section class="hourly" aria-labelledby="hourly-title">
+          <h2 class="hourly__title" id="hourly-title">Next 12 hours</h2>
+          <!-- Scroll-snapping strip; focusable so keyboard users can scroll it -->
+          <ol class="hourly__list" tabindex="0" aria-label="Hourly forecast"></ol>
+        </section>
+
+      </div>
+
+      <p class="sr-only" aria-live="polite" id="wx-status"></p>
+    </article>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

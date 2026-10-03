@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Booketeer turns a full manuscript into structured story context ready to use inside MIRA."
+    />
+
+    <title>Booketeer — MIRA</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <!-- ======================================================
+       DEMO BEFORE
+       Remove when integrating into your landing page.
+  ======================================================= -->
+
+    <section class="demo-section">
+      <span>Previous section</span>
+    </section>
+
+    <!-- ======================================================
+       BOOKETEER
+  ======================================================= -->
+
+    <section class="booketeer" id="booketeer">
+      <div class="booketeer__sticky">
+        <div class="booketeer__shell">
+          <!-- ==================================================
+             HEADER
+        =================================================== -->
+
+          <header class="booketeer__header">
+            <div class="booketeer__overline">BOOKETEER</div>
+
+            <div class="booketeer__headline">
+              <h2>
+                Your whole book,
+                <span>ready when you need it.</span>
+              </h2>
+            </div>
+
+            <div class="booketeer__header-copy">
+              <p>
+                Index your manuscript once. Booketeer turns the structure of
+                your book into something MIRA can work with.
+              </p>
+            </div>
+          </header>
+
+          <!-- ==================================================
+             MAIN STAGE
+        =================================================== -->
+
+          <div class="booketeer__stage" id="booketeerStage">
+            <!-- =================================================
+               LEFT TEXT
+          ================================================== -->
+
+            <aside class="booketeer__copy">
+              <!-- STATE 01 -->
+
+              <div class="booketeer__copy-state is-visible" data-copy="0">
+                <span class="copy-label"> START WITH THE BOOK </span>
+
+                <h3>Give MIRA the full context.</h3>
+
+                <p>
+                  Instead of searching for passages every time you need content,
+                  start with the complete manuscript.
+                </p>
+              </div>
+
+              <!-- STATE 02 -->
+
+              <div class="booketeer__copy-state" data-copy="1">
+                <span class="copy-label"> INDEXING THE STORY </span>
+
+                <h3>Turn pages into usable structure.</h3>
+
+                <p>
+                  Booketeer analyzes the manuscript and identifies the story
+                  information surrounding each scene.
+                </p>
+              </div>
+
+              <!-- STATE 03 -->
+
+              <div class="booketeer__copy-state" data-copy="2">
+                <span class="copy-label"> STORY CONTEXT </span>
+
+                <h3>Find more than a single passage.</h3>
+
+                <p>
+                  Scenes remain connected to characters, emotions, tropes and
+                  useful marketing context.
+                </p>
+              </div>
+
+              <!-- STATE 04 -->
+
+              <div class="booketeer__copy-state" data-copy="3">
+                <span class="copy-label"> READY IN MIRA </span>
+
+                <h3>Choose a scene. Keep moving.</h3>
+
+                <p>
+                  Once the manuscript is indexed, useful scenes are already
+                  there whenever you need new content.
+                </p>
+              </div>
+            </aside>
+
+            <!-- =================================================
+               RIGHT WORKSPACE
+          ================================================== -->
+
+            <div class="booketeer__workspace">
+              <!-- ===============================================
+                 STATE 01 — PHOTO
+            ================================================ -->
+
+              <figure class="booketeer__photo" id="bookPhoto">
+                <img
+                  src="https://images.pexels.com/photos/733857/pexels-photo-733857.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                  alt="Open notebook and book on a clean desk"
+                />
+
+                <div class="booketeer__photo-shade"></div>
+
+                <figcaption>
+                  <span> YOUR MANUSCRIPT </span>
+
+                  <span> Complete context </span>
+                </figcaption>
+              </figure>
+
+              <!-- ===============================================
+                 STATE 02 — MANUSCRIPT
+            ================================================ -->
+
+              <article class="booketeer__document" id="bookDocument">
+                <header class="document__header">
+                  <div>
+                    <span> A VOW IN WINTER </span>
+
+                    <strong> Chapter 14 </strong>
+                  </div>
+
+                  <span class="document__page"> 184 </span>
+                </header>
+
+                <div class="document__body">
+                  <p>
+                    She had spent years convincing herself that returning would
+                    change nothing.
+                  </p>
+
+                  <p class="document__selected" id="selectedParagraph">
+                    Yet there he was, standing beneath the same winter sky,
+                    waiting as though no time had passed between them.
+                  </p>
+
+                  <p>
+                    For a moment neither of them spoke. The silence carried
+                    everything they had never managed to say.
+                  </p>
+
+                  <p>
+                    Evelyn tightened her coat and looked toward the house at the
+                    end of the road.
+                  </p>
+                </div>
+
+                <footer class="document__footer">
+                  <span> MANUSCRIPT </span>
+
+                  <span> BOOKETEER INDEX </span>
+                </footer>
+              </article>
+
+              <!-- ===============================================
+                 STATE 03 — ANALYSIS
+            ================================================ -->
+
+              <section class="booketeer__analysis" id="bookAnalysis">
+                <header class="analysis__header">
+                  <span> BOOKETEER </span>
+
+                  <strong> Understanding this scene </strong>
+                </header>
+
+                <div class="analysis__content">
+                  <!-- quotation -->
+
+                  <div class="analysis__primary">
+                    <span class="analysis__label"> SELECTED SCENE </span>
+
+                    <blockquote>
+                      “Yet there he was, standing beneath the same winter
+                      sky...”
+                    </blockquote>
+                  </div>
+
+                  <!-- attributes -->
+
+                  <div class="analysis__attributes">
+                    <div class="analysis__attribute">
+                      <span> CHARACTER </span>
+
+                      <strong> Evelyn </strong>
+                    </div>
+
+                    <div class="analysis__attribute">
+                      <span> EMOTION </span>
+
+                      <strong> Longing </strong>
+                    </div>
+
+                    <div class="analysis__attribute">
+                      <span> TROPE </span>
+
+                      <strong> Second chance </strong>
+                    </div>
+
+                    <div class="analysis__attribute">
+                      <span> STORY MOMENT </span>
+
+                      <strong> The return </strong>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- ===============================================
+                 STATE 04 — INDEX / LIBRARY
+            ================================================ -->
+
+              <section class="booketeer__library" id="bookLibrary">
+                <header class="library__header">
+                  <div>
+                    <span> BOOK INDEX </span>
+
+                    <h4>Scenes ready to use</h4>
+                  </div>
+
+                  <div class="library__count">
+                    <strong> 48 </strong>
+
+                    <span> scenes </span>
+                  </div>
+                </header>
+
+                <!-- SCENE 01 -->
+
+                <article class="library__scene">
+                  <div class="scene__marker">01</div>
+
+                  <div class="scene__main">
+                    <span> CHAPTER 03 </span>
+
+                    <strong> The first encounter </strong>
+                  </div>
+
+                  <div class="scene__detail">
+                    <span> Tension </span>
+
+                    <span> First meeting </span>
+                  </div>
+
+                  <span class="scene__arrow"> → </span>
+                </article>
+
+                <!-- SCENE 02 -->
+
+                <article class="library__scene library__scene--active">
+                  <div class="scene__marker">02</div>
+
+                  <div class="scene__main">
+                    <span> CHAPTER 14 </span>
+
+                    <strong> The return </strong>
+                  </div>
+
+                  <div class="scene__detail">
+                    <span> Longing </span>
+
+                    <span> Second chance </span>
+                  </div>
+
+                  <span class="scene__arrow"> → </span>
+                </article>
+
+                <!-- SCENE 03 -->
+
+                <article class="library__scene">
+                  <div class="scene__marker">03</div>
+
+                  <div class="scene__main">
+                    <span> CHAPTER 21 </span>
+
+                    <strong> What was never said </strong>
+                  </div>
+
+                  <div class="scene__detail">
+                    <span> Vulnerability </span>
+
+                    <span> Confession </span>
+                  </div>
+
+                  <span class="scene__arrow"> → </span>
+                </article>
+
+                <!-- SCENE 04 -->
+
+                <article class="library__scene">
+                  <div class="scene__marker">04</div>
+
+                  <div class="scene__main">
+                    <span> CHAPTER 27 </span>
+
+                    <strong> The decision </strong>
+                  </div>
+
+                  <div class="scene__detail">
+                    <span> Hope </span>
+
+                    <span> Resolution </span>
+                  </div>
+
+                  <span class="scene__arrow"> → </span>
+                </article>
+
+                <footer class="library__footer">
+                  <span> Manuscript indexed </span>
+
+                  <strong> Ready in MIRA </strong>
+                </footer>
+              </section>
+
+              <!-- ===============================================
+                 SCAN
+            ================================================ -->
+
+              <span
+                class="booketeer__scan"
+                id="bookScan"
+                aria-hidden="true"
+              ></span>
+            </div>
+
+            <!-- =================================================
+               PROGRESS
+          ================================================== -->
+
+            <div class="booketeer__progress">
+              <span class="booketeer__progress-current" id="stateCurrent">
+                MANUSCRIPT
+              </span>
+
+              <div class="booketeer__progress-line">
+                <span id="progressLine"></span>
+              </div>
+
+              <span> READY IN MIRA </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+       DEMO AFTER
+  ======================================================= -->
+
+    <section class="demo-section demo-section--dark">
+      <span>Next section</span>
+    </section>
+
+    <!-- GSAP -->
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+    <script src="script.js"></script>
+  </body>
+</html>

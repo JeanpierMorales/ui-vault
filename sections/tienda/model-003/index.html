@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Trigal — Insumos de panificación</title>
+  <meta name="description" content="Plataforma B2B de insumos para panaderías: catálogo con filtros, fichas técnicas, recetas, pedidos con cotización y zona de clientes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<a class="skip" href="#app">Saltar al contenido</a>
+
+<header class="topbar">
+  <div class="nav-wrap">
+    <a class="brand" href="#/" aria-label="Trigal, inicio"><span class="brand-mark">T</span><span>Trigal</span></a>
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="#/productos" data-nav="productos">Productos</a>
+      <a href="#/recetas" data-nav="recetas">Recetas</a>
+      <a href="#/negocios" data-nav="negocios">Para tu negocio</a>
+      <a href="#/contacto" data-nav="contacto">Contacto</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" type="button" data-open-search aria-label="Buscar productos">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+      </button>
+      <span class="sep" aria-hidden="true"></span>
+      <a class="nav-link" href="#/cliente" data-nav="cliente">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></svg>
+        <span>Zona cliente</span>
+      </a>
+      <a class="order-link" href="#/pedido" data-nav="pedido" aria-label="Ver pedido">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14l-1.2 12.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+        <span>Pedido</span><b data-order-count>0</b>
+      </a>
+    </div>
+    <button class="menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="drawer">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" hidden>
+  <nav aria-label="Menú móvil">
+    <a href="#/productos">Productos</a>
+    <a href="#/recetas">Recetas</a>
+    <a href="#/negocios">Para tu negocio</a>
+    <a href="#/contacto">Contacto</a>
+    <a href="#/cliente">Zona cliente</a>
+    <a href="#/pedido">Pedido <b data-order-count>0</b></a>
+  </nav>
+</div>
+
+<dialog class="search" id="search" aria-label="Buscar productos">
+  <form method="dialog" class="search-box" role="search">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+    <input id="searchInput" type="search" placeholder="Busca por producto, uso o ingrediente" autocomplete="off" aria-label="Buscar" />
+    <button class="search-close" value="close" aria-label="Cerrar búsqueda">Esc</button>
+  </form>
+  <ul class="search-results" id="searchResults" aria-live="polite"></ul>
+</dialog>
+
+<main id="app" tabindex="-1"></main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div><h4>Trigal</h4><a href="#/negocios">Quiénes somos</a><a href="#/negocios">Calidad e inocuidad</a><a href="#/recetas">Centro técnico</a><a href="#/contacto">Trabaja con nosotros</a></div>
+    <div><h4>Productos</h4><a href="#/productos/mezclas">Mezclas panaderas</a><a href="#/productos/mejoradores">Mejoradores y masas madre</a><a href="#/productos/dulces">Bollería y masas dulces</a><a href="#/productos/rellenos">Rellenos y coberturas</a></div>
+    <div><h4>Clientes</h4><a href="#/cliente">Zona cliente</a><a href="#/pedido">Solicitar cotización</a><a href="#/recetas">Recetas</a><a href="#/contacto">Sedes y despacho</a></div>
+    <div><h4>Atención a clientes</h4><p>Lunes a sábado de 7:00 a 17:00</p><a class="footer-phone" href="tel:017154400">01 715 4400</a><a href="mailto:pedidos@trigal.pe">pedidos@trigal.pe</a></div>
+  </div>
+  <div class="container footer-bottom">
+    <div class="copyright"><div class="brand mini"><span class="brand-mark">T</span><span>© 2026 Trigal Insumos S.A.C.</span></div><p>Marca y datos ficticios para la demo de UI Vault. Precios referenciales por bolsa o balde, sin IGV.</p></div>
+    <form class="newsletter" data-newsletter>
+      <label for="newsEmail">Recetas y lanzamientos cada mes</label>
+      <div><input id="newsEmail" type="email" placeholder="Correo de tu panadería" required><button type="submit">Suscribirme</button></div>
+      <small data-news-msg aria-live="polite">Un correo al mes. Te das de baja cuando quieras.</small>
+    </form>
+  </div>
+</footer>
+
+<div class="toast" role="status" aria-live="polite" hidden></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

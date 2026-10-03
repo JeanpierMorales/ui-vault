@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Folio & Grano, librería-café en Miraflores. Club de lectura de octubre: La ciudad y los perros, jueves 16 a las 19:30.">
+  <title>Folio &amp; Grano, librería-café en Miraflores</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<header class="head" id="head">
+  <div class="head-row">
+    <a class="brand" href="#contenido" aria-label="Folio y Grano, inicio">Folio <span>&amp;</span> Grano</a>
+
+    <nav class="nav" aria-label="Principal">
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="navList">
+        <span class="menu-label">Menú</span>
+        <span class="menu-lines" aria-hidden="true"><i></i><i></i></span>
+      </button>
+      <ul class="nav-list" id="navList">
+        <li><a href="#libreria">Librería</a></li>
+        <li><a href="#cafeteria">Cafetería</a></li>
+        <li><a href="#club" aria-current="page">Club de lectura</a></li>
+        <li><a href="#agenda">Agenda</a></li>
+        <li class="nav-cta-li"><a class="nav-cta-mobile" href="#cap-5">Separar mi silla</a></li>
+      </ul>
+    </nav>
+
+    <a class="cta" href="#cap-5">Separar mi silla</a>
+  </div>
+
+  <div class="runhead">
+    <p class="runhead-now" aria-hidden="true">
+      <span class="runhead-label">Leyendo</span>
+      <span class="runhead-title" id="runTitle">Club de lectura de octubre</span>
+    </p>
+    <p class="runhead-meta" aria-hidden="true"><span id="runChapter">Portada</span><span id="runLeft">4 min</span></p>
+    <button class="toc-btn" id="tocBtn" type="button" aria-expanded="false" aria-controls="toc">
+      Índice
+      <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 6l4 4 4-4" /></svg>
+    </button>
+    <span class="progress" aria-hidden="true"><span class="progress-fill" id="progressFill"></span></span>
+  </div>
+
+  <div class="toc" id="toc" role="region" aria-label="Índice de esta lectura" hidden>
+    <ol class="toc-list" id="tocList">
+      <li><a href="#cap-1"><span class="toc-n">01</span><span class="toc-name">Por qué este libro</span><span class="toc-min">2 min</span></a></li>
+      <li><a href="#cap-2"><span class="toc-n">02</span><span class="toc-name">Un colegio a cien metros del mar</span><span class="toc-min">2 min</span></a></li>
+      <li><a href="#cap-3"><span class="toc-n">03</span><span class="toc-name">Cómo leemos juntos</span><span class="toc-min">1 min</span></a></li>
+      <li><a href="#cap-4"><span class="toc-n">04</span><span class="toc-name">Qué se toma esa noche</span><span class="toc-min">1 min</span></a></li>
+      <li><a href="#cap-5"><span class="toc-n">05</span><span class="toc-name">Cómo inscribirte</span><span class="toc-min">1 min</span></a></li>
+    </ol>
+  </div>
+</header>
+
+<main id="contenido" tabindex="-1">
+
+  <section class="hero" id="club" aria-labelledby="heroTitle">
+    <img class="hero-img" src="img/hero.webp" width="1800" height="1350" alt="Sala de lectura con estanterías altas, sillones y una chimenea encendida">
+    <div class="hero-copy">
+      <p class="hero-meta">Club de lectura · jueves 16 de octubre, 19:30</p>
+      <h1 id="heroTitle">Este mes leemos La&nbsp;ciudad y&nbsp;los&nbsp;perros</h1>
+      <p class="hero-lede">Doce sillas en el altillo, café de Villa Rica filtrado en la mesa y noventa minutos para conversar una novela.</p>
+      <a class="hero-cta" href="#cap-5">Separar mi silla</a>
+    </div>
+  </section>
+
+  <article class="essay" id="essay">
+    <section class="chapter" id="cap-1" data-title="Por qué este libro">
+      <h2>Por qué este libro</h2>
+      <p>La propusimos en septiembre y ganó por cuatro votos a Conversación en La Catedral. Varios lectores del club la leyeron a los quince años, obligados por el colegio, y querían saber qué queda de ella cuando ya no te la toman en examen.</p>
+      <p>Es una novela sobre la violencia que se aprende en grupo: los cadetes del Leoncio Prado inventan un código propio, lo defienden a golpes y terminan protegiendo a quien menos lo merece. Leída hoy se siente menos como un retrato de época y más como un manual de cómo funcionan ciertas instituciones.</p>
+      <p>No hace falta haber leído a Vargas Llosa antes. Sí conviene llegar con la primera parte terminada, porque ahí se juega el crimen que ordena todo lo demás.</p>
+    </section>
+
+    <section class="chapter" id="cap-2" data-title="Un colegio a cien metros del mar">
+      <h2>Un colegio a cien metros del mar</h2>
+      <p>El colegio de la novela existe. Queda en La Perla, frente al acantilado, y todavía se ve desde la Costa Verde cuando el taxi baja hacia el Callao. La neblina, el viento húmedo y el olor a mar que atraviesan el libro son los mismos que entran por la ventana del altillo en invierno.</p>
+      <figure class="chapter-photo">
+        <img src="img/libreria.webp" width="800" height="1421" loading="lazy" alt="Mesa de novedades junto a una ventana, con estanterías blancas llenas de libros">
+        <figcaption>La mesa de novedades, donde apartamos los veinte ejemplares del club.</figcaption>
+      </figure>
+      <p>Para esta sesión pegamos en la pared un plano de 1950 de Lima y Callao con el colegio, la casa del Jaguar y los barrios de Miraflores que aparecen en la segunda parte. Muchos se sorprenden de lo cerca que está todo.</p>
+    </section>
+
+    <section class="chapter" id="cap-3" data-title="Cómo leemos juntos">
+      <h2>Cómo leemos juntos</h2>
+      <p>La sesión dura noventa minutos. Abrimos con una lectura en voz alta de dos páginas que elige alguien distinto cada mes; esta vez le toca a Rosa, que eligió el final del capítulo del Esclavo.</p>
+      <p>Después hablamos sin moderador fijo. Hay una sola regla: nadie cuenta el final a quien no lo ha leído, y quien no terminó la novela también es bienvenido.</p>
+    </section>
+
+    <section class="chapter" id="cap-4" data-title="Qué se toma esa noche">
+      <h2>Qué se toma esa noche</h2>
+      <p>El café del mes es un geisha de Villa Rica, Pasco: notas de mandarina y panela, filtrado en V60 a 92 °C. Para quien no toma café de noche hay infusión de hierba luisa con cedrón.</p>
+      <p>La cocina prepara alfajores de maicena y una torta de chancaca pequeña para compartir. Todo está incluido en la inscripción.</p>
+    </section>
+
+    <section class="chapter" id="cap-5" data-title="Cómo inscribirte">
+      <h2>Cómo inscribirte</h2>
+      <p>Son doce sillas. La inscripción cuesta S/ 35 e incluye el café, los dulces y un 15 % de descuento en el libro. La edición de bolsillo cuesta S/ 49.</p>
+      <p>Separa tu silla en la caja o escríbenos a club@folioygrano.pe con tu nombre. Si ya no hay sitio, te anotamos en la lista de espera y te avisamos el martes 14.</p>
+      <p><a class="hero-cta hero-cta--dark" href="mailto:club@folioygrano.pe">Separar mi silla</a></p>
+    </section>
+  </article>
+
+  <aside class="facts" aria-label="Datos de la librería">
+    <div id="libreria">
+      <h2>Librería</h2>
+      <p>Narrativa latinoamericana, ensayo y libros infantiles. Encargos de libros importados en diez días.</p>
+    </div>
+    <div id="cafeteria">
+      <h2>Cafetería</h2>
+      <p>Lunes a sábado de 8:00 a 22:00, domingos de 9:00 a 19:00. Calle Bolognesi 418, Miraflores.</p>
+    </div>
+    <div id="agenda">
+      <h2>Agenda</h2>
+      <p>Jueves 16: club de lectura. Sábado 25: taller de encuadernación japonesa, S/ 80.</p>
+    </div>
+  </aside>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

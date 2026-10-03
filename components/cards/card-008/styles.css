@@ -1,0 +1,408 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --page-bg: #eceef3;
+  --card-bg: #ffffff;
+  --ink: #0f1115;
+  --muted: #5d6270;
+  --line: rgba(15, 17, 21, 0.08);
+
+  --dark: #111318;
+  --dark-muted: #a3a8b5;
+  --lime: #d5f86b;
+  --lime-ink: #1b2206;
+
+  --radius: 24px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Check icon (black stroke) used as a background image */
+  --check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12.5 4.5 4.5L19 7.5'/%3E%3C/svg%3E");
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--page-bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ======================================
+   PAGE
+====================================== */
+
+.pricing-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding: clamp(24px, 5vw, 56px) clamp(16px, 4vw, 48px);
+}
+
+/* ======================================
+   BILLING TOGGLE (segmented radio group)
+====================================== */
+
+.billing {
+  --option-w: 118px;
+
+  position: relative;
+  display: flex;
+  margin: 0;
+  padding: 4px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--card-bg);
+  box-shadow: 0 0 0 1px var(--line), 0 6px 18px -10px rgba(15, 17, 21, 0.25);
+}
+
+.billing__option {
+  position: relative;
+  z-index: 1;
+  width: var(--option-w);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px 0;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  user-select: none;
+  transition: color 400ms var(--ease);
+}
+
+.billing__save {
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: var(--lime);
+  color: var(--lime-ink);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+/* Sliding pill behind the checked option */
+.billing__thumb {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: var(--option-w);
+  height: calc(100% - 8px);
+  border-radius: 999px;
+  background: var(--dark);
+  transition: transform 500ms var(--ease);
+}
+
+#billing-monthly:checked + .billing__option,
+#billing-yearly:checked + .billing__option {
+  color: #fff;
+}
+
+.billing:has(#billing-yearly:checked) .billing__thumb {
+  transform: translateX(100%);
+}
+
+/* Focus ring follows the keyboard onto the checked label */
+#billing-monthly:focus-visible + .billing__option,
+#billing-yearly:focus-visible + .billing__option {
+  outline: 2px solid #4b61ff;
+  outline-offset: 3px;
+}
+
+/* ======================================
+   PLANS
+====================================== */
+
+.plans {
+  width: 100%;
+  max-width: 1040px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+
+.plan {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 26px 26px;
+  border-radius: var(--radius);
+  background: var(--card-bg);
+  box-shadow: 0 0 0 1px var(--line), 0 1px 2px rgba(15, 17, 21, 0.04);
+  transition: transform 600ms var(--ease), box-shadow 600ms var(--ease);
+}
+
+.plan:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 0 1px var(--line), 0 24px 48px -24px rgba(15, 17, 21, 0.28);
+}
+
+.plan--featured {
+  background:
+    radial-gradient(420px 220px at 100% 0%, rgba(213, 248, 107, 0.16), transparent 70%),
+    var(--dark);
+  color: #fff;
+  box-shadow: 0 30px 60px -30px rgba(15, 17, 21, 0.6);
+}
+
+.plan--featured:hover {
+  box-shadow: 0 36px 70px -30px rgba(15, 17, 21, 0.7);
+}
+
+.plan__badge {
+  position: absolute;
+  top: 24px;
+  right: 22px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: var(--lime);
+  color: var(--lime-ink);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.plan__name {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.plan__tagline {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.plan--featured .plan__tagline,
+.plan--featured .plan__note {
+  color: var(--dark-muted);
+}
+
+/* ---------- price ---------- */
+
+.plan__price {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 26px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.plan__currency {
+  margin: 6px 3px 0 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.plan__amount {
+  display: inline-flex;
+  font-size: 3.25rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.plan__period {
+  align-self: flex-end;
+  margin: 0 0 6px 5px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--muted);
+}
+
+.plan--featured .plan__period {
+  color: var(--dark-muted);
+}
+
+/* Digit roll: each digit is a 1em window over a 0–9 strip */
+.digit {
+  display: inline-block;
+  height: 1em;
+  overflow: hidden;
+}
+
+.digit__strip {
+  display: flex;
+  flex-direction: column;
+  transform: translateY(calc(var(--n, 0) * -10%));
+  transition: transform 800ms var(--ease);
+  transition-delay: var(--delay, 0ms);
+}
+
+.digit__strip span {
+  height: 1em;
+  line-height: 1;
+}
+
+.no-anim .digit__strip {
+  transition: none;
+}
+
+.plan__note {
+  min-height: 1.2em;
+  margin: 8px 0 22px;
+  font-size: 0.82rem;
+  color: var(--muted);
+  transition: opacity 300ms var(--ease);
+}
+
+.plan__note.is-swapping {
+  opacity: 0;
+}
+
+/* ---------- CTA ---------- */
+
+.plan__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 18px;
+  border-radius: 14px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    transform 400ms var(--ease),
+    background-color 300ms var(--ease),
+    box-shadow 300ms var(--ease);
+}
+
+.plan__cta:active {
+  transform: scale(0.98);
+}
+
+.plan__cta--ghost {
+  color: var(--ink);
+  background: #f3f4f7;
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.plan__cta--ghost:hover {
+  background: #e8eaef;
+}
+
+.plan__cta--solid {
+  color: var(--lime-ink);
+  background: var(--lime);
+  box-shadow: 0 10px 24px -12px rgba(213, 248, 107, 0.8);
+}
+
+.plan__cta--solid:hover {
+  background: #e2ff86;
+}
+
+.plan__cta:focus-visible {
+  outline: 2px solid #4b61ff;
+  outline-offset: 3px;
+}
+
+.plan--featured .plan__cta:focus-visible {
+  outline-color: var(--lime);
+}
+
+/* ---------- features ---------- */
+
+.plan__features {
+  display: grid;
+  gap: 12px;
+  margin: 24px 0 0;
+  padding: 22px 0 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.plan--featured .plan__features {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.plan__features li {
+  display: flex;
+  gap: 10px;
+}
+
+/* Check icon: black SVG check over a tinted disc */
+.plan__features li::before {
+  content: "";
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  border-radius: 50%;
+  background: center / 12px no-repeat var(--check), rgba(15, 17, 21, 0.07);
+}
+
+.plan--featured .plan__features li::before {
+  background-color: var(--lime);
+}
+
+/* ======================================
+   RESPONSIVE
+====================================== */
+
+@media (max-width: 880px) {
+  .plans {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+  }
+}
+
+@media (max-width: 380px) {
+  .billing {
+    --option-w: 108px;
+  }
+
+  .plan {
+    padding: 24px 20px 22px;
+  }
+}
+
+/* ======================================
+   REDUCED MOTION
+====================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .billing__thumb,
+  .billing__option,
+  .digit__strip,
+  .plan,
+  .plan__note,
+  .plan__cta {
+    transition-duration: 1ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  .plan:hover {
+    transform: none;
+  }
+}

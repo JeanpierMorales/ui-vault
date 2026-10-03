@@ -1,5 +1,5 @@
 const buttons = document.querySelectorAll("#filters button");
-const cards = document.querySelectorAll(".card");
+const cards = document.querySelectorAll(".font-card");
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {

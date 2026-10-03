@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cordillera Norte, cooperativa cafetalera de Jaén: precio pagado a la finca frente al contrato C de Nueva York, por año y por mes de cosecha.">
+  <title>Cordillera Norte, precio a la finca</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<main>
+  <section class="cordillera" aria-labelledby="cnTitle">
+    <div class="wrap">
+
+      <header class="head">
+        <img class="head-img"
+             src="https://images.unsplash.com/photo-1524350876685-274059332603?auto=format&fit=crop&w=1600&q=78"
+             srcset="https://images.unsplash.com/photo-1524350876685-274059332603?auto=format&fit=crop&w=800&q=78 800w, https://images.unsplash.com/photo-1524350876685-274059332603?auto=format&fit=crop&w=1600&q=78 1600w, https://images.unsplash.com/photo-1524350876685-274059332603?auto=format&fit=crop&w=2200&q=76 2200w"
+             sizes="100vw" width="1600" height="900"
+             alt="Saco de yute lleno de café tostado sobre fondo oscuro">
+        <div class="head-shade" aria-hidden="true"></div>
+        <p class="brand">Cordillera Norte <span>Café de Jaén y San Ignacio, Cajamarca</span></p>
+        <div class="head-copy">
+          <h2 id="cnTitle">Seis cosechas pagando cada libra por encima de Nueva York.</h2>
+          <p class="head-text">1,120 familias socias venden su café pergamino a la cooperativa. Así se compara lo que les pagamos con la bolsa.</p>
+        </div>
+      </header>
+
+      <div class="layout">
+
+        <figure class="panel">
+          <figcaption class="panel-head">
+            <h3 id="chartTitle">Precio por libra de café pergamino, 2021–2026</h3>
+            <ul class="legend" aria-label="Leyenda">
+              <li><span class="key key--finca" aria-hidden="true"></span>Pagado a la finca</li>
+              <li><span class="key key--ny" aria-hidden="true"></span>Contrato C, Nueva York</li>
+            </ul>
+          </figcaption>
+          <div class="chart" id="chart">
+            <svg class="chart-svg" id="svg" role="group" aria-labelledby="chartTitle" focusable="false"></svg>
+            <div class="tip" id="tip" aria-hidden="true"></div>
+          </div>
+          <details class="data">
+            <summary>Ver los datos en tabla</summary>
+            <table>
+              <caption class="sr-only" id="tableCap">Dólares por libra, por año</caption>
+              <thead><tr><th scope="col" id="thPeriod">Año</th><th scope="col">Finca</th><th scope="col">Nueva York</th><th scope="col">Prima</th></tr></thead>
+              <tbody id="table"></tbody>
+            </table>
+          </details>
+        </figure>
+
+        <div class="side">
+          <div class="toggle" role="group" aria-label="Periodo">
+            <button type="button" class="tg" data-mode="year" aria-pressed="true">Por año</button>
+            <button type="button" class="tg" data-mode="month" aria-pressed="false">Cosecha 2026</button>
+          </div>
+
+          <p class="premium">
+            <span class="premium-label" id="premiumLabel">Prima promedio sobre la bolsa, 2021–2026</span>
+            <span class="premium-value"><span class="cur">+US$</span> <span id="premium">0.85</span><span class="per">/lb</span></span>
+          </p>
+          <p class="side-text" id="sideText">Fijamos el precio el día de entrega en el acopio de Jaén: bolsa del día más la prima por calidad de taza. La prima nunca bajó de US$ 0.70, ni en 2023, cuando Nueva York cayó 20 %.</p>
+
+          <dl class="facts">
+            <div><dt>Hectáreas orgánicas</dt><dd>2,860</dd></div>
+            <div><dt>Exportado en 2025</dt><dd>3,480 t</dd></div>
+            <div><dt>Puntaje SCA promedio</dt><dd>85.5</dd></div>
+          </dl>
+
+          <a class="btn" href="#cnTitle">Pedir muestras
+            <span class="btn-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false"><path d="M5 11 11 5M6 5h5v5" /></svg></span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

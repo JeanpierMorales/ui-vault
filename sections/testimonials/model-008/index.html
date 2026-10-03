@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sillar Dental, clínica de ortodoncia e implantes en Cayma, Arequipa. Tres pacientes cuentan su tratamiento mes a mes.">
+  <title>Sillar Dental · Pacientes, mes a mes</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<section class="sd" aria-labelledby="sd-title">
+  <div class="sd-wrap">
+
+    <header class="sd-head">
+      <p class="sd-label">Sillar Dental · Cayma, Arequipa</p>
+      <h2 id="sd-title">Tratamientos largos, contados mes a mes por quienes los hicieron.</h2>
+      <p class="sd-lede">Elige a un paciente y arrastra su línea de tiempo. En cada control lees lo que nos dijo ese día, sin editar.</p>
+    </header>
+
+    <div class="sd-grid">
+      <figure class="sd-photo">
+        <div class="sd-photos" id="sd-photos">
+          <img class="is-on" data-id="renzo" src="img/renzo.webp" alt="Renzo Valdivia sonriendo de frente, camiseta verde" width="1000" height="1500">
+          <img data-id="carmen" src="img/carmen.webp" alt="Carmen Zúñiga sonriendo en una oficina, chaqueta a rayas" width="1000" height="1500" loading="lazy">
+          <img data-id="lucia" src="img/lucia.webp" alt="Lucía Mamani, retrato con el cabello suelto" width="1000" height="1500" loading="lazy">
+        </div>
+        <span class="sd-chip" id="sd-chip">Alineadores · 14 meses</span>
+        <figcaption id="sd-who"><strong>Renzo Valdivia, 29</strong> Contador en Yanahuara</figcaption>
+      </figure>
+
+      <div class="sd-panel" role="tabpanel" id="sd-panel" aria-labelledby="sd-tab-renzo">
+        <div class="sd-top">
+          <p class="sd-month" aria-hidden="true"><span id="sd-month-n">00</span><span class="sd-month-of">/ <span id="sd-month-t">14</span> meses</span></p>
+          <p class="sd-stage" id="sd-stage">Primera consulta y escaneo 3D</p>
+        </div>
+
+        <blockquote class="sd-quote" id="sd-quote" aria-live="polite">
+          <p id="sd-quote-text">Llevaba diez años sonriendo con la boca cerrada en las fotos del trabajo. La doctora Paredes me mostró en pantalla cómo se iban a mover los dientes antes de cobrarme un sol.</p>
+        </blockquote>
+
+        <div class="sd-scrub">
+          <label class="sd-scrub-label" for="sd-range">Mes del tratamiento</label>
+          <div class="sd-track">
+            <input id="sd-range" type="range" min="0" max="14" step="0.25" value="0" aria-valuetext="Mes 0 de 14: Primera consulta y escaneo 3D">
+            <div class="sd-ticks" id="sd-ticks" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <dl class="sd-stats" id="sd-stats">
+          <div><dt>Alineadores</dt><dd>24</dd></div>
+          <div><dt>Controles</dt><dd>9</dd></div>
+          <div><dt>Apiñamiento</dt><dd>6,5 → 0,4 mm</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="sd-bottom">
+      <div class="sd-tabs" role="tablist" aria-label="Pacientes">
+        <button class="sd-tab" role="tab" id="sd-tab-renzo" aria-controls="sd-panel" aria-selected="true" data-id="renzo" type="button">
+          <img src="img/renzo.webp" alt="" width="1000" height="1500">
+          <span><strong>Renzo</strong> Alineadores</span>
+        </button>
+        <button class="sd-tab" role="tab" id="sd-tab-carmen" aria-controls="sd-panel" aria-selected="false" tabindex="-1" data-id="carmen" type="button">
+          <img src="img/carmen.webp" alt="" width="1000" height="1500" loading="lazy">
+          <span><strong>Carmen</strong> Implante</span>
+        </button>
+        <button class="sd-tab" role="tab" id="sd-tab-lucia" aria-controls="sd-panel" aria-selected="false" tabindex="-1" data-id="lucia" type="button">
+          <img src="img/lucia.webp" alt="" width="1000" height="1500" loading="lazy">
+          <span><strong>Lucía</strong> Diastema</span>
+        </button>
+      </div>
+      <div class="sd-cta-row">
+        <p>Evaluación con escaneo 3D: S/ 80, se descuenta del tratamiento.</p>
+        <a class="sd-cta" href="#">Agendar evaluación</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

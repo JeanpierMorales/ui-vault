@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notification Stack</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <main class="stage">
+
+    <section class="notif is-booting" aria-labelledby="notif-title">
+
+      <header class="notif__head">
+        <h1 class="notif__title" id="notif-title">
+          Notifications
+          <span class="notif__count" data-count>4</span>
+        </h1>
+        <button class="notif__toggle" type="button" aria-expanded="false" aria-controls="notif-list">
+          Show all
+        </button>
+      </header>
+
+      <ol class="notif__list" id="notif-list" role="list">
+
+        <li class="note">
+          <span class="note__icon note__icon--calendar" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>
+          </span>
+          <div class="note__body">
+            <p class="note__top"><span class="note__app">Calendar</span><time class="note__time" datetime="PT10M">in 10 min</time></p>
+            <h2 class="note__title">Design review · Room 4B</h2>
+            <p class="note__text">With Priya, Marco and 3 others. Agenda: onboarding flow v2.</p>
+          </div>
+          <button class="note__close" type="button" aria-label="Dismiss: Design review in Room 4B">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg>
+          </button>
+        </li>
+
+        <li class="note">
+          <img
+            class="note__avatar"
+            src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=160&h=160&q=80"
+            alt="Priya Shah" width="40" height="40" decoding="async"
+          />
+          <div class="note__body">
+            <p class="note__top"><span class="note__app">Messages</span><time class="note__time" datetime="PT2M">2m ago</time></p>
+            <h2 class="note__title">Priya Shah</h2>
+            <p class="note__text">Can you look at the onboarding copy before 3pm? Left two comments on step 2.</p>
+          </div>
+          <button class="note__close" type="button" aria-label="Dismiss: message from Priya Shah">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg>
+          </button>
+        </li>
+
+        <li class="note">
+          <span class="note__icon note__icon--pay" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="M3 10.5h18M7 15h3"/></svg>
+          </span>
+          <div class="note__body">
+            <p class="note__top"><span class="note__app">Payments</span><time class="note__time" datetime="PT18M">18m ago</time></p>
+            <h2 class="note__title">You received $2,480.00</h2>
+            <p class="note__text">Northwind Studio paid invoice #1042. Funds arrive Friday.</p>
+          </div>
+          <button class="note__close" type="button" aria-label="Dismiss: payment of $2,480.00 received">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg>
+          </button>
+        </li>
+
+        <li class="note">
+          <span class="note__icon note__icon--deploy" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 3.5 20 8v8l-8 4.5L4 16V8l8-4.5Z"/><path d="m8.8 12.2 2.2 2.2 4.2-4.4"/></svg>
+          </span>
+          <div class="note__body">
+            <p class="note__top"><span class="note__app">Deploys</span><time class="note__time" datetime="PT1H">1h ago</time></p>
+            <h2 class="note__title">Production deploy succeeded</h2>
+            <p class="note__text">web-app v3.18.2 is live · built in 1m 42s.</p>
+          </div>
+          <button class="note__close" type="button" aria-label="Dismiss: production deploy succeeded">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg>
+          </button>
+        </li>
+
+      </ol>
+
+      <div class="notif__empty" tabindex="-1" hidden>
+        <span class="notif__empty-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>
+        </span>
+        <p><strong>You're all caught up</strong><br />New notifications will show up here.</p>
+      </div>
+
+      <p class="notif__hint" aria-hidden="true"><span class="hint-hover">Hover</span><span class="hint-touch">Tap</span> to expand · swipe a card to dismiss</p>
+
+    </section>
+
+    <!-- Undo toast -->
+    <div class="toast" role="status" aria-live="polite">
+      <span class="toast__text" data-toast-text>Notification dismissed</span>
+      <button class="toast__undo" type="button">Undo</button>
+      <span class="toast__bar" aria-hidden="true"></span>
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

@@ -2,146 +2,84 @@
    PRODUCT CARDS
 ============================================= */
 
-const cards =
-  document.querySelectorAll(
-    ".product-card"
-  );
+const cards = document.querySelectorAll(".product-card");
+
+// El tilt solo tiene sentido con ratón y sin reducir movimiento
+const canTilt = window.matchMedia(
+  "(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)"
+);
+
+const MAX_TILT = 5; // grados: sutil, no "gaming card"
 
 
-cards.forEach(card => {
+/* =============================================
+   SINGLE-CHOICE GROUP (sizes / colors)
+============================================= */
+
+function selectInGroup(buttons, selected) {
+  buttons.forEach((button) => {
+    button.setAttribute("aria-pressed", String(button === selected));
+  });
+}
+
+
+cards.forEach((card) => {
 
   /* =========================================
-     CLICK / TOUCH MODE
+     TILT
   ========================================= */
 
-  card.addEventListener(
-    "click",
-    event => {
+  card.addEventListener("pointermove", (event) => {
+    if (!canTilt.matches || event.pointerType !== "mouse") return;
 
-      /*
-        Si pulsamos un control interno,
-        no abrimos/cerramos la card.
-      */
+    const rect = card.getBoundingClientRect();
 
-      if (
-        event.target.closest(
-          "button"
-        )
-      ) {
-        return;
-      }
+    const px = (event.clientX - rect.left) / rect.width - 0.5;
+    const py = (event.clientY - rect.top) / rect.height - 0.5;
 
+    card.classList.add("is-tilting");
+    card.style.setProperty("--ry", `${px * MAX_TILT * 2}deg`);
+    card.style.setProperty("--rx", `${-py * MAX_TILT * 2}deg`);
+  });
 
-      /*
-        Cerramos las demás.
-      */
-
-      cards.forEach(
-        otherCard => {
-
-          if (
-            otherCard !== card
-          ) {
-
-            otherCard.classList.remove(
-              "is-active"
-            );
-
-          }
-
-        }
-      );
-
-
-      /*
-        Activamos la actual.
-      */
-
-      card.classList.toggle(
-        "is-active"
-      );
-
-    }
-  );
+  card.addEventListener("pointerleave", () => {
+    card.classList.remove("is-tilting");
+    card.style.setProperty("--rx", "0deg");
+    card.style.setProperty("--ry", "0deg");
+  });
 
 
   /* =========================================
      SIZE SELECTION
   ========================================= */
 
-  const sizes =
-    card.querySelectorAll(
-      ".size"
-    );
+  const sizes = card.querySelectorAll(".size");
 
-
-  sizes.forEach(size => {
-
-    size.addEventListener(
-      "click",
-      event => {
-
-        event.stopPropagation();
-
-
-        sizes.forEach(
-          item => {
-
-            item.classList.remove(
-              "active"
-            );
-
-          }
-        );
-
-
-        size.classList.add(
-          "active"
-        );
-
-      }
-    );
-
+  sizes.forEach((size) => {
+    size.addEventListener("click", () => selectInGroup(sizes, size));
   });
 
 
   /* =========================================
      COLOR SELECTION
+     Actualiza el nombre visible y el acento
+     de la card (tag, fondo de media, CTA).
   ========================================= */
 
-  const colors =
-    card.querySelectorAll(
-      ".color"
-    );
+  const colors = card.querySelectorAll(".color");
+  const colorName = card.querySelector(".color-name");
 
+  colors.forEach((color) => {
+    color.addEventListener("click", () => {
+      selectInGroup(colors, color);
 
-  colors.forEach(color => {
+      colorName.textContent = color.dataset.name;
 
-    color.addEventListener(
-      "click",
-      event => {
-
-        event.stopPropagation();
-
-
-        colors.forEach(
-          item => {
-
-            item.classList.remove(
-              "active"
-            );
-
-          }
-        );
-
-
-        color.classList.add(
-          "active"
-        );
-
-      }
-    );
-
+      card.style.setProperty(
+        "--accent",
+        getComputedStyle(color).getPropertyValue("--swatch").trim()
+      );
+    });
   });
 
 
@@ -149,53 +87,22 @@ cards.forEach(card => {
      ADD TO CART VISUAL FEEDBACK
   ========================================= */
 
-  const cartButton =
-    card.querySelector(
-      ".cart-button"
-    );
+  const cartButton = card.querySelector(".cart-button");
+  const cartText = cartButton.querySelector(".cart-text");
+  const originalText = cartText.textContent;
 
+  let resetTimer;
 
-  cartButton.addEventListener(
-    "click",
-    event => {
+  cartButton.addEventListener("click", () => {
+    clearTimeout(resetTimer);
 
-      event.stopPropagation();
+    cartText.textContent = "Added ✓";
+    cartButton.classList.add("is-added");
 
-
-      const text =
-        cartButton.querySelector(
-          ".cart-text"
-        );
-
-
-      const originalText =
-        text.textContent;
-
-
-      text.textContent =
-        "ADDED ✓";
-
-
-      cartButton.classList.add(
-        "added"
-      );
-
-
-      setTimeout(
-        () => {
-
-          text.textContent =
-            originalText;
-
-          cartButton.classList.remove(
-            "added"
-          );
-
-        },
-        1300
-      );
-
-    }
-  );
+    resetTimer = setTimeout(() => {
+      cartText.textContent = originalText;
+      cartButton.classList.remove("is-added");
+    }, 1400);
+  });
 
 });

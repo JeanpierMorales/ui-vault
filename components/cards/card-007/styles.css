@@ -1,0 +1,372 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --page-bg: #f4f0e8;
+  --card-bg: #fffdf9;
+  --ink: #1d1a16;
+  --muted: #6b645a;
+  --line: rgba(29, 26, 22, 0.09);
+  --img-bg: #e4ddd0;
+
+  --terracotta: #b4532f;
+  --sage: #4f6b4a;
+  --focus: #b4532f;
+
+  --radius: 18px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --sans: "DM Sans", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--sans);
+  background: var(--page-bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ======================================
+   PAGE / GRID
+   Desktop: featured card is wider (1.4fr).
+====================================== */
+
+.blog-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: clamp(24px, 5vw, 56px) clamp(16px, 4vw, 48px);
+}
+
+.blog-grid {
+  width: 100%;
+  max-width: 1180px;
+  display: grid;
+  grid-template-columns: 1.45fr 1fr 1fr;
+  gap: 22px;
+  align-items: stretch;
+}
+
+/* ======================================
+   CARD
+====================================== */
+
+.post-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow:
+    0 0 0 1px var(--line),
+    0 1px 2px rgba(29, 26, 22, 0.04);
+  transition:
+    transform 600ms var(--ease),
+    box-shadow 600ms var(--ease);
+}
+
+.post-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 0 0 1px var(--line),
+    0 22px 44px -18px rgba(60, 40, 20, 0.28);
+}
+
+/* Visible focus ring on the whole card when its (stretched) link is focused. */
+.post-card:has(.post-card__title a:focus-visible) {
+  outline: 2px solid var(--focus);
+  outline-offset: 4px;
+}
+
+/* ---------- media ---------- */
+
+.post-card__media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  margin: 8px 8px 0;
+  border-radius: calc(var(--radius) - 6px);
+  overflow: hidden;
+  background: var(--img-bg);
+}
+
+.post-card__media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.02);
+  transition:
+    opacity 700ms var(--ease),
+    transform 1400ms var(--ease);
+}
+
+.post-card__media img.is-loaded {
+  opacity: 1;
+}
+
+/* Slow editorial zoom */
+.post-card:hover .post-card__media img {
+  transform: scale(1.07);
+}
+
+.post-card__badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: rgba(255, 253, 249, 0.92);
+  backdrop-filter: blur(6px);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+/* ---------- body ---------- */
+
+.post-card__body {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 22px 20px;
+}
+
+.post-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  font-size: 0.8rem;
+}
+
+.post-card__chip {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.post-card__chip--terracotta {
+  color: var(--terracotta);
+  background: rgba(180, 83, 47, 0.10);
+}
+
+.post-card__chip--sage {
+  color: var(--sage);
+  background: rgba(79, 107, 74, 0.12);
+}
+
+.post-card__chip--ink {
+  color: var(--ink);
+  background: rgba(29, 26, 22, 0.07);
+}
+
+.post-card__read {
+  color: var(--muted);
+}
+
+.post-card__read::before {
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background: currentColor;
+  vertical-align: middle;
+}
+
+.post-card__title {
+  margin: 0 0 10px;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.28rem;
+  line-height: 1.28;
+  letter-spacing: -0.01em;
+
+  /* 2-line clamp */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+.post-card__title a {
+  color: inherit;
+  text-decoration: none;
+  outline: none;
+}
+
+/* Stretched link: the title link covers the whole card. */
+.post-card__title a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+}
+
+/* Underline "draws" left→right across every wrapped line. */
+.post-card__title-text {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1.5px;
+  transition: background-size 700ms var(--ease);
+}
+
+.post-card:hover .post-card__title-text,
+.post-card__title a:focus-visible .post-card__title-text {
+  background-size: 100% 1.5px;
+}
+
+.post-card__excerpt {
+  margin: 0 0 20px;
+  font-size: 0.93rem;
+  line-height: 1.6;
+  color: var(--muted);
+
+  /* 3-line clamp */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+}
+
+.post-card__author {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.post-card__avatar {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--img-bg);
+}
+
+.post-card__name {
+  display: block;
+  font-size: 0.87rem;
+  font-weight: 600;
+}
+
+.post-card__date {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+/* In a row, shorter cards let their cover grow so all
+   cards end on the same baseline (no dead space). */
+.post-card__media {
+  flex: 1 0 auto;
+}
+
+.post-card__body {
+  flex: 0 0 auto;
+}
+
+/* ---------- featured variant ---------- */
+
+.post-card--featured .post-card__media {
+  aspect-ratio: 16 / 9.4;
+}
+
+.post-card--featured .post-card__title {
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+
+/* ======================================
+   RESPONSIVE
+====================================== */
+
+/* Tablet: featured becomes a horizontal wide card on top. */
+@media (max-width: 980px) {
+  .blog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .post-card--featured {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+  }
+
+  .post-card--featured .post-card__media {
+    aspect-ratio: auto;
+    min-height: 280px;
+    margin: 8px 0 8px 8px;
+  }
+}
+
+@media (max-width: 640px) {
+  .blog-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .post-card--featured {
+    display: flex;
+  }
+
+  .post-card__media {
+    flex-grow: 0;
+  }
+
+  .post-card--featured .post-card__media {
+    aspect-ratio: 16 / 10;
+    min-height: 0;
+    margin: 8px 8px 0;
+  }
+
+  .post-card--featured .post-card__title,
+  .post-card__title {
+    font-size: 1.22rem;
+  }
+
+  .post-card__body {
+    padding: 18px 18px 18px;
+  }
+}
+
+/* ======================================
+   REDUCED MOTION
+====================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .post-card,
+  .post-card__media img,
+  .post-card__title-text {
+    transition-duration: 1ms;
+  }
+
+  .post-card:hover {
+    transform: none;
+  }
+
+  .post-card:hover .post-card__media img {
+    transform: scale(1.02);
+  }
+}
