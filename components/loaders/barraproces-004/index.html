@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Margen — Lectura del manuscrito</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <main class="wrap">
+      <section class="lec" id="lec" data-stage="done" aria-labelledby="lec-title">
+        <header class="lec-head">
+          <p class="lec-brand">Margen · lectoría de manuscritos, Barranco</p>
+          <h2 id="lec-title">Leyendo «La casa de la quebrada»</h2>
+          <p class="lec-meta">Novela · 214 páginas · enviada hoy a las 10:42</p>
+        </header>
+
+        <!-- Ilustración: decorativa, el texto de abajo lleva la información -->
+        <div class="scene" id="scene" aria-hidden="true">
+          <div class="scene-row">
+            <div class="sheet-slot" id="desk">
+              <div class="sheet" id="sheet">
+                <div class="sheet-text" id="sheetText">
+                  <p class="para">
+                    <span class="tick"></span>había dejado de llover en Chosica hacia el mediodía,
+                    aunque el cerro seguía soltando piedras pequeñas que rodaban hasta la pista.
+                    Nadie en la combi parecía notarlo.
+                  </p>
+                  <p class="para">
+                    <span class="tick"></span>Bajó en el paradero del mercado con la maleta a
+                    cuestas.
+                    <span class="hl" data-mark="1">Y ahí estaba él, apoyado en el mismo poste de luz,
+                      como si quince años no hubieran pasado por ninguno de los dos.</span>
+                  </p>
+                  <p class="para">
+                    <span class="tick"></span>Al principio ninguno habló. El ruido del río llenaba
+                    todo lo que ellos nunca supieron decirse.
+                  </p>
+                  <p class="para">
+                    <span class="tick"></span><span class="hl" data-mark="0">Inés</span> se acomodó
+                    la chompa y miró hacia <span class="hl" data-mark="3">la casa de la quebrada</span>.
+                    En la ventana de la cocina seguía prendido el foco amarillo, como si alguien se
+                    hubiera olvidado de apagarlo desde entonces.
+                  </p>
+                  <p class="para">
+                    <span class="tick"></span>—Volviste —dijo <span class="hl" data-mark="2">Teodoro</span>
+                    por fin.
+                  </p>
+                  <p class="para">
+                    <span class="tick"></span>Quiso decirle que no significaba nada, que solo venía
+                    por la misa del abuelo y que el domingo ya estaría de vuelta en Lima. En cambio
+                    pronunció su nombre, y la neblina siguió bajando entre los dos, lenta y
+                    paciente, como aquel último invierno.
+                  </p>
+                  <p class="para">
+                    <span class="tick"></span>Él dio un paso hacia ella y se detuvo, como si la
+                    distancia fuera algo que había prometido cuidar. Detrás, una puerta se abrió y
+                    se cerró. Ninguno volteó a mirar.
+                  </p>
+                </div>
+                <span class="scan" id="scan"></span>
+              </div>
+            </div>
+
+            <div class="rail" id="rail">
+              <span class="slot" style="--n: 0"></span>
+              <span class="slot" style="--n: 1"></span>
+              <span class="slot" style="--n: 2"></span>
+              <span class="slot" style="--n: 3"></span>
+
+              <div class="card" data-card="0" data-kind="personaje" style="--n: 0; --score: 0.92">
+                <span class="ico">
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" /><path d="M4.5 20.5c1-4 4-6 7.5-6s6.5 2 7.5 6" /></svg>
+                </span>
+                <span class="ent">
+                  <span class="ent-title">Inés</span>
+                  <span class="ent-sub">
+                    <span class="ent-kind">Personaje</span>
+                    <span class="ent-score"><span class="meter"><span class="meter-fill"></span></span><span class="num">92</span></span>
+                  </span>
+                </span>
+              </div>
+
+              <div class="card" data-card="1" data-kind="escena" style="--n: 2; --score: 0.67">
+                <span class="ico">
+                  <svg viewBox="0 0 24 24"><rect x="4" y="9" width="16" height="11" rx="1.5" /><path d="M4 9l2.5-4.5 13 0L20 9" /><path d="M9 4.5L11 9M14.5 4.5L16.5 9" /></svg>
+                </span>
+                <span class="ent">
+                  <span class="ent-title">Y ahí estaba él, apoyado en el poste…</span>
+                  <span class="ent-sub">
+                    <span class="ent-kind">Escena</span>
+                    <span class="ent-score"><span class="meter"><span class="meter-fill"></span></span><span class="num">67</span></span>
+                  </span>
+                </span>
+              </div>
+
+              <div class="card" data-card="2" data-kind="personaje" style="--n: 1; --score: 0.81">
+                <span class="ico">
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" /><path d="M4.5 20.5c1-4 4-6 7.5-6s6.5 2 7.5 6" /></svg>
+                </span>
+                <span class="ent">
+                  <span class="ent-title">Teodoro</span>
+                  <span class="ent-sub">
+                    <span class="ent-kind">Personaje</span>
+                    <span class="ent-score"><span class="meter"><span class="meter-fill"></span></span><span class="num">81</span></span>
+                  </span>
+                </span>
+              </div>
+
+              <div class="card" data-card="3" data-kind="lugar" style="--n: 3; --score: 0.58">
+                <span class="ico">
+                  <svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z" /><circle cx="12" cy="10" r="2.3" /></svg>
+                </span>
+                <span class="ent">
+                  <span class="ent-title">La casa de la quebrada</span>
+                  <span class="ent-sub">
+                    <span class="ent-kind">Lugar</span>
+                    <span class="ent-score"><span class="meter"><span class="meter-fill"></span></span><span class="num">58</span></span>
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <p class="scene-foot">Capítulo 3 de 18</p>
+        </div>
+        <p class="note">Ilustración con texto de ejemplo. Tus personajes, escenas y lugares aparecen al terminar la lectura.</p>
+
+        <!-- Lectura del progreso -->
+        <div class="readout">
+          <div class="readout-row">
+            <p class="readout-label" id="stageLabel">Informe listo</p>
+            <p class="readout-pct" aria-hidden="true"><span id="pct">100</span>%</p>
+          </div>
+          <div
+            class="bar"
+            id="bar"
+            role="progressbar"
+            aria-labelledby="stageLabel"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="100"
+          >
+            <span class="bar-fill" id="barFill"></span>
+          </div>
+          <p class="readout-status" id="status" role="status" aria-live="polite">
+            4 hallazgos ordenados por peso en la historia.
+          </p>
+        </div>
+
+        <ol class="steps" id="steps">
+          <li class="step" data-step="received" data-state="done">
+            <span class="step-mark" aria-hidden="true">
+              <span class="step-num">1</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12.5l4.2 4L19 7" /></svg>
+            </span>
+            <span class="step-copy">
+              <span class="step-name">Recibido</span>
+              <span class="step-detail">Manuscrito en Word, 61 230 palabras</span>
+            </span>
+            <span class="step-state">Hecho</span>
+          </li>
+          <li class="step" data-step="extracting" data-state="done">
+            <span class="step-mark" aria-hidden="true">
+              <span class="step-num">2</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12.5l4.2 4L19 7" /></svg>
+            </span>
+            <span class="step-copy">
+              <span class="step-name">Extrayendo</span>
+              <span class="step-detail">Personajes, escenas y lugares, página por página</span>
+            </span>
+            <span class="step-state">Hecho</span>
+          </li>
+          <li class="step" data-step="ranking" data-state="done">
+            <span class="step-mark" aria-hidden="true">
+              <span class="step-num">3</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12.5l4.2 4L19 7" /></svg>
+            </span>
+            <span class="step-copy">
+              <span class="step-name">Ordenando</span>
+              <span class="step-detail">Del hallazgo con más peso al de menos</span>
+            </span>
+            <span class="step-state">Hecho</span>
+          </li>
+        </ol>
+
+        <div class="controls">
+          <button type="button" class="btn btn-ghost" id="pauseBtn" hidden>Pausar</button>
+          <button type="button" class="btn" id="restartBtn">Reiniciar</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

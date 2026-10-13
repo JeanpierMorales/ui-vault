@@ -1,0 +1,767 @@
+/* Caja Norte · conectar con Vitrina — handshake loader */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --ink: #111111;
+  --ink-2: #3d3c39;
+  --muted: #6b6964;
+  --paper: #f4f3f0;
+  --sand: #ebeae6;
+  --card: #fbfaf8;
+  --line: #d6d4ce;
+  --line-soft: #e4e2dd;
+  --pino: #0e7a5a; /* the one accent */
+  --on-pino: #ffffff;
+  --error: #b3261e; /* semantic only: the broken link */
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #f2f1ee;
+    --ink-2: #cfcdc8;
+    --muted: #9c9a94;
+    --paper: #161615;
+    --sand: #0e0e0d;
+    --card: #1d1d1b;
+    --line: #3a3936;
+    --line-soft: #2b2a28;
+    --pino: #3cc596;
+    --on-pino: #08251b;
+    --error: #ff8a80;
+  }
+}
+
+html,
+body {
+  margin: 0;
+}
+
+body {
+  min-height: 100%;
+  background: var(--sand);
+  color: var(--ink);
+  font-family: "Onest", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font: inherit;
+}
+
+.stage {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 40px 16px;
+}
+
+.card {
+  width: 100%;
+  max-width: 720px;
+  padding: 40px 44px 32px;
+  border-radius: 28px;
+  background: var(--paper);
+}
+
+/* ---------------------------------------------------------------- head */
+
+.eyebrow {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.head h2 {
+  margin: 10px 0 0;
+  max-width: 16ch;
+  font-size: clamp(30px, 6vw, 44px);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+/* ---------------------------------------------------------------- link */
+
+.link {
+  display: grid;
+  grid-template-columns: auto minmax(48px, 1fr) auto;
+  justify-items: center;
+  align-items: center;
+  column-gap: 14px;
+  row-gap: 10px;
+  margin: 36px 0 30px;
+}
+
+.tile {
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  background: var(--card);
+  color: var(--ink-2);
+  transition: border-color 400ms var(--ease-out), color 400ms var(--ease-out);
+}
+
+.tile svg {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.link[data-link="linked"] .tile {
+  border-color: var(--pino);
+  color: var(--pino);
+}
+
+.tile-name {
+  justify-self: center;
+  display: grid;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tile-name small {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.wire {
+  position: relative;
+  justify-self: stretch;
+  display: flex;
+  align-items: center;
+  height: 32px;
+}
+
+.wire > * {
+  display: none;
+}
+
+.wire-dash {
+  width: 100%;
+  border-top: 2px dashed var(--muted);
+  opacity: 0.7;
+}
+
+.wire-solid {
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--pino);
+  transform-origin: left center;
+}
+
+.wire-broken {
+  width: 100%;
+  justify-content: space-between;
+}
+
+.wire-broken span {
+  width: 36%;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--error);
+}
+
+.token-track,
+.lock {
+  position: absolute;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.token,
+.lock svg {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--pino);
+  color: var(--on-pino);
+}
+
+.token svg,
+.lock svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.token svg {
+  width: 15px;
+  height: 15px;
+}
+
+.lock svg {
+  padding: 7px;
+}
+
+/* which parts each phase shows */
+.link[data-link="idle"] .wire-dash,
+.link[data-link="binding"] .wire-dash {
+  display: block;
+}
+
+.link[data-link="binding"] .token-track,
+.link[data-link="linked"] .lock,
+.link[data-link="broken"] .wire-broken {
+  display: flex;
+}
+
+.link[data-link="linked"] .wire-solid {
+  display: block;
+}
+
+/* The key crosses at constant speed: linear, fading at both ends. */
+.link[data-link="binding"] .token-track {
+  animation: token-run 1600ms linear infinite;
+}
+
+@keyframes token-run {
+  0% {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  12% {
+    transform: translateX(-38%);
+    opacity: 1;
+  }
+  88% {
+    transform: translateX(38%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(50%);
+    opacity: 0;
+  }
+}
+
+/* Arriving live from "binding": the line draws in, then the lock settles. */
+.link.arrive .wire-solid {
+  animation: draw 360ms var(--ease-out) both;
+}
+
+.link.arrive .lock {
+  animation: settle 260ms var(--ease-out) 260ms both;
+}
+
+@keyframes draw {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes settle {
+  from {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ------------------------------------------------------------- readout */
+
+.readout {
+  padding: 20px 0 22px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.readout-top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.readout-stage {
+  margin: 0;
+  max-width: 34ch;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.readout-pct {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.bar {
+  position: relative;
+  height: 6px;
+  margin-top: 14px;
+  overflow: hidden;
+  border-radius: 6px;
+  background: var(--line-soft);
+}
+
+.bar-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--pino);
+  transform-origin: left center;
+  transform: scaleX(1);
+  transition: transform 140ms linear;
+}
+
+.card[data-phase="error"] .bar-fill {
+  background: var(--error);
+}
+
+.readout-detail {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* --------------------------------------------------------------- steps */
+
+.steps {
+  margin: 0;
+  padding: 22px 0 0;
+  list-style: none;
+  border-top: 1px solid var(--line-soft);
+}
+
+.step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  column-gap: 16px;
+}
+
+.step-main {
+  min-width: 0;
+  padding-bottom: 26px;
+}
+
+.step:last-child .step-main {
+  padding-bottom: 4px;
+}
+
+/* connector to the next step */
+.conn {
+  position: absolute;
+  left: 13px;
+  top: 28px;
+  bottom: 0;
+  width: 2px;
+  overflow: hidden;
+  background: var(--line);
+}
+
+.step[data-status="done"] .conn {
+  background: var(--pino);
+  opacity: 0.6;
+}
+
+.conn-seg {
+  display: none;
+  position: absolute;
+  inset: 0 0 auto;
+  height: 34%;
+  border-radius: 2px;
+  background: linear-gradient(to bottom, transparent, var(--pino));
+}
+
+.step[data-working] .conn-seg {
+  display: block;
+  animation: flow 1800ms linear infinite;
+}
+
+@keyframes flow {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  20% {
+    transform: translateY(-40%);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(180%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(250%);
+    opacity: 0;
+  }
+}
+
+/* marker: its shape carries the state, never colour alone */
+.marker {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--paper);
+}
+
+.marker > * {
+  grid-area: 1 / 1;
+  display: none;
+}
+
+.m-ring,
+.m-halo {
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--line);
+  border-radius: 50%;
+}
+
+.m-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--pino);
+}
+
+.m-check {
+  width: 28px;
+  height: 28px;
+  padding: 6px;
+  border-radius: 50%;
+  background: var(--pino);
+  fill: none;
+  stroke: var(--on-pino);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.m-bang {
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--error);
+  border-radius: 50%;
+  color: var(--error);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.step[data-status="upcoming"] .m-ring {
+  display: block;
+}
+
+.step[data-status="current"] .m-ring,
+.step[data-status="current"] .m-dot {
+  display: block;
+  border-color: var(--pino);
+}
+
+.step[data-status="done"] .m-check {
+  display: block;
+}
+
+.step[data-status="failed"] .m-bang {
+  display: grid;
+}
+
+/* working: the ring holds still, a halo leaves it every 2.4 s */
+.step[data-working] .m-halo {
+  display: block;
+  border-color: var(--pino);
+  opacity: 0;
+  pointer-events: none;
+  animation: halo 2400ms infinite;
+}
+
+@keyframes halo {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  70% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.step-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 10px;
+  min-height: 28px;
+  margin: 0;
+  padding-top: 2px;
+}
+
+.step-label {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.step-word {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.step[data-status="done"] .step-word,
+.step[data-status="current"] .step-word {
+  color: var(--pino);
+}
+
+.step[data-status="failed"] .step-word {
+  color: var(--error);
+}
+
+.step-body {
+  max-width: 56ch;
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+.step-body p {
+  margin: 0;
+}
+
+.step[data-status="done"] .step-body,
+.step[data-status="upcoming"] .step-actions {
+  display: none;
+}
+
+.step-error .err-title {
+  margin-bottom: 2px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.step-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  margin-top: 14px;
+}
+
+.hint {
+  font-size: 13px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.rows {
+  display: none;
+  max-width: 420px;
+  margin: 10px 0 0;
+  padding: 0 16px;
+  border: 1px solid var(--line-soft);
+  border-radius: 14px;
+  background: var(--card);
+}
+
+.card[data-phase="done"] .rows {
+  display: block;
+}
+
+.rows div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  padding: 10px 0;
+  font-size: 14px;
+}
+
+.rows div + div {
+  border-top: 1px solid var(--line-soft);
+}
+
+.rows dt {
+  color: var(--muted);
+}
+
+.rows dd {
+  margin: 0;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------------------------------------------- buttons */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 160ms var(--ease-out), opacity 200ms var(--ease-out);
+}
+
+.btn:active:not([aria-disabled="true"]) {
+  transform: scale(0.97);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.btn-primary {
+  background: var(--pino);
+  color: var(--on-pino);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1.5px var(--line);
+}
+
+.btn-ghost svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.btn[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.btn-primary[aria-busy="true"] {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+@media (hover: hover) {
+  .btn-ghost:hover:not([aria-disabled="true"]) {
+    box-shadow: inset 0 0 0 1.5px var(--ink-2);
+  }
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 26px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line-soft);
+}
+
+/* paused (off-screen or tab hidden): every loop holds */
+.card.is-paused *,
+.card.is-paused *::before {
+  animation-play-state: paused !important;
+}
+
+/* ---------------------------------------------------------- responsive */
+
+@media (max-width: 560px) {
+  .stage {
+    padding: 16px;
+    place-items: start center;
+  }
+
+  .card {
+    padding: 28px 20px 22px;
+    border-radius: 22px;
+  }
+
+  .link {
+    column-gap: 10px;
+    margin: 28px auto 24px;
+  }
+
+  .tile {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+  }
+
+  .readout-stage {
+    font-size: 16px;
+  }
+
+  .readout-pct {
+    font-size: 32px;
+  }
+
+  .step-actions .btn,
+  .controls .btn {
+    flex: 1 1 auto;
+  }
+}
+
+/* ------------------------------------------------------ reduced motion */
+/* No loops, no travel: each stage keeps its static frame (key parked mid-line,
+   ring without halo, connector's top third lit). Only text and bar update. */
+
+@media (prefers-reduced-motion: reduce) {
+  .link[data-link="binding"] .token-track,
+  .link.arrive .wire-solid,
+  .link.arrive .lock,
+  .step[data-working] .conn-seg,
+  .step[data-working] .m-halo {
+    animation: none;
+  }
+
+  .step[data-working] .m-halo {
+    display: none;
+  }
+
+  .bar-fill,
+  .tile,
+  .btn {
+    transition: none;
+  }
+}

@@ -83,5 +83,6 @@ Referencia de calidad: HER-003 KANZO, HER-004 BC Architecture, HER-005 POCO, HER
 | Work | revisar model-001 antes de proponer |
 | Testimonials | revisar model-001…007 antes de proponer |
 | Analytics | revisar model-001 antes de proponer |
+| Loaders | barra de progreso con pasos (LDR-001…003) · página escaneada que suelta hallazgos a un riel y los ordena (Margen) · lista de archivos con estados subiendo/revisando/guardado y reintento (Sillar Gráfica) · dos apps unidas por una línea con llave y candado + timeline de 3 pasos (Santa Inés) · abanico de 5 slides 9:16 que se llenan con el progreso (Tabla) |
 
 Añadir aquí cada estructura nueva al registrarla.

@@ -1,0 +1,510 @@
+/* Tabla — carrusel en construcción (loader)
+   Neutrals + one accent (--aji). Motion: transform / opacity / clip-path only. */
+
+:root {
+  --paper: #f4f3f0;
+  --surface: #fbfaf8;
+  --well: #ebeae6;
+  --line: #d9d7d1;
+  --ink: #111111;
+  --muted: #64625d;
+  --aji: #d9481c;
+  --accent: var(--aji);
+  --on-accent: #ffffff;
+
+  /* Picture tints: neutral greys of different value, never hues. */
+  --tone-1: #c8c5be;
+  --tone-2: #8f8c86;
+  --tone-3: #3b3a37;
+  --tone-4: #aeaba4;
+
+  --card: #ffffff;
+  --shadow: 0 12px 24px -16px rgba(17, 17, 17, 0.45);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #121211;
+    --surface: #1a1a19;
+    --well: #232321;
+    --line: #34332f;
+    --ink: #f1f0ec;
+    --muted: #a3a19b;
+    --aji: #ef6a3c;
+    --on-accent: #111111;
+    --tone-1: #5b5953;
+    --tone-2: #8a8780;
+    --tone-3: #c9c6bf;
+    --tone-4: #706e68;
+    --card: #2b2a28;
+    --shadow: 0 12px 24px -14px rgba(0, 0, 0, 0.8);
+    color-scheme: dark;
+  }
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body { margin: 0; }
+
+body {
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Onest", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+}
+
+.stage {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 32px 16px;
+}
+
+/* ---------- Panel ---------- */
+
+.loader {
+  container: loader / inline-size;
+  width: 100%;
+  max-width: 720px;
+  background: var(--surface);
+  border-radius: 28px;
+  padding: 22px 18px 20px;
+  box-shadow: 0 1px 0 rgba(17, 17, 17, 0.04), 0 30px 60px -40px rgba(17, 17, 17, 0.35);
+}
+
+.loader-head { padding: 2px 4px 18px; }
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* A tiny 9:16 card: the product in one glyph. */
+.brand-mark {
+  width: 10px;
+  height: 17px;
+  border-radius: 3px;
+  background: var(--accent);
+  transform: rotate(-8deg);
+}
+
+h2 {
+  margin: 0;
+  font-size: clamp(30px, 7cqi, 44px);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+.sub {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ---------- Scene ---------- */
+
+.scene {
+  --w: 46px;
+  --gap: 34px;
+  --tilt: 4deg;
+  position: relative;
+  overflow: hidden;
+  height: calc(var(--w) * 16 / 9 + 92px);
+  border-radius: 20px;
+  background: var(--well);
+}
+
+@container loader (min-width: 330px) {
+  .scene { --w: 54px; --gap: 42px; }
+}
+@container loader (min-width: 400px) {
+  .scene { --w: 66px; --gap: 52px; }
+}
+@container loader (min-width: 580px) {
+  .scene { --w: 104px; --gap: 78px; --tilt: 4.5deg; }
+  .loader { padding: 30px 30px 28px; }
+}
+
+.slot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--w);
+  aspect-ratio: 9 / 16;
+  margin-left: calc(var(--w) / -2);
+  margin-top: calc(var(--w) * 16 / 9 / -2 + 4px);
+  transform-origin: 50% 100%;
+  transform:
+    translateX(calc(var(--i) * var(--gap)))
+    translateY(calc(var(--d) * 7px))
+    rotate(calc(var(--i) * var(--tilt)));
+  z-index: calc(var(--i) + 3);
+}
+.slot[data-active] { z-index: 10; }
+
+.ghost {
+  position: absolute;
+  inset: 0;
+  border-radius: 9px;
+  border: 1.5px dashed color-mix(in srgb, var(--ink) 26%, transparent);
+  transition: opacity 420ms var(--ease-out);
+}
+.slot[data-arrived] .ghost { opacity: 0; }
+
+.card {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 7%;
+  padding: 8%;
+  border-radius: 9px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  opacity: 0;
+  translate: 0 34px;
+  scale: 0.92;
+  transition:
+    opacity 420ms var(--ease-out),
+    translate 520ms var(--ease-out),
+    scale 520ms var(--ease-out);
+}
+.slot[data-arrived] .card { opacity: 1; translate: 0 0; scale: 1; }
+.slot[data-arrived][data-active] .card { translate: 0 -12px; }
+
+/* Picture area: the slide's tint covers it from the bottom up. */
+.pic {
+  position: relative;
+  flex: 0 0 58%;
+  overflow: hidden;
+  border-radius: 5px;
+  background: color-mix(in srgb, var(--ink) 7%, var(--card));
+}
+.pic-fill {
+  position: absolute;
+  inset: 0;
+  background: var(--tone);
+  clip-path: inset(calc((1 - var(--img)) * 100%) 0 0 0);
+  transition: clip-path 700ms var(--ease-out);
+}
+/* A sun and a horizon so the tint reads as a picture, not a swatch. */
+.pic-fill::before {
+  content: "";
+  position: absolute;
+  right: 18%;
+  top: 16%;
+  width: 26%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--tone) 55%, #ffffff);
+}
+.pic-fill::after {
+  content: "";
+  position: absolute;
+  left: -12%;
+  right: -12%;
+  bottom: -20%;
+  height: 54%;
+  border-radius: 50% 50% 0 0;
+  background: color-mix(in srgb, var(--tone) 72%, #111111);
+}
+
+.ln {
+  display: block;
+  height: 4px;
+  border-radius: 2px;
+  transform-origin: 0 50%;
+  transform: scaleX(var(--l));
+  background: color-mix(in srgb, var(--ink) 30%, transparent);
+  transition: transform 700ms var(--ease-out);
+}
+.ln:nth-of-type(1) { width: 90%; background: color-mix(in srgb, var(--ink) 55%, transparent); }
+.ln:nth-of-type(2) { width: 74%; }
+.ln:nth-of-type(3) { width: 46%; }
+@container loader (min-width: 580px) {
+  .ln { height: 5px; border-radius: 3px; }
+}
+
+.check {
+  position: absolute;
+  left: -7px;
+  top: -7px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--surface);
+  box-shadow: 0 0 0 2px var(--well);
+  opacity: 0;
+  scale: 0.4;
+  transition: opacity 240ms var(--ease-out), scale 360ms var(--ease-out);
+}
+.check svg,
+.mark svg {
+  width: 11px;
+  height: 11px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.slot[data-checked] .check { opacity: 1; scale: 1; }
+
+/* ---------- Stage loops on the slide being worked on ---------- */
+
+.scan,
+.beat,
+.gloss { display: none; pointer-events: none; }
+
+/* 1 · Leyendo: a reading line sweeps the slide. */
+.scan {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 2px;
+  z-index: 1;
+  background: var(--accent);
+  animation: scan 1.8s var(--ease-in-out) infinite alternate;
+}
+.scene[data-stage="0"] .slot[data-active] .scan { display: block; }
+@keyframes scan {
+  from { transform: translateY(6px); }
+  to { transform: translateY(calc(var(--w) * 16 / 9 - 10px)); }
+}
+
+/* 2 · Detectando momentos: a beat pulses on the picture. */
+.beat {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 24%;
+  aspect-ratio: 1;
+  margin: -12% 0 0 -12%;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  animation: beat 1.6s var(--ease-out) infinite;
+}
+.scene[data-stage="1"] .slot[data-active] .beat { display: block; }
+@keyframes beat {
+  0% { opacity: 0.95; transform: scale(0.5); }
+  100% { opacity: 0; transform: scale(2.6); }
+}
+
+/* 3 · Escribiendo: the line being written breathes in the accent. */
+.scene[data-stage="2"] .ln[data-typing] {
+  background: var(--accent);
+  animation: breathe 1.2s var(--ease-in-out) infinite;
+}
+@keyframes breathe { 50% { opacity: 0.4; } }
+
+/* 4 · Puliendo: a gloss passes over the fan. */
+.gloss {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  background: linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, 0.34) 50%, transparent 62%);
+  transform: translateX(-100%);
+  animation: gloss 2.8s var(--ease-in-out) infinite;
+}
+.scene[data-stage="3"] .gloss { display: block; }
+@keyframes gloss { to { transform: translateX(100%); } }
+
+/* 5 · Revisando: the next slide to check is outlined. */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 2px var(--accent);
+  opacity: 0;
+  transition: opacity 300ms var(--ease-out);
+}
+.scene[data-stage="4"] .slot[data-active]:not([data-checked]) .card::after {
+  opacity: 1;
+  animation: ring 1.4s var(--ease-in-out) infinite;
+}
+@keyframes ring { 50% { opacity: 0.35; } }
+
+/* Paused (button, offscreen or hidden tab): loops hold still. */
+.scene.is-idle *,
+.scene.is-idle *::after { animation-play-state: paused !important; }
+
+/* ---------- Readout ---------- */
+
+.body {
+  display: grid;
+  gap: 22px;
+  padding: 22px 4px 0;
+}
+@container loader (min-width: 580px) {
+  .body { grid-template-columns: 1fr 15.5rem; gap: 36px; padding-top: 26px; }
+}
+
+.pct-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.pct {
+  margin: 0;
+  font-size: clamp(44px, 12cqi, 64px);
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+  font-variant-numeric: tabular-nums;
+}
+.pct-sign { font-size: 0.5em; letter-spacing: 0; margin-left: 2px; color: var(--muted); }
+
+.times {
+  display: flex;
+  gap: 18px;
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+.times div { display: grid; gap: 1px; text-align: right; }
+.times dt { font-size: 12px; color: var(--muted); }
+.times dd { margin: 0; font-size: 15px; font-weight: 500; }
+
+.bar {
+  position: relative;
+  height: 6px;
+  margin-top: 16px;
+  overflow: hidden;
+  border-radius: 3px;
+  background: var(--well);
+}
+.bar-fill {
+  position: absolute;
+  inset: 0;
+  transform-origin: 0 50%;
+  transform: scaleX(var(--p));
+  background: var(--ink);
+  transition: transform 260ms linear;
+}
+.loader[data-done] .bar-fill { background: var(--accent); }
+
+.status {
+  margin: 12px 0 0;
+  min-height: 2.9em;
+  font-size: 15px;
+  color: var(--ink);
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.btn {
+  min-height: 44px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--surface);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 160ms var(--ease-out), opacity 160ms var(--ease-out);
+}
+.btn:active { transform: scale(0.97); }
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1.5px var(--line);
+}
+.btn:disabled { opacity: 0.45; cursor: default; transform: none; }
+.btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ---------- Steps ---------- */
+
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.steps li {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  align-items: center;
+  column-gap: 12px;
+  min-height: 40px;
+  padding: 4px 0;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.meta:empty { display: none; }
+
+.mark {
+  grid-row: 1;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1.5px var(--line);
+  color: var(--surface);
+}
+.mark svg { opacity: 0; transition: opacity 240ms var(--ease-out); }
+
+.meta {
+  grid-column: 2;
+  margin-top: -1px;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+
+.steps li[data-state="active"] { color: var(--ink); font-weight: 500; }
+.steps li[data-state="active"] .mark { box-shadow: inset 0 0 0 2px var(--accent); }
+.steps li[data-state="active"] .meta { color: var(--ink); font-weight: 400; }
+
+.steps li[data-state="done"] { color: var(--ink); }
+.steps li[data-state="done"] .mark { background: var(--ink); box-shadow: none; }
+.steps li[data-state="done"] .mark svg { opacity: 1; }
+
+/* ---------- Reduced motion: static frame per stage ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .scan, .beat, .gloss { display: none !important; }
+  .scene .ln[data-typing],
+  .scene .card::after { animation: none !important; }
+  .card, .ghost, .pic-fill, .ln, .check, .bar-fill, .mark svg, .btn { transition: none !important; }
+}
+
+/* No JS: the finished frame, without controls that would do nothing. */
+html:not(.js) .controls { display: none; }

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sillar Gráfica — Subida de archivos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="stage">
+    <section class="upload" id="upload" aria-labelledby="upload-title" data-state="done">
+      <header class="upload-head">
+        <p class="brand">Sillar Gráfica <span aria-hidden="true">·</span> imprenta, Arequipa</p>
+        <h2 id="upload-title">Pedido 2318: boda de Daniela y Joaquín</h2>
+        <p class="lede">Imprimimos el jueves 22. Cuando estén tus archivos, te mandamos la prueba de color por WhatsApp.</p>
+      </header>
+
+      <div class="now">
+        <div class="now-glyph" aria-hidden="true">
+          <svg id="heroGlyph" class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <circle data-g="ring" cx="12" cy="12" r="10" /><path data-g="tick" d="m8 12 3 3 5-6" />
+          </svg>
+        </div>
+        <div class="now-copy">
+          <p class="now-file" id="nowFile">5 archivos guardados</p>
+          <p class="now-pct"><span id="nowPct">100</span><span class="now-unit">%</span></p>
+          <p class="now-stage" id="nowStage">Pedido completo. La prueba de color te llega hoy antes de las 6 p.&nbsp;m.</p>
+        </div>
+      </div>
+
+      <div class="total">
+        <div class="total-row">
+          <p class="total-count" id="totalCount"><strong>5</strong> de 5 subidos</p>
+          <p class="total-pct"><span id="totalPct">100</span>%</p>
+        </div>
+        <div class="track track--total" id="totalBar" role="progressbar" aria-label="Progreso del pedido 2318" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
+          <span class="fill" data-done style="transform: translateX(0%)"></span>
+        </div>
+      </div>
+
+      <ol class="files" id="files" aria-label="Archivos del pedido">
+        <li class="file" data-phase="done" tabindex="-1">
+          <span class="file-glyph" aria-hidden="true"><svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle data-g="ring" cx="12" cy="12" r="10" /><path data-g="tick" d="m8 12 3 3 5-6" /></svg></span>
+          <div class="file-main">
+            <p class="file-top"><span class="file-name">tarjeta-boda-frente.pdf</span><span class="file-state">Guardado</span></p>
+            <p class="file-meta">4.2 MB · PDF con sangrado de 3 mm</p>
+            <div class="track" role="progressbar" aria-label="tarjeta-boda-frente.pdf" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><span class="fill" data-done style="transform: translateX(0%)"></span></div>
+          </div>
+          <button class="retry" type="button" hidden>Reintentar</button>
+        </li>
+        <li class="file" data-phase="done" tabindex="-1">
+          <span class="file-glyph" aria-hidden="true"><svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle data-g="ring" cx="12" cy="12" r="10" /><path data-g="tick" d="m8 12 3 3 5-6" /></svg></span>
+          <div class="file-main">
+            <p class="file-top"><span class="file-name">foto-portada-novios.tif</span><span class="file-state">Guardado</span></p>
+            <p class="file-meta">48.6 MB · TIFF, 300 ppp</p>
+            <div class="track" role="progressbar" aria-label="foto-portada-novios.tif" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><span class="fill" data-done style="transform: translateX(0%)"></span></div>
+          </div>
+          <button class="retry" type="button" hidden>Reintentar</button>
+        </li>
+        <li class="file" data-phase="done" tabindex="-1">
+          <span class="file-glyph" aria-hidden="true"><svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle data-g="ring" cx="12" cy="12" r="10" /><path data-g="tick" d="m8 12 3 3 5-6" /></svg></span>
+          <div class="file-main">
+            <p class="file-top"><span class="file-name">tarjeta-boda-dorso.pdf</span><span class="file-state">Guardado</span></p>
+            <p class="file-meta">3.8 MB · PDF con sangrado de 3 mm</p>
+            <div class="track" role="progressbar" aria-label="tarjeta-boda-dorso.pdf" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><span class="fill" data-done style="transform: translateX(0%)"></span></div>
+          </div>
+          <button class="retry" type="button" hidden>Reintentar</button>
+        </li>
+        <li class="file" data-phase="done" tabindex="-1">
+          <span class="file-glyph" aria-hidden="true"><svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle data-g="ring" cx="12" cy="12" r="10" /><path data-g="tick" d="m8 12 3 3 5-6" /></svg></span>
+          <div class="file-main">
+            <p class="file-top"><span class="file-name">menu-mesa-a5.pdf</span><span class="file-state">Guardado</span></p>
+            <p class="file-meta">2.1 MB · 40 copias en papel de algodón</p>
+            <div class="track" role="progressbar" aria-label="menu-mesa-a5.pdf" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><span class="fill" data-done style="transform: translateX(0%)"></span></div>
+          </div>
+          <button class="retry" type="button" hidden>Reintentar</button>
+        </li>
+        <li class="file" data-phase="done" tabindex="-1">
+          <span class="file-glyph" aria-hidden="true"><svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle data-g="ring" cx="12" cy="12" r="10" /><path data-g="tick" d="m8 12 3 3 5-6" /></svg></span>
+          <div class="file-main">
+            <p class="file-top"><span class="file-name">monograma-dj-dorado.ai</span><span class="file-state">Guardado</span></p>
+            <p class="file-meta">1.3 MB · vector para el sello en dorado</p>
+            <div class="track" role="progressbar" aria-label="monograma-dj-dorado.ai" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><span class="fill" data-done style="transform: translateX(0%)"></span></div>
+          </div>
+          <button class="retry" type="button" hidden>Reintentar</button>
+        </li>
+      </ol>
+
+      <div class="controls">
+        <button class="btn" type="button" id="pauseBtn" disabled>Pausar</button>
+        <button class="btn btn--ghost" type="button" id="restartBtn">Reiniciar</button>
+      </div>
+
+      <p class="sr-only" id="live" aria-live="polite"></p>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

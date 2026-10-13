@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Caja Norte · Conectar tienda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <main class="stage">
+      <section class="card" id="card" aria-labelledby="title" data-phase="done">
+        <header class="head">
+          <p class="eyebrow">Panadería Santa Inés · Av. España 1240, Trujillo</p>
+          <h2 id="title">Conecta tu caja con tu tienda en línea</h2>
+        </header>
+
+        <!-- The link, drawn. Decorative: the readout and the steps say it in words. -->
+        <div class="link" id="link" data-link="linked" aria-hidden="true">
+          <span class="tile">
+            <svg viewBox="0 0 24 24">
+              <rect x="3.5" y="10" width="17" height="10" rx="2" />
+              <path d="M7 10V5.5h10V10" />
+              <path d="M7.5 14h2M11 14h2M14.5 14h2M7.5 17h9" />
+            </svg>
+          </span>
+
+          <span class="wire">
+            <span class="wire-dash"></span>
+            <span class="wire-solid" id="wireSolid"></span>
+            <span class="wire-broken"><span></span><span></span></span>
+            <span class="token-track">
+              <span class="token">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="8" cy="15" r="3.5" />
+                  <path d="M10.5 12.5L19 4M16 7l2.5 2.5M14 9l2 2" />
+                </svg>
+              </span>
+            </span>
+            <span class="lock" id="lock">
+              <svg viewBox="0 0 24 24">
+                <rect x="5" y="11" width="14" height="9.5" rx="2" />
+                <path d="M8.5 11V8a3.5 3.5 0 0 1 7 0v3" />
+              </svg>
+            </span>
+          </span>
+
+          <span class="tile">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 9.5L5.5 4h13L20 9.5" />
+              <path d="M4 9.5a2.7 2.7 0 0 0 5.3 0 2.7 2.7 0 0 0 5.4 0 2.7 2.7 0 0 0 5.3 0" />
+              <path d="M5.5 12v8h13v-8M10 20v-4.5h4V20" />
+            </svg>
+          </span>
+
+          <span class="tile-name">Caja Norte<small>Punto de venta</small></span>
+          <span></span>
+          <span class="tile-name">Vitrina<small>Tienda en línea</small></span>
+        </div>
+
+        <!-- Readout: the real progress, as text and a bar. -->
+        <div class="readout">
+          <div class="readout-top">
+            <p class="readout-stage" id="stage" role="status" aria-live="polite">
+              Conectado. Vitrina ya muestra tu stock
+            </p>
+            <p class="readout-pct" aria-hidden="true"><span id="pct">100</span>%</p>
+          </div>
+          <div
+            class="bar"
+            id="bar"
+            role="progressbar"
+            aria-label="Progreso de la conexión"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="100"
+          >
+            <span class="bar-fill" id="barFill"></span>
+          </div>
+          <p class="readout-detail" id="detail">126 de 126 productos · 7:42 a. m.</p>
+        </div>
+
+        <ol class="steps" aria-label="Pasos de la conexión">
+          <li class="step" data-step="install" data-status="done">
+            <span class="conn" aria-hidden="true"><span class="conn-seg"></span></span>
+            <span class="marker" aria-hidden="true">
+              <span class="m-ring"></span><span class="m-halo"></span><span class="m-dot"></span>
+              <svg class="m-check" viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7" /></svg>
+              <span class="m-bang">!</span>
+            </span>
+            <div class="step-main">
+              <p class="step-title">
+                <span class="step-label">Instalar Vitrina</span>
+                <span class="step-word" data-word>Listo</span>
+              </p>
+              <div class="step-body">
+                <p>Se agrega a tu caja en un clic. Vitrina vuelve aquí con un código de un solo uso.</p>
+              </div>
+            </div>
+          </li>
+
+          <li class="step" data-step="approve" data-status="done">
+            <span class="conn" aria-hidden="true"><span class="conn-seg"></span></span>
+            <span class="marker" aria-hidden="true">
+              <span class="m-ring"></span><span class="m-halo"></span><span class="m-dot"></span>
+              <svg class="m-check" viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7" /></svg>
+              <span class="m-bang">!</span>
+            </span>
+            <div class="step-main">
+              <p class="step-title">
+                <span class="step-label">Autorizar la conexión</span>
+                <span class="step-word" data-word>Listo</span>
+              </p>
+              <div class="step-body" id="approveBody">
+                <p>
+                  Caja Norte crea una llave privada solo para tu tienda. Vitrina recibe stock y precios,
+                  nunca tus ventas del día ni la clave del local.
+                </p>
+                <div class="step-actions">
+                  <button type="button" class="btn btn-primary" id="approveBtn">Autorizar conexión</button>
+                  <p class="hint" id="hint">Demo: se autoriza sola en 6 s</p>
+                </div>
+              </div>
+              <div class="step-body step-error" id="errorBody" hidden>
+                <p class="err-title">El código de Vitrina venció hace 2 minutos</p>
+                <p>Al reintentar, Caja Norte genera uno nuevo. Tus precios y tu stock no cambiaron.</p>
+                <div class="step-actions">
+                  <button type="button" class="btn btn-primary" id="retryBtn">Reintentar</button>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="step" data-step="sync" data-status="done">
+            <span class="marker" aria-hidden="true">
+              <span class="m-ring"></span><span class="m-halo"></span><span class="m-dot"></span>
+              <svg class="m-check" viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7" /></svg>
+              <span class="m-bang">!</span>
+            </span>
+            <div class="step-main">
+              <p class="step-title">
+                <span class="step-label">Sincronizado</span>
+                <span class="step-word" data-word>Listo</span>
+              </p>
+              <div class="step-body" id="syncBody">
+                <p>
+                  Vitrina copia tu catálogo y el stock de hoy. Después se actualiza cada 15 minutos
+                  mientras la caja esté abierta.
+                </p>
+              </div>
+              <dl class="rows" id="syncRows">
+                <div><dt>Productos en la tienda</dt><dd>126</dd></div>
+                <div><dt>Última sincronización</dt><dd>7:42 a. m.</dd></div>
+                <div><dt>Próxima</dt><dd>7:57 a. m.</dd></div>
+              </dl>
+            </div>
+          </li>
+        </ol>
+
+        <div class="controls">
+          <button type="button" class="btn btn-ghost" id="errBtn" aria-disabled="true">Simular error</button>
+          <button type="button" class="btn btn-ghost" id="resetBtn">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 12a8 8 0 1 0 2.4-5.7" />
+              <path d="M4 4.5v4h4" />
+            </svg>
+            Reiniciar
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

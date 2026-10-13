@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tabla — Generando carrusel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="stage">
+    <section class="loader" aria-labelledby="loader-title" data-done>
+
+      <header class="loader-head">
+        <p class="brand"><span class="brand-mark" aria-hidden="true"></span>Tabla</p>
+        <h2 id="loader-title">Menú de la semana</h2>
+        <p class="sub">Picantería Doña Celia, San Blas · 5 slides 9:16</p>
+      </header>
+
+      <!-- The deck on the table. Decorative: the readout below carries the same info. -->
+      <div class="scene" id="scene" data-stage="done" aria-hidden="true">
+        <div class="slot" style="--i:-2;--d:2;--tone:var(--tone-1)" data-arrived data-checked>
+          <div class="ghost"></div>
+          <div class="card"><div class="pic" style="--img:1"><div class="pic-fill"></div><div class="beat"></div></div><span class="ln" style="--l:1"></span><span class="ln" style="--l:1"></span><span class="ln" style="--l:1"></span><div class="scan"></div></div>
+          <span class="check"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg></span>
+        </div>
+        <div class="slot" style="--i:-1;--d:1;--tone:var(--tone-2)" data-arrived data-checked>
+          <div class="ghost"></div>
+          <div class="card"><div class="pic" style="--img:1"><div class="pic-fill"></div><div class="beat"></div></div><span class="ln" style="--l:1"></span><span class="ln" style="--l:1"></span><span class="ln" style="--l:1"></span><div class="scan"></div></div>
+          <span class="check"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg></span>
+        </div>
+        <div class="slot" style="--i:0;--d:0;--tone:var(--accent)" data-arrived data-checked>
+          <div class="ghost"></div>
+          <div class="card"><div class="pic" style="--img:1"><div class="pic-fill"></div><div class="beat"></div></div><span class="ln" style="--l:1"></span><span class="ln" style="--l:1"></span><span class="ln" style="--l:1"></span><div class="scan"></div></div>
+          <span class="check"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg></span>
+        </div>
+        <div class="slot" style="--i:1;--d:1;--tone:var(--tone-3)" data-arrived data-checked>
+          <div class="ghost"></div>
+          <div class="card"><div class="pic" style="--img:1"><div class="pic-fill"></div><div class="beat"></div></div><span class="ln" style="--l:1"></span><span class="ln" style="--l:1"></span><span class="ln" style="--l:1"></span><div class="scan"></div></div>
+          <span class="check"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg></span>
+        </div>
+        <div class="slot" style="--i:2;--d:2;--tone:var(--tone-4)" data-arrived data-checked>
+          <div class="ghost"></div>
+          <div class="card"><div class="pic" style="--img:1"><div class="pic-fill"></div><div class="beat"></div></div><span class="ln" style="--l:1"></span><span class="ln" style="--l:1"></span><span class="ln" style="--l:1"></span><div class="scan"></div></div>
+          <span class="check"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg></span>
+        </div>
+        <div class="gloss"></div>
+      </div>
+
+      <div class="body">
+        <div class="readout">
+          <div class="pct-row">
+            <p class="pct"><span id="pct">100</span><span class="pct-sign">%</span></p>
+            <dl class="times">
+              <div><dt>Transcurrido</dt><dd id="elapsed">0:16</dd></div>
+              <div><dt>Restante</dt><dd id="remaining">0:00</dd></div>
+            </dl>
+          </div>
+          <div class="bar" id="bar" role="progressbar" aria-label="Avance del carrusel" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
+            <span class="bar-fill" id="bar-fill" style="--p:1"></span>
+          </div>
+          <p class="status" id="status" aria-live="polite">Carrusel listo: 5 slides revisadas, listas para publicar.</p>
+          <div class="controls">
+            <button type="button" class="btn btn-ghost" id="toggle" disabled>Pausar</button>
+            <button type="button" class="btn" id="restart">Reiniciar</button>
+          </div>
+        </div>
+
+        <ol class="steps" id="steps">
+          <li data-state="done"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg></span><span class="lbl">Leyendo tu carta</span><span class="meta"></span></li>
+          <li data-state="done"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg></span><span class="lbl">Detectando momentos</span><span class="meta"></span></li>
+          <li data-state="done"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg></span><span class="lbl">Escribiendo</span><span class="meta"></span></li>
+          <li data-state="done"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg></span><span class="lbl">Puliendo</span><span class="meta"></span></li>
+          <li data-state="done"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></svg></span><span class="lbl">Revisando</span><span class="meta"></span></li>
+        </ol>
+      </div>
+
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
