@@ -164,6 +164,7 @@ export const components = [
   // PROCESS (extra)
   { code: 'PRO-005', id: 'process-005', name: 'Process 005 · KANZO Services', category: 'process', group: 'Sections', path: './sections/process/process-005/index.html', description: 'Servicios del estudio presentados como pasos.', tags: ['process', 'services', 'section', 'kanzo'], sources: stds },
   { code: 'PRO-006', id: 'process-006', name: 'Process 006 · KANZO', category: 'process', group: 'Sections', path: './sections/process/process-006/index.html', description: 'Proceso de trabajo del estudio.', tags: ['process', 'steps', 'section', 'kanzo'], sources: stds },
+  { code: 'PRO-007', id: 'process-007', name: 'Process 007 · Vigía', category: 'process', group: 'Sections', path: './sections/process/process-007/index.html', description: 'Etapas de pentest que se despliegan con foto; la quinta se desbloquea con firma. Onest, neutros y verde.', tags: ['process', 'steps', 'section', 'accordion', 'security', 'photo'], sources: stds },
 
   // HOW IT WORKS
   { code: 'HIW-001', id: 'how-it-works-001', name: 'How It Works 001 · MIRA', category: 'how-it-works', group: 'Sections', path: './sections/howitworkd/model-001/index.html', description: 'Cómo funciona MIRA, paso a paso.', tags: ['how-it-works', 'steps', 'section', 'mira'], sources: stds },

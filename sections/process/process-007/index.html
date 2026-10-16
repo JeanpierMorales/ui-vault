@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vigía — Proceso de evaluación</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<section class="stages" aria-labelledby="stages-title">
+  <header class="stages-head">
+    <p class="brand">Vigía <span>Seguridad web · San Isidro, Lima</span></p>
+    <h2 id="stages-title">Revisamos su portal sin romper nada.</h2>
+    <div class="head-side">
+      <p>Cinco etapas con fecha y entregable. La última no empieza sin su firma.</p>
+      <dl class="offer">
+        <div><dt>Evaluación de portal</dt><dd>desde S/ 4,800</dd></div>
+        <div><dt>Plazo</dt><dd>10 días hábiles</dd></div>
+      </dl>
+      <a class="btn" href="#agenda">Agendar llamada</a>
+    </div>
+  </header>
+
+  <div class="stages-body">
+    <figure class="photo" aria-live="polite">
+      <img class="is-on" data-stage="0" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1400&q=80&auto=format&fit=crop" alt="Vista nocturna de la Tierra con ciudades iluminadas">
+      <img data-stage="1" src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1400&q=80&auto=format&fit=crop" alt="Panel de red con puertos numerados y cables conectados" loading="lazy">
+      <img data-stage="2" src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=1400&q=80&auto=format&fit=crop" alt="Código fuente en una pantalla" loading="lazy">
+      <img data-stage="3" src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=1400&q=80&auto=format&fit=crop" alt="Analista con laptop en una sala de servidores" loading="lazy">
+      <img data-stage="4" src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=1400&q=80&auto=format&fit=crop" alt="Candado sobre un teclado" loading="lazy">
+      <figcaption><span class="cap-num">01</span> <span class="cap-text">Solo portal.cliente.pe, nada fuera del dominio firmado</span></figcaption>
+    </figure>
+
+    <ol class="list">
+      <li class="row is-open">
+        <h3><button type="button" class="row-btn" aria-expanded="true" aria-controls="p0" id="b0">
+          <span class="num">01</span><span class="name">Reconocimiento</span><span class="when">Día 1–2</span>
+        </button></h3>
+        <div class="panel" id="p0" role="region" aria-labelledby="b0"><div class="panel-in">
+          <p>Recogemos lo que su portal ya muestra en público: páginas de acceso, tecnologías declaradas y formularios.</p>
+          <p class="deliv"><span>Entregable</span> Mapa de la superficie expuesta</p>
+        </div></div>
+      </li>
+      <li class="row">
+        <h3><button type="button" class="row-btn" aria-expanded="false" aria-controls="p1" id="b1">
+          <span class="num">02</span><span class="name">Escaneo</span><span class="when">Día 3</span>
+        </button></h3>
+        <div class="panel" id="p1" role="region" aria-labelledby="b1"><div class="panel-in">
+          <p>Revisamos puertos y servicios a la velocidad pactada. Si el sitio se pone lento, paramos y le avisamos.</p>
+          <p class="deliv"><span>Entregable</span> Inventario de servicios y puertos</p>
+        </div></div>
+      </li>
+      <li class="row">
+        <h3><button type="button" class="row-btn" aria-expanded="false" aria-controls="p2" id="b2">
+          <span class="num">03</span><span class="name">Enumeración</span><span class="when">Día 4–5</span>
+        </button></h3>
+        <div class="panel" id="p2" role="region" aria-labelledby="b2"><div class="panel-in">
+          <p>Anotamos versiones, configuraciones visibles y cómo se protege el acceso. Sin probar contraseñas ni abrir datos de nadie.</p>
+          <p class="deliv"><span>Entregable</span> Registro de componentes y versiones</p>
+        </div></div>
+      </li>
+      <li class="row">
+        <h3><button type="button" class="row-btn" aria-expanded="false" aria-controls="p3" id="b3">
+          <span class="num">04</span><span class="name">Análisis</span><span class="when">Día 6–8</span>
+        </button></h3>
+        <div class="panel" id="p3" role="region" aria-labelledby="b3"><div class="panel-in">
+          <p>Cruzamos cada versión con avisos públicos y separamos lo confirmado de lo que falta validar.</p>
+          <p class="deliv"><span>Entregable</span> Matriz de riesgos priorizada</p>
+        </div></div>
+      </li>
+      <li class="row row-locked" data-locked="true">
+        <h3><button type="button" class="row-btn" aria-expanded="false" aria-controls="p4" id="b4">
+          <span class="num">05</span><span class="name">Explotación</span>
+          <span class="when"><svg class="lock" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path class="shackle" d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span class="when-text">Con firma</span></span>
+        </button></h3>
+        <div class="panel" id="p4" role="region" aria-labelledby="b4"><div class="panel-in">
+          <p class="locked-copy">Probar una falla de verdad solo se hace con carta firmada por su gerencia, en horario pactado y sin tocar datos.</p>
+          <p class="open-copy">Carta registrada. La prueba se detiene en cuanto hay evidencia suficiente.</p>
+          <p class="deliv"><span>Entregable</span> Prueba de concepto sin alterar datos</p>
+          <button type="button" class="btn btn-sign" aria-pressed="false">Registrar carta firmada</button>
+        </div></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
