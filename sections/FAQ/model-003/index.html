@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tambo — Preguntas frecuentes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<section class="faq" aria-labelledby="faq-title">
+  <div class="hero">
+    <img src="https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=1800&q=80&auto=format&fit=crop" alt="Ciudadela de Machu Picchu con el Huayna Picchu detrás">
+    <div class="hero-in">
+      <p class="brand">Hostal Tambo <span>Machu Picchu Pueblo</span></p>
+      <h2 id="faq-title">Todo lo que preguntan antes de subir.</h2>
+      <div class="search">
+        <label for="q" class="sr">Buscar una pregunta</label>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="Busca: tren, bus, equipaje, Yape…" autocomplete="off">
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="filters" role="group" aria-label="Filtrar por tema">
+      <button type="button" aria-pressed="true" data-topic="all">Todas</button>
+      <button type="button" aria-pressed="false" data-topic="llegada">Llegada</button>
+      <button type="button" aria-pressed="false" data-topic="entradas">Entradas y bus</button>
+      <button type="button" aria-pressed="false" data-topic="habitacion">Habitación</button>
+      <button type="button" aria-pressed="false" data-topic="pagos">Pagos</button>
+    </div>
+    <p class="count" aria-live="polite"></p>
+
+    <ul class="list">
+      <li data-topic="llegada"><button type="button" class="q" aria-expanded="false">¿Cómo llego desde Cusco?</button>
+        <div class="a"><div><p>En tren desde Ollantaytambo, con PeruRail o Inca Rail. El viaje dura 1 h 40 min. Te esperamos en la estación con un cartel de Tambo y caminamos juntos 6 minutos hasta el hostal.</p></div></div></li>
+      <li data-topic="llegada"><button type="button" class="q" aria-expanded="false">¿A qué hora es el check-in?</button>
+        <div class="a"><div><p>Desde las 2:00 p. m. Si llegas en el tren de la mañana, guardamos tu equipaje sin costo y puedes ducharte en el baño del primer piso.</p></div></div></li>
+      <li data-topic="entradas"><button type="button" class="q" aria-expanded="false">¿Ustedes venden las entradas a Machu Picchu?</button>
+        <div class="a"><div><p>No. Se compran en la web oficial del Ministerio de Cultura y suelen agotarse con semanas de anticipación en julio y agosto. Te ayudamos a elegir circuito y horario por WhatsApp.</p></div></div></li>
+      <li data-topic="entradas"><button type="button" class="q" aria-expanded="false">¿A qué hora sale el primer bus?</button>
+        <div class="a"><div><p>A las 5:30 a. m. desde la Av. Hermanos Ayar, a 300 metros. Desde las 4:45 dejamos listo un desayuno para llevar: pan, huevo, fruta y mate de coca.</p></div></div></li>
+      <li data-topic="habitacion"><button type="button" class="q" aria-expanded="false">¿Hay agua caliente todo el día?</button>
+        <div class="a"><div><p>Sí, las 24 horas. Las termas son a gas, así que no dependen del sol ni de la hora de llegada.</p></div></div></li>
+      <li data-topic="habitacion"><button type="button" class="q" aria-expanded="false">¿Dónde dejo mi maleta grande?</button>
+        <div class="a"><div><p>El tren solo permite 5 kg de equipaje de mano por persona. Tu maleta puede quedarse en nuestra recepción mientras visitas la ciudadela, sin costo.</p></div></div></li>
+      <li data-topic="pagos"><button type="button" class="q" aria-expanded="false">¿Aceptan tarjeta o Yape?</button>
+        <div class="a"><div><p>Aceptamos Visa, Mastercard y Yape. También efectivo en soles o dólares al tipo de cambio del día.</p></div></div></li>
+      <li data-topic="pagos"><button type="button" class="q" aria-expanded="false">¿Cuál es la política de cancelación?</button>
+        <div class="a"><div><p>Cancelas gratis hasta 72 horas antes de tu llegada. Después cobramos solo la primera noche.</p></div></div></li>
+    </ul>
+
+    <div class="empty" hidden>
+      <p>No encontramos nada sobre «<span class="term"></span>».</p>
+      <a class="btn" href="https://wa.me/51984112307">Escríbenos al +51 984 112 307</a>
+    </div>
+  </div>
+</section>
+<script src="script.js"></script>
+</body>
+</html>

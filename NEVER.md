@@ -84,6 +84,7 @@ Referencia de calidad: HER-003 KANZO, HER-004 BC Architecture, HER-005 POCO, HER
 | Testimonials | revisar model-001…007 antes de proponer |
 | Analytics | revisar model-001 antes de proponer |
 | Process | lista de etapas que se despliegan con foto sticky que cambia por etapa; la última bloqueada hasta firmar (Vigía, PRO-007) · resto: revisar process-001…006 |
+| FAQ | acordeón simple (FAQ-001/002) · buscador sobre foto + filtros por tema con coincidencias resaltadas (Tambo) · lista de preguntas + panel de respuesta con foto, precio y tiempo (Rodada) · foto a sangre con una pregunta a la vez en tarjeta, swipe (Fogón) |
 | Loaders | barra de progreso con pasos (LDR-001…003) · página escaneada que suelta hallazgos a un riel y los ordena (Margen) · lista de archivos con estados subiendo/revisando/guardado y reintento (Sillar Gráfica) · dos apps unidas por una línea con llave y candado + timeline de 3 pasos (Santa Inés) · abanico de 5 slides 9:16 que se llenan con el progreso (Tabla) |
 
 Añadir aquí cada estructura nueva al registrarla.

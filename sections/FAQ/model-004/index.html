@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rodada — Preguntas del taller</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<section class="faq" aria-labelledby="faq-title">
+  <header class="head">
+    <h2 id="faq-title">Lo que nos preguntan en el taller.</h2>
+    <dl class="info">
+      <div><dt>Rodada Taller</dt><dd>Av. Grau 412, Barranco</dd></div>
+      <div><dt>Horario</dt><dd>Lun a sáb · 9:00 a 19:00</dd></div>
+    </dl>
+  </header>
+
+  <div class="grid">
+    <div class="tabs" role="tablist" aria-label="Preguntas" aria-orientation="vertical">
+      <button role="tab" id="t0" aria-controls="panel" aria-selected="true" tabindex="0"><span class="n">01</span> ¿Cuánto cuesta un mantenimiento general?</button>
+      <button role="tab" id="t1" aria-controls="panel" aria-selected="false" tabindex="-1"><span class="n">02</span> ¿Arreglan bicis eléctricas?</button>
+      <button role="tab" id="t2" aria-controls="panel" aria-selected="false" tabindex="-1"><span class="n">03</span> ¿Hacen bike fitting?</button>
+      <button role="tab" id="t3" aria-controls="panel" aria-selected="false" tabindex="-1"><span class="n">04</span> ¿Puedo esperar mientras la arreglan?</button>
+      <button role="tab" id="t4" aria-controls="panel" aria-selected="false" tabindex="-1"><span class="n">05</span> ¿Recogen la bici en mi casa?</button>
+      <button role="tab" id="t5" aria-controls="panel" aria-selected="false" tabindex="-1"><span class="n">06</span> ¿Embalan la bici para viajar en avión?</button>
+    </div>
+
+    <article class="panel" id="panel" role="tabpanel" aria-labelledby="t0" tabindex="0">
+      <div class="photo">
+        <img class="is-on" src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=1400&q=80&auto=format&fit=crop" alt="Bicicleta de ruta blanca apoyada en una pared oscura">
+        <img src="https://images.unsplash.com/photo-1559348349-86f1f65817fe?w=1400&q=80&auto=format&fit=crop" alt="Bicicleta negra frente a un muro de concreto" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?w=1400&q=80&auto=format&fit=crop" alt="Bicicleta de ruta negra en un estudio" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?w=1400&q=80&auto=format&fit=crop" alt="Bicicleta con aros naranjas junto a una pared blanca" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=1400&q=80&auto=format&fit=crop" alt="Bicicleta urbana plateada en una habitación luminosa" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1511994298241-608e28f14fde?w=1400&q=80&auto=format&fit=crop" alt="Bicicleta cargada con alforjas al atardecer en un mirador" loading="lazy">
+      </div>
+      <div class="copy">
+        <h3 class="p-q"></h3>
+        <p class="p-a"></p>
+        <dl class="meta">
+          <div><dt>Precio</dt><dd class="p-price"></dd></div>
+          <div><dt>Tiempo</dt><dd class="p-time"></dd></div>
+        </dl>
+        <a class="btn" href="https://wa.me/51987450218">Reservar turno por WhatsApp</a>
+      </div>
+    </article>
+  </div>
+</section>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fogón — Antes de tu primera clase</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<section class="faq" aria-labelledby="faq-title" aria-roledescription="carrusel">
+  <div class="photos" aria-hidden="true">
+    <img class="is-on" src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=2000&q=80&auto=format&fit=crop" alt="">
+    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=2000&q=80&auto=format&fit=crop" alt="" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=2000&q=80&auto=format&fit=crop" alt="" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1528712306091-ed0763094c98?w=2000&q=80&auto=format&fit=crop" alt="" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=2000&q=80&auto=format&fit=crop" alt="" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=2000&q=80&auto=format&fit=crop" alt="" loading="lazy">
+  </div>
+
+  <header class="top">
+    <p class="brand">Fogón <span>Escuela de cocina · Calle Berlín 360, Miraflores</span></p>
+    <h2 id="faq-title">Antes de tu primera clase.</h2>
+  </header>
+
+  <div class="card">
+    <div class="index" role="tablist" aria-label="Preguntas">
+      <button role="tab" aria-selected="true" aria-controls="qa" tabindex="0">01</button>
+      <button role="tab" aria-selected="false" aria-controls="qa" tabindex="-1">02</button>
+      <button role="tab" aria-selected="false" aria-controls="qa" tabindex="-1">03</button>
+      <button role="tab" aria-selected="false" aria-controls="qa" tabindex="-1">04</button>
+      <button role="tab" aria-selected="false" aria-controls="qa" tabindex="-1">05</button>
+      <button role="tab" aria-selected="false" aria-controls="qa" tabindex="-1">06</button>
+    </div>
+    <div class="qa" id="qa" role="tabpanel" aria-live="polite">
+      <h3 class="q"></h3>
+      <p class="a"></p>
+    </div>
+    <div class="nav">
+      <button type="button" class="arrow" data-step="-1" aria-label="Pregunta anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button type="button" class="arrow" data-step="1" aria-label="Pregunta siguiente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+      <a class="btn" href="#reservar">Reservar clase</a>
+    </div>
+  </div>
+</section>
+<script src="script.js"></script>
+</body>
+</html>

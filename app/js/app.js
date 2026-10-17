@@ -1,4 +1,4 @@
-import { components, categoryGroups, categoryLabel } from '../data/components.js?v=20261015a';
+import { components, categoryGroups, categoryLabel } from '../data/components.js?v=20261016a';
 
 const $ = (selector) => document.querySelector(selector);
 const elements = {

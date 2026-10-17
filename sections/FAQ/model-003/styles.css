@@ -1,0 +1,66 @@
+:root {
+  --paper: #f4f3f0;
+  --stone: #e9e7e2;
+  --ink: #121212;
+  --ink-soft: #5d5c58;
+  --rule: rgba(18, 18, 18, 0.12);
+  --moss: #2f6b4f;
+  --font: "Hanken Grotesk", system-ui, sans-serif;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --gutter: clamp(16px, 2.4vw, 36px);
+}
+* { box-sizing: border-box; margin: 0; }
+body { background: var(--paper); color: var(--ink); font-family: var(--font); font-size: 16px; line-height: 1.55; }
+button, input { font: inherit; color: inherit; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+:focus-visible { outline: 2px solid var(--moss); outline-offset: 3px; }
+
+.faq { padding: var(--gutter); max-width: 1440px; margin: 0 auto; }
+
+.hero { position: relative; border-radius: 28px; overflow: hidden; min-height: clamp(460px, 62vh, 620px); display: flex; align-items: flex-end; background: #2b3a33; }
+.hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0, 0, 0, 0.62) 10%, rgba(0, 0, 0, 0.05) 65%); }
+.hero-in { position: relative; z-index: 1; padding: clamp(24px, 4vw, 56px); width: 100%; color: #fff; display: grid; gap: 22px; }
+.brand { font-weight: 600; font-size: 15px; display: flex; gap: 10px; flex-wrap: wrap; }
+.brand span { font-weight: 400; opacity: 0.8; }
+.hero h2 { font-size: clamp(38px, 6vw, 88px); font-weight: 600; letter-spacing: -0.045em; line-height: 0.95; max-width: 12ch; }
+
+.search { position: relative; max-width: 560px; }
+.search svg { position: absolute; left: 20px; top: 50%; width: 20px; height: 20px; transform: translateY(-50%); fill: none; stroke: var(--ink-soft); stroke-width: 2; stroke-linecap: round; }
+.search input { width: 100%; min-height: 60px; border: 0; border-radius: 999px; padding: 0 24px 0 54px; background: #fff; color: var(--ink); font-size: 17px; }
+.search input::placeholder { color: #8a8984; }
+.search input:focus-visible { outline: 3px solid rgba(255, 255, 255, 0.55); outline-offset: 2px; }
+
+.body { max-width: 880px; margin: clamp(32px, 5vw, 64px) auto 0; }
+.filters { display: flex; gap: 4px 24px; flex-wrap: wrap; }
+.filters button {
+  background: none; border: 0; padding: 10px 0; min-height: 44px; cursor: pointer; font-weight: 500; color: var(--ink-soft);
+  border-bottom: 2px solid transparent; transition: color 0.3s, border-color 0.3s var(--ease-out);
+}
+.filters button[aria-pressed="true"] { color: var(--ink); border-bottom-color: var(--ink); }
+.filters button:hover { color: var(--ink); }
+.count { margin: 18px 0 8px; font-size: 14px; color: var(--ink-soft); }
+
+.list { list-style: none; padding: 0; border-top: 1px solid var(--rule); }
+.list li { border-bottom: 1px solid var(--rule); }
+.list li[hidden] { display: none; }
+.q {
+  width: 100%; background: none; border: 0; text-align: left; cursor: pointer; padding: 22px 48px 22px 0; position: relative;
+  font-size: clamp(19px, 2vw, 24px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.25;
+}
+.q::after {
+  content: ""; position: absolute; right: 6px; top: 50%; width: 12px; height: 12px; margin-top: -9px;
+  border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); transition: transform 0.4s var(--ease-out);
+}
+.q[aria-expanded="true"]::after { transform: rotate(225deg); margin-top: -3px; }
+.a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.5s var(--ease-out); }
+.q[aria-expanded="true"] + .a { grid-template-rows: 1fr; }
+.a > div { overflow: hidden; }
+.a p { padding-bottom: 24px; max-width: 62ch; color: var(--ink-soft); font-size: 17px; }
+mark { background: rgba(47, 107, 79, 0.18); color: inherit; border-radius: 3px; padding: 0 2px; }
+
+.empty[hidden] { display: none; }
+.empty { padding: 40px 0; display: grid; gap: 16px; justify-items: start; font-size: 18px; }
+.btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border-radius: 999px; background: var(--moss); color: #fff; text-decoration: none; font-weight: 500; }
+
+@media (prefers-reduced-motion: reduce) { *, *::after { transition-duration: 0.01ms !important; } }

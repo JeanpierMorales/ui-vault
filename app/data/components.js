@@ -200,6 +200,9 @@ export const components = [
   // FAQ
   { code: 'FAQ-001', id: 'faq-001', name: 'FAQ 001 · MIRA', category: 'faq', group: 'Sections', path: './sections/FAQ/model-001/index.html', description: 'Preguntas frecuentes.', tags: ['faq', 'accordion', 'section', 'mira'], sources: stds },
   { code: 'FAQ-002', id: 'faq-002', name: 'FAQ 002 · KANZO', category: 'faq', group: 'Sections', path: './sections/FAQ/model-002/index.html', description: 'Preguntas frecuentes del estudio.', tags: ['faq', 'accordion', 'section', 'kanzo'], sources: stds },
+  { code: 'FAQ-003', id: 'faq-003', name: 'FAQ 003 · Tambo', category: 'faq', group: 'Sections', path: './sections/FAQ/model-003/index.html', description: 'FAQ de hostal con buscador sobre la foto, filtros por tema y coincidencias resaltadas. Hanken Grotesk y musgo.', tags: ['faq', 'search', 'filter', 'section', 'photo', 'travel'], sources: stds },
+  { code: 'FAQ-004', id: 'faq-004', name: 'FAQ 004 · Rodada', category: 'faq', group: 'Sections', path: './sections/FAQ/model-004/index.html', description: 'FAQ de taller de bicis: lista de preguntas y respuesta con foto, precio y tiempo. Geist y naranja cadena.', tags: ['faq', 'tabs', 'master-detail', 'section', 'photo'], sources: stds },
+  { code: 'FAQ-005', id: 'faq-005', name: 'FAQ 005 · Fogón', category: 'faq', group: 'Sections', path: './sections/FAQ/model-005/index.html', description: 'FAQ de escuela de cocina: foto a sangre que cambia y una pregunta a la vez en tarjeta. Manrope y brasa.', tags: ['faq', 'carousel', 'swipe', 'section', 'photo', 'food'], sources: stds },
 
   // BLOG
   { code: 'BLG-001', id: 'blog-001', name: 'Blog & Articles · MIRA', category: 'blog', group: 'Sections', path: './sections/Blog/model-001/index.html', description: 'Listado de blog y artículos.', tags: ['blog', 'articles', 'editorial', 'section', 'mira'], sources: { html: 'index.html', css: 'blog.css', js: 'blog.js' } },
