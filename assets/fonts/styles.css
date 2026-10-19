@@ -312,11 +312,11 @@ button { font: inherit; }
 .combo-26 .sample-title { font-family: "Big Shoulders Display"; font-weight: 900; text-transform: uppercase; letter-spacing: -.01em; }
 .combo-26 .sample-body, .combo-26 .sample-kicker { font-family: "Sora"; }
 
-.combo-27 .sample-title { font-family: "Bodoni Moda"; font-weight: 700; font-size: clamp(38px, 4.5vw, 68px); line-height: .98; letter-spacing: -.045em; }
-.combo-27 .sample-body, .combo-27 .sample-kicker { font-family: "Public Sans"; }
+.combo-27 .sample-title { font-family: "Righteous"; font-weight: 400; font-size: clamp(38px, 4.5vw, 68px); line-height: .95; letter-spacing: -.035em; }
+.combo-27 .sample-body, .combo-27 .sample-kicker { font-family: "Lexend"; }
 
-.combo-28 .sample-title { font-family: "Newsreader"; font-weight: 600; letter-spacing: -.045em; }
-.combo-28 .sample-body, .combo-28 .sample-kicker { font-family: "Albert Sans"; }
+.combo-28 .sample-title { font-family: "Caveat"; font-weight: 700; font-size: clamp(54px, 6.8vw, 104px); line-height: .82; letter-spacing: -.035em; }
+.combo-28 .sample-body, .combo-28 .sample-kicker { font-family: "Manrope"; }
 
 
 .footer {
